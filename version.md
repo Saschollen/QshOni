@@ -285,3 +285,12 @@ If you pass a value of: ```PARM VALUE 01``` it will get automatically paired wit
 - Example of specifying ```*NONE``` for the ```ARMDLM``` parameter to fully control where you want quotes in your parameters for ```QSHPHPRUN```, ```QSHPYRUN``` and ```QSHPYCALL```:  
 If you pass a value of: ```--parm01="PARM VALUE 01"``` it will stay as originally formatted with quotes left in place where you put them when passed to the python command line, therefore the parameter will get passed to Python as desired.       
 
+## V1.0.38 - 5/29/2025
+- Added bash command line delimiter parameter for ```QSHBASH``` command. Defaults to single quote which is what it has been since inception.  Also added a debug parameter so developer can prompt and see the actual bash command line being called.
+
+## V1.0.39 - 6/2/2025
+- Added the ```PHPCMD``` option argument to the ```QSHPHPRUN``` command so we can run the php cli in debug mode without having to type: ```php -d error_log=``` on the PHP command line. *DEFAULT runs the ```php``` command as normal. *DEBUG runs the ```php -d error_log=``` command so we can capture any errors that occur into the STDOUT logging output. This is a convenience item for people running php command line (CLI) mode php scripts. 
+
+## V1.0.40 - 6/18/2025
+- Added command UIM help panel group documentation for CL commands. Also added the command doc info to the command creations for QSHEXEC and QSHBASH. Currently covered are QSHEXEC and QSHBASH. Contributed by Scott Schollenberger.
+  
