@@ -12,6 +12,29 @@
 Run Qshell Command Line - Help
 :p.The Run Qshell Command Line (QSHEXEC) command can be used to run a QSH/PASE command and log the results
 appropriately.
+:p.The following example calls the ls command to list files for the /tmp directory:
+:XMP.
+:hp2.
+QSHEXEC CMDLINE('cd /tmp;ls')
+    DSPSTDOUT(*YES)
+    LOGSTDOUT(*NO)
+    PRTSTDOUT(*NO)
+    DLTSTDOUT(*YES)
+    IFSSTDOUT(*NO)
+    IFSFILE('/tmp/log.txt')
+    IFSOPT(*REPLACE)
+    PRTSPLF(QSHEXECLOG)
+    PRTUSRDTA(*NONE)
+    PRTTXT(*NONE)
+:ehp2.
+:EXMP.
+:p.The following example runs an SQL query with db2util and exports the results as JSON to the QTEMP/STDOUTQ
+:XMP.
+:hp2.
+QSHEXEC CMDLINE('export DB2UTIL_JSON_CONTAINER=array;db2util -o json "select * from qiws.qcustcdt"')
+    DSPSTDOUT(*YES)
+:ehp2.
+:EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
@@ -72,6 +95,123 @@ appropriately.
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
 
+
+.************************************************************************
+.*  Primary Help for command QSHEXECSRC
+.************************************************************************
+:help name='QSHEXECSRC'.
+Run Qshell .sh Script from Src - Help
+:p.The Run Qshell .sh Script from Src (QSHEXECSRC) command can be used to run a
+QSH/PASE command shell script from a classic source physical file member
+and log the results appropriately.
+:P.
+The use case would be for an app where you want to store your
+QShell/PASE/Python/PHP/Etc. scripts as part of your library source and
+execute those scripts directly from a source physical file.
+:p.The following example calls a QShell source member QSHELL01 stored in
+source file QSHONI/SOURCE to run the ls command to list files for the /tmp directory:
+:XMP.
+:hp2.
+QSHEXECSRC SRCFILE(QSHONI/SOURCE)
+    SRCMBR(QSHELL01)
+    CMDPARM(' ')
+    DSPSTDOUT(*YES)
+    LOGSTDOUT(*NO)
+    PRTSTDOUT(*NO)
+    DLTSTDOUT(*YES)
+    IFSSTDOUT(*NO)
+    IFSFILE('/tmp/log.txt')
+    IFSOPT(*REPLACE)
+    PRTSPLF(QSHEXECLOG)
+    PRTUSRDTA(*NONE)
+    PRTTXT(*NONE)
+    RMVTMPSCR(*YES)
+    PROMPTCMD(*NO)
+:ehp2.
+:EXMP.
+:p.Sample QShell source member: QSHONI/SOURCE(QSHELL01) Type: TXT Text: QShell
+script to List Files in /tmp folder
+:XMP.
+:hp2.
+cd /tmp
+ls -l
+:ehp2.
+:EXMP.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHEXECSRC/SRCFILE'.
+:IMHELP NAME='COMMON/SRCFILE'.
+:ehelp.
+:help name='QSHEXECSRC/SRCMBR'.
+:IMHELP NAME='COMMON/SRCMBR'.
+:ehelp.
+:help name='QSHEXECSRC/CMDPARM'.
+QSH script command line parms (CMDPARM) - Help
+:xh3.QSH script command line parms (CMDPARM)
+:IMHELP name='COMMON/CMDPARM'.
+:ehelp.
+:help name='QSHEXECSRC/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHEXECSRC/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHEXECSRC/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHEXECSRC/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHEXECSRC/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHEXECSRC/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHEXECSRC/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHEXECSRC/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHEXECSRC/CCSID'.
+:IMHELP NAME='COMMON/CCSID'.
+:ehelp.
+:help name='QSHEXECSRC/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHEXECSRC/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHEXECSRC/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHEXECSRC/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHEXECSRC/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHEXECSRC/OUTFILE'.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHEXECSRC/MBROPT'.
+:IMHELP NAME='COMMON/MBROPT'.
+:ehelp.
+:help name='QSHEXECSRC/PASEJOBNAM'.
+:IMHELP NAME='COMMON/PASEJOBNAM'.
+:ehelp.
+:help name='QSHEXECSRC/RMVTMPSCR'.
+:IMHELP NAME='COMMON/RMVTMPSCR'.
+:ehelp.
+:help name='QSHEXECSRC/PROMPTCMD'.
+:IMHELP NAME='COMMON/PROMPTCMD'.
+:ehelp.
+
+
 .***********************************************************************
 .*  Command-specific help for QSHBASH
 .***********************************************************************
@@ -84,7 +224,31 @@ and log the results appropriately.
 The command is a convenience wrapper that can be used to call
 a bash command with QSHEXEC instead of having to type the
 following bash command sequence prefix on a
-QSHEXEC command line: :hp2.bash -c cmdline:ehp2..
+QSHEXEC command line: :hp2.bash -c cmdline:ehp2.
+:p.The following example calls the ls command to list files for the /tmp directory using the bash command:
+:XMP.
+:hp2.
+QSHBASH CMDLINE('cd /tmp;ls')
+    DSPSTDOUT(*YES)
+    LOGSTDOUT(*NO)
+    PRTSTDOUT(*NO)
+    DLTSTDOUT(*YES)
+    IFSSTDOUT(*NO)
+    IFSFILE('/tmp/log.txt')
+    IFSOPT(*REPLACE)
+    PRTSPLF(QSHEXECLOG)
+    PRTUSRDTA(*NONE)
+    PRTTXT(*NONE)
+:ehp2.
+:EXMP.
+:p.The following example runs an SQL query with db2util and exports the results as JSON
+to the QTEMP/STDOUTQSH outfile:
+:XMP.
+:hp2.
+QSHBASH CMDLINE('export DB2UTIL_JSON_CONTAINER=array;db2util -o json "select * from qiws.qcustcdt"')
+    DSPSTDOUT(*YES)
+:ehp2.
+:EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
@@ -100,6 +264,32 @@ Bash command line (CMDLINE) - Help
 :eparml.
 :P.
 :IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHBASH/CMDLINEDLM'.
+Bash command line delimiter (CMDLINEDLM) - Help
+:xh3.Bash command line delimiter (CMDLINEDLM)
+:p.Specifies the command line delimiter for Bash commands.
+:parml.
+:pt.:pk def.*SGLQUOTE:epk.
+:pd.Defaults to single quote, which is what it has been since inception.
+:pt.:pk.*DBLQUOTE:epk.
+:pd.Uses double quotes instead of single quotes.
+:pt.:pk.*NONE:epk.
+:pd.No delimiter is used.
+:pt.:pk.character-value:epk.
+:pd.Enter a custom delimiter character.
+:eparml.
+:ehelp.
+:help name='QSHBASH/DEBUGCMD'.
+Debug bash command line (DEBUGCMD) - Help
+:xh3.Debug bash command line (DEBUGCMD)
+:p.Allows the developer to prompt and see the actual bash command line that is being called.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not debug the command line.
+:pt.:pk.*YES:epk.
+:pd.Debug the command line.
+:eparml.
 :ehelp.
 :help name='QSHBASH/SETPKGPATH'.
 :IMHELP NAME='COMMON/SETPKGPATH'.
@@ -151,7 +341,817 @@ Bash command line (CMDLINE) - Help
 :ehelp.
 :help name='QSHBASH/PASEJOBNAM'.
 :IMHELP NAME='COMMON/PASEJOBNAM'.
-:EHELP.
+:ehelp.
+
+
+.************************************************************************
+.*  Primary Help for command QSHBASHSRC
+.************************************************************************
+:help name='QSHBASHSRC'.
+Run Bash .sh Script from Src - Help
+:p.The Run Bash .sh Script from Src (QSHBASHSRC) command can be used to run a
+bash command shell script from a classic source physical file member
+and log the results appropriately.
+:P.
+The use case would be for an app where you want to store your
+Bash/QShell/PASE/Python/PHP/Etc. scripts as part of your library source and
+execute those scripts directly from a source physical file.
+:p.The following example calls a bash source member QSHELL01 stored in
+source file QSHONI/SOURCE to run the ls command to list files for the /tmp directory:
+:XMP.
+:hp2.
+QSHBASHSRC SRCFILE(QSHONI/SOURCE)
+    SRCMBR(QSHELL01)
+    CMDPARM(' ')
+    DSPSTDOUT(*YES)
+    LOGSTDOUT(*NO)
+    PRTSTDOUT(*NO)
+    DLTSTDOUT(*YES)
+    IFSSTDOUT(*NO)
+    IFSFILE('/tmp/log.txt')
+    IFSOPT(*REPLACE)
+    PRTSPLF(QSHBASHLOG)
+    PRTUSRDTA(*NONE)
+    PRTTXT(*NONE)
+    RMVTMPSCR(*YES)
+    PROMPTCMD(*NO)
+:ehp2.
+:EXMP.
+:p.Sample bash source member: QSHONI/SOURCE(QSHELL01) Type: TXT Text: Bash script to List Files in /tmp fold
+:XMP.
+:hp2.
+cd /tmp
+ls -l
+:ehp2.
+:EXMP.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHBASHSRC/SRCFILE'.
+:IMHELP NAME='COMMON/SRCFILE'.
+:ehelp.
+:help name='QSHBASHSRC/SRCMBR'.
+:IMHELP NAME='COMMON/SRCMBR'.
+:ehelp.
+:help name='QSHBASHSRC/CMDPARM'.
+Script command line parms (CMDPARM) - Help
+:xh3.Script command line parms (CMDPARM)
+:IMHELP name='COMMON/CMDPARM'.
+:ehelp.
+:help name='QSHBASHSRC/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHBASHSRC/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHBASHSRC/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHBASHSRC/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHBASHSRC/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHBASHSRC/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHBASHSRC/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHBASHSRC/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHBASHSRC/CCSID'.
+:IMHELP NAME='COMMON/CCSID'.
+:ehelp.
+:help name='QSHBASHSRC/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHBASHSRC/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHBASHSRC/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHBASHSRC/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHBASHSRC/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHBASHSRC/OUTFILE'.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHBASHSRC/MBROPT'.
+:IMHELP NAME='COMMON/MBROPT'.
+:ehelp.
+:help name='QSHBASHSRC/PASEJOBNAM'.
+:IMHELP NAME='COMMON/PASEJOBNAM'.
+:ehelp.
+:help name='QSHBASHSRC/RMVTMPSCR'.
+:IMHELP NAME='COMMON/RMVTMPSCR'.
+:ehelp.
+:help name='QSHBASHSRC/PROMPTCMD'.
+:IMHELP NAME='COMMON/PROMPTCMD'.
+:ehelp.
+
+
+.************************************************************************
+.*  Primary Help for command QSHCURL
+.************************************************************************
+:help name='QSHCURL'.
+Run Curl Command via Qshell - Help
+:p.Run Curl Command via Qshell (QSHCURL) command to run a PASE curl command and
+log the results appropriately.
+:P.
+The command is a convenience wrapper that can be used to call a curl command with QSHEXEC
+instead of having to type the following full curl command sequence prefix on a
+QSHEXEC command line: curl http://www.sitename.com -o /tmp/curlout.txt
+:P.
+:HP2.
+curl must be installed in your PASE/QSH environment in /QOpensys/pkgs/bin before this will work
+To install curl from qshell/bash:  yum install curl
+:EHP2.
+:p.The following example calls the curl command to download the google home page site contents
+to an IFS file. You only need to pass the parms after curl.
+:XMP.
+:hp2.
+QSHCURL CMDLINE('http://www.google.com -o /tmp/curlout.txt')
+    DSPSTDOUT(*YES)
+    LOGSTDOUT(*NO)
+    PRTSTDOUT(*NO)
+    DLTSTDOUT(*YES)
+    IFSSTDOUT(*NO)
+    IFSFILE('/tmp/log.txt')
+    IFSOPT(*REPLACE)
+    PRTSPLF(QSHEXECLOG)
+    PRTUSRDTA(*NONE)
+    PRTTXT(*NONE)
+:ehp2.
+:EXMP.
+:p.The following example calls the curl command with the --help flag to display the curl parms available
+:XMP.
+:hp2.
+QSHCURL CMDLINE('--help') DSPSTDOUT(*YES)
+:ehp2.
+:EXMP.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHCURL/CMDLINE'.
+Curl command line parms (CMDLINE) - Help
+:xh3.Curl command line parms (CMDLINE)
+:p.Specifies the curl command line sequence to run.
+:ehelp.
+:help name='QSHCURL/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHCURL/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHCURL/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHCURL/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHCURL/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHCURL/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHCURL/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHCURL/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHCURL/CCSID'.
+:IMHELP NAME='COMMON/CCSID'.
+:ehelp.
+:help name='QSHCURL/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHCURL/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHCURL/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHCURL/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHCURL/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHCURL/OUTFILE'.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHCURL/MBROPT'.
+:IMHELP NAME='COMMON/MBROPT'.
+:ehelp.
+:help name='QSHCURL/PASEJOBNAM'.
+:IMHELP NAME='COMMON/PASEJOBNAM'.
+:ehelp.
+
+
+.************************************************************************
+.*  Primary Help for command QSHPYRUN
+.************************************************************************
+:help name='QSHPYRUN'.
+Run Python Script via Qshell - Help
+:p.The Run Python Script via Qshell (QSHPYRUN) command is used to run a Python script
+via QSHEXEC and log the results appropriately.
+:p.The following example calls a helloworld.py script that write to STDOUT.
+:XMP.
+:hp2.
+QSHPYRUN SCRIPTDIR('/pythonapps')
+   SCRIPTFILE('hello.py')
+   ARGS(Parm1 Parm2)
+   PYVERSION(3)
+   DSPSTDOUT(*YES)
+   LOGSTDOUT(*NO)
+   PRTSTDOUT(*NO)
+   DLTSTDOUT(*YES)
+   IFSSTDOUT(*NO)
+   IFSFILE('/tmp/log.txt')
+   IFSOPT(*REPLACE)
+   PRTSPLF(QSHPYRUN)
+   PRTUSRDTA(*NONE)
+   PRTTXT(*NONE)
+:ehp2.
+:EXMP.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHPYRUN/SCRIPTDIR'.
+Python script directory (SCRIPTDIR) - Help
+:xh3.Python script directory (SCRIPTDIR)
+:p.The IFS directory location for the Python script. :hp2.Ex: /python:ehp2.
+:ehelp.
+:help name='QSHPYRUN/SCRIPTFILE'.
+Python script file name (SCRIPTFILE) - Help
+:xh3.Python script file name (SCRIPTFILE)
+:p.The script file name you want to call without the directory path.
+The QSHPYRUN command puts it all together. :hp2.Ex: hello.py:ehp2.
+:ehelp.
+:help name='QSHPYRUN/ARGS'.
+Python command line arguments (ARGS) - Help
+:xh3.Python command line arguments (ARGS)
+:p.Command line parameter argument list.
+:p.Up to 40 - 200 byte argument/parameter values can be passed to a Python script call.
+:P.Each parm is automatically trimmed. Do NOT put double quotes around the parms or your program call
+may get errors because your parameters get compromised with extra double quotes.
+:P.The double quotes are already added automatically inside the CL command processing program.
+Single quotes are allowed around your parmaeter data though if desired:
+:hp2.Ex: 'My Parm Value 1' 'My Parm Value 2':ehp2.
+:ehelp.
+:help name='QSHPYRUN/ARGDLM'.
+Command line argument delimiter (ARGDLM) - Help
+:xh3.Command line argument delimiter (ARGDLM)
+:parml.
+:pt.:pk def.*DBLQUOTE:epk.
+:pd.Double quotes are used to delimit the command line arguments.
+:pt.:pk.*SINGLE:epk.
+:pd.Single quotes are used to delimit the command line arguments.
+:pt.:pk.*NONE:epk.
+:pd.No delimiter is used.
+:eparml.
+:ehelp.
+:help name='QSHPYRUN/PYVERSION'.
+Python version (PYVERSION) - Help
+:xh3.Python version (PYVERSION)
+:p.Specifies the Python version to use to run the script.
+It should be set to either 2 or 2.7 for Python 2 or 3, 3.6 or 3.9 for Python 3.
+:ehelp.
+:help name='QSHPYRUN/PYPATH'.
+Python bin path (PYPATH) - Help
+:xh3.Python bin path (PYPATH)
+:p.The this is the directory path to your Python binaries (python/python3).
+:p.Hopefully you have already installed the Yum versions so the default path should be good.
+Leave value set to *DEFAULT. Default= /QOpenSys/pkgs/bin.
+The default path lives in the PYPATH data area in the PYONI library.
+:ehelp.
+:help name='QSHPYRUN/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHPYRUN/USEVENV'.
+Use virtual environment (USEVENV) - Help
+:xh3.Use virtual environment (USEVENV)
+:p.Use virtual environment.
+:parml.
+:pt.:pk.*YES:epk.
+:pd.Run your Python script using an existing Python virtual environment as
+specified in the Python virtual environment path.
+The IFS directory and virtual environment must exist.
+:p.
+:hp2.Note: When using virtual environment, you will need to make sure the PYPATH
+data area value is set to ' ' or pass ' ' to the PYPATH parameter to make sure the system level
+python binary does not picked up. Each venv has its own python executable:ehp2.
+:pt.:pk def.*NO:epk.
+:pd.Do not use a virtual environment.
+:eparml.
+:ehelp.
+:help name='QSHPYRUN/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHPYRUN/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHPYRUN/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHPYRUN/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHPYRUN/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHPYRUN/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHPYRUN/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHPYRUN/CCSID'.
+:IMHELP NAME='COMMON/CCSID'.
+:ehelp.
+:help name='QSHPYRUN/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHPYRUN/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHPYRUN/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHPYRUN/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHPYRUN/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHPYRUN/OUTFILE'.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHPYRUN/MBROPT'.
+:IMHELP NAME='COMMON/MBROPT'.
+:ehelp.
+:help name='QSHPYRUN/PASEJOBNAM'.
+:IMHELP NAME='COMMON/PASEJOBNAM'.
+:ehelp.
+:help name='QSHPYRUN/DEBUGCMD'.
+Debug QSHEXEC command (DEBUGCMD) - Help
+:xh3.Debug QSHEXEC command (DEBUGCMD)
+:parml.
+:p.This parameter allows you to debug the command line that QSHPYRUN will run via QSHEXEC.
+:pt.:pk.*YES:epk.
+:pd.If set to *YES, your job must be running interactively and it will display the command line
+that QSHPYRUN composed to execute via QSHEXEC before it runs.
+:p.This is good for debugging or you are curious what the exec QSHEXEC command will look like.
+Under the covers QSHPYRUN utilizes the QSHEXEC command to run the Python command line.
+:pt.:pk def.*NO:epk.
+:pd.Do not debug the command line.
+:eparml.
+:ehelp.
+:help name='QSHPYRUN/CHGSCRDIR'.
+Change script directory (CHGSCRDIR) - Help
+:xh3.Change script directory (CHGSCRDIR)
+:p.Specifies whether to change the current working directory to the script directory
+before running the script.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not change the current working directory.
+:pt.:pk.*YES:epk.
+:pd.Change the current working directory to the script directory.
+:eparml.
+:ehelp.
+
+
+.************************************************************************
+.*  Primary Help for command QSHLOGSCAN
+.************************************************************************
+:help name='QSHLOGSCAN'.
+Scan the stdout outfile for the selected value - Help
+:p.This CL command is a convenience command that can be used to scan a
+STDOUT log for a specific value to indicate success or failure.
+:p.The following example scans the outfile log in file QTEMP/STDOUTQSH for a
+text value of :hp3.successfully:ehp3. somewhere in any line of the log file output:
+:XMP.
+:hp2.
+MONMSG MSGID(CPF9898) EXEC(DO)
+SNDPGMMSG MSG('Did not find string of success in program output.') TOUSR(RICHARD)
+ENDDO
+QSHLOGSCAN SCANFOR('successfully')
+EXACTMATCH(*NO)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+:help name='QSHLOGSCAN/SCANFOR'.
+Value to scan for (SCANFOR) - Help
+:xh3.Value to scan for (SCANFOR)
+:p.Text value to scan for on each line in the stdout outfile.
+:p.The value passed IS case sensitive and must match the value in the log file.
+:ehelp.
+:help name='QSHLOGSCAN/EXACTMATCH'.
+Exact match (EXACTMATCH) - Help
+:xh3.Exact match (EXACTMATCH)
+:p.Exact match-*YES, Contains-*NO
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.At least one line must contain the value somewhere in the line.
+Good for generic matching.
+:pt.:pk.*YES:epk.
+:pd.Value must match exactly and be the only thing on the selected line.
+:eparml.
+:ehelp.
+
+
+.************************************************************************
+.*  Primary Help for command QSHQRYTMP
+.************************************************************************
+:help name='QSHQRYTMP'.
+SQL Query Data to Temp Table - Help
+:p.This CL command is a convenience command that can be used to run an
+SQL data selection query and create an outfile of resulting data.
+:NT.
+The command returns a CPF9898 escape message on error. Otherwise a CPF9898 completion message.
+:ENT.
+:p.The following example queries all the records from table QIWS/QCUSCTDT and
+places the result in to an output table named: SQLTMP0001 in library QTEMP.
+:XMP.
+:hp2.
+QSHQRYTMP SQL('SELECT * FROM QIWS/QCUSTCDT')
+    OUTFILE(SQLTMP0001)
+    EMPTYERROR(*YES)
+    PROMPT(*NO)
+:ehp2.
+:EXMP.
+:P.
+The following data areas are auto-created in the current job library QTEMP to track resulting query info.
+You can retreive a resulting record count or the name of the outfile to check for existence
+in case it didn't get created for some reason such as query failure.
+:XMP.
+:hp2.
+SQLQRYCNT - Query result record count.
+SQLQRYFIL - Output file created by the query.
+SQLQRYLIB - Output file library for the file created by the query.
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+:help name='QSHQRYTMP/SQL'.
+SQL query (SQL) - Help
+:xh3.SQL query (SQL)
+:p.Enter an SQL SELECT statement to query some specific data.
+:ehelp.
+:help name='QSHQRYTMP/PARMS'.
+SQL placeholder parm name (PARMS) - Help
+:xh3.SQL placeholder parm name (PARMS)
+:p.Enter up to 30 parameter placeholder values you want to replace dynamically
+in your SQL statements at runtime. These are not required if you don't want to
+dynamic parameter replacement.
+:p.Ex: :hp2.@@LIB:ehp2. for library or :hp2.@@FILE:ehp2. for file.
+:ehelp.
+:help name='QSHQRYTMP/PARMVALS'.
+SQL parm replacement values (PARMVALS) - Help
+:xh3.SQL parm replacement values (PARMVALS)
+:p.Enter up to 30 replacement values you want to replace dynamically in your SQL statements
+at runtime. These values correspond with each placeholder value you set in the list of PARMS.
+These are not required if you don't want to dynamic parameter replacement.
+:p.Ex: :hp2.QIWS:ehp2. for library or :hp2.QCUSTCDT:ehp2. for file.
+:ehelp.
+:help name='QSHQRYTMP/OUTFILE'.
+Temp file to receive results (OUTFILE) - Help
+:xh3.Temp file to receive results (OUTFILE)
+:p.This is the output file/table where data gets selected in to via an SQL query.
+The table will get automatically created as a result of the query if it doesn't exist.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHQRYTMP/EMPTYERROR'.
+Escape error if no result data (EMPTYERROR) - Help
+:xh3.Escape error if no result data (EMPTYERROR)
+:p.This parameter determines whether a CPF9898 escape message is thrown if no records were selected by the q
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Throw escape message if no records were selected.
+:pt.:pk.*NO:epk.
+:pd.Do not throw escape message if no records were selected.
+:eparml.
+:ehelp.
+:help name='QSHQRYTMP/NAMING'.
+Naming convention (NAMING) - Help
+:xh3.Naming convention (NAMING)
+:p.This parameter determines what format your queries are using: *SYS or *SQL.
+:parml.
+:pt.:pk def.*SYS:epk.
+:pd.Use system naming convention for SQL queries.
+:pt.:pk.*SQL:epk.
+:pd.Use SQL naming convention for SQL queries.
+:eparml.
+:ehelp.
+:help name='QSHQRYTMP/PROMPT'.
+Prompt the RUNSQL statement (PROMPT) - Help
+:xh3.Interactively prompt the RUNSQL statement (PROMPT)
+:p.Specifies whether to prompt the RUNSQL command before running.
+Only use this parameter in an interactive 5250 session.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not prompt the RUNSQL command.
+:pt.:pk.*YES:epk.
+:pd.Prompt the RUNSQL command.
+:eparml.
+:ehelp.
+:help name='QSHQRYTMP/CRTIDCOL'.
+Create row identity column (CRTIDCOL) - Help
+:xh3.Create row identity column (CRTIDCOL)
+:p.Specifies whether to allow adding of a unique identity column to your outfile table after it's created.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not add an identity column.
+:pt.:pk.*YES:epk.
+:pd.Add an identity column.
+:eparml.
+:ehelp.
+:help name='QSHQRYTMP/IDCOLNAME'.
+Record ID column name (IDCOLNAME) - Help
+:xh3.Record ID column name (IDCOLNAME)
+:p.Specifies the name of the identity column to add if CRTIDCOL is *YES.
+RECID is the default name.
+:ehelp.
+
+
+.************************************************************************
+.*  Primary Help for command QSHQRYSRC
+.************************************************************************
+:help name='QSHQRYSRC'.
+SQL Query Source to Temp Table - Help
+:xh3.SQL Query Source to Temp Table (QSHQRYSRC)
+:p.This CL command is a convenience command that can be used to run an SQL
+data selection query and create an outfile of resulting data.
+Instead of an SQL input statement parameter, the query pulls SQL source from a source member or IFS file mem
+:NT.
+The command returns a CPF9898 escape message on error. Otherwise a CPF9898 completion message.
+:ENT.
+:p.The following example queries all the records from table QIWS/QCUSCTDT and
+places the result in to an output table named: SQLTMP0001 in library QTEMP.
+It also replaces the selected placeholder parameters values in the SQL query that gets read from the source
+:XMP.
+:hp2.
+QSHQRYSRC SQLLOC(*SRCMBR)
+    SRCFILE(QSHONI/SOURCE)
+    SRCMBR(SQLTEST3)
+    PARMS(@@LIB @@file)
+    PARMVALS(qiws qcustcdt)
+:ehp2.
+:EXMP.
+:P.
+The following data areas are auto-created in the current job library QTEMP to track resulting query info.
+You can retreive a resulting record count or the name of the outfile to check for existence
+in case it didn't get created for some reason such as query failure.
+:XMP.
+:hp2.
+SQLQRYCNT - Query result record count.
+SQLQRYFIL - Output file created by the query.
+SQLQRYLIB - Output file library for the file created by the query.
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+:help name='QSHQRYSRC/SQLLOC'.
+SQL source from location type (SQLLOC) - Help
+:xh3.SQL source from location type (SQLLOC)
+:p.This parameter determines if the SQL query is sourced from a source member or an IFS file. Default is *SR
+:parml.
+:pt.:pk def.*SRCMBR:epk.
+:pd.The SQL query is sourced from a source physical file member.
+:pt.:pk.*IFSFILE:epk.
+:pd.The SQL query is sourced from an IFS file member.
+:eparml.
+:ehelp.
+:help name='QSHQRYSRC/SRCFILE'.
+SQL source file (SRCFILE) - Help
+:xh3.SQL source file (SRCFILE)
+:p.This is the source file that contains the SQL query source member if SQLLOC is *SRCMBR.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+The library list is used to locate the SQL source file.
+:PT.:PK.library-name:EPK.
+:PD.
+Specify the name of the library where the SQL source file is located.
+:EPARML.
+:ehelp.
+:help name='QSHQRYSRC/SRCMBR'.
+SQL source member (SRCMBR) - Help
+:xh3.SQL source member (SRCMBR)
+:p.This is the source member that contains the SQL query if SQLLOC is *SRCMBR.
+:ehelp.
+:help name='QSHQRYSRC/IFSFILE'.
+SQL IFS file (IFSFILE) - Help
+:xh3.SQL IFS file (IFSFILE)
+:p.This is the IFS file that contains the SQL query if SQLLOC is *IFSFILE.
+:ehelp.
+:help name='QSHQRYSRC/PARMS'.
+SQL placeholder parm name (PARMS) - Help
+:xh3.SQL placeholder parm name (PARMS)
+:p.Enter up to 30 parameter placeholder values you want to replace dynamically
+in your SQL statements at runtime. These are not required if you don't want to
+dynamic parameter replacement.
+:p.Ex: :hp2.@@LIB:ehp2. for library or :hp2.@@FILE:ehp2. for file.
+:ehelp.
+:help name='QSHQRYSRC/PARMVALS'.
+SQL parm replacement values (PARMVALS) - Help
+:xh3.SQL parm replacement values (PARMVALS)
+:p.Enter up to 30 replacement values you want to replace dynamically in your SQL statements
+at runtime. These values correspond with each placeholder value you set in the list of PARMS.
+These are not required if you don't want to dynamic parameter replacement.
+:p.Ex: :hp2.QIWS:ehp2. for library or :hp2.QCUSTCDT:ehp2. for file.
+:ehelp.
+:help name='QSHQRYSRC/OUTFILE'.
+Temp file to receive results (OUTFILE) - Help
+:xh3.Temp file to receive results (OUTFILE)
+:p.This is the output file/table where data gets selected in to via an SQL query.
+The table will get automatically created as a result of the query if it doesn't exist.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.SQLTMP0001:EPK.
+:PD.
+The SQLTMP0001 table is created in the QTEMP library by default.
+:P.
+:PT.:PK.database-file-name:EPK.
+:PD.
+Specify the name (library-name/database-file) of the temporary database file to create.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.QTEMP:EPK.
+:PD.QTEMP library is used for the temporary database file.
+:PT.:PK.library-name:EPK.
+:PD.Specify the name (library-name/database-file) of the temporary database file to create.
+:EPARML.
+:EPARML.
+:ehelp.
+:help name='QSHQRYSRC/EMPTYERROR'.
+Escape error if no result data (EMPTYERROR) - Help
+:xh3.Escape error if no result data (EMPTYERROR)
+:p.This parameter determines whether a CPF9898 escape message is thrown if no records were selected by the q
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Throw escape message if no records were selected.
+:pt.:pk.*NO:epk.
+:pd.Do not throw escape message if no records were selected.
+:eparml.
+:ehelp.
+:help name='QSHQRYSRC/NAMING'.
+Naming convention (NAMING) - Help
+:xh3.Naming convention (NAMING)
+:p.This parameter determines what format your queries are using: *SYS or *SQL.
+:parml.
+:pt.:pk def.*SYS:epk.
+:pd.Use system naming convention for SQL queries.
+:pt.:pk.*SQL:epk.
+:pd.Use SQL naming convention for SQL queries.
+:eparml.
+:ehelp.
+:help name='QSHQRYSRC/PROMPT'.
+Prompt the RUNSQL statement (PROMPT) - Help
+:xh3.Interactively prompt the RUNSQL statement (PROMPT)
+:p.Specifies whether to prompt the RUNSQL command before running.
+Only use this parameter in an interactive 5250 session.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not prompt the RUNSQL command.
+:pt.:pk.*YES:epk.
+:pd.Prompt the RUNSQL command.
+:eparml.
+:ehelp.
+:help name='QSHQRYSRC/CRTIDCOL'.
+Create row identity column (CRTIDCOL) - Help
+:xh3.Create row identity column (CRTIDCOL)
+:p.Specifies whether to allow adding of a unique identity column to your outfile table after it's created.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not add an identity column.
+:pt.:pk.*YES:epk.
+:pd.Add an identity column.
+:eparml.
+:ehelp.
+:help name='QSHQRYSRC/IDCOLNAME'.
+Record ID column name (IDCOLNAME) - Help
+:xh3.Record ID column name (IDCOLNAME)
+:p.Specifies the name of the identity column to add if CRTIDCOL is *YES.
+RECID is the default name.
+:ehelp.
+:help name='QSHQRYSRC/DLTTMPSRC'.
+Delete temp source file after (DLTTMPSRC) - Help
+:xh3.Delete temp source file after (DLTTMPSRC)
+:p.Determines if the temporary source member TMPQRYSRC created in temporary source file 
+QTEMP/TMPQRYSRC gets deleted after query processing.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Delete the temporary source member after query processing.
+:pt.:pk.*NO:epk.
+:pd.Do not delete the temporary source member after query processing.
+:eparml.
+:ehelp.
+
+
+.************************************************************************
+.*  Primary Help for command QSHPATH
+.************************************************************************
+:help name='QSHQPATH'.
+Set Open Source Package Path (QSHPATH) - Help
+:xh3.Set Open Source Package Path (QSHPATH)
+:p.This CL command is a convenience command to add the IBM i Open Source packages directory name to the PATH environment variable.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+:help name='QSHPATH/PKGPATH'.
+Open Source package path (PKGPATH) - Help
+:xh3.Open Source package path (PKGPATH)
+:p.Specify IFS location to open source packages.
+:parml.
+:pt.:pk def.*DEFAULT:epk.
+:pd.The default value is /QOpenSys/pkgs/bin.
+:pt.:pk.character-value:epk.
+:pd.Enter the full IFS path to the open source packages directory.
+:eparml.
+:ehelp.
+:help name='QSHPATH/PATHLOC'.
+Open Source package location (PKGLOC) - Help
+:xh3.Open Source package location (PKGLOC)
+:p.Specify where the open source packages are placed in the PATH.
+:parml.
+:pt.:pk def.*DTAARA:epk.
+:pd.The PATH location is retrieved from the data area in named QSHONI/QSHPATHLOC.
+:pt.:pk.*BEGIN:epk.
+:pd.Open source package path is prepended to the beginning of PATH.
+:pt.:pk.*END:epk.
+:pd.Open source package path is appended to the end of PATH.
+:eparml.
+:ehelp.
+
+
+.************************************************************************
+.*  Primary Help for command QSHSETPROF
+.************************************************************************
+:help name='QSHSETPROF'.
+Set Up Pase Profile for User (QSHSETPROF) - Help
+:xh3.Set Up Pase Profile for User (QSHSETPROF)
+:p.This CL command is a convenience command to create open source profile files for a 
+selected user ID in their home directory from template source files in QSHONI/SOURCE:
+:p.
+:XMP.
+:hp2.
+QSHPROFILE generates .profile
+QSHBASHPRF generates .bash_profile
+QSHBASHRC generates .bashrc
+:ehp2.
+:EXMP.
+:P.The following example creates the QShell/PASE .profile, .bashrc and .bash_rc files for the USER1 user ID.
+:p.
+:XMP.
+:hp2.
+QSHSETPROF USER(USER1)     
+          PROFILE(*YES)   
+          BASHPROFIL(*YES)
+          BASHRC(*YES)    
+          REPLACE(*NO)   
+:ehp2.
+:EXMP.
+:P.The following example creates or replaces the QShell/PASE .profile, .bashrc and .bash_rc files for the USER1 user ID.
+:p.
+:XMP.
+:hp2.
+QSHSETPROF USER(USER1)     
+          PROFILE(*YES)   
+          BASHPROFIL(*YES)
+          BASHRC(*YES)    
+          REPLACE(*YES)   
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+
 
 .*****************************************************************
 .*  COMMON HELP
@@ -295,8 +1295,8 @@ IFS file option (IFSOPT) - Help
 :HELP NAME='COMMON/CCSID'.
 Coded character set ID for job (CCSID) - Help
 :xh3.Coded character set ID for job (CCSID)
-:p.When using the iToolkit component for command access, I originally had some issues with CL commands not 
-working correctly. However I don't currently remember exactly why. This may have been solved, however I 
+:p.When using the iToolkit component for command access, I originally had some issues with CL commands not
+working correctly. However I don't currently remember exactly why. This may have been solved, however I
 recommend still passing unless you are in a non US country.
 :parml.
 :pt.:pk def.*SAME:epk.
@@ -550,6 +1550,88 @@ Error message file ID (ERRMSGID) - Help
 :parml.
 :pt.:pv.character-value:epv.
 :pd.Enter CPF or user-defined message ID.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/SRCFILE'.
+Source file (SRCFILE) - Help
+:xh3.Source file where QShell/PASE/Bash script is stored.
+:p.Specifies source physical file containing QShell/PASE/Bash script.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*SAME:EPK.
+:PD.
+??? UNKNOWN ???
+:PT.:PK.source-physical-file-name:EPK.
+:PD.
+Specify the name (library-name/source-physical-file-name) of the source file.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK.library-name:EPK.
+:PD.
+Specify the name of the library where the source physical file is located.
+:EPARML.
+:EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+
+:HELP NAME='COMMON/SRCMBR'.
+Source member (SRCMBR) - Help
+:xh3.Source member where QShell/PASE script is stored.
+:p.Specifies source member containing QShell/PASE script.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.source-member-name:EPK.
+:PD.
+Specify the member name in the source file.
+:EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+:HELP NAME='COMMON/CMDPARM'.
+:p.Specifies the command line parms to pass to the selected script that runs.
+If no parameters are needed, simply pass ' ' for the CMDPARM value.
+:P.
+Parameters can be delimited with double quotes if needed.
+Ex: "parm1" "parm2" "parm3"
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+:HELP NAME='COMMON/RMVTMPSCR'.
+Remove temporary IFS script file (RMVTMPSCR) - Help
+:xh3.Remove temporary IFS script file (RMVTMPSCR)
+:p.This option determines if the temporary IFS script file is auto-deleted after running.
+Normally the selection should be *YES to delete the temp file.
+Otherwise specify *NO if you are debugging for some reason.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Deletes the temporary IFS script file after running.
+:pt.:pk.*NO:epk.
+:pd.Keeps the temporary IFS script file after running.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/PROMPTCMD'.
+Prompt Commands (PROMPTCMD) - Help
+:xh3.Prompt commands (PROMPTCMD)
+:p.This option determines if the QSH command is prompted interactively for testing or
+review of the actual QShell command line with parameter values before running the command.
+Normally the selection should be *NO since prompting is only needed if testing.
+Specify *YES if you are debugging for some reason and want the QSH command to prompt
+on an interactive 5250 session before running.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Does not prompt the QSH command for testing or review.
+:pt.:pk.*YES:epk.
+:pd.Prompts the QSH command for testing or review before running.
 :eparml.
 :ehelp.
 
