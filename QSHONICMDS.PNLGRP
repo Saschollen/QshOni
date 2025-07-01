@@ -101,57 +101,102 @@ Bash command line (CMDLINE) - Help
 :P.
 :IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
+
+:help name='QSHBASH/CMDLINEDLM'.
+Bash command line delimiter (CMDLINEDLM) - Help
+:xh3.Bash command line delimiter (CMDLINEDLM)
+:p.Specifies the command line delimiter for Bash commands.
+:parml.
+:pt.:pk def.*SGLQUOTE:epk.
+:pd.Defaults to single quote, which is what it has been since inception.
+:pt.:pk.*DBLQUOTE:epk.
+:pd.Uses double quotes instead of single quotes.
+:pt.:pk.*NONE:epk.
+:pd.No delimiter is used.
+:pt.:pk.character-value:epk.
+:pd.Enter a custom delimiter character.
+:eparml.
+:ehelp.
+
+:help name='QSHBASH/DEBUGCMD'.
+Debug bash command line (DEBUGCMD) - Help
+:xh3.Debug bash command line (DEBUGCMD)
+:p.Allows the developer to prompt and see the actual bash command line that is being called.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not debug the command line.
+:pt.:pk.*YES:epk.
+:pd.Debug the command line.
+:eparml.
+:ehelp.
+
 :help name='QSHBASH/SETPKGPATH'.
 :IMHELP NAME='COMMON/SETPKGPATH'.
 :ehelp.
+
 :help name='QSHBASH/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
 :ehelp.
+
 :help name='QSHBASH/LOGSTDOUT'.
 :IMHELP NAME='COMMON/LOGSTDOUT'.
 :ehelp.
+
 :help name='QSHBASH/PRTSTDOUT'.
 :IMHELP NAME='COMMON/PRTSTDOUT'.
 :ehelp.
+
 :help name='QSHBASH/DLTSTDOUT'.
 :IMHELP NAME='COMMON/DLTSTDOUT'.
 :ehelp.
+
 :help name='QSHBASH/IFSSTDOUT'.
 :IMHELP NAME='COMMON/IFSSTDOUT'.
 :ehelp.
+
 :help name='QSHBASH/IFSFILE'.
 :IMHELP NAME='COMMON/IFSFILE'.
 :ehelp.
+
 :help name='QSHBASH/IFSOPT'.
 :IMHELP NAME='COMMON/IFSOPT'.
 :ehelp.
+
 :help name='QSHBASH/CCSID'.
 :IMHELP NAME='COMMON/CCSID'.
 :ehelp.
+
 :help name='QSHBASH/PRTSPLF'.
 :IMHELP NAME='COMMON/PRTSPLF'.
 :ehelp.
+
 :help name='QSHBASH/PRTUSRDTA'.
 :IMHELP NAME='COMMON/PRTUSRDTA'.
 :ehelp.
+
 :help name='QSHBASH/PRTTXT'.
 :IMHELP NAME='COMMON/PRTTXT'.
 :ehelp.
+
 :help name='QSHBASH/PRTHOLD'.
 :IMHELP NAME='COMMON/PRTHOLD'.
 :ehelp.
+
 :help name='QSHBASH/PRTOUTQ'.
 :IMHELP NAME='COMMON/PRTOUTQ'.
 :ehelp.
+
 :help name='QSHBASH/OUTFILE'.
 :IMHELP NAME='COMMON/OUTFILE'.
 :ehelp.
+
 :help name='QSHBASH/MBROPT'.
 :IMHELP NAME='COMMON/MBROPT'.
 :ehelp.
+
 :help name='QSHBASH/PASEJOBNAM'.
 :IMHELP NAME='COMMON/PASEJOBNAM'.
-:EHELP.
+:ehelp.
 
 .*****************************************************************
 .*  COMMON HELP
