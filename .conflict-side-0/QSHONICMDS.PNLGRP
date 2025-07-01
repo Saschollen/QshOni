@@ -1680,4 +1680,27 @@ on an interactive 5250 session before running.
 :eparml.
 :ehelp.
 
+:HELP NAME='COMMON/SRCFILE'.
+Source file (SRCFILE) - Help
+:xh3.Source file where QShell/PASE script is stored.
+:p.Specifies source file containing QShell/PASE script.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*SAME:EPK.
+:PD.
+:PT.:PK.source-file-name:EPK.
+:PD.
+Specify the name (library-name/source-file-name) of the source file.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK.library-name:EPK.
+:PD.
+Specify the name of the library where the source file is located.
+:EPARML.
+:EPARML.
+:ehelp.
+
 :epnlgrp.

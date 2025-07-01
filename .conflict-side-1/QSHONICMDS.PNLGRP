@@ -89,58 +89,61 @@ execute those scripts directly from a source physical file.
 :IMHELP NAME='COMMON/ASTERISK'.
 :ehelp.
 
-:help name='QSHEXEC/CMDLINE'.
-:IMHELP NAME='COMMON/CMDLINE'.
+:help name='QSHEXECSRC/SRCFILE'.
+:IMHELP NAME='COMMON/SRCFILE'.
 :ehelp.
-:help name='QSHEXEC/SETPKGPATH'.
+:help name='QSHEXECSRC/SRCMBR'.
+:IMHELP NAME='COMMON/SRCMBR'.
+:ehelp.
+:help name='QSHEXECSRC/SETPKGPATH'.
 :IMHELP NAME='COMMON/SETPKGPATH'.
 :ehelp.
-:help name='QSHEXEC/DSPSTDOUT'.
+:help name='QSHEXECSRC/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
 :ehelp.
-:help name='QSHEXEC/LOGSTDOUT'.
+:help name='QSHEXECSRC/LOGSTDOUT'.
 :IMHELP NAME='COMMON/LOGSTDOUT'.
 :ehelp.
-:help name='QSHEXEC/PRTSTDOUT'.
+:help name='QSHEXECSRC/PRTSTDOUT'.
 :IMHELP NAME='COMMON/PRTSTDOUT'.
 :ehelp.
-:help name='QSHEXEC/DLTSTDOUT'.
+:help name='QSHEXECSRC/DLTSTDOUT'.
 :IMHELP NAME='COMMON/DLTSTDOUT'.
 :ehelp.
-:help name='QSHEXEC/IFSSTDOUT'.
+:help name='QSHEXECSRC/IFSSTDOUT'.
 :IMHELP NAME='COMMON/IFSSTDOUT'.
 :ehelp.
-:help name='QSHEXEC/IFSFILE'.
+:help name='QSHEXECSRC/IFSFILE'.
 :IMHELP NAME='COMMON/IFSFILE'.
 :ehelp.
-:help name='QSHEXEC/IFSOPT'.
+:help name='QSHEXECSRC/IFSOPT'.
 :IMHELP NAME='COMMON/IFSOPT'.
 :ehelp.
-:help name='QSHEXEC/CCSID'.
+:help name='QSHEXECSRC/CCSID'.
 :IMHELP NAME='COMMON/CCSID'.
 :ehelp.
-:help name='QSHEXEC/PRTSPLF'.
+:help name='QSHEXECSRC/PRTSPLF'.
 :IMHELP NAME='COMMON/PRTSPLF'.
 :ehelp.
-:help name='QSHEXEC/PRTUSRDTA'.
+:help name='QSHEXECSRC/PRTUSRDTA'.
 :IMHELP NAME='COMMON/PRTUSRDTA'.
 :ehelp.
-:help name='QSHEXEC/PRTTXT'.
+:help name='QSHEXECSRC/PRTTXT'.
 :IMHELP NAME='COMMON/PRTTXT'.
 :ehelp.
-:help name='QSHEXEC/PRTHOLD'.
+:help name='QSHEXECSRC/PRTHOLD'.
 :IMHELP NAME='COMMON/PRTHOLD'.
 :ehelp.
-:help name='QSHEXEC/PRTOUTQ'.
+:help name='QSHEXECSRC/PRTOUTQ'.
 :IMHELP NAME='COMMON/PRTOUTQ'.
 :ehelp.
-:help name='QSHEXEC/OUTFILE'.
+:help name='QSHEXECSRC/OUTFILE'.
 :IMHELP NAME='COMMON/OUTFILE'.
 :ehelp.
-:help name='QSHEXEC/MBROPT'.
+:help name='QSHEXECSRC/MBROPT'.
 :IMHELP NAME='COMMON/MBROPT'.
 :ehelp.
-:help name='QSHEXEC/PASEJOBNAM'.
+:help name='QSHEXECSRC/PASEJOBNAM'.
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
 
@@ -681,6 +684,7 @@ The possible values are:
 :PARML.
 :PT.:PK.*SAME:EPK.
 :PD.
+??? UNKNOWN ???
 :PT.:PK.source-file-name:EPK.
 :PD.
 Specify the name (library-name/source-file-name) of the source file.
@@ -692,6 +696,25 @@ The possible library values are:
 Specify the name of the library where the source file is located.
 :EPARML.
 :EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+
+:HELP NAME='COMMON/SRCMBR'.
+Source member (SRCMBR) - Help
+:xh3.Source member where QShell/PASE script is stored.
+:p.Specifies source member containing QShell/PASE script.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.source-file-member-name:EPK.
+:PD.
+Specify the member name in the source file.
+:EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 
 :epnlgrp.

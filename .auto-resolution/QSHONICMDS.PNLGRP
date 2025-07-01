@@ -1690,6 +1690,7 @@ The possible values are:
 :PARML.
 :PT.:PK.*SAME:EPK.
 :PD.
+??? UNKNOWN ???
 :PT.:PK.source-file-name:EPK.
 :PD.
 Specify the name (library-name/source-file-name) of the source file.
@@ -1701,6 +1702,25 @@ The possible library values are:
 Specify the name of the library where the source file is located.
 :EPARML.
 :EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+
+:HELP NAME='COMMON/SRCMBR'.
+Source member (SRCMBR) - Help
+:xh3.Source member where QShell/PASE script is stored.
+:p.Specifies source member containing QShell/PASE script.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.source-file-member-name:EPK.
+:PD.
+Specify the member name in the source file.
+:EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 
 :epnlgrp.
