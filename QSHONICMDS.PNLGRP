@@ -153,6 +153,11 @@ QSH script command line parms (CMDPARM) - Help
 :xh3.QSH script command line parms (CMDPARM)
 :IMHELP name='COMMON/CMDPARM'.
 :ehelp.
+:help name='QSHEXECSRC/CMDPARM'.
+QSH script command line parms (CMDPARM) - Help
+:xh3.QSH script command line parms (CMDPARM)
+:IMHELP name='COMMON/CMDPARM'.
+:ehelp.
 :help name='QSHEXECSRC/SETPKGPATH'.
 :IMHELP NAME='COMMON/SETPKGPATH'.
 :ehelp.
@@ -1683,24 +1688,53 @@ on an interactive 5250 session before running.
 :HELP NAME='COMMON/SRCFILE'.
 Source file (SRCFILE) - Help
 :xh3.Source file where QShell/PASE script is stored.
-:p.Specifies source file containing QShell/PASE script.
+:p.Specifies source physical file containing QShell/PASE script.
 :P.
 The possible values are:
 :P.
 :PARML.
 :PT.:PK.*SAME:EPK.
 :PD.
-:PT.:PK.source-file-name:EPK.
+??? UNKNOWN ???
+:PT.:PK.source-physical-file-name:EPK.
 :PD.
-Specify the name (library-name/source-file-name) of the source file.
+Specify the name (library-name/source-physical-file-name) of the source file.
 :P.
 The possible library values are:
 :PARML.
 :PT.:PK.library-name:EPK.
 :PD.
-Specify the name of the library where the source file is located.
+Specify the name of the library where the source physical file is located.
 :EPARML.
 :EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+
+:HELP NAME='COMMON/SRCMBR'.
+Source member (SRCMBR) - Help
+:xh3.Source member where QShell/PASE script is stored.
+:p.Specifies source member containing QShell/PASE script.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.source-member-name:EPK.
+:PD.
+Specify the member name in the source file.
+:EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+:HELP NAME='COMMON/CMDPARM'.
+:p.Specifies the command line parms to pass to the selected Qsh/Pase script that runs. 
+If no parameters are needed, simply pass ' ' for the CMDPARM value.
+:P.
+Parameters can be delimited with double quotes if needed.
+Ex: "parm1" "parm2" "parm3"
+:IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 
 :epnlgrp.
