@@ -151,6 +151,13 @@ QSH script command line parms (CMDPARM) - Help
 :help name='QSHEXECSRC/PASEJOBNAM'.
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
+:help name='QSHEXECSRC/RMVTMPSCR'.
+:IMHELP NAME='COMMON/RMVTMPSCR'.
+:ehelp.
+:help name='QSHEXECSRC/PROMPTCMD'.
+:IMHELP NAME='COMMON/PROMPTCMD'.
+:ehelp.
+
 
 
 .***********************************************************************
@@ -182,7 +189,6 @@ Bash command line (CMDLINE) - Help
 :P.
 :IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
-
 :help name='QSHBASH/CMDLINEDLM'.
 Bash command line delimiter (CMDLINEDLM) - Help
 :xh3.Bash command line delimiter (CMDLINEDLM)
@@ -198,7 +204,6 @@ Bash command line delimiter (CMDLINEDLM) - Help
 :pd.Enter a custom delimiter character.
 :eparml.
 :ehelp.
-
 :help name='QSHBASH/DEBUGCMD'.
 Debug bash command line (DEBUGCMD) - Help
 :xh3.Debug bash command line (DEBUGCMD)
@@ -210,71 +215,54 @@ Debug bash command line (DEBUGCMD) - Help
 :pd.Debug the command line.
 :eparml.
 :ehelp.
-
 :help name='QSHBASH/SETPKGPATH'.
 :IMHELP NAME='COMMON/SETPKGPATH'.
 :ehelp.
-
 :help name='QSHBASH/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
 :ehelp.
-
 :help name='QSHBASH/LOGSTDOUT'.
 :IMHELP NAME='COMMON/LOGSTDOUT'.
 :ehelp.
-
 :help name='QSHBASH/PRTSTDOUT'.
 :IMHELP NAME='COMMON/PRTSTDOUT'.
 :ehelp.
-
 :help name='QSHBASH/DLTSTDOUT'.
 :IMHELP NAME='COMMON/DLTSTDOUT'.
 :ehelp.
-
 :help name='QSHBASH/IFSSTDOUT'.
 :IMHELP NAME='COMMON/IFSSTDOUT'.
 :ehelp.
-
 :help name='QSHBASH/IFSFILE'.
 :IMHELP NAME='COMMON/IFSFILE'.
 :ehelp.
-
 :help name='QSHBASH/IFSOPT'.
 :IMHELP NAME='COMMON/IFSOPT'.
 :ehelp.
-
 :help name='QSHBASH/CCSID'.
 :IMHELP NAME='COMMON/CCSID'.
 :ehelp.
-
 :help name='QSHBASH/PRTSPLF'.
 :IMHELP NAME='COMMON/PRTSPLF'.
 :ehelp.
-
 :help name='QSHBASH/PRTUSRDTA'.
 :IMHELP NAME='COMMON/PRTUSRDTA'.
 :ehelp.
-
 :help name='QSHBASH/PRTTXT'.
 :IMHELP NAME='COMMON/PRTTXT'.
 :ehelp.
-
 :help name='QSHBASH/PRTHOLD'.
 :IMHELP NAME='COMMON/PRTHOLD'.
 :ehelp.
-
 :help name='QSHBASH/PRTOUTQ'.
 :IMHELP NAME='COMMON/PRTOUTQ'.
 :ehelp.
-
 :help name='QSHBASH/OUTFILE'.
 :IMHELP NAME='COMMON/OUTFILE'.
 :ehelp.
-
 :help name='QSHBASH/MBROPT'.
 :IMHELP NAME='COMMON/MBROPT'.
 :ehelp.
-
 :help name='QSHBASH/PASEJOBNAM'.
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
@@ -729,6 +717,36 @@ If no parameters are needed, simply pass ' ' for the CMDPARM value.
 Parameters can be delimited with double quotes if needed.
 Ex: "parm1" "parm2" "parm3"
 :IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+:HELP NAME='COMMON/RMVTMPSCR'.
+Remove temporary IFS script file (RMVTMPSCR) - Help
+:xh3.Remove temporary IFS script file (RMVTMPSCR)
+:p.This option determines if the temporary IFS script file is auto-deleted after running. 
+Normally the selection should be *YES to delete the temp file. 
+Otherwise specify *NO if you are debugging for some reason.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Deletes the temporary IFS script file after running.
+:pt.:pk.*NO:epk.
+:pd.Keeps the temporary IFS script file after running.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/PROMPTCMD'.
+Prompt Commands (PROMPTCMD) - Help
+:xh3.Prompt commands (PROMPTCMD)
+:p.This option determines if the QSH command is prompted interactively for testing or 
+review of the actual QShell command line with parameter values before running the command. 
+Normally the selection should be *NO since prompting is only needed if testing. 
+Specify *YES if you are debugging for some reason and want the QSH command to prompt 
+on an interactive 5250 session before running.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Does not prompt the QSH command for testing or review.
+:pt.:pk.*YES:epk.
+:pd.Prompts the QSH command for testing or review before running.
+:eparml.
 :ehelp.
 
 :epnlgrp.

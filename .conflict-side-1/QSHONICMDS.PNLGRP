@@ -72,12 +72,13 @@ appropriately.
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
 
+
 .************************************************************************
 .*  Primary Help for command QSHEXECSRC
 .************************************************************************
 :help name='QSHEXECSRC'.
-Run Qshell Command Line - Help
-:p.The Run Qshell Command Line (QSHEXECSRC) command can be used to run a 
+Run Qshell .sh Script from Src - Help
+:p.The Run Qshell .sh Script from Src (QSHEXECSRC) command can be used to run a 
 QSH/PASE command shell script from a classic source physical file member 
 and log the results appropriately.
 :P.
@@ -157,7 +158,6 @@ QSH script command line parms (CMDPARM) - Help
 :help name='QSHEXECSRC/PROMPTCMD'.
 :IMHELP NAME='COMMON/PROMPTCMD'.
 :ehelp.
-
 
 
 .***********************************************************************
@@ -266,6 +266,93 @@ Debug bash command line (DEBUGCMD) - Help
 :help name='QSHBASH/PASEJOBNAM'.
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
+
+.************************************************************************
+.*  Primary Help for command QSHBASHSRC
+.************************************************************************
+:help name='QSHBASHSRC'.
+Run Bash .sh Script from Src - Help
+:p.The Run Bash .sh Script from Src (QSHBASHSRC) command can be used to run a 
+bash command shell script from a classic source physical file member 
+and log the results appropriately.
+:P.
+The use case would be for an app where you want to store your 
+Bash/QShell/PASE/Python/PHP/Etc. scripts as part of your library source and 
+execute those scripts directly from a source physical file.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHBASHSRC/SRCFILE'.
+:IMHELP NAME='COMMON/SRCFILE'.
+:ehelp.
+:help name='QSHBASHSRC/SRCMBR'.
+:IMHELP NAME='COMMON/SRCMBR'.
+:ehelp.
+:help name='QSHBASHSRC/CMDPARM'.
+QSH script command line parms (CMDPARM) - Help
+:xh3.QSH script command line parms (CMDPARM)
+:IMHELP name='COMMON/CMDPARM'.
+:ehelp.
+:help name='QSHBASHSRC/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHBASHSRC/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHBASHSRC/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHBASHSRC/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHBASHSRC/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHBASHSRC/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHBASHSRC/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHBASHSRC/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHBASHSRC/CCSID'.
+:IMHELP NAME='COMMON/CCSID'.
+:ehelp.
+:help name='QSHBASHSRC/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHBASHSRC/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHBASHSRC/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHBASHSRC/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHBASHSRC/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHBASHSRC/OUTFILE'.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHBASHSRC/MBROPT'.
+:IMHELP NAME='COMMON/MBROPT'.
+:ehelp.
+:help name='QSHBASHSRC/PASEJOBNAM'.
+:IMHELP NAME='COMMON/PASEJOBNAM'.
+:ehelp.
+:help name='QSHBASHSRC/RMVTMPSCR'.
+:IMHELP NAME='COMMON/RMVTMPSCR'.
+:ehelp.
+:help name='QSHBASHSRC/PROMPTCMD'.
+:IMHELP NAME='COMMON/PROMPTCMD'.
+:ehelp.
+
 
 .*****************************************************************
 .*  COMMON HELP
