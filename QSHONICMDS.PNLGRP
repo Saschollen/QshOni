@@ -291,8 +291,8 @@ execute those scripts directly from a source physical file.
 :IMHELP NAME='COMMON/SRCMBR'.
 :ehelp.
 :help name='QSHBASHSRC/CMDPARM'.
-QSH script command line parms (CMDPARM) - Help
-:xh3.QSH script command line parms (CMDPARM)
+Script command line parms (CMDPARM) - Help
+:xh3.Script command line parms (CMDPARM)
 :IMHELP name='COMMON/CMDPARM'.
 :ehelp.
 :help name='QSHBASHSRC/SETPKGPATH'.
@@ -756,8 +756,8 @@ Error message file ID (ERRMSGID) - Help
 
 :HELP NAME='COMMON/SRCFILE'.
 Source file (SRCFILE) - Help
-:xh3.Source file where QShell/PASE script is stored.
-:p.Specifies source physical file containing QShell/PASE script.
+:xh3.Source file where QShell/PASE/Bash script is stored.
+:p.Specifies source physical file containing QShell/PASE/Bash script.
 :P.
 The possible values are:
 :P.
@@ -798,7 +798,7 @@ Specify the member name in the source file.
 :ehelp.
 
 :HELP NAME='COMMON/CMDPARM'.
-:p.Specifies the command line parms to pass to the selected Qsh/Pase script that runs. 
+:p.Specifies the command line parms to pass to the selected script that runs. 
 If no parameters are needed, simply pass ' ' for the CMDPARM value.
 :P.
 Parameters can be delimited with double quotes if needed.
