@@ -223,7 +223,6 @@ QSH script command line parms (CMDPARM) - Help
 :ehelp.
 
 
-
 .***********************************************************************
 .*  Command-specific help for QSHBASH
 .***********************************************************************
@@ -1676,8 +1675,8 @@ on an interactive 5250 session before running.
 
 :HELP NAME='COMMON/SRCFILE'.
 Source file (SRCFILE) - Help
-:xh3.Source file where QShell/PASE script is stored.
-:p.Specifies source physical file containing QShell/PASE script.
+:xh3.Source file where QShell/PASE/Bash script is stored.
+:p.Specifies source physical file containing QShell/PASE/Bash script.
 :P.
 The possible values are:
 :P.
@@ -1718,7 +1717,7 @@ Specify the member name in the source file.
 :ehelp.
 
 :HELP NAME='COMMON/CMDPARM'.
-:p.Specifies the command line parms to pass to the selected Qsh/Pase script that runs. 
+:p.Specifies the command line parms to pass to the selected script that runs. 
 If no parameters are needed, simply pass ' ' for the CMDPARM value.
 :P.
 Parameters can be delimited with double quotes if needed.
