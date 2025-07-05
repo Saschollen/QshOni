@@ -12,6 +12,29 @@
 Run Qshell Command Line - Help
 :p.The Run Qshell Command Line (QSHEXEC) command can be used to run a QSH/PASE command and log the results
 appropriately.
+:p.The following example calls the ls command to list files for the /tmp directory:
+:XMP.
+:hp2.
+QSHEXEC CMDLINE('cd /tmp;ls')   
+    DSPSTDOUT(*YES)         
+    LOGSTDOUT(*NO)          
+    PRTSTDOUT(*NO)          
+    DLTSTDOUT(*YES)
+    IFSSTDOUT(*NO)
+    IFSFILE('/tmp/log.txt')
+    IFSOPT(*REPLACE)
+    PRTSPLF(QSHEXECLOG) 
+    PRTUSRDTA(*NONE)    
+    PRTTXT(*NONE)    
+:ehp2.
+:EXMP.
+:p.The following example runs an SQL query with db2util and exports the results as JSON to the QTEMP/STDOUTQSH outfile:
+:XMP.
+:hp2.
+QSHEXEC CMDLINE('export DB2UTIL_JSON_CONTAINER=array;db2util -o json "select * from qiws.qcustcdt"')     
+    DSPSTDOUT(*YES)       
+:ehp2.
+:EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
@@ -85,6 +108,35 @@ and log the results appropriately.
 The use case would be for an app where you want to store your
 QShell/PASE/Python/PHP/Etc. scripts as part of your library source and
 execute those scripts directly from a source physical file.
+:p.The following example calls a QShell source member QSHELL01 stored in 
+source file QSHONI/SOURCE to run the ls command to list files for the /tmp directory:
+:XMP.
+:hp2.
+QSHEXECSRC SRCFILE(QSHONI/SOURCE)
+    SRCMBR(QSHELL01)      
+    CMDPARM(' ')               
+    DSPSTDOUT(*YES)         
+    LOGSTDOUT(*NO)          
+    PRTSTDOUT(*NO)          
+    DLTSTDOUT(*YES)
+    IFSSTDOUT(*NO)
+    IFSFILE('/tmp/log.txt')
+    IFSOPT(*REPLACE)
+    PRTSPLF(QSHEXECLOG) 
+    PRTUSRDTA(*NONE)    
+    PRTTXT(*NONE)       
+    RMVTMPSCR(*YES)            
+    PROMPTCMD(*NO)     
+:ehp2.
+:EXMP.
+:p.Sample QShell source member: QSHONI/SOURCE(QSHELL01) Type: TXT Text: QShell 
+script to List Files in /tmp folder
+:XMP.
+:hp2.
+cd /tmp
+ls -l
+:ehp2.
+:EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
@@ -172,7 +224,31 @@ and log the results appropriately.
 The command is a convenience wrapper that can be used to call
 a bash command with QSHEXEC instead of having to type the
 following bash command sequence prefix on a
-QSHEXEC command line: :hp2.bash -c cmdline:ehp2..
+QSHEXEC command line: :hp2.bash -c cmdline:ehp2.
+:p.The following example calls the ls command to list files for the /tmp directory using the bash command:
+:XMP.
+:hp2.
+QSHBASH CMDLINE('cd /tmp;ls')   
+    DSPSTDOUT(*YES)         
+    LOGSTDOUT(*NO)          
+    PRTSTDOUT(*NO)          
+    DLTSTDOUT(*YES)
+    IFSSTDOUT(*NO)
+    IFSFILE('/tmp/log.txt')
+    IFSOPT(*REPLACE)
+    PRTSPLF(QSHEXECLOG) 
+    PRTUSRDTA(*NONE)    
+    PRTTXT(*NONE) 
+:ehp2.
+:EXMP.
+:p.The following example runs an SQL query with db2util and exports the results as JSON 
+to the QTEMP/STDOUTQSH outfile:
+:XMP.
+:hp2.
+QSHBASH CMDLINE('export DB2UTIL_JSON_CONTAINER=array;db2util -o json "select * from qiws.qcustcdt"')     
+    DSPSTDOUT(*YES)
+:ehp2.
+:EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
@@ -279,6 +355,34 @@ and log the results appropriately.
 The use case would be for an app where you want to store your
 Bash/QShell/PASE/Python/PHP/Etc. scripts as part of your library source and
 execute those scripts directly from a source physical file.
+:p.The following example calls a bash source member QSHELL01 stored in 
+source file QSHONI/SOURCE to run the ls command to list files for the /tmp directory:
+:XMP.
+:hp2.
+QSHBASHSRC SRCFILE(QSHONI/SOURCE)
+    SRCMBR(QSHELL01)      
+    CMDPARM(' ')               
+    DSPSTDOUT(*YES)         
+    LOGSTDOUT(*NO)          
+    PRTSTDOUT(*NO)          
+    DLTSTDOUT(*YES)
+    IFSSTDOUT(*NO)
+    IFSFILE('/tmp/log.txt')
+    IFSOPT(*REPLACE)
+    PRTSPLF(QSHBASHLOG) 
+    PRTUSRDTA(*NONE)    
+    PRTTXT(*NONE)       
+    RMVTMPSCR(*YES)            
+    PROMPTCMD(*NO) 
+:ehp2.
+:EXMP.
+:p.Sample bash source member: QSHONI/SOURCE(QSHELL01) Type: TXT Text: Bash script to List Files in /tmp folder
+:XMP.
+:hp2.
+cd /tmp
+ls -l
+:ehp2.
+:EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
@@ -366,10 +470,33 @@ The command is a convenience wrapper that can be used to call a curl command wit
 instead of having to type the following full curl command sequence prefix on a
 QSHEXEC command line: curl http://www.sitename.com -o /tmp/curlout.txt
 :P.
-:HP7.
+:HP2.
 curl must be installed in your PASE/QSH environment in /QOpensys/pkgs/bin before this will work
 To install curl from qshell/bash:  yum install curl
-:EHP7.
+:EHP2.
+:p.The following example calls the curl command to download the google home page site contents 
+to an IFS file. You only need to pass the parms after curl.
+:XMP.
+:hp2.
+QSHCURL CMDLINE('http://www.google.com -o /tmp/curlout.txt')   
+    DSPSTDOUT(*YES)         
+    LOGSTDOUT(*NO)          
+    PRTSTDOUT(*NO)          
+    DLTSTDOUT(*YES)
+    IFSSTDOUT(*NO)
+    IFSFILE('/tmp/log.txt')
+    IFSOPT(*REPLACE)
+    PRTSPLF(QSHEXECLOG) 
+    PRTUSRDTA(*NONE)    
+    PRTTXT(*NONE)   
+:ehp2.
+:EXMP.
+:p.The following example calls the curl command with the --help flag to display the curl parms available
+:XMP.
+:hp2.
+QSHCURL CMDLINE('--help') DSPSTDOUT(*YES) 
+:ehp2.
+:EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
