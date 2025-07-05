@@ -366,8 +366,10 @@ The command is a convenience wrapper that can be used to call a curl command wit
 instead of having to type the following full curl command sequence prefix on a
 QSHEXEC command line: curl http://www.sitename.com -o /tmp/curlout.txt
 :P.
-:HP5.curl must be installed in your PASE/QSH environment in /QOpensys/pkgs/bin before this will work
+:HP7.
+curl must be installed in your PASE/QSH environment in /QOpensys/pkgs/bin before this will work
 To install curl from qshell/bash:  yum install curl
+:EHP7.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
