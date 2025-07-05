@@ -78,12 +78,12 @@ appropriately.
 .************************************************************************
 :help name='QSHEXECSRC'.
 Run Qshell .sh Script from Src - Help
-:p.The Run Qshell .sh Script from Src (QSHEXECSRC) command can be used to run a 
-QSH/PASE command shell script from a classic source physical file member 
+:p.The Run Qshell .sh Script from Src (QSHEXECSRC) command can be used to run a
+QSH/PASE command shell script from a classic source physical file member
 and log the results appropriately.
 :P.
-The use case would be for an app where you want to store your 
-QShell/PASE/Python/PHP/Etc. scripts as part of your library source and 
+The use case would be for an app where you want to store your
+QShell/PASE/Python/PHP/Etc. scripts as part of your library source and
 execute those scripts directly from a source physical file.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
 :P.
@@ -272,12 +272,12 @@ Debug bash command line (DEBUGCMD) - Help
 .************************************************************************
 :help name='QSHBASHSRC'.
 Run Bash .sh Script from Src - Help
-:p.The Run Bash .sh Script from Src (QSHBASHSRC) command can be used to run a 
-bash command shell script from a classic source physical file member 
+:p.The Run Bash .sh Script from Src (QSHBASHSRC) command can be used to run a
+bash command shell script from a classic source physical file member
 and log the results appropriately.
 :P.
-The use case would be for an app where you want to store your 
-Bash/QShell/PASE/Python/PHP/Etc. scripts as part of your library source and 
+The use case would be for an app where you want to store your
+Bash/QShell/PASE/Python/PHP/Etc. scripts as part of your library source and
 execute those scripts directly from a source physical file.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
 :P.
@@ -359,14 +359,14 @@ Script command line parms (CMDPARM) - Help
 .************************************************************************
 :help name='QSHCURL'.
 Run Curl Command via Qshell - Help
-:p.Run Curl Command via Qshell (QSHCURL) command to run a PASE curl command and 
+:p.Run Curl Command via Qshell (QSHCURL) command to run a PASE curl command and
 log the results appropriately.
 :P.
-The command is a convenience wrapper that can be used to call a curl command with QSHEXEC 
-instead of having to type the following full curl command sequence prefix on a 
+The command is a convenience wrapper that can be used to call a curl command with QSHEXEC
+instead of having to type the following full curl command sequence prefix on a
 QSHEXEC command line: curl http://www.sitename.com -o /tmp/curlout.txt
 :P.
-curl must be installed in your PASE/QSH environment in /QOpensys/pkgs/bin before this will work
+:HP5.curl must be installed in your PASE/QSH environment in /QOpensys/pkgs/bin before this will work
 To install curl from qshell/bash:  yum install curl
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
 :P.
@@ -376,7 +376,7 @@ To install curl from qshell/bash:  yum install curl
 :help name='QSHCURL/CMDLINE'.
 Curl command line parms (CMDLINE) - Help
 :xh3.Curl command line parms (CMDLINE)
-Curl command line parameters.
+:p.Specifies the curl command line sequence to run.
 :ehelp.
 :help name='QSHCURL/SETPKGPATH'.
 :IMHELP NAME='COMMON/SETPKGPATH'.
@@ -573,8 +573,8 @@ IFS file option (IFSOPT) - Help
 :HELP NAME='COMMON/CCSID'.
 Coded character set ID for job (CCSID) - Help
 :xh3.Coded character set ID for job (CCSID)
-:p.When using the iToolkit component for command access, I originally had some issues with CL commands not 
-working correctly. However I don't currently remember exactly why. This may have been solved, however I 
+:p.When using the iToolkit component for command access, I originally had some issues with CL commands not
+working correctly. However I don't currently remember exactly why. This may have been solved, however I
 recommend still passing unless you are in a non US country.
 :parml.
 :pt.:pk def.*SAME:epk.
@@ -875,7 +875,7 @@ Specify the member name in the source file.
 :ehelp.
 
 :HELP NAME='COMMON/CMDPARM'.
-:p.Specifies the command line parms to pass to the selected script that runs. 
+:p.Specifies the command line parms to pass to the selected script that runs.
 If no parameters are needed, simply pass ' ' for the CMDPARM value.
 :P.
 Parameters can be delimited with double quotes if needed.
@@ -886,8 +886,8 @@ Ex: "parm1" "parm2" "parm3"
 :HELP NAME='COMMON/RMVTMPSCR'.
 Remove temporary IFS script file (RMVTMPSCR) - Help
 :xh3.Remove temporary IFS script file (RMVTMPSCR)
-:p.This option determines if the temporary IFS script file is auto-deleted after running. 
-Normally the selection should be *YES to delete the temp file. 
+:p.This option determines if the temporary IFS script file is auto-deleted after running.
+Normally the selection should be *YES to delete the temp file.
 Otherwise specify *NO if you are debugging for some reason.
 :parml.
 :pt.:pk def.*YES:epk.
@@ -900,10 +900,10 @@ Otherwise specify *NO if you are debugging for some reason.
 :HELP NAME='COMMON/PROMPTCMD'.
 Prompt Commands (PROMPTCMD) - Help
 :xh3.Prompt commands (PROMPTCMD)
-:p.This option determines if the QSH command is prompted interactively for testing or 
-review of the actual QShell command line with parameter values before running the command. 
-Normally the selection should be *NO since prompting is only needed if testing. 
-Specify *YES if you are debugging for some reason and want the QSH command to prompt 
+:p.This option determines if the QSH command is prompted interactively for testing or
+review of the actual QShell command line with parameter values before running the command.
+Normally the selection should be *NO since prompting is only needed if testing.
+Specify *YES if you are debugging for some reason and want the QSH command to prompt
 on an interactive 5250 session before running.
 :parml.
 :pt.:pk def.*NO:epk.
