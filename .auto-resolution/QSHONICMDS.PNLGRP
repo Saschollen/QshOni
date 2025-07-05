@@ -1717,7 +1717,7 @@ Specify the member name in the source file.
 :ehelp.
 
 :HELP NAME='COMMON/CMDPARM'.
-:p.Specifies the command line parms to pass to the selected script that runs. 
+:p.Specifies the command line parms to pass to the selected script that runs.
 If no parameters are needed, simply pass ' ' for the CMDPARM value.
 :P.
 Parameters can be delimited with double quotes if needed.
@@ -1728,8 +1728,8 @@ Ex: "parm1" "parm2" "parm3"
 :HELP NAME='COMMON/RMVTMPSCR'.
 Remove temporary IFS script file (RMVTMPSCR) - Help
 :xh3.Remove temporary IFS script file (RMVTMPSCR)
-:p.This option determines if the temporary IFS script file is auto-deleted after running. 
-Normally the selection should be *YES to delete the temp file. 
+:p.This option determines if the temporary IFS script file is auto-deleted after running.
+Normally the selection should be *YES to delete the temp file.
 Otherwise specify *NO if you are debugging for some reason.
 :parml.
 :pt.:pk def.*YES:epk.
@@ -1742,10 +1742,10 @@ Otherwise specify *NO if you are debugging for some reason.
 :HELP NAME='COMMON/PROMPTCMD'.
 Prompt Commands (PROMPTCMD) - Help
 :xh3.Prompt commands (PROMPTCMD)
-:p.This option determines if the QSH command is prompted interactively for testing or 
-review of the actual QShell command line with parameter values before running the command. 
-Normally the selection should be *NO since prompting is only needed if testing. 
-Specify *YES if you are debugging for some reason and want the QSH command to prompt 
+:p.This option determines if the QSH command is prompted interactively for testing or
+review of the actual QShell command line with parameter values before running the command.
+Normally the selection should be *NO since prompting is only needed if testing.
+Specify *YES if you are debugging for some reason and want the QSH command to prompt
 on an interactive 5250 session before running.
 :parml.
 :pt.:pk def.*NO:epk.
