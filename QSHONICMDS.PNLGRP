@@ -354,6 +354,83 @@ Script command line parms (CMDPARM) - Help
 :ehelp.
 
 
+.************************************************************************
+.*  Primary Help for command QSHCURL
+.************************************************************************
+:help name='QSHCURL'.
+Run Curl Command via Qshell - Help
+:p.Run Curl Command via Qshell (QSHCURL) command to run a PASE curl command and 
+log the results appropriately.
+:P.
+The command is a convenience wrapper that can be used to call a curl command with QSHEXEC 
+instead of having to type the following full curl command sequence prefix on a 
+QSHEXEC command line: curl http://www.sitename.com -o /tmp/curlout.txt
+:P.
+curl must be installed in your PASE/QSH environment in /QOpensys/pkgs/bin before this will work
+To install curl from qshell/bash:  yum install curl
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHCURL/CMDLINE'.
+Curl command line parms (CMDLINE) - Help
+:xh3.Curl command line parms (CMDLINE)
+Curl command line parameters.
+:ehelp.
+:help name='QSHCURL/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHCURL/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHCURL/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHCURL/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHCURL/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHCURL/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHCURL/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHCURL/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHCURL/CCSID'.
+:IMHELP NAME='COMMON/CCSID'.
+:ehelp.
+:help name='QSHCURL/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHCURL/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHCURL/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHCURL/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHCURL/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHCURL/OUTFILE'.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHCURL/MBROPT'.
+:IMHELP NAME='COMMON/MBROPT'.
+:ehelp.
+:help name='QSHCURL/PASEJOBNAM'.
+:IMHELP NAME='COMMON/PASEJOBNAM'.
+:ehelp.
+
+
 .*****************************************************************
 .*  COMMON HELP
 .*
