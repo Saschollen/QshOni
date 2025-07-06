@@ -560,6 +560,112 @@ Curl command line parms (CMDLINE) - Help
 :ehelp.
 
 
+.************************************************************************
+.*  Primary Help for command QSHPYRUN
+.************************************************************************
+:help name='QSHPYRUN'.
+Run Python Script via Qshell - Help
+:p.The Run Python Script via Qshell (QSHPYRUN) command is used to run a Python script 
+via QSHEXEC and log the results appropriately.
+:p.The following example calls a helloworld.py script that write to STDOUT.
+:XMP.
+:hp2.
+QSHPYRUN SCRIPTDIR('/pythonapps')       
+   SCRIPTFILE('hello.py')           
+   ARGS(Parm1 Parm2)              
+   PYVERSION(3)                   
+   DSPSTDOUT(*YES)         
+   LOGSTDOUT(*NO)          
+   PRTSTDOUT(*NO)          
+   DLTSTDOUT(*YES)
+   IFSSTDOUT(*NO)
+   IFSFILE('/tmp/log.txt')
+   IFSOPT(*REPLACE)
+   PRTSPLF(QSHPYRUN) 
+   PRTUSRDTA(*NONE)    
+   PRTTXT(*NONE)
+:ehp2.
+:EXMP.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHPYRUN/SCRIPTDIR'.
+Python script directory (SCRIPTDIR) - Help
+:xh3.Python script directory (SCRIPTDIR)
+:p.The IFS directory location for the Python script. :hp2.Ex: /python:ehp2.
+:ehelp.
+:help name='QSHPYRUN/SCRIPTFILE'.
+Python script file name (SCRIPTFILE) - Help
+:xh3.Python script file name (SCRIPTFILE)
+:p.The script file name you want to call without the directory path. 
+The QSHPYRUN command puts it all together. :hp2.Ex: hello.py:ehp2.
+:ehelp.
+:help name='QSHPYRUN/ARGS'.
+Python command line arguments (ARGS) - Help
+:xh3.Python command line arguments (ARGS)
+:p.Command line parameter argument list. 
+Up to 40 - 200 byte argument/parameter values can be passed to a Python script call. 
+:P.Each parm is automatically trimmed. Do NOT put double quotes around the parms or your program call 
+may get errors because your parameters get compromised with extra double quotes. 
+:P.The double quotes are already added automatically inside the CL command processing program. 
+Single quotes are allowed around your parmaeter data though if desired: 
+:hp2.Ex: 'My Parm Value 1' 'My Parm Value 2':ehp2.
+:ehelp.
+:help name='QSHPYRUN/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHPYRUN/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHPYRUN/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHPYRUN/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHPYRUN/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHPYRUN/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHPYRUN/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHPYRUN/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHPYRUN/CCSID'.
+:IMHELP NAME='COMMON/CCSID'.
+:ehelp.
+:help name='QSHPYRUN/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHPYRUN/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHPYRUN/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHPYRUN/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHPYRUN/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHPYRUN/OUTFILE'.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHPYRUN/MBROPT'.
+:IMHELP NAME='COMMON/MBROPT'.
+:ehelp.
+:help name='QSHPYRUN/PASEJOBNAM'.
+:IMHELP NAME='COMMON/PASEJOBNAM'.
+:ehelp.
+
+
 .*****************************************************************
 .*  COMMON HELP
 .*
