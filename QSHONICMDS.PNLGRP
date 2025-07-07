@@ -15,24 +15,24 @@ appropriately.
 :p.The following example calls the ls command to list files for the /tmp directory:
 :XMP.
 :hp2.
-QSHEXEC CMDLINE('cd /tmp;ls')   
-    DSPSTDOUT(*YES)         
-    LOGSTDOUT(*NO)          
-    PRTSTDOUT(*NO)          
+QSHEXEC CMDLINE('cd /tmp;ls')
+    DSPSTDOUT(*YES)
+    LOGSTDOUT(*NO)
+    PRTSTDOUT(*NO)
     DLTSTDOUT(*YES)
     IFSSTDOUT(*NO)
     IFSFILE('/tmp/log.txt')
     IFSOPT(*REPLACE)
-    PRTSPLF(QSHEXECLOG) 
-    PRTUSRDTA(*NONE)    
-    PRTTXT(*NONE)    
+    PRTSPLF(QSHEXECLOG)
+    PRTUSRDTA(*NONE)
+    PRTTXT(*NONE)
 :ehp2.
 :EXMP.
-:p.The following example runs an SQL query with db2util and exports the results as JSON to the QTEMP/STDOUTQSH outfile:
+:p.The following example runs an SQL query with db2util and exports the results as JSON to the QTEMP/STDOUTQ
 :XMP.
 :hp2.
-QSHEXEC CMDLINE('export DB2UTIL_JSON_CONTAINER=array;db2util -o json "select * from qiws.qcustcdt"')     
-    DSPSTDOUT(*YES)       
+QSHEXEC CMDLINE('export DB2UTIL_JSON_CONTAINER=array;db2util -o json "select * from qiws.qcustcdt"')
+    DSPSTDOUT(*YES)
 :ehp2.
 :EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
@@ -108,28 +108,28 @@ and log the results appropriately.
 The use case would be for an app where you want to store your
 QShell/PASE/Python/PHP/Etc. scripts as part of your library source and
 execute those scripts directly from a source physical file.
-:p.The following example calls a QShell source member QSHELL01 stored in 
+:p.The following example calls a QShell source member QSHELL01 stored in
 source file QSHONI/SOURCE to run the ls command to list files for the /tmp directory:
 :XMP.
 :hp2.
 QSHEXECSRC SRCFILE(QSHONI/SOURCE)
-    SRCMBR(QSHELL01)      
-    CMDPARM(' ')               
-    DSPSTDOUT(*YES)         
-    LOGSTDOUT(*NO)          
-    PRTSTDOUT(*NO)          
+    SRCMBR(QSHELL01)
+    CMDPARM(' ')
+    DSPSTDOUT(*YES)
+    LOGSTDOUT(*NO)
+    PRTSTDOUT(*NO)
     DLTSTDOUT(*YES)
     IFSSTDOUT(*NO)
     IFSFILE('/tmp/log.txt')
     IFSOPT(*REPLACE)
-    PRTSPLF(QSHEXECLOG) 
-    PRTUSRDTA(*NONE)    
-    PRTTXT(*NONE)       
-    RMVTMPSCR(*YES)            
-    PROMPTCMD(*NO)     
+    PRTSPLF(QSHEXECLOG)
+    PRTUSRDTA(*NONE)
+    PRTTXT(*NONE)
+    RMVTMPSCR(*YES)
+    PROMPTCMD(*NO)
 :ehp2.
 :EXMP.
-:p.Sample QShell source member: QSHONI/SOURCE(QSHELL01) Type: TXT Text: QShell 
+:p.Sample QShell source member: QSHONI/SOURCE(QSHELL01) Type: TXT Text: QShell
 script to List Files in /tmp folder
 :XMP.
 :hp2.
@@ -228,24 +228,24 @@ QSHEXEC command line: :hp2.bash -c cmdline:ehp2.
 :p.The following example calls the ls command to list files for the /tmp directory using the bash command:
 :XMP.
 :hp2.
-QSHBASH CMDLINE('cd /tmp;ls')   
-    DSPSTDOUT(*YES)         
-    LOGSTDOUT(*NO)          
-    PRTSTDOUT(*NO)          
+QSHBASH CMDLINE('cd /tmp;ls')
+    DSPSTDOUT(*YES)
+    LOGSTDOUT(*NO)
+    PRTSTDOUT(*NO)
     DLTSTDOUT(*YES)
     IFSSTDOUT(*NO)
     IFSFILE('/tmp/log.txt')
     IFSOPT(*REPLACE)
-    PRTSPLF(QSHEXECLOG) 
-    PRTUSRDTA(*NONE)    
-    PRTTXT(*NONE) 
+    PRTSPLF(QSHEXECLOG)
+    PRTUSRDTA(*NONE)
+    PRTTXT(*NONE)
 :ehp2.
 :EXMP.
-:p.The following example runs an SQL query with db2util and exports the results as JSON 
+:p.The following example runs an SQL query with db2util and exports the results as JSON
 to the QTEMP/STDOUTQSH outfile:
 :XMP.
 :hp2.
-QSHBASH CMDLINE('export DB2UTIL_JSON_CONTAINER=array;db2util -o json "select * from qiws.qcustcdt"')     
+QSHBASH CMDLINE('export DB2UTIL_JSON_CONTAINER=array;db2util -o json "select * from qiws.qcustcdt"')
     DSPSTDOUT(*YES)
 :ehp2.
 :EXMP.
@@ -355,28 +355,28 @@ and log the results appropriately.
 The use case would be for an app where you want to store your
 Bash/QShell/PASE/Python/PHP/Etc. scripts as part of your library source and
 execute those scripts directly from a source physical file.
-:p.The following example calls a bash source member QSHELL01 stored in 
+:p.The following example calls a bash source member QSHELL01 stored in
 source file QSHONI/SOURCE to run the ls command to list files for the /tmp directory:
 :XMP.
 :hp2.
 QSHBASHSRC SRCFILE(QSHONI/SOURCE)
-    SRCMBR(QSHELL01)      
-    CMDPARM(' ')               
-    DSPSTDOUT(*YES)         
-    LOGSTDOUT(*NO)          
-    PRTSTDOUT(*NO)          
+    SRCMBR(QSHELL01)
+    CMDPARM(' ')
+    DSPSTDOUT(*YES)
+    LOGSTDOUT(*NO)
+    PRTSTDOUT(*NO)
     DLTSTDOUT(*YES)
     IFSSTDOUT(*NO)
     IFSFILE('/tmp/log.txt')
     IFSOPT(*REPLACE)
-    PRTSPLF(QSHBASHLOG) 
-    PRTUSRDTA(*NONE)    
-    PRTTXT(*NONE)       
-    RMVTMPSCR(*YES)            
-    PROMPTCMD(*NO) 
+    PRTSPLF(QSHBASHLOG)
+    PRTUSRDTA(*NONE)
+    PRTTXT(*NONE)
+    RMVTMPSCR(*YES)
+    PROMPTCMD(*NO)
 :ehp2.
 :EXMP.
-:p.Sample bash source member: QSHONI/SOURCE(QSHELL01) Type: TXT Text: Bash script to List Files in /tmp folder
+:p.Sample bash source member: QSHONI/SOURCE(QSHELL01) Type: TXT Text: Bash script to List Files in /tmp fold
 :XMP.
 :hp2.
 cd /tmp
@@ -474,27 +474,27 @@ QSHEXEC command line: curl http://www.sitename.com -o /tmp/curlout.txt
 curl must be installed in your PASE/QSH environment in /QOpensys/pkgs/bin before this will work
 To install curl from qshell/bash:  yum install curl
 :EHP2.
-:p.The following example calls the curl command to download the google home page site contents 
+:p.The following example calls the curl command to download the google home page site contents
 to an IFS file. You only need to pass the parms after curl.
 :XMP.
 :hp2.
-QSHCURL CMDLINE('http://www.google.com -o /tmp/curlout.txt')   
-    DSPSTDOUT(*YES)         
-    LOGSTDOUT(*NO)          
-    PRTSTDOUT(*NO)          
+QSHCURL CMDLINE('http://www.google.com -o /tmp/curlout.txt')
+    DSPSTDOUT(*YES)
+    LOGSTDOUT(*NO)
+    PRTSTDOUT(*NO)
     DLTSTDOUT(*YES)
     IFSSTDOUT(*NO)
     IFSFILE('/tmp/log.txt')
     IFSOPT(*REPLACE)
-    PRTSPLF(QSHEXECLOG) 
-    PRTUSRDTA(*NONE)    
-    PRTTXT(*NONE)   
+    PRTSPLF(QSHEXECLOG)
+    PRTUSRDTA(*NONE)
+    PRTTXT(*NONE)
 :ehp2.
 :EXMP.
 :p.The following example calls the curl command with the --help flag to display the curl parms available
 :XMP.
 :hp2.
-QSHCURL CMDLINE('--help') DSPSTDOUT(*YES) 
+QSHCURL CMDLINE('--help') DSPSTDOUT(*YES)
 :ehp2.
 :EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
@@ -565,24 +565,24 @@ Curl command line parms (CMDLINE) - Help
 .************************************************************************
 :help name='QSHPYRUN'.
 Run Python Script via Qshell - Help
-:p.The Run Python Script via Qshell (QSHPYRUN) command is used to run a Python script 
+:p.The Run Python Script via Qshell (QSHPYRUN) command is used to run a Python script
 via QSHEXEC and log the results appropriately.
 :p.The following example calls a helloworld.py script that write to STDOUT.
 :XMP.
 :hp2.
-QSHPYRUN SCRIPTDIR('/pythonapps')       
-   SCRIPTFILE('hello.py')           
-   ARGS(Parm1 Parm2)              
-   PYVERSION(3)                   
-   DSPSTDOUT(*YES)         
-   LOGSTDOUT(*NO)          
-   PRTSTDOUT(*NO)          
+QSHPYRUN SCRIPTDIR('/pythonapps')
+   SCRIPTFILE('hello.py')
+   ARGS(Parm1 Parm2)
+   PYVERSION(3)
+   DSPSTDOUT(*YES)
+   LOGSTDOUT(*NO)
+   PRTSTDOUT(*NO)
    DLTSTDOUT(*YES)
    IFSSTDOUT(*NO)
    IFSFILE('/tmp/log.txt')
    IFSOPT(*REPLACE)
-   PRTSPLF(QSHPYRUN) 
-   PRTUSRDTA(*NONE)    
+   PRTSPLF(QSHPYRUN)
+   PRTUSRDTA(*NONE)
    PRTTXT(*NONE)
 :ehp2.
 :EXMP.
@@ -599,18 +599,18 @@ Python script directory (SCRIPTDIR) - Help
 :help name='QSHPYRUN/SCRIPTFILE'.
 Python script file name (SCRIPTFILE) - Help
 :xh3.Python script file name (SCRIPTFILE)
-:p.The script file name you want to call without the directory path. 
+:p.The script file name you want to call without the directory path.
 The QSHPYRUN command puts it all together. :hp2.Ex: hello.py:ehp2.
 :ehelp.
 :help name='QSHPYRUN/ARGS'.
 Python command line arguments (ARGS) - Help
 :xh3.Python command line arguments (ARGS)
-:p.Command line parameter argument list. 
-:p.Up to 40 - 200 byte argument/parameter values can be passed to a Python script call. 
-:P.Each parm is automatically trimmed. Do NOT put double quotes around the parms or your program call 
-may get errors because your parameters get compromised with extra double quotes. 
-:P.The double quotes are already added automatically inside the CL command processing program. 
-Single quotes are allowed around your parmaeter data though if desired: 
+:p.Command line parameter argument list.
+:p.Up to 40 - 200 byte argument/parameter values can be passed to a Python script call.
+:P.Each parm is automatically trimmed. Do NOT put double quotes around the parms or your program call
+may get errors because your parameters get compromised with extra double quotes.
+:P.The double quotes are already added automatically inside the CL command processing program.
+Single quotes are allowed around your parmaeter data though if desired:
 :hp2.Ex: 'My Parm Value 1' 'My Parm Value 2':ehp2.
 :ehelp.
 :help name='QSHPYRUN/ARGDLM'.
@@ -634,10 +634,11 @@ It should be set to either 2 or 2.7 for Python 2 or 3, 3.6 or 3.9 for Python 3.
 :help name='QSHPYRUN/PYPATH'.
 Python bin path (PYPATH) - Help
 :xh3.Python bin path (PYPATH)
-:p.The this is the directory path to your Python binaries (python/python3). 
-:p.Hopefully you have already installed the Yum versions so the default path should be good. 
-Leave value set to *DEFAULT. Default= /QOpenSys/pkgs/bin. 
+:p.The this is the directory path to your Python binaries (python/python3).
+:p.Hopefully you have already installed the Yum versions so the default path should be good.
+Leave value set to *DEFAULT. Default= /QOpenSys/pkgs/bin.
 The default path lives in the PYPATH data area in the PYONI library.
+:ehelp.
 :help name='QSHPYRUN/SETPKGPATH'.
 :IMHELP NAME='COMMON/SETPKGPATH'.
 :ehelp.
@@ -647,16 +648,17 @@ Use virtual environment (USEVENV) - Help
 :p.Use virtual environment.
 :parml.
 :pt.:pk.*YES:epk.
-:pd.Run your Python script using an existing Python virtual environment as 
-specified in the Python virtual environment path. 
+:pd.Run your Python script using an existing Python virtual environment as
+specified in the Python virtual environment path.
 The IFS directory and virtual environment must exist.
 :p.
-:hp2.Note: When using virtual environment, you will need to make sure the PYPATH 
-data area value is set to ' ' or pass ' ' to the PYPATH parameter to make sure the system level 
+:hp2.Note: When using virtual environment, you will need to make sure the PYPATH
+data area value is set to ' ' or pass ' ' to the PYPATH parameter to make sure the system level
 python binary does not picked up. Each venv has its own python executable:ehp2.
 :pt.:pk def.*NO:epk.
 :pd.Do not use a virtual environment.
 :eparml.
+:ehelp.
 :help name='QSHPYRUN/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
 :ehelp.
