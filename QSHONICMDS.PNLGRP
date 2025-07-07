@@ -644,12 +644,28 @@ The QSHPYRUN command puts it all together. :hp2.Ex: hello.py:ehp2.
 :help name='QSHPYRUN/ARGS'.
 Python command line arguments (ARGS) - Help
 :xh3.Python command line arguments (ARGS)
+<<<<<<< ours
 :p.Command line parameter argument list.
 :p.Up to 40 - 200 byte argument/parameter values can be passed to a Python script call.
 :P.Each parm is automatically trimmed. Do NOT put double quotes around the parms or your program call
 may get errors because your parameters get compromised with extra double quotes.
 :P.The double quotes are already added automatically inside the CL command processing program.
 Single quotes are allowed around your parmaeter data though if desired:
+||||||| ancestor
+:p.Command line parameter argument list. 
+Up to 40 - 200 byte argument/parameter values can be passed to a Python script call. 
+:P.Each parm is automatically trimmed. Do NOT put double quotes around the parms or your program call 
+may get errors because your parameters get compromised with extra double quotes. 
+:P.The double quotes are already added automatically inside the CL command processing program. 
+Single quotes are allowed around your parmaeter data though if desired: 
+=======
+:p.Command line parameter argument list. 
+:p.Up to 40 - 200 byte argument/parameter values can be passed to a Python script call. 
+:P.Each parm is automatically trimmed. Do NOT put double quotes around the parms or your program call 
+may get errors because your parameters get compromised with extra double quotes. 
+:P.The double quotes are already added automatically inside the CL command processing program. 
+Single quotes are allowed around your parmaeter data though if desired: 
+>>>>>>> theirs
 :hp2.Ex: 'My Parm Value 1' 'My Parm Value 2':ehp2.
 :ehelp.
 :help name='QSHPYRUN/ARGDLM'.
