@@ -613,6 +613,12 @@ may get errors because your parameters get compromised with extra double quotes.
 Single quotes are allowed around your parmaeter data though if desired: 
 :hp2.Ex: 'My Parm Value 1' 'My Parm Value 2':ehp2.
 :ehelp.
+:help name='QSHPYRUN/PYVERSION'.
+Python version (PYVERSION) - Help
+:xh3.Python version (PYVERSION)
+:p.Specifies the Python version to use to run the script.
+It should be set to either 2 or 2.7 for Python 2 or 3, 3.6 or 3.9 for Python 3.
+:ehelp.
 :help name='QSHPYRUN/SETPKGPATH'.
 :IMHELP NAME='COMMON/SETPKGPATH'.
 :ehelp.
