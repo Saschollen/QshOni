@@ -719,10 +719,11 @@ It should be set to either 2 or 2.7 for Python 2 or 3, 3.6 or 3.9 for Python 3.
 :help name='QSHPYRUN/PYPATH'.
 Python bin path (PYPATH) - Help
 :xh3.Python bin path (PYPATH)
-:p.The this is the directory path to your Python binaries (python/python3). 
-:p.Hopefully you have already installed the Yum versions so the default path should be good. 
-Leave value set to *DEFAULT. Default= /QOpenSys/pkgs/bin. 
+:p.The this is the directory path to your Python binaries (python/python3).
+:p.Hopefully you have already installed the Yum versions so the default path should be good.
+Leave value set to *DEFAULT. Default= /QOpenSys/pkgs/bin.
 The default path lives in the PYPATH data area in the PYONI library.
+:ehelp.
 :help name='QSHPYRUN/SETPKGPATH'.
 :IMHELP NAME='COMMON/SETPKGPATH'.
 :ehelp.
@@ -749,16 +750,17 @@ Use virtual environment (USEVENV) - Help
 :p.Use virtual environment.
 :parml.
 :pt.:pk.*YES:epk.
-:pd.Run your Python script using an existing Python virtual environment as 
-specified in the Python virtual environment path. 
+:pd.Run your Python script using an existing Python virtual environment as
+specified in the Python virtual environment path.
 The IFS directory and virtual environment must exist.
 :p.
-:hp2.Note: When using virtual environment, you will need to make sure the PYPATH 
-data area value is set to ' ' or pass ' ' to the PYPATH parameter to make sure the system level 
+:hp2.Note: When using virtual environment, you will need to make sure the PYPATH
+data area value is set to ' ' or pass ' ' to the PYPATH parameter to make sure the system level
 python binary does not picked up. Each venv has its own python executable:ehp2.
 :pt.:pk def.*NO:epk.
 :pd.Do not use a virtual environment.
 :eparml.
+:ehelp.
 :help name='QSHPYRUN/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
 :ehelp.
