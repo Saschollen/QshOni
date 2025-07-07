@@ -694,6 +694,12 @@ Python bin path (PYPATH) - Help
 Leave value set to *DEFAULT. Default= /QOpenSys/pkgs/bin.
 The default path lives in the PYPATH data area in the PYONI library.
 :ehelp.
+:help name='QSHPYRUN/PYVERSION'.
+Python version (PYVERSION) - Help
+:xh3.Python version (PYVERSION)
+:p.Specifies the Python version to use to run the script.
+It should be set to either 2 or 2.7 for Python 2 or 3, 3.6 or 3.9 for Python 3.
+:ehelp.
 :help name='QSHPYRUN/SETPKGPATH'.
 :IMHELP NAME='COMMON/SETPKGPATH'.
 :ehelp.
