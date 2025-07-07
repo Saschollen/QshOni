@@ -707,6 +707,19 @@ python binary does not picked up. Each venv has its own python executable:ehp2.
 :help name='QSHPYRUN/PASEJOBNAM'.
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
+:help name='QSHPYRUN/DEBUGCMD'.
+Debug QSHEXEC command (DEBUGCMD) - Help
+:xh3.Debug QSHEXEC command (DEBUGCMD)
+:parml.
+:pt.:pk.*YES:epk.
+:pd.If set to *YES, your job must be running interactively and it will display the command line 
+that QSHPYRUN composed to execute via QSHEXEC before it runs. 
+:p.This is good for debugging or you are curious what the exec QSHEXEC command will look like. 
+Under the covers QSHPYRUN utilizes the QSHEXEC command to run the Python command line.
+:pt.:pk def.*NO:epk.
+:pd.Do not debug the command line.
+:eparml.
+:ehelp.
 
 
 .*****************************************************************
