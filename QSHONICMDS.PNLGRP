@@ -613,6 +613,18 @@ may get errors because your parameters get compromised with extra double quotes.
 Single quotes are allowed around your parmaeter data though if desired: 
 :hp2.Ex: 'My Parm Value 1' 'My Parm Value 2':ehp2.
 :ehelp.
+:help name='QSHPYRUN/ARGDLM'.
+Command line argument delimiter (ARGDLM) - Help
+:xh3.Command line argument delimiter (ARGDLM)
+:parml.
+:pt.:pk def.*DBLQUOTE:epk.
+:pd.Double quotes are used to delimit the command line arguments.
+:pt.:pk.*single:epk.
+:pd.Single quotes are used to delimit the command line arguments.
+:pt.:pk.*NONE:epk.
+:pd.No delimiter is used.
+:eparml.
+:ehelp.
 :help name='QSHPYRUN/PYVERSION'.
 Python version (PYVERSION) - Help
 :xh3.Python version (PYVERSION)
