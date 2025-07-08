@@ -735,13 +735,14 @@ before running the script.
 :ehelp.
 
 
+
 .************************************************************************
 .*  Primary Help for command QSHLOGSCAN
 .************************************************************************
 :help name='QSHLOGSCAN'.
 Scan the stdout outfile for the selected value - Help
-:p.Use the QSHLOGSCAN CL command to scan the stdout outfile for the 
-selected value after QSHEXEC has completed.
+:p.This CL command is a convenience command that can be used to scan a 
+STDOUT log for a specific value to indicate success or failure.
 :p.The following example scans the outfile log in file QTEMP/STDOUTQSH for a 
 text value of :hp3.successfully:ehp3. somewhere in any line of the log file output:
 :XMP.
@@ -756,6 +757,24 @@ EXACTMATCH(*NO)
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
 :ehelp.
+:help name='QSHLOGSCAN/SCANFOR'.
+Value to scan for (SCANFOR) - Help
+:xh3.Value to scan for (SCANFOR)
+:p.Text value to scan for on each line in the stdout outfile. 
+The value passed IS case sensitive and must match the value in the log file.
+:ehelp.
+:help name='QSHLOGSCAN/EXACTMATCH'.
+Exact match (EXACTMATCH) - Help
+:xh3.Exact match (EXACTMATCH)
+:p.Exact match-*YES, Contains-*NO
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.At least one line must contain the value somewhere in the line. 
+Good for generic matching.
+:pt.:pk.*YES:epk.
+:pd.Value must match exactly and be the only thing on the selected line.
+:eparml.
+
 
 
 .*****************************************************************
