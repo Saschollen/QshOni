@@ -761,7 +761,7 @@ EXACTMATCH(*NO)
 Value to scan for (SCANFOR) - Help
 :xh3.Value to scan for (SCANFOR)
 :p.Text value to scan for on each line in the stdout outfile. 
-The value passed IS case sensitive and must match the value in the log file.
+:p.The value passed IS case sensitive and must match the value in the log file.
 :ehelp.
 :help name='QSHLOGSCAN/EXACTMATCH'.
 Exact match (EXACTMATCH) - Help
