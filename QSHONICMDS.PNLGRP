@@ -724,7 +724,8 @@ Under the covers QSHPYRUN utilizes the QSHEXEC command to run the Python command
 :help name='QSHPYRUN/CHGSCRDIR'.
 Change script directory (CHGSCRDIR) - Help
 :xh3.Change script directory (CHGSCRDIR)
-:p.Specifies whether to change the current working directory to the script directory before running the script.
+:p.Specifies whether to change the current working directory to the script directory 
+before running the script.
 :parml.
 :pt.:pk def.*NO:epk.
 :pd.Do not change the current working directory.
