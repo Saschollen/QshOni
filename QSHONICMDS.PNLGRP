@@ -711,6 +711,7 @@ python binary does not picked up. Each venv has its own python executable:ehp2.
 Debug QSHEXEC command (DEBUGCMD) - Help
 :xh3.Debug QSHEXEC command (DEBUGCMD)
 :parml.
+:p.This parameter allows you to debug the command line that QSHPYRUN will run via QSHEXEC.
 :pt.:pk.*YES:epk.
 :pd.If set to *YES, your job must be running interactively and it will display the command line 
 that QSHPYRUN composed to execute via QSHEXEC before it runs. 
