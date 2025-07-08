@@ -774,6 +774,7 @@ Good for generic matching.
 :pt.:pk.*YES:epk.
 :pd.Value must match exactly and be the only thing on the selected line.
 :eparml.
+:ehelp.
 
 
 
