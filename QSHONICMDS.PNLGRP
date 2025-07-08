@@ -343,6 +343,7 @@ Debug bash command line (DEBUGCMD) - Help
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
 
+
 .************************************************************************
 .*  Primary Help for command QSHBASHSRC
 .************************************************************************
@@ -735,7 +736,6 @@ before running the script.
 :ehelp.
 
 
-
 .************************************************************************
 .*  Primary Help for command QSHLOGSCAN
 .************************************************************************
@@ -774,6 +774,41 @@ Good for generic matching.
 :pt.:pk.*YES:epk.
 :pd.Value must match exactly and be the only thing on the selected line.
 :eparml.
+:ehelp.
+
+
+.************************************************************************
+.*  Primary Help for command QQSHQRYTMP
+.************************************************************************
+:help name='QSHQRYTMP'.
+SQL Query Data to Temp Table - Help
+:p.This CL command is a convenience command that can be used to run an 
+SQL data selection query and create an outfile of resulting data.
+:p.The following example queries all the records from table QIWS/QCUSCTDT and 
+places the result in to an output table named: SQLTMP0001 in library QTEMP.
+:XMP.
+:hp2.
+QSHQRYTMP SQL('SELECT * FROM QIWS/QCUSTCDT')   
+    OUTFILE(SQLTMP0001)                  
+    EMPTYERROR(*YES)                     
+    PROMPT(*NO)         
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+:help name='QSHQRYTMP/SQL'.
+SQL query (SQL) - Help
+:xh3.SQL query (SQL)
+:p.Enter an SQL SELECT statement to query some specific data.
+:ehelp.
+:help name='QSHQRYTMP/PARMS'.
+SQL placeholder parm name (PARMS) - Help
+:xh3.SQL placeholder parm name (PARMS)
+:p.Enter up to 30 parameter placeholder values you want to replace dynamically 
+in your SQL statements at runtime. These are not required if you don't want to 
+dynamic parameter replacement.
+:p.Ex: :hp2.@@LIB:ehp2. for library or :hp2.@@FILE:ehp2. for file.
 :ehelp.
 
 
