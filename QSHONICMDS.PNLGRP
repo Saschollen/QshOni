@@ -735,6 +735,28 @@ before running the script.
 :ehelp.
 
 
+.************************************************************************
+.*  Primary Help for command QSHLOGSCAN
+.************************************************************************
+:help name='QSHLOGSCAN'.
+Scan the stdout outfile for the selected value - Help
+:p.Use the QSHLOGSCAN CL command to scan the stdout outfile for the 
+selected value after QSHEXEC has completed.
+:p.The following example scans the outfile log in file QTEMP/STDOUTQSH for a 
+text value of :hp3.successfully:ehp3. somewhere in any line of the log file output:
+:XMP.
+:hp2.
+MONMSG MSGID(CPF9898) EXEC(DO)
+SNDPGMMSG MSG('Did not find string of success in program output.') TOUSR(RICHARD)
+ENDDO 
+QSHLOGSCAN SCANFOR('successfully')   
+EXACTMATCH(*NO)      
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
 
 .*****************************************************************
 .*  COMMON HELP
