@@ -1284,11 +1284,27 @@ before running the script.
 .************************************************************************
 .*  Primary Help for command QSHPYRUN
 .************************************************************************
+<<<<<<< ours
 :help name='QSHPYRUN'.
 Run Python Script via Qshell - Help
 :p.The Run Python Script via Qshell (QSHPYRUN) command is used to run a Python script 
 via QSHEXEC and log the results appropriately.
 :p.The following example calls a helloworld.py script that write to STDOUT.
+||||||| ancestor
+:help name='QSHLOGSCAN'.
+Scan the stdout outfile for the selected value - Help
+:p.Use the QSHLOGSCAN CL command to scan the stdout outfile for the 
+selected value after QSHEXEC has completed.
+:p.The following example scans the outfile log in file QTEMP/STDOUTQSH for a 
+text value of :hp3.successfully:ehp3. somewhere in any line of the log file output:
+=======
+:help name='QSHLOGSCAN'.
+Scan the stdout outfile for the selected value - Help
+:p.This CL command is a convenience command that can be used to scan a 
+STDOUT log for a specific value to indicate success or failure.
+:p.The following example scans the outfile log in file QTEMP/STDOUTQSH for a 
+text value of :hp3.successfully:ehp3. somewhere in any line of the log file output:
+>>>>>>> theirs
 :XMP.
 :hp2.
 QSHPYRUN SCRIPTDIR('/pythonapps')       
@@ -1311,6 +1327,24 @@ QSHPYRUN SCRIPTDIR('/pythonapps')
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
 :ehelp.
+:help name='QSHLOGSCAN/SCANFOR'.
+Value to scan for (SCANFOR) - Help
+:xh3.Value to scan for (SCANFOR)
+:p.Text value to scan for on each line in the stdout outfile. 
+The value passed IS case sensitive and must match the value in the log file.
+:ehelp.
+:help name='QSHLOGSCAN/EXACTMATCH'.
+Exact match (EXACTMATCH) - Help
+:xh3.Exact match (EXACTMATCH)
+:p.Exact match-*YES, Contains-*NO
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.At least one line must contain the value somewhere in the line. 
+Good for generic matching.
+:pt.:pk.*YES:epk.
+:pd.Value must match exactly and be the only thing on the selected line.
+:eparml.
+
 
 :help name='QSHPYRUN/SCRIPTDIR'.
 Python script directory (SCRIPTDIR) - Help
@@ -1385,6 +1419,8 @@ Single quotes are allowed around your parmaeter data though if desired:
 :help name='QSHPYRUN/PASEJOBNAM'.
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
+<<<<<<< ours
+||||||| ancestor
 :help name='QSHLOGSCAN/SCANFOR'.
 Value to scan for (SCANFOR) - Help
 :xh3.Value to scan for (SCANFOR)
@@ -1402,7 +1438,29 @@ Good for generic matching.
 :pt.:pk.*YES:epk.
 :pd.Value must match exactly and be the only thing on the selected line.
 :eparml.
+:ehelp.
 
+=======
+:help name='QSHLOGSCAN/SCANFOR'.
+Value to scan for (SCANFOR) - Help
+:xh3.Value to scan for (SCANFOR)
+:p.Text value to scan for on each line in the stdout outfile. 
+:p.The value passed IS case sensitive and must match the value in the log file.
+:ehelp.
+:help name='QSHLOGSCAN/EXACTMATCH'.
+Exact match (EXACTMATCH) - Help
+:xh3.Exact match (EXACTMATCH)
+:p.Exact match-*YES, Contains-*NO
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.At least one line must contain the value somewhere in the line. 
+Good for generic matching.
+:pt.:pk.*YES:epk.
+:pd.Value must match exactly and be the only thing on the selected line.
+:eparml.
+:ehelp.
+
+>>>>>>> theirs
 
 
 .*****************************************************************
