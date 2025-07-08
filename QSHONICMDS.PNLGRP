@@ -619,7 +619,7 @@ Command line argument delimiter (ARGDLM) - Help
 :parml.
 :pt.:pk def.*DBLQUOTE:epk.
 :pd.Double quotes are used to delimit the command line arguments.
-:pt.:pk.*single:epk.
+:pt.:pk.*SINGLE:epk.
 :pd.Single quotes are used to delimit the command line arguments.
 :pt.:pk.*NONE:epk.
 :pd.No delimiter is used.
@@ -721,6 +721,18 @@ Under the covers QSHPYRUN utilizes the QSHEXEC command to run the Python command
 :pd.Do not debug the command line.
 :eparml.
 :ehelp.
+:help name='QSHPYRUN/CHGSCRDIR'.
+Change script directory (CHGSCRDIR) - Help
+:xh3.Change script directory (CHGSCRDIR)
+:p.Specifies whether to change the current working directory to the script directory before running the script.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not change the current working directory.
+:pt.:pk.*YES:epk.
+:pd.Change the current working directory to the script directory.
+:eparml.
+:ehelp.
+
 
 
 .*****************************************************************
