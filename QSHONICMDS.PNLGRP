@@ -810,7 +810,21 @@ in your SQL statements at runtime. These are not required if you don't want to
 dynamic parameter replacement.
 :p.Ex: :hp2.@@LIB:ehp2. for library or :hp2.@@FILE:ehp2. for file.
 :ehelp.
-
+:help name='QSHQRYTMP/PARMVALS'.
+SQL parm replacement values (PARMVALS) - Help
+:xh3.SQL parm replacement values (PARMVALS)
+:p.Enter up to 30 replacement values you want to replace dynamically in your SQL statements 
+at runtime. These values correspond with each placeholder value you set in the list of PARMS. 
+These are not required if you don't want to dynamic parameter replacement.
+:p.Ex: :hp2.QIWS:ehp2. for library or :hp2.QCUSTCDT:ehp2. for file.
+:ehelp.
+:help name='QSHQRYTMP/OUTFILE'.
+Temp file to receive results (OUTFILE) - Help
+:xh3.Temp file to receive results (OUTFILE)
+:p.This is the output file/table where data gets selected in to via an SQL query. 
+The table will get automatically created as a result of the query if it doesn't exist.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
 
 
 .*****************************************************************
