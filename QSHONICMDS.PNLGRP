@@ -978,12 +978,12 @@ Specify the name (library-name/database-file) of the temporary database file to 
 :P.
 The possible library values are:
 :PARML.
-:PT.:PK DEF.QTMEP:EPK.
+:PT.:PK DEF.QTEMP:EPK.
 :PD.
 QTEMP library is used for the temporary database file.
 :PT.:PK.library-name:EPK.
 :PD.
-Specify the name of the library where the temporary database file is created.
+:PT.:PK.Specify the name (library-name/database-file) of the temporary database file to create.:EPK.
 :EPARML.
 :EPARML.
 :ehelp.
