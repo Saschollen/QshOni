@@ -1289,6 +1289,7 @@ Run Python Script via Qshell - Help
 :p.The Run Python Script via Qshell (QSHPYRUN) command is used to run a Python script 
 via QSHEXEC and log the results appropriately.
 :p.The following example calls a helloworld.py script that write to STDOUT.
+<<<<<<< ours
 ||||||| ancestor
 :help name='QSHLOGSCAN'.
 Scan the stdout outfile for the selected value - Help
@@ -1304,8 +1305,27 @@ STDOUT log for a specific value to indicate success or failure.
 :p.The following example scans the outfile log in file QTEMP/STDOUTQSH for a 
 text value of :hp3.successfully:ehp3. somewhere in any line of the log file output:
 >>>>>>> theirs
+||||||| ancestor
+=======
+||||||| ancestor
+:help name='QSHLOGSCAN'.
+Scan the stdout outfile for the selected value - Help
+:p.This CL command is a convenience command that can be used to scan a 
+STDOUT log for a specific value to indicate success or failure.
+:p.The following example scans the outfile log in file QTEMP/STDOUTQSH for a 
+text value of :hp3.successfully:ehp3. somewhere in any line of the log file output:
+=======
+:help name='QSHLOGSCAN'.
+Scan the stdout outfile for the selected value - Help
+:p.This CL command is a convenience command that can be used to scan a
+STDOUT log for a specific value to indicate success or failure.
+:p.The following example scans the outfile log in file QTEMP/STDOUTQSH for a
+text value of :hp3.successfully:ehp3. somewhere in any line of the log file output:
+>>>>>>> theirs
+>>>>>>> theirs
 :XMP.
 :hp2.
+<<<<<<< ours
 QSHPYRUN SCRIPTDIR('/pythonapps')       
    SCRIPTFILE('hello.py')           
    ARGS(Parm1 Parm2)              
@@ -1320,6 +1340,19 @@ QSHPYRUN SCRIPTDIR('/pythonapps')
    PRTSPLF(QSHPYRUN) 
    PRTUSRDTA(*NONE)    
    PRTTXT(*NONE)
+||||||| ancestor
+MONMSG MSGID(CPF9898) EXEC(DO)
+SNDPGMMSG MSG('Did not find string of success in program output.') TOUSR(RICHARD)
+ENDDO 
+QSHLOGSCAN SCANFOR('successfully')   
+EXACTMATCH(*NO)      
+=======
+MONMSG MSGID(CPF9898) EXEC(DO)
+SNDPGMMSG MSG('Did not find string of success in program output.') TOUSR(RICHARD)
+ENDDO
+QSHLOGSCAN SCANFOR('successfully')
+EXACTMATCH(*NO)
+>>>>>>> theirs
 :ehp2.
 :EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
