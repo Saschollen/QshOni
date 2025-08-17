@@ -1047,8 +1047,6 @@ QTEMP/TMPQRYSRC gets deleted after query processing.
 :pt.:pk def.*YES:epk.
 :pd.Delete the temporary source member after query processing.
 :pt.:pk.*NO:epk.
-:pd.:parml.
-:pt.:pk def.*NO:epk.
 :pd.Do not delete the temporary source member after query processing.
 :eparml.
 :ehelp.
