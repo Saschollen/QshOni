@@ -2518,7 +2518,44 @@ QSHQRYTMP SQL('SELECT * FROM QIWS/QCUSTCDT')
 :EXMP.
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
+||||||| ancestor
+||||||| ancestor
+
+=======
+:help name='QSHQRYSRC/DLTTMPSRC'.
+Delete temp source file after (DLTTMPSRC) - Help
+:xh3.Delete temp source file after (DLTTMPSRC)
+:p.Determines if the temporary source member TMPQRYSRC created in temporary source file 
+QTEMP/TMPQRYSRC gets deleted after query processing.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Delete the temporary source member after query processing.
+:pt.:pk.*NO:epk.
+:pd.:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not delete the temporary source member after query processing.
+:eparml.
+=======
+<<<<<<< ours
+||||||| ancestor
+
+=======
+:help name='QSHQRYSRC/DLTTMPSRC'.
+Delete temp source file after (DLTTMPSRC) - Help
+:xh3.Delete temp source file after (DLTTMPSRC)
+:p.Determines if the temporary source member TMPQRYSRC created in temporary source file 
+QTEMP/TMPQRYSRC gets deleted after query processing.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Delete the temporary source member after query processing.
+:pt.:pk.*NO:epk.
+:pd.:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not delete the temporary source member after query processing.
+:eparml.
+>>>>>>> theirs
 :ehelp.
+<<<<<<< ours
 <<<<<<< ours
 ||||||| ancestor
 :help name='QSHLOGSCAN/SCANFOR'.
@@ -2526,6 +2563,18 @@ Value to scan for (SCANFOR) - Help
 :xh3.Value to scan for (SCANFOR)
 :p.Text value to scan for on each line in the stdout outfile. 
 The value passed IS case sensitive and must match the value in the log file.
+||||||| ancestor
+:help name='QSHQRYTMP/SQL'.
+SQL query (SQL) - Help
+:xh3.SQL query (SQL)
+:p.Enter an SQL SELECT statement to query some specific data.
+=======
+<<<<<<< ours
+:help name='QSHQRYTMP/SQL'.
+SQL query (SQL) - Help
+:xh3.SQL query (SQL)
+:p.Enter an SQL SELECT statement to query some specific data.
+>>>>>>> theirs
 :ehelp.
 :help name='QSHLOGSCAN/EXACTMATCH'.
 Exact match (EXACTMATCH) - Help
@@ -2562,6 +2611,7 @@ Good for generic matching.
 
 >>>>>>> theirs
 
+<<<<<<< ours
 ||||||| ancestor
 =======
 ||||||| ancestor
@@ -2581,6 +2631,46 @@ QTEMP/TMPQRYSRC gets deleted after query processing.
 :pd.Do not delete the temporary source member after query processing.
 :eparml.
 :ehelp.
+>>>>>>> theirs
+>>>>>>> theirs
+||||||| ancestor
+=======
+||||||| ancestor
+>>>>>>> theirs
+=======
+>>>>>>> theirs
+||||||| ancestor
+=======
+||||||| ancestor
+:help name='QSHQRYSRC/DLTTMPSRC'.
+Delete temp source file after (DLTTMPSRC) - Help
+:xh3.Delete temp source file after (DLTTMPSRC)
+:p.Determines if the temporary source member TMPQRYSRC created in temporary source file 
+QTEMP/TMPQRYSRC gets deleted after query processing.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Delete the temporary source member after query processing.
+:pt.:pk.*NO:epk.
+:pd.:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not delete the temporary source member after query processing.
+:eparml.
+:ehelp.
+=======
+:help name='QSHQRYSRC/DLTTMPSRC'.
+Delete temp source file after (DLTTMPSRC) - Help
+:xh3.Delete temp source file after (DLTTMPSRC)
+:p.Determines if the temporary source member TMPQRYSRC created in temporary source file 
+QTEMP/TMPQRYSRC gets deleted after query processing.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Delete the temporary source member after query processing.
+:pt.:pk.*NO:epk.
+:pd.Do not delete the temporary source member after query processing.
+:eparml.
+:ehelp.
+>>>>>>> theirs
+>>>>>>> theirs
 >>>>>>> theirs
 >>>>>>> theirs
 

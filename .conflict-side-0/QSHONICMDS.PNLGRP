@@ -1865,6 +1865,27 @@ dynamic parameter replacement.
 :ehelp.
 
 
+||||||| ancestor
+=======
+||||||| ancestor
+
+=======
+:help name='QSHQRYSRC/DLTTMPSRC'.
+Delete temp source file after (DLTTMPSRC) - Help
+:xh3.Delete temp source file after (DLTTMPSRC)
+:p.Determines if the temporary source member TMPQRYSRC created in temporary source file 
+QTEMP/TMPQRYSRC gets deleted after query processing.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Delete the temporary source member after query processing.
+:pt.:pk.*NO:epk.
+:pd.:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not delete the temporary source member after query processing.
+:eparml.
+:ehelp.
+>>>>>>> theirs
+>>>>>>> theirs
 
 .*****************************************************************
 .*  COMMON HELP
