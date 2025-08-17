@@ -985,8 +985,6 @@ QTEMP library is used for the temporary database file.
 :PD.
 Specify the name of the library where the temporary database file is created.
 :EPARML.
-
-
 :ehelp.
 :help name='QSHQRYSRC/EMPTYERROR'.
 Escape error if no result data (EMPTYERROR) - Help
@@ -998,6 +996,7 @@ Escape error if no result data (EMPTYERROR) - Help
 :pt.:pk.*NO:epk.
 :pd.Do not throw escape message if no records were selected.
 :eparml.
+:eparml
 :ehelp.
 :help name='QSHQRYSRC/NAMING'.
 Naming convention (NAMING) - Help
