@@ -714,9 +714,9 @@ Debug QSHEXEC command (DEBUGCMD) - Help
 :parml.
 :p.This parameter allows you to debug the command line that QSHPYRUN will run via QSHEXEC.
 :pt.:pk.*YES:epk.
-:pd.If set to *YES, your job must be running interactively and it will display the command line 
-that QSHPYRUN composed to execute via QSHEXEC before it runs. 
-:p.This is good for debugging or you are curious what the exec QSHEXEC command will look like. 
+:pd.If set to *YES, your job must be running interactively and it will display the command line
+that QSHPYRUN composed to execute via QSHEXEC before it runs.
+:p.This is good for debugging or you are curious what the exec QSHEXEC command will look like.
 Under the covers QSHPYRUN utilizes the QSHEXEC command to run the Python command line.
 :pt.:pk def.*NO:epk.
 :pd.Do not debug the command line.
@@ -725,7 +725,7 @@ Under the covers QSHPYRUN utilizes the QSHEXEC command to run the Python command
 :help name='QSHPYRUN/CHGSCRDIR'.
 Change script directory (CHGSCRDIR) - Help
 :xh3.Change script directory (CHGSCRDIR)
-:p.Specifies whether to change the current working directory to the script directory 
+:p.Specifies whether to change the current working directory to the script directory
 before running the script.
 :parml.
 :pt.:pk def.*NO:epk.
@@ -741,17 +741,17 @@ before running the script.
 .************************************************************************
 :help name='QSHLOGSCAN'.
 Scan the stdout outfile for the selected value - Help
-:p.This CL command is a convenience command that can be used to scan a 
+:p.This CL command is a convenience command that can be used to scan a
 STDOUT log for a specific value to indicate success or failure.
-:p.The following example scans the outfile log in file QTEMP/STDOUTQSH for a 
+:p.The following example scans the outfile log in file QTEMP/STDOUTQSH for a
 text value of :hp3.successfully:ehp3. somewhere in any line of the log file output:
 :XMP.
 :hp2.
 MONMSG MSGID(CPF9898) EXEC(DO)
 SNDPGMMSG MSG('Did not find string of success in program output.') TOUSR(RICHARD)
-ENDDO 
-QSHLOGSCAN SCANFOR('successfully')   
-EXACTMATCH(*NO)      
+ENDDO
+QSHLOGSCAN SCANFOR('successfully')
+EXACTMATCH(*NO)
 :ehp2.
 :EXMP.
 :P.
@@ -760,7 +760,7 @@ EXACTMATCH(*NO)
 :help name='QSHLOGSCAN/SCANFOR'.
 Value to scan for (SCANFOR) - Help
 :xh3.Value to scan for (SCANFOR)
-:p.Text value to scan for on each line in the stdout outfile. 
+:p.Text value to scan for on each line in the stdout outfile.
 :p.The value passed IS case sensitive and must match the value in the log file.
 :ehelp.
 :help name='QSHLOGSCAN/EXACTMATCH'.
@@ -769,7 +769,7 @@ Exact match (EXACTMATCH) - Help
 :p.Exact match-*YES, Contains-*NO
 :parml.
 :pt.:pk def.*NO:epk.
-:pd.At least one line must contain the value somewhere in the line. 
+:pd.At least one line must contain the value somewhere in the line.
 Good for generic matching.
 :pt.:pk.*YES:epk.
 :pd.Value must match exactly and be the only thing on the selected line.
@@ -782,29 +782,28 @@ Good for generic matching.
 .************************************************************************
 :help name='QSHQRYTMP'.
 SQL Query Data to Temp Table - Help
-:p.This CL command is a convenience command that can be used to run an 
+:p.This CL command is a convenience command that can be used to run an
 SQL data selection query and create an outfile of resulting data.
-:p.The following example queries all the records from table QIWS/QCUSCTDT and 
+:p.The following example queries all the records from table QIWS/QCUSCTDT and
 places the result in to an output table named: SQLTMP0001 in library QTEMP.
 :XMP.
 :hp2.
-QSHQRYTMP SQL('SELECT * FROM QIWS/QCUSTCDT')   
-    OUTFILE(SQLTMP0001)                  
-    EMPTYERROR(*YES)                     
-    PROMPT(*NO)         
+QSHQRYTMP SQL('SELECT * FROM QIWS/QCUSTCDT')
+    OUTFILE(SQLTMP0001)
+    EMPTYERROR(*YES)
+    PROMPT(*NO)
 :ehp2.
+
 :EXMP.
 :P.
-:NT.
-The following data areas are auto-created in the current job library QTEMP to track resulting query info. 
-You can retreive a resulting record count or the name of the outfile to check for existence 
+The following data areas are auto-created in the current job library QTEMP to track resulting query info.
+You can retreive a resulting record count or the name of the outfile to check for existence
 in case it didn't get created for some reason such as query failure.
-:ENT.
 :XMP.
 :hp2.
-SQLQRYCNT - Query result record count. 
+SQLQRYCNT - Query result record count.
 SQLQRYFIL - Output file created by the query.
-SQLQRYLIB - Output file library for the file created by the query.       
+SQLQRYLIB - Output file library for the file created by the query.
 :ehp2.
 :EXMP.
 :P.
@@ -818,30 +817,30 @@ SQL query (SQL) - Help
 :help name='QSHQRYTMP/PARMS'.
 SQL placeholder parm name (PARMS) - Help
 :xh3.SQL placeholder parm name (PARMS)
-:p.Enter up to 30 parameter placeholder values you want to replace dynamically 
-in your SQL statements at runtime. These are not required if you don't want to 
+:p.Enter up to 30 parameter placeholder values you want to replace dynamically
+in your SQL statements at runtime. These are not required if you don't want to
 dynamic parameter replacement.
 :p.Ex: :hp2.@@LIB:ehp2. for library or :hp2.@@FILE:ehp2. for file.
 :ehelp.
 :help name='QSHQRYTMP/PARMVALS'.
 SQL parm replacement values (PARMVALS) - Help
 :xh3.SQL parm replacement values (PARMVALS)
-:p.Enter up to 30 replacement values you want to replace dynamically in your SQL statements 
-at runtime. These values correspond with each placeholder value you set in the list of PARMS. 
+:p.Enter up to 30 replacement values you want to replace dynamically in your SQL statements
+at runtime. These values correspond with each placeholder value you set in the list of PARMS.
 These are not required if you don't want to dynamic parameter replacement.
 :p.Ex: :hp2.QIWS:ehp2. for library or :hp2.QCUSTCDT:ehp2. for file.
 :ehelp.
 :help name='QSHQRYTMP/OUTFILE'.
 Temp file to receive results (OUTFILE) - Help
 :xh3.Temp file to receive results (OUTFILE)
-:p.This is the output file/table where data gets selected in to via an SQL query. 
+:p.This is the output file/table where data gets selected in to via an SQL query.
 The table will get automatically created as a result of the query if it doesn't exist.
 :IMHELP NAME='COMMON/OUTFILE'.
 :ehelp.
 :help name='QSHQRYTMP/EMPTYERROR'.
 Escape error if no result data (EMPTYERROR) - Help
 :xh3.Escape error if no result data (EMPTYERROR)
-:p.This parameter determines whether a CPF9898 escape message is thrown if no records were selected by the query
+:p.This parameter determines whether a CPF9898 escape message is thrown if no records were selected by the q
 :parml.
 :pt.:pk def.*YES:epk.
 :pd.Throw escape message if no records were selected.
@@ -862,7 +861,7 @@ Naming convention (NAMING) - Help
 :ehelp.
 :help name='QSHQRYTMP/PROMPT'.
 Prompt the RUNSQL statement (PROMPT) - Help
-:xh3.Interactively prompt the RUNSQL statement (PROMPT) 
+:xh3.Interactively prompt the RUNSQL statement (PROMPT)
 :p.Specifies whether to prompt the RUNSQL command before running.
 Only use this parameter in an interactive 5250 session.
 :parml.
@@ -875,7 +874,7 @@ Only use this parameter in an interactive 5250 session.
 :help name='QSHQRYTMP/CRTIDCOL'.
 Create row identity column (CRTIDCOL) - Help
 :xh3.Create row identity column (CRTIDCOL)
-:p.Specifies whether to allow adding of a unique identity column to your outfile table after it's created. 
+:p.Specifies whether to allow adding of a unique identity column to your outfile table after it's created.
 :parml.
 :pt.:pk def.*NO:epk.
 :pd.Do not add an identity column.
