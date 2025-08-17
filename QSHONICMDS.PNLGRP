@@ -966,7 +966,27 @@ Temp file to receive results (OUTFILE) - Help
 :xh3.Temp file to receive results (OUTFILE)
 :p.This is the output file/table where data gets selected in to via an SQL query.
 The table will get automatically created as a result of the query if it doesn't exist.
-:IMHELP NAME='COMMON/OUTFILE'.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK DEF.SQLTMP0001:EPK.
+:PD.
+The SQLTMP0001 table is created in the QTEMP library by default.
+:PD.
+Specify the name (library-name/database-file) of the temporary database file to create.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.QTMEP:EPK.
+:PD.
+QTEMP library is used for the temporary database file.
+:PT.:PK.library-name:EPK.
+:PD.
+Specify the name of the library where the temporary database file is created.
+:EPARML.
+
+
 :ehelp.
 :help name='QSHQRYSRC/EMPTYERROR'.
 Escape error if no result data (EMPTYERROR) - Help
