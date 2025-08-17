@@ -1459,7 +1459,7 @@ Good for generic matching.
 :pd.Value must match exactly and be the only thing on the selected line.
 :eparml.
 :ehelp.
-Interactively prompt the RUNSQL statement (PROMPT) - Help
+Prompt the RUNSQL statement (PROMPT) - Help
 :xh3.Interactively prompt the RUNSQL statement (PROMPT) 
 :p.Specifies whether to prompt the RUNSQL command before running.
 Only use this parameter in an interactive 5250 session.
