@@ -974,6 +974,8 @@ The possible values are:
 :PD.
 The SQLTMP0001 table is created in the QTEMP library by default.
 :P.
+:PT.:PK.database-file-name:EPK.
+:PD.
 Specify the name (library-name/database-file) of the temporary database file to create.
 :P.
 The possible library values are:
