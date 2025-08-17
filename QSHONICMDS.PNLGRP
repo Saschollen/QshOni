@@ -784,6 +784,9 @@ Good for generic matching.
 SQL Query Data to Temp Table - Help
 :p.This CL command is a convenience command that can be used to run an
 SQL data selection query and create an outfile of resulting data.
+:NT.
+The command returns a CPF9898 escape message on error. Otherwise a CPF9898 completion message.
+:ENT.
 :p.The following example queries all the records from table QIWS/QCUSCTDT and
 places the result in to an output table named: SQLTMP0001 in library QTEMP.
 :XMP.
