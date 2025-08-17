@@ -778,7 +778,7 @@ Good for generic matching.
 
 
 .************************************************************************
-.*  Primary Help for command QQSHQRYTMP
+.*  Primary Help for command QSHQRYTMP
 .************************************************************************
 :help name='QSHQRYTMP'.
 SQL Query Data to Temp Table - Help
@@ -796,7 +796,6 @@ QSHQRYTMP SQL('SELECT * FROM QIWS/QCUSTCDT')
     EMPTYERROR(*YES)
     PROMPT(*NO)
 :ehp2.
-
 :EXMP.
 :P.
 The following data areas are auto-created in the current job library QTEMP to track resulting query info.
@@ -893,6 +892,133 @@ RECID is the default name.
 :ehelp.
 
 
+.************************************************************************
+.*  Primary Help for command QSHQRYSRC
+.************************************************************************
+:help name='QSHQRYSRC'.
+SQL Query Source to Temp Table - Help
+:p.This CL command is a convenience command that can be used to run an SQL 
+data selection query and create an outfile of resulting data. 
+Instead of an SQL input statement parameter, the query pulls SQL source from a source member or IFS file member.
+:NT.
+The command returns a CPF9898 escape message on error. Otherwise a CPF9898 completion message.
+:ENT.
+:p.The following example queries all the records from table QIWS/QCUSCTDT and 
+places the result in to an output table named: SQLTMP0001 in library QTEMP. 
+It also replaces the selected placeholder parameters values in the SQL query that gets read from the source file.
+:XMP.
+:hp2.
+QSHQRYSRC SQLLOC(*SRCMBR)            
+    SRCFILE(QSHONI/SOURCE)     
+    SRCMBR(SQLTEST3)           
+    PARMS(@@LIB @@file)        
+    PARMVALS(qiws qcustcdt)    
+:ehp2.
+:EXMP.
+:P.
+The following data areas are auto-created in the current job library QTEMP to track resulting query info.
+You can retreive a resulting record count or the name of the outfile to check for existence
+in case it didn't get created for some reason such as query failure.
+:XMP.
+:hp2.
+SQLQRYCNT - Query result record count.
+SQLQRYFIL - Output file created by the query.
+SQLQRYLIB - Output file library for the file created by the query.
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+:help name='QSHQRYSRC/SQLLOC'.
+SQL source from location type (SQLLOC) - Help
+:xh3.SQL source from location type (SQLLOC)
+:p.This parameter determines if the SQL query is sourced from a source member or an IFS file. Default is *SRCMBR.
+:parml.
+:pt.:pk def.*SRCMBR:epk.
+:pd.The SQL query is sourced from a source physical file member.
+:pt.:pk.*IFSFILE:epk.
+:pd.The SQL query is sourced from an IFS file member.
+:eparml.
+:ehelp.
+:help name='QSHQRYSRC/SRCFILE'.
+SQL source file (SRCFILE) - Help
+:xh3.SQL source file (SRCFILE)
+:p.This is the source file that contains the SQL query source member if SQLLOC is *SRCMBR.
+:ehelp.
+:help name='QSHQRYSRC/PARMS'.
+SQL placeholder parm name (PARMS) - Help
+:xh3.SQL placeholder parm name (PARMS)
+:p.Enter up to 30 parameter placeholder values you want to replace dynamically
+in your SQL statements at runtime. These are not required if you don't want to
+dynamic parameter replacement.
+:p.Ex: :hp2.@@LIB:ehp2. for library or :hp2.@@FILE:ehp2. for file.
+:ehelp.
+:help name='QSHQRYSRC/PARMVALS'.
+SQL parm replacement values (PARMVALS) - Help
+:xh3.SQL parm replacement values (PARMVALS)
+:p.Enter up to 30 replacement values you want to replace dynamically in your SQL statements
+at runtime. These values correspond with each placeholder value you set in the list of PARMS.
+These are not required if you don't want to dynamic parameter replacement.
+:p.Ex: :hp2.QIWS:ehp2. for library or :hp2.QCUSTCDT:ehp2. for file.
+:ehelp.
+:help name='QSHQRYSRC/OUTFILE'.
+Temp file to receive results (OUTFILE) - Help
+:xh3.Temp file to receive results (OUTFILE)
+:p.This is the output file/table where data gets selected in to via an SQL query.
+The table will get automatically created as a result of the query if it doesn't exist.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHQRYSRC/EMPTYERROR'.
+Escape error if no result data (EMPTYERROR) - Help
+:xh3.Escape error if no result data (EMPTYERROR)
+:p.This parameter determines whether a CPF9898 escape message is thrown if no records were selected by the q
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Throw escape message if no records were selected.
+:pt.:pk.*NO:epk.
+:pd.Do not throw escape message if no records were selected.
+:eparml.
+:ehelp.
+:help name='QSHQRYSRC/NAMING'.
+Naming convention (NAMING) - Help
+:xh3.Naming convention (NAMING)
+:p.This parameter determines what format your queries are using: *SYS or *SQL.
+:parml.
+:pt.:pk def.*SYS:epk.
+:pd.Use system naming convention for SQL queries.
+:pt.:pk.*SQL:epk.
+:pd.Use SQL naming convention for SQL queries.
+:eparml.
+:ehelp.
+:help name='QSHQRYSRC/PROMPT'.
+Prompt the RUNSQL statement (PROMPT) - Help
+:xh3.Interactively prompt the RUNSQL statement (PROMPT)
+:p.Specifies whether to prompt the RUNSQL command before running.
+Only use this parameter in an interactive 5250 session.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not prompt the RUNSQL command.
+:pt.:pk.*YES:epk.
+:pd.Prompt the RUNSQL command.
+:eparml.
+:ehelp.
+:help name='QSHQRYSRC/CRTIDCOL'.
+Create row identity column (CRTIDCOL) - Help
+:xh3.Create row identity column (CRTIDCOL)
+:p.Specifies whether to allow adding of a unique identity column to your outfile table after it's created.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not add an identity column.
+:pt.:pk.*YES:epk.
+:pd.Add an identity column.
+:eparml.
+:ehelp.
+:help name='QSHQRYSRC/IDCOLNAME'.
+Record ID column name (IDCOLNAME) - Help
+:xh3.Record ID column name (IDCOLNAME)
+:p.Specifies the name of the identity column to add if CRTIDCOL is *YES.
+RECID is the default name.
+:ehelp.
 
 
 .*****************************************************************
