@@ -795,6 +795,19 @@ QSHQRYTMP SQL('SELECT * FROM QIWS/QCUSTCDT')
 :ehp2.
 :EXMP.
 :P.
+:NT.
+The following data areas are auto-created in the current job library QTEMP to track resulting query info. 
+You can retreive a resulting record count or the name of the outfile to check for existence 
+in case it didn't get created for some reason such as query failure.
+:ENT.
+:XMP.
+:hp2.
+SQLQRYCNT - Query result record count. 
+SQLQRYFIL - Output file created by the query.
+SQLQRYLIB - Output file library for the file created by the query.       
+:ehp2.
+:EXMP.
+:P.
 :IMHELP NAME='COMMON/ASTERISK'.
 :ehelp.
 :help name='QSHQRYTMP/SQL'.
@@ -869,6 +882,12 @@ Create row identity column (CRTIDCOL) - Help
 :pt.:pk.*YES:epk.
 :pd.Add an identity column.
 :eparml.
+:ehelp.
+:help name='QSHQRYTMP/IDCOLNAME'.
+Record ID column name (IDCOLNAME) - Help
+:xh3.Record ID column name (IDCOLNAME)
+:p.Specifies the name of the identity column to add if CRTIDCOL is *YES.
+RECID is the default name.
 :ehelp.
 
 
