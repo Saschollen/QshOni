@@ -1419,6 +1419,7 @@ Single quotes are allowed around your parmaeter data though if desired:
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
 <<<<<<< ours
+<<<<<<< ours
 ||||||| ancestor
 :help name='QSHLOGSCAN/SCANFOR'.
 Value to scan for (SCANFOR) - Help
@@ -1457,6 +1458,7 @@ Good for generic matching.
 :pt.:pk.*YES:epk.
 :pd.Value must match exactly and be the only thing on the selected line.
 :eparml.
+:ehelp.
 :ehelp.
 
 >>>>>>> theirs
