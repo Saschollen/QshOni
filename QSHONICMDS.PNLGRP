@@ -1051,6 +1051,30 @@ QTEMP/TMPQRYSRC gets deleted after query processing.
 :eparml.
 :ehelp.
 
+
+.************************************************************************
+.*  Primary Help for command QSHPATH
+.************************************************************************
+:help name='QSHQPATH'.
+Set Open Source Package Path (QSHPATH) - Help
+:p.This CL command is a convenience command to add the IBM i Open Source packages directory name to the PATH environment variable.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+:help name='QSHPATH/PKGPATH'.
+Open Source package path (PKGPATH) - Help
+:xh3.Open Source package path (PKGPATH)
+:p.Specify IFS location to open source packages.
+:parml.
+:pt.:pk def.*DEFAULT:epk.
+:pd.The default value is /QOpenSys/pkgs/bin.
+:pt.:pk.character-value:epk.
+:pd.Enter the full IFS path to the open source packages directory.
+:eparml.
+:ehelp.
+
+
+
 .*****************************************************************
 .*  COMMON HELP
 .*
