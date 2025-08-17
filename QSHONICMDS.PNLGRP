@@ -848,7 +848,29 @@ Naming convention (NAMING) - Help
 :eparml.
 :ehelp.
 :help name='QSHQRYTMP/PROMPT'.
+Interactively prompt the RUNSQL statement (PROMPT) - Help
+:xh3.Interactively prompt the RUNSQL statement (PROMPT) 
+:p.Specifies whether to prompt the RUNSQL command before running.
+Only use this parameter in an interactive 5250 session.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not prompt the RUNSQL command.
+:pt.:pk.*YES:epk.
+:pd.Prompt the RUNSQL command.
+:eparml.
 :ehelp.
+:help name='QSHQRYTMP/CRTIDCOL'.
+Create row identity column (CRTIDCOL) - Help
+:xh3.Create row identity column (CRTIDCOL)
+:p.Specifies whether to allow adding of a unique identity column to your outfile table after it's created. 
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not add an identity column.
+:pt.:pk.*YES:epk.
+:pd.Add an identity column.
+:eparml.
+:ehelp.
+
 
 
 
