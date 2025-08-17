@@ -825,6 +825,30 @@ Temp file to receive results (OUTFILE) - Help
 The table will get automatically created as a result of the query if it doesn't exist.
 :IMHELP NAME='COMMON/OUTFILE'.
 :ehelp.
+:help name='QSHQRYTMP/EMPTYERROR'.
+Escape error if no result data (EMPTYERROR) - Help
+:xh3.Escape error if no result data (EMPTYERROR)
+:p.This parameter determines whether a CPF9898 escape message is thrown if no records were selected by the query
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Throw escape message if no records were selected.
+:pt.:pk.*NO:epk.
+:pd.Do not throw escape message if no records were selected.
+:eparml.
+:ehelp.
+:help name='QSHQRYTMP/NAMING'.
+Naming convention (NAMING) - Help
+:xh3.Naming convention (NAMING)
+:p.This parameter determines what format your queries are using: *SYS or *SQL.
+:parml.
+:pt.:pk def.*SYS:epk.
+:pd.Use system naming convention for SQL queries.
+:pt.:pk.*SQL:epk.
+:pd.Use SQL naming convention for SQL queries.
+:eparml.
+:ehelp.
+:help name='QSHQRYTMP/PROMPT'.
+
 
 
 .*****************************************************************
