@@ -897,22 +897,22 @@ RECID is the default name.
 .************************************************************************
 :help name='QSHQRYSRC'.
 SQL Query Source to Temp Table - Help
-:p.This CL command is a convenience command that can be used to run an SQL 
-data selection query and create an outfile of resulting data. 
-Instead of an SQL input statement parameter, the query pulls SQL source from a source member or IFS file member.
+:p.This CL command is a convenience command that can be used to run an SQL
+data selection query and create an outfile of resulting data.
+Instead of an SQL input statement parameter, the query pulls SQL source from a source member or IFS file mem
 :NT.
 The command returns a CPF9898 escape message on error. Otherwise a CPF9898 completion message.
 :ENT.
-:p.The following example queries all the records from table QIWS/QCUSCTDT and 
-places the result in to an output table named: SQLTMP0001 in library QTEMP. 
-It also replaces the selected placeholder parameters values in the SQL query that gets read from the source file.
+:p.The following example queries all the records from table QIWS/QCUSCTDT and
+places the result in to an output table named: SQLTMP0001 in library QTEMP.
+It also replaces the selected placeholder parameters values in the SQL query that gets read from the source
 :XMP.
 :hp2.
-QSHQRYSRC SQLLOC(*SRCMBR)            
-    SRCFILE(QSHONI/SOURCE)     
-    SRCMBR(SQLTEST3)           
-    PARMS(@@LIB @@file)        
-    PARMVALS(qiws qcustcdt)    
+QSHQRYSRC SQLLOC(*SRCMBR)
+    SRCFILE(QSHONI/SOURCE)
+    SRCMBR(SQLTEST3)
+    PARMS(@@LIB @@file)
+    PARMVALS(qiws qcustcdt)
 :ehp2.
 :EXMP.
 :P.
@@ -932,7 +932,7 @@ SQLQRYLIB - Output file library for the file created by the query.
 :help name='QSHQRYSRC/SQLLOC'.
 SQL source from location type (SQLLOC) - Help
 :xh3.SQL source from location type (SQLLOC)
-:p.This parameter determines if the SQL query is sourced from a source member or an IFS file. Default is *SRCMBR.
+:p.This parameter determines if the SQL query is sourced from a source member or an IFS file. Default is *SR
 :parml.
 :pt.:pk def.*SRCMBR:epk.
 :pd.The SQL query is sourced from a source physical file member.
@@ -985,6 +985,7 @@ QTEMP library is used for the temporary database file.
 :PD.
 Specify the name of the library where the temporary database file is created.
 :EPARML.
+:EPARML.
 :ehelp.
 :help name='QSHQRYSRC/EMPTYERROR'.
 Escape error if no result data (EMPTYERROR) - Help
@@ -996,7 +997,6 @@ Escape error if no result data (EMPTYERROR) - Help
 :pt.:pk.*NO:epk.
 :pd.Do not throw escape message if no records were selected.
 :eparml.
-:eparml
 :ehelp.
 :help name='QSHQRYSRC/NAMING'.
 Naming convention (NAMING) - Help
