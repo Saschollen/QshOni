@@ -945,6 +945,16 @@ SQL source file (SRCFILE) - Help
 :xh3.SQL source file (SRCFILE)
 :p.This is the source file that contains the SQL query source member if SQLLOC is *SRCMBR.
 :ehelp.
+:help name='QSHQRYSRC/SRCMBR'.
+SQL source member (SRCMBR) - Help
+:xh3.SQL source member (SRCMBR)
+:p.This is the source member that contains the SQL query if SQLLOC is *SRCMBR.
+:ehelp.
+:help name='QSHQRYSRC/IFSFILE'.
+SQL IFS file (IFSFILE) - Help
+:xh3.SQL IFS file (IFSFILE)
+:p.This is the IFS file that contains the SQL query if SQLLOC is *IFSFILE.
+:ehelp.
 :help name='QSHQRYSRC/PARMS'.
 SQL placeholder parm name (PARMS) - Help
 :xh3.SQL placeholder parm name (PARMS)
