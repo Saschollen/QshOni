@@ -1146,6 +1146,8 @@ QSHSETPROF USER(USER1)
           REPLACE(*YES)   
 :ehp2.
 :EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
 :ehelp.
 
 
