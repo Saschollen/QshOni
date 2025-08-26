@@ -1123,6 +1123,17 @@ QSHBASHPRF generates .bash_profile
 QSHBASHRC generates .bashrc
 :ehp2.
 :EXMP.
+:P.The following example creates the QShell/PASE .profile, .bashrc and .bash_rc files for the USER1 user ID.
+:p.
+:XMP.
+:hp2.
+QSHSETPROF USER(USER1)     
+          PROFILE(*YES)   
+          BASHPROFIL(*YES)
+          BASHRC(*YES)    
+          REPLACE(*NO)   
+:ehp2.
+:EXMP.
 :ehelp.
 
 
