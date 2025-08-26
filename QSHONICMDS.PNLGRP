@@ -944,6 +944,16 @@ SQL source from location type (SQLLOC) - Help
 SQL source file (SRCFILE) - Help
 :xh3.SQL source file (SRCFILE)
 :p.This is the source file that contains the SQL query source member if SQLLOC is *SRCMBR.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+The library list is used to locate the output queue name.
+:PT.:PK.library-name:EPK.
+:PD.
+Specify the name of the library where the output queue is located.
+:EPARML.
 :ehelp.
 :help name='QSHQRYSRC/SRCMBR'.
 SQL source member (SRCMBR) - Help
