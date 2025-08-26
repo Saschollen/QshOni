@@ -897,6 +897,7 @@ RECID is the default name.
 .************************************************************************
 :help name='QSHQRYSRC'.
 SQL Query Source to Temp Table - Help
+:xh3.SQL Query Source to Temp Table (QSHQRYSRC)
 :p.This CL command is a convenience command that can be used to run an SQL
 data selection query and create an outfile of resulting data.
 Instead of an SQL input statement parameter, the query pulls SQL source from a source member or IFS file mem
