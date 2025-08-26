@@ -1237,6 +1237,59 @@ QSHSETPROF USER(USER1)
           REPLACE(*NO)   
 :ehp2.
 :EXMP.
+:ehelp.
+
+
+
+.*****************************************************************
+.*  COMMON HELP
+.*
+.*  Common help text modules (can be embedded elsewhere)
+.*
+.*****************************************************************
+:HELP NAME='COMMON/ASTERISK'.
+:NT.
+Do not precede an entry with an asterisk unless that entry is a
+"special value" that is shown (on the display itself or in the help
+information) with an asterisk.
+:ENT.
+:EHELP.
+
+:HELP NAME='COMMON/REQPARM'.
+:P.
+This is a required parameter.
+:EHELP.
+
+:HELP NAME='COMMON/NOPARMS'.
+:P.
+There are no parameters for this command.
+:EHELP.
+
+:HELP NAME='COMMON/LIST'.
+:P.
+You can enter multiple values for this parameter.  If you are on an
+entry display and you need additional entry fields to enter these
+multiple values, type a plus sign (+) in the entry field opposite
+the phrase "+ for more", and press the Enter key.
+:EHELP.
+
+:HELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:hp3.STDOUT Logging Note::ehp3.
+During execution, the CL command always creates a temporary outfile in
+library QTEMP that gets automatically populated with standard output (STDOUT) from the
+QSH/PASE command process that gets run.
+The temporary STDOUT output file name is: :hp2.QTEMP/STDOUTQSH:ehp2..
+:p.
+:XMP.
+:hp2.
+QSHSETPROF USER(USER1)     
+          PROFILE(*YES)   
+          BASHPROFIL(*YES)
+          BASHRC(*YES)    
+          REPLACE(*NO)   
+:ehp2.
+:EXMP.
 :P.The following example creates or replaces the QShell/PASE .profile, .bashrc and .bash_rc files for the USER1 user ID.
 :p.
 :XMP.
