@@ -4046,6 +4046,25 @@ Open Source package location (PKGLOC) - Help
 :ehelp.
 
 
+.************************************************************************
+.*  Primary Help for command QSHSETPROF
+.************************************************************************
+:help name='QSHSETPROF'.
+Set Up Pase Profile for User (QSHSETPROF) - Help
+:xh3.Set Up Pase Profile for User (QSHSETPROF)
+:p.This CL command is a convenience command to create open source profile files for a 
+selected user ID in their home directory from template source files in QSHONI/SOURCE:
+:p.
+:XMP.
+:hp2.
+QSHPROFILE generates .profile
+QSHBASHPRF generates .bash_profile
+QSHBASHRC generates .bashrc
+:ehp2.
+:EXMP.
+:ehelp.
+
+
 
 .*****************************************************************
 .*  COMMON HELP
