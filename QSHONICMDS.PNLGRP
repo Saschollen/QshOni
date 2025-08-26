@@ -1134,6 +1134,17 @@ QSHSETPROF USER(USER1)
           REPLACE(*NO)   
 :ehp2.
 :EXMP.
+:P.The following example creates or replaces the QShell/PASE .profile, .bashrc and .bash_rc files for the USER1 user ID.
+:p.
+:XMP.
+:hp2.
+QSHSETPROF USER(USER1)     
+          PROFILE(*YES)   
+          BASHPROFIL(*YES)
+          BASHRC(*YES)    
+          REPLACE(*YES)   
+:ehp2.
+:EXMP.
 :ehelp.
 
 
