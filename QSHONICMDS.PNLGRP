@@ -4031,6 +4031,19 @@ Open Source package path (PKGPATH) - Help
 :pd.Enter the full IFS path to the open source packages directory.
 :eparml.
 :ehelp.
+:help name='QSHPATH/PATHLOC'.
+Open Source package location (PKGLOC) - Help
+:xh3.Open Source package location (PKGLOC)
+:p.Specify where the open source packages are placed in the PATH.
+:parml.
+:pt.:pk def.*DATAARA:epk.
+:pd.The PATH location is retrieved from the data area in named QSHONI/QSHPATHLOC.
+:pt.:pk.*BEGIN:epk.
+:pd.Open source package path is prepended to the beginning of PATH.
+:pt.:pk.*END:epk.
+:pd.Open source package path is appended to the end of PATH.
+:eparml.
+:ehelp.
 
 
 
