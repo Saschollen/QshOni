@@ -4168,6 +4168,8 @@ QSHBASHPRF generates .bash_profile
 QSHBASHRC generates .bashrc
 :ehp2.
 :EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
 :ehelp.
 
 
