@@ -1,3 +1,6 @@
 {
-  "description": "QshOni Project"
+  "description": "QshOni Project",
+  "preUsrlibl": [
+    "QSHONI"
+  ]
 }
