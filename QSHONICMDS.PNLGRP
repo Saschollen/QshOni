@@ -2840,6 +2840,38 @@ Escape error on not found (ESCONERROR) - Help
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHHOME
+.************************************************************************
+:help name='QSHHOME'.
+Retrieve Home Dir (QSHHOME) - Help
+:xh3.Retrieve Home Dir (QSHHOME)
+:p.The Retrieve Home Dir (QSHHOME) command returns the IFS home directory of the user profile the job
+is running under. The value is returned in a CL variable, so the command must be run from a CL program.
+If the home directory cannot be determined the variable is set to blanks.
+:p.The following example retrieves the home directory:
+:XMP.
+:hp2.
+DCL VAR(&HOMEDIR) TYPE(*CHAR) LEN(640)
+QSHHOME HOMEDIR(&HOMEDIR)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHHOME/HOMEDIR'.
+Return home dir (HOMEDIR) - Help
+:xh3.Return home dir (HOMEDIR)
+:p.Specifies the CL variable that receives the home directory path.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 640.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
