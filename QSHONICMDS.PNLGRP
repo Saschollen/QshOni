@@ -4181,4 +4181,88 @@ Specify the name of the library where the log file is located.
 :EPARML.
 :ehelp.
 
+.*******************************************
+.*   Help for common parameters used by the
+.*   commands that return values (QSHCALL, QSHPYCALL,
+.*   QSHGETPARM, QSHGETPR2) and the script commands
+.*   (QSHPYCALL, QSHPHPRUN).
+.*******************************************
+:HELP NAME='COMMON/RETURNPARM'.
+Return parm (RETURNxx) - Help
+:xh3.Return parm value (RETURNxx)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx::ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01:my first value
+RETURNPARM02:my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01: is returned in RETURN01, the value from
+RETURNPARM02:
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/ARGDLM'.
+Command line arg delimiter (ARGDLM) - Help
+:xh3.Command line argument delimiter (ARGDLM)
+:p.Specifies the delimiter that is automatically placed around each command line argument value.
+:parml.
+:pt.:pk def.*DBLQUOTE:epk.
+:pd.Double quotes are placed around each argument.
+:pt.:pk.*SGLQUOTE:epk.
+:pd.Single quotes are placed around each argument.
+:pt.:pk.*NONE:epk.
+:pd.No delimiter is added. Use this when you want to control exactly where quotes are placed in your
+arguments.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/CCSID37'.
+Coded character set ID for job (CCSID) - Help
+:xh3.Coded character set ID for job (CCSID)
+:p.Specifies the CCSID the job uses while the script runs. This affects how the script output is converted.
+:parml.
+:pt.:pk def.37:epk.
+:pd.CCSID 37 (US English EBCDIC) is used.
+:pt.:pk.*SAME:epk.
+:pd.The CCSID stays the same as the current job with no change.
+:pt.:pk.1-65535:epk.
+:pd.Specify the CCSID.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/DEBUGEXEC'.
+Debug QSHEXEC command (DEBUGCMD) - Help
+:xh3.Debug QSHEXEC command (DEBUGCMD)
+:p.Specifies whether the command line that is built is shown before it runs. The command line is run with the
+QSHEXEC command. This is good for debugging, or if you are curious what the QSHEXEC command will look like.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The command line is not shown.
+:pt.:pk.*YES:epk.
+:pd.The command line is prompted on an interactive 5250 session before it runs.
+Your job must be running interactively.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/CHGSCRDIR'.
+Change to script directory (CHGSCRDIR) - Help
+:xh3.Change to script directory (CHGSCRDIR)
+:p.Specifies whether the current working directory is changed to the script directory before the script runs.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The current working directory is not changed.
+:pt.:pk.*YES:epk.
+:pd.The current working directory is changed to the script directory.
+:eparml.
+:ehelp.
+
 :epnlgrp.
