@@ -2937,6 +2937,58 @@ To IFS script file (TOIFSFILE) - Help
 :IMHELP NAME='COMMON/IFSOPT'.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHSRCIFS
+.************************************************************************
+:help name='QSHSRCIFS'.
+Copy Source Mbr to IFS File (QSHSRCIFS) - Help
+:xh3.Copy Source Mbr to IFS File (QSHSRCIFS)
+:p.The Copy Source Mbr to IFS File (QSHSRCIFS) command copies a source member to an IFS file. When
+IFSFILE(*GENERATE) is used the file is created in directory /tmp/qsh with a name made up of the member
+name, the date and time, the user name and the extension .sh.
+:p.The following example copies member MYSCRIPT in source file QSHONI/QSHSCRIPTS to an IFS file and
+replaces the file if it exists:
+:XMP.
+:hp2.
+QSHSRCIFS SRCFILE(QSHONI/QSHSCRIPTS)
+          SRCMBR(MYSCRIPT)
+          IFSFILE('/home/user1/myscript.sh')
+          REPLACE(*YES)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHSRCIFS/SRCFILE'.
+:IMHELP NAME='COMMON/CPYSRCFILE'.
+:ehelp.
+:help name='QSHSRCIFS/SRCMBR'.
+:IMHELP NAME='COMMON/CPYSRCMBR'.
+:ehelp.
+:help name='QSHSRCIFS/IFSFILE'.
+Destination IFS file (IFSFILE) - Help
+:xh3.Destination IFS file (IFSFILE)
+:p.Specifies the IFS file the source member is copied to.
+:parml.
+:pt.:pk def.*GENERATE:epk.
+:pd.The file name is generated in directory /tmp/qsh.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path and file name.
+:eparml.
+:ehelp.
+:help name='QSHSRCIFS/REPLACE'.
+Replace existing IFS file (REPLACE) - Help
+:xh3.Replace existing IFS file (REPLACE)
+:p.Specifies whether an existing IFS file is replaced.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.If the IFS file already exists the command ends with an error and nothing is copied.
+:pt.:pk.*YES:epk.
+:pd.If the IFS file already exists it is replaced.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
