@@ -2989,6 +2989,75 @@ Replace existing IFS file (REPLACE) - Help
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHWRTLOG
+.************************************************************************
+:help name='QSHWRTLOG'.
+Write Simple Log Message (QSHWRTLOG) - Help
+:xh3.Write Simple Log Message (QSHWRTLOG)
+:p.The Write Simple Log Message (QSHWRTLOG) command writes a message to a simple log file. This lets an
+application keep its own log instead of relying on the job log for all messages. The log file is
+created automatically if it does not exist. The log can be printed later with the QSHPRTLOG command.
+:p.The following example writes an informational message to log file QTEMP/LOGTMP0001:
+:XMP.
+:hp2.
+QSHWRTLOG MSG('This is a sample message')
+          MSGTYPE(INFO)
+          LOGFILE(QTEMP/LOGTMP0001)
+          RECREATE(*NO)
+:ehp2.
+:EXMP.
+:p.Set RECREATE(*YES) on the first call in a job to clear the log, and use RECREATE(*NO) on later calls so the
+log records accumulate.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHWRTLOG/MSG'.
+Message (MSG) - Help
+:xh3.Message (MSG)
+:p.Specifies the message text to write to the log file.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the message text. The text can be up to 330 characters.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHWRTLOG/MSGTYPE'.
+Message type (MSGTYPE) - Help
+:xh3.Message type (MSGTYPE)
+:p.Specifies the type that is stored with the message in the log file.
+:parml.
+:pt.:pk def.INFO:epk.
+:pd.The message is an informational message.
+:pt.:pk.WARNING:epk.
+:pd.The message is a warning.
+:pt.:pk.ERROR:epk.
+:pd.The message is an error.
+:pt.:pk.DIAG:epk.
+:pd.The message is a diagnostic message.
+:pt.:pk.COMP:epk.
+:pd.The message is a completion message.
+:pt.:pv.character-value:epv.
+:pd.Enter your own message type of up to 10 characters.
+:eparml.
+:ehelp.
+:help name='QSHWRTLOG/LOGFILE'.
+:IMHELP NAME='COMMON/LOGFILE'.
+:ehelp.
+:help name='QSHWRTLOG/RECREATE'.
+Dlt and create log file before (RECREATE) - Help
+:xh3.Delete and create log file before (RECREATE)
+:p.Specifies whether the log file is deleted and created again before the message is written.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The log file is created if it does not exist. If it exists the message is added to it.
+:pt.:pk.*YES:epk.
+:pd.The log file is deleted if it exists and then created again, so it only holds the new message.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
