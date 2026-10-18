@@ -3460,6 +3460,60 @@ QSHCALL CMDLINE('python3 /qshpython/pycallparm1.py')
 :IMHELP NAME='COMMON/RETURNPARM'.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHGETPARM
+.************************************************************************
+:help name='QSHGETPARM'.
+Scan Qshell Log for Parm Vals (QSHGETPARM) - Help
+:xh3.Scan Qshell Log for Parm Vals (QSHGETPARM)
+:p.The Scan Qshell Log for Parm Vals (QSHGETPARM) command reads the STDOUT results of the last QSH/PASE
+command that was run and returns up to 10 values to CL variables. The command looks in the temporary
+STDOUT file QTEMP/STDOUTQSH for lines that start with RETURNPARM01: to RETURNPARM10:.
+:p.Use it after a command such as QSHEXEC when you did not use QSHCALL but still need values from the output.
+The command must be run from a CL program because it returns values in CL variables.
+:p.The following example runs a script and then returns the first value from its output:
+:XMP.
+:hp2.
+DCL VAR(&RETURN01) TYPE(*CHAR) LEN(255)
+QSHEXEC CMDLINE('python3 /qshpython/pycallparm1.py')
+QSHGETPARM RETURN01(&RETURN01)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHGETPARM/RETURN01'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPARM/RETURN02'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPARM/RETURN03'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPARM/RETURN04'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPARM/RETURN05'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPARM/RETURN06'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPARM/RETURN07'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPARM/RETURN08'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPARM/RETURN09'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPARM/RETURN10'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
