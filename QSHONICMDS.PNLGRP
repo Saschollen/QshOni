@@ -2264,6 +2264,173 @@ that is passed to the PASE shell. This is useful for testing. Normally the selec
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHLFTP
+.************************************************************************
+:help name='QSHLFTP'.
+Send/Rcv Files via Lftp/Sftp (QSHLFTP) - Help
+:xh3.Send/Rcv Files via Lftp/Sftp (QSHLFTP)
+:p.The Send/Rcv Files via Lftp/Sftp (QSHLFTP) command uploads or downloads a file using the SFTP
+support in the open source lftp utility. The lftp package must be installed (/QOpenSys/pkgs/bin/lftp).
+The command signs on with a user and password or with an SSH private key file.
+:p.The following example uploads a local file to an SFTP server with an SSH private key:
+:XMP.
+:hp2.
+QSHLFTP SFTPHOST('sftp.myhost.com')
+        SFTPPORT(22)
+        SFTPUSER(user1)
+        KEYFILE('/home/user1/.ssh/id_rsa')
+        LOCALFILE('/home/user1/mylib.savf')
+        REMOTEFILE('/uploads/mylib.savf')
+        OPTION(*SEND)
+        DSPSTDOUT(*YES)
+:ehp2.
+:EXMP.
+:p.The following example downloads a file from an SFTP server with a user and password and replaces
+the local file if it exists:
+:XMP.
+:hp2.
+QSHLFTP SFTPHOST('sftp.myhost.com')
+        SFTPUSER(user1)
+        SFTPPASS('mypassword')
+        LOCALFILE('/tmp/report.csv')
+        REMOTEFILE('/downloads/report.csv')
+        OPTION(*RECEIVE)
+        REPLACE(*YES)
+:ehp2.
+:EXMP.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHLFTP/SFTPHOST'.
+SFTP server host/ip address (SFTPHOST) - Help
+:xh3.SFTP server host/ip address (SFTPHOST)
+:p.Specifies the host name or IP address of the SFTP server.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the host name or IP address of the SFTP server.
+:eparml.
+:ehelp.
+:help name='QSHLFTP/SFTPPORT'.
+:IMHELP NAME='COMMON/SSHPORT'.
+:ehelp.
+:help name='QSHLFTP/SFTPUSER'.
+SFTP user (SFTPUSER) - Help
+:xh3.SFTP user (SFTPUSER)
+:p.Specifies the user name used to sign on to the SFTP server.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the user name on the SFTP server.
+:eparml.
+:ehelp.
+:help name='QSHLFTP/SFTPPASS'.
+SFTP password (SFTPPASS) - Help
+:xh3.SFTP password (SFTPPASS)
+:p.Specifies the password used to sign on to the SFTP server. The password is passed on the PASE command line,
+so a private key file is recommended instead.
+:parml.
+:pt.:pk def.*NONE:epk.
+:pd.No password is used. Use this with a private key file.
+:pt.:pv.character-value:epv.
+:pd.Enter the password for the user on the SFTP server.
+:eparml.
+:ehelp.
+:help name='QSHLFTP/KEYFILE'.
+:IMHELP NAME='COMMON/SSHKEYFILE'.
+:ehelp.
+:help name='QSHLFTP/KEYPASSWD'.
+:IMHELP NAME='COMMON/KEYPASSWD'.
+:ehelp.
+:help name='QSHLFTP/LOCALFILE'.
+Local file (LOCALFILE) - Help
+:xh3.Local file (LOCALFILE)
+:p.Specifies the IFS path of the file on the local system. It is the source when OPTION(*SEND) is used
+and the destination when OPTION(*RECEIVE) is used.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path of the local file.
+:eparml.
+:ehelp.
+:help name='QSHLFTP/REMOTEFILE'.
+Remote file (REMOTEFILE) - Help
+:xh3.Remote file (REMOTEFILE)
+:p.Specifies the path of the file on the SFTP server. It is the destination when OPTION(*SEND) is used
+and the source when OPTION(*RECEIVE) is used.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the path and file name on the SFTP server.
+:eparml.
+:ehelp.
+:help name='QSHLFTP/OPTION'.
+Transfer option (OPTION) - Help
+:xh3.Transfer option (OPTION)
+:p.Specifies the direction of the transfer.
+:parml.
+:pt.:pk def.*SEND:epk.
+:pd.The local file is uploaded to the SFTP server.
+:pt.:pk.*RECEIVE:epk.
+:pd.The remote file is downloaded from the SFTP server.
+:eparml.
+:ehelp.
+:help name='QSHLFTP/REPLACE'.
+Replace destination file (REPLACE) - Help
+:xh3.Replace destination file (REPLACE)
+:p.Specifies whether an existing local file is replaced when OPTION(*RECEIVE) is used.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.If the local file already exists it is replaced by the downloaded file.
+:pt.:pk.*NO:epk.
+:pd.If the local file already exists the command ends with an error and nothing is downloaded.
+:eparml.
+:ehelp.
+:help name='QSHLFTP/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHLFTP/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHLFTP/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHLFTP/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHLFTP/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHLFTP/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHLFTP/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHLFTP/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHLFTP/CCSID'.
+:IMHELP NAME='COMMON/CCSID'.
+:ehelp.
+:help name='QSHLFTP/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHLFTP/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHLFTP/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHLFTP/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHLFTP/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHLFTP/PROMPTQSH'.
+:IMHELP NAME='COMMON/PROMPTCMD'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
