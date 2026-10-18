@@ -3606,6 +3606,220 @@ Library for temp data areas (DTAARALIB) - Help
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHPYCALL
+.************************************************************************
+:help name='QSHPYCALL'.
+Run Python and Return Parms (QSHPYCALL) - Help
+:xh3.Run Python and Return Parms (QSHPYCALL)
+:p.The Run Python and Return Parms (QSHPYCALL) command runs a Python script with the QSHEXEC command and
+returns up to 10 values to CL variables. It is meant for CL, RPG and COBOL programmers who are used to calling
+programs and getting values back through parameters. The values come from lines that the Python script writes
+to STDOUT that start with RETURNPARM01: to RETURNPARM10:.
+:p.The command must be run from a CL program because it returns values in CL variables. A sample script,
+pycallparm1.py, is in the qshpython directory of the QshOni project.
+:p.The following example calls a Python script and returns one value:
+:XMP.
+:hp2.
+DCL VAR(&RETURN01) TYPE(*CHAR) LEN(255)
+QSHPYCALL SCRIPTDIR('/qshpython')
+          SCRIPTFILE('pycallparm1.py')
+          ARGS('--parm1=inputvalue1')
+          PYVERSION(3)
+          DSPSTDOUT(*NO)
+          RETURN01(&RETURN01)
+:ehp2.
+:EXMP.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHPYCALL/SCRIPTDIR'.
+Python script directory (SCRIPTDIR) - Help
+:xh3.Python script directory (SCRIPTDIR)
+:p.Specifies the IFS directory that contains the Python script.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the IFS directory path. For example /qshpython.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHPYCALL/SCRIPTFILE'.
+Python script file name (SCRIPTFILE) - Help
+:xh3.Python script file name (SCRIPTFILE)
+:p.Specifies the Python script file name without the directory path. The command puts the directory and
+file name together.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the script file name. For example hello.py.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHPYCALL/ARGS'.
+Python command line arguments (ARGS) - Help
+:xh3.Python command line arguments (ARGS)
+:p.Specifies the command line arguments that are passed to the Python script. Up to 40 arguments of up to
+200 characters each can be passed. Each argument is trimmed automatically.
+:p.Do not put double quotes around the arguments unless you use ARGDLM(*NONE), because the command adds the
+delimiter for you and extra quotes can change the value that the script receives.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the argument value.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/LIST'.
+:ehelp.
+:help name='QSHPYCALL/ARGDLM'.
+:IMHELP NAME='COMMON/ARGDLM'.
+:ehelp.
+:help name='QSHPYCALL/PYVERSION'.
+Python version (PYVERSION) - Help
+:xh3.Python version (PYVERSION)
+:p.Specifies the Python version used to run the script.
+:parml.
+:pt.:pk def.3:epk.
+:pd.Python 3 is used.
+:pt.:pk.2:epk.
+:pd.Python 2 is used.
+:pt.:pk.2.7:epk.
+:pt.:pk.3.6:epk.
+:pt.:pk.3.9:epk.
+:pt.:pk.3.13:epk.
+:pd.The selected Python version is used.
+:pt.:pv.character-value:epv.
+:pd.Enter another Python version number.
+:eparml.
+:ehelp.
+:help name='QSHPYCALL/PYPATH'.
+Python bin path (PYPATH) - Help
+:xh3.Python bin path (PYPATH)
+:p.Specifies the directory path to the Python binaries (python or python3).
+:parml.
+:pt.:pk def.*DEFAULT:epk.
+:pd.The path stored in the PYPATH data area in library QSHONI is used. If there is no value the standard
+path /QOpenSys/pkgs/bin is used.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path of the directory that contains the Python binaries. For example
+/QOpenSys/pkgs/bin.
+:eparml.
+:ehelp.
+:help name='QSHPYCALL/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHPYCALL/USEVENV'.
+Use virtual environment (USEVENV) - Help
+:xh3.Use virtual environment (USEVENV)
+:p.Specifies whether the script runs in an existing Python virtual environment. The virtual environment is
+activated before the script runs and deactivated afterward.
+:p.:hp3.Note::ehp3. Each virtual environment has its own Python executable. When a virtual environment is
+used,
+make sure the PYPATH value is blank so the system level Python is not used.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.A virtual environment is not used.
+:pt.:pk.*YES:epk.
+:pd.The script runs in the virtual environment named by VENVPATH. The directory and the virtual
+environment must exist.
+:eparml.
+:ehelp.
+:help name='QSHPYCALL/VENVPATH'.
+Virtual environment base path (VENVPATH) - Help
+:xh3.Virtual environment base path (VENVPATH)
+:p.Specifies the IFS path of the Python virtual environment. This is only used when USEVENV(*YES) is
+specified.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the base path of the virtual environment.
+:eparml.
+:ehelp.
+:help name='QSHPYCALL/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHPYCALL/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHPYCALL/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHPYCALL/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHPYCALL/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHPYCALL/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHPYCALL/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHPYCALL/CCSID'.
+:IMHELP NAME='COMMON/CCSID37'.
+:ehelp.
+:help name='QSHPYCALL/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHPYCALL/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHPYCALL/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHPYCALL/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHPYCALL/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHPYCALL/OUTFILE'.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHPYCALL/MBROPT'.
+:IMHELP NAME='COMMON/MBROPT'.
+:ehelp.
+:help name='QSHPYCALL/PASEJOBNAM'.
+:IMHELP NAME='COMMON/PASEJOBNAM'.
+:ehelp.
+:help name='QSHPYCALL/DEBUGCMD'.
+:IMHELP NAME='COMMON/DEBUGEXEC'.
+:ehelp.
+:help name='QSHPYCALL/CHGSCRDIR'.
+:IMHELP NAME='COMMON/CHGSCRDIR'.
+:ehelp.
+:help name='QSHPYCALL/RETURN01'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHPYCALL/RETURN02'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHPYCALL/RETURN03'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHPYCALL/RETURN04'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHPYCALL/RETURN05'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHPYCALL/RETURN06'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHPYCALL/RETURN07'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHPYCALL/RETURN08'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHPYCALL/RETURN09'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHPYCALL/RETURN10'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
