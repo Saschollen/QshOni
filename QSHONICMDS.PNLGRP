@@ -3636,4 +3636,44 @@ Connection type (CONNTYPE) - Help
 :eparml.
 :ehelp.
 
+.*******************************************
+.*   Help for common parameters used by the
+.*   source member copy commands (QSHCPYSRC and QSHSRCIFS).
+.*******************************************
+:HELP NAME='COMMON/CPYSRCFILE'.
+Source file (SRCFILE) - Help
+:xh3.Source file (SRCFILE)
+:p.Specifies the source physical file that contains the source member to copy.
+:parml.
+:pt.:pk.*SAME:epk.
+:pd.The source file name used on the last command is used.
+:pt.:pv.source-file-name:epv.
+:pd.Specify the name of the source physical file.
+:eparml.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+The library list is used to locate the source file.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library where the source file is located.
+:EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+:HELP NAME='COMMON/CPYSRCMBR'.
+Source member (SRCMBR) - Help
+:xh3.Source member (SRCMBR)
+:p.Specifies the source member to copy.
+:parml.
+:pt.:pv.source-member-name:epv.
+:pd.Specify the name of the source member.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
 :epnlgrp.
