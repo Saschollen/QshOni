@@ -3793,4 +3793,34 @@ Source member (SRCMBR) - Help
 :IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 
+.*******************************************
+.*   Help for common parameters used by the
+.*   simple log commands (QSHWRTLOG and QSHPRTLOG).
+.*******************************************
+:HELP NAME='COMMON/LOGFILE'.
+To log file (LOGFILE) - Help
+:xh3.To log file (LOGFILE)
+:p.Specifies the database file that holds the simple log records. Each record holds a time stamp,
+a message type and the message text.
+:parml.
+:pt.:pk def.LOGTMP0001:epk.
+:pd.The log file is named LOGTMP0001.
+:pt.:pv.file-name:epv.
+:pd.Specify the name of the log file.
+:eparml.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.QTEMP:EPK.
+:PD.
+The log file is in library QTEMP, so it only exists for the life of the job.
+:PT.:PK.*LIBL:EPK.
+:PD.
+The library list is used to locate the log file.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library where the log file is located.
+:EPARML.
+:ehelp.
+
 :epnlgrp.
