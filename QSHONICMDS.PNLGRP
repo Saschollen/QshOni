@@ -3058,6 +3058,125 @@ Dlt and create log file before (RECREATE) - Help
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHPRTLOG
+.************************************************************************
+:help name='QSHPRTLOG'.
+Print Simple Log File (QSHPRTLOG) - Help
+:xh3.Print Simple Log File (QSHPRTLOG)
+:p.The Print Simple Log File (QSHPRTLOG) command prints a simple log file that was written by the QSHWRTLOG
+command. The log is printed to a spool file with a width of 378 characters, or it can be written to a
+PDF file in the IFS.
+:p.The following example prints log file QTEMP/LOGTMP0001 to a spool file named PRTLOG:
+:XMP.
+:hp2.
+QSHPRTLOG LOGFILE(QTEMP/LOGTMP0001)
+          PRTSPLF(PRTLOG)
+:ehp2.
+:EXMP.
+:p.The following example creates a PDF of the log in the IFS and replaces the PDF if it exists:
+:XMP.
+:hp2.
+QSHPRTLOG LOGFILE(QTEMP/LOGTMP0001)
+          IFSFILE('/tmp/mylog.pdf')
+          REPLACE(*YES)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHPRTLOG/LOGFILE'.
+:IMHELP NAME='COMMON/LOGFILE'.
+:ehelp.
+:help name='QSHPRTLOG/IFSFILE'.
+IFS PDF output file name (IFSFILE) - Help
+:xh3.IFS PDF output file name (IFSFILE)
+:p.Specifies the IFS file that receives a PDF version of the log.
+:parml.
+:pt.:pk def.*NONE:epk.
+:pd.No PDF is created. The log is printed to a spool file.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path and file name of the PDF file to create.
+:eparml.
+:ehelp.
+:help name='QSHPRTLOG/REPLACE'.
+Replace existing PDF if found (REPLACE) - Help
+:xh3.Replace existing PDF if found (REPLACE)
+:p.Specifies whether an existing PDF file is replaced. This is only used when an IFS file name is entered.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.If the PDF file already exists the command ends with an error and nothing is created.
+:pt.:pk.*YES:epk.
+:pd.If the PDF file already exists it is deleted and created again.
+:eparml.
+:ehelp.
+:help name='QSHPRTLOG/PRTSPLF'.
+Print spool file (PRTSPLF) - Help
+:xh3.Print spool file (PRTSPLF)
+:p.Specifies the name of the spool file that is created.
+:parml.
+:pt.:pk def.PRTLOG:epk.
+:pd.The spool file is named PRTLOG.
+:pt.:pv.character-value:epv.
+:pd.Enter the spool file name.
+:eparml.
+:ehelp.
+:help name='QSHPRTLOG/PRTUSRDTA'.
+Print user data (PRTUSRDTA) - Help
+:xh3.Print user data (PRTUSRDTA)
+:p.Specifies the user data that is stored with the spool file.
+:parml.
+:pt.:pk def.*NONE:epk.
+:pd.No user data is stored.
+:pt.:pv.character-value:epv.
+:pd.Enter the user data of up to 10 characters.
+:eparml.
+:ehelp.
+:help name='QSHPRTLOG/PRTTXT'.
+Print print text (PRTTXT) - Help
+:xh3.Print print text (PRTTXT)
+:p.Specifies the print text that is shown at the bottom of each page of the spool file.
+:parml.
+:pt.:pk def.*NONE:epk.
+:pd.No print text is used.
+:pt.:pv.character-value:epv.
+:pd.Enter the print text of up to 30 characters.
+:eparml.
+:ehelp.
+:help name='QSHPRTLOG/PRTHOLD'.
+Print hold spool file (PRTHOLD) - Help
+:xh3.Print hold spool file (PRTHOLD)
+:p.Specifies whether the spool file is held on the output queue.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The spool file is held.
+:pt.:pk.*NO:epk.
+:pd.The spool file is released for printing.
+:eparml.
+:ehelp.
+:help name='QSHPRTLOG/PRTOUTQ'.
+Print to outq (PRTOUTQ) - Help
+:xh3.Print to outq (PRTOUTQ)
+:p.Specifies the output queue the spool file is placed on.
+:parml.
+:pt.:pk def.*SAME:epk.
+:pd.The spool file is placed on the output queue of the job.
+:pt.:pv.output-queue-name:epv.
+:pd.Specify the name of the output queue.
+:eparml.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+The library list is used to locate the output queue.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library where the output queue is located.
+:EPARML.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
