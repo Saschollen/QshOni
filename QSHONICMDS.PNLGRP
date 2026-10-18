@@ -3820,6 +3820,153 @@ specified.
 :IMHELP NAME='COMMON/RETURNPARM'.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHPHPRUN
+.************************************************************************
+:help name='QSHPHPRUN'.
+Run PHP Script via Qshell (QSHPHPRUN) - Help
+:xh3.Run PHP Script via Qshell (QSHPHPRUN)
+:p.The Run PHP Script via Qshell (QSHPHPRUN) command runs a PHP command line (CLI) script with the QSHEXEC
+command and logs the results appropriately. The command puts together the PHP command line from the script
+directory, script file name and arguments.
+:p.The following example runs a PHP script with two arguments:
+:XMP.
+:hp2.
+QSHPHPRUN SCRIPTDIR('/qshphp')
+          SCRIPTFILE('hello.php')
+          ARGS('My Parm Value 1' 'My Parm Value 2')
+          DSPSTDOUT(*YES)
+:ehp2.
+:EXMP.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHPHPRUN/SCRIPTDIR'.
+PHP script directory (SCRIPTDIR) - Help
+:xh3.PHP script directory (SCRIPTDIR)
+:p.Specifies the IFS directory that contains the PHP script.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the IFS directory path. For example /qshphp.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHPHPRUN/CHGSCRDIR'.
+:IMHELP NAME='COMMON/CHGSCRDIR'.
+:ehelp.
+:help name='QSHPHPRUN/PHPCMD'.
+PHP command (PHPCMD) - Help
+:xh3.PHP command (PHPCMD)
+:p.Specifies the PHP command that is run.
+:parml.
+:pt.:pk def.*DEFAULT:epk.
+:pd.The php command is run as normal.
+:pt.:pk.*DEBUG:epk.
+:pd.The command php -d error_log= is run so that PHP errors are captured in the STDOUT logging output.
+:pt.:pv.character-value:epv.
+:pd.Enter your own PHP command.
+:eparml.
+:ehelp.
+:help name='QSHPHPRUN/SCRIPTFILE'.
+PHP script file name (SCRIPTFILE) - Help
+:xh3.PHP script file name (SCRIPTFILE)
+:p.Specifies the PHP script file name without the directory path. The command puts the directory and
+file name together.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the script file name. For example hello.php.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHPHPRUN/ARGS'.
+PHP command line arguments (ARGS) - Help
+:xh3.PHP command line arguments (ARGS)
+:p.Specifies the command line arguments that are passed to the PHP script. Up to 40 arguments of up to
+200 characters each can be passed. Each argument is trimmed automatically.
+:p.Do not put double quotes around the arguments unless you use ARGDLM(*NONE), because the command adds the
+delimiter for you and extra quotes can change the value that the script receives.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the argument value.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/LIST'.
+:ehelp.
+:help name='QSHPHPRUN/ARGDLM'.
+:IMHELP NAME='COMMON/ARGDLM'.
+:ehelp.
+:help name='QSHPHPRUN/PHPPATH'.
+PHP bin path (PHPPATH) - Help
+:xh3.PHP bin path (PHPPATH)
+:p.Specifies the directory path to the PHP binary.
+:parml.
+:pt.:pk def.*DEFAULT:epk.
+:pd.The path stored in the PHPPATH data area in library QSHONI is used. If there is no value
+the php command is found using the PATH.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path of the directory that contains the PHP binary. For example
+/QOpenSys/pkgs/bin.
+:eparml.
+:ehelp.
+:help name='QSHPHPRUN/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHPHPRUN/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHPHPRUN/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHPHPRUN/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHPHPRUN/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHPHPRUN/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHPHPRUN/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHPHPRUN/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHPHPRUN/CCSID'.
+:IMHELP NAME='COMMON/CCSID37'.
+:ehelp.
+:help name='QSHPHPRUN/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHPHPRUN/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHPHPRUN/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHPHPRUN/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHPHPRUN/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHPHPRUN/OUTFILE'.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHPHPRUN/MBROPT'.
+:IMHELP NAME='COMMON/MBROPT'.
+:ehelp.
+:help name='QSHPHPRUN/PASEJOBNAM'.
+:IMHELP NAME='COMMON/PASEJOBNAM'.
+:ehelp.
+:help name='QSHPHPRUN/DEBUGCMD'.
+:IMHELP NAME='COMMON/DEBUGEXEC'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
