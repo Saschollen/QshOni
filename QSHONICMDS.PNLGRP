@@ -2482,6 +2482,56 @@ Specify the name of the library for the file.
 :EPARML.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHPORTEND
+.************************************************************************
+:help name='QSHPORTEND'.
+End Jobs for Active TCP Port (QSHPORTEND) - Help
+:xh3.End Jobs for Active TCP Port (QSHPORTEND)
+:p.The End Jobs for Active TCP Port (QSHPORTEND) command uses Db2 for i services to find the jobs that
+are using the selected TCP/IP port and ends them. The command completes successfully whether or not the
+port was active and sends a message showing the number of jobs that were ended.
+:p.The following example ends all jobs using port 443:
+:XMP.
+:hp2.
+QSHPORTEND LOCALPORT(443)
+           CONNTYPE(IPV4)
+           OUTFILE(QTEMP/TCPTMPEND)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHPORTEND/LOCALPORT'.
+:IMHELP NAME='COMMON/LOCALPORT'.
+:ehelp.
+:help name='QSHPORTEND/CONNTYPE'.
+:IMHELP NAME='COMMON/CONNTYPE'.
+:ehelp.
+:help name='QSHPORTEND/OUTFILE'.
+Temp file to receive results (OUTFILE) - Help
+:xh3.Temp file to receive results (OUTFILE)
+:p.Specifies the temporary file that receives the list of jobs found on the port. The file is created
+in the job's QTEMP library by default.
+:parml.
+:pt.:pk def.TCPTMPEND:epk.
+:pd.The results are written to file TCPTMPEND.
+:pt.:pv.file-name:epv.
+:pd.Specify the name of the file to receive the results.
+:eparml.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.QTEMP:EPK.
+:PD.
+The file is created in library QTEMP.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library for the file.
+:EPARML.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
