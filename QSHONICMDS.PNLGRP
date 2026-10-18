@@ -1642,4 +1642,209 @@ on an interactive 5250 session before running.
 :eparml.
 :ehelp.
 
+.*******************************************
+.*   Help for common save/restore parameters
+.*   used by the QSHSAV*, QSHRST* and QSHVFYSAVF commands.
+.*******************************************
+:HELP NAME='COMMON/TGTRLS'.
+Target release (TGTRLS) - Help
+:xh3.Target release (TGTRLS)
+:p.Specifies the release of IBM i on which you intend to restore and use the saved data.
+:parml.
+:pt.:pk def.*CURRENT:epk.
+:pd.The objects are saved for restoring on the release of IBM i that is currently running on your system.
+:pt.:pk.*PRV:epk.
+:pd.The objects are saved for restoring on the previous release of IBM i that is supported by the current release.
+:pt.:pk.V7R1M0:epk.
+:pt.:pk.V7R2M0:epk.
+:pt.:pk.V7R3M0:epk.
+:pt.:pk.V7R4M0:epk.
+:pt.:pk.V7R5M0:epk.
+:pd.The objects are saved for restoring on the selected release of IBM i.
+:pt.:pv.character-value:epv.
+:pd.Specify the release in the format VxRxMx. Any other supported release can be entered.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/UPDHST'.
+Update history (UPDHST) - Help
+:xh3.Update history (UPDHST)
+:p.Specifies whether the save history information of the saved objects is updated.
+This is the information shown by the Display Object Description (DSPOBJD) command.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The save date and time are updated for each saved object.
+:pt.:pk.*NO:epk.
+:pd.The save history information is not updated.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/PRECHK'.
+Object pre-check (PRECHK) - Help
+:xh3.Object pre-check (PRECHK)
+:p.Specifies whether the save operation ends if any selected object cannot be saved.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The save operation does not end if an object cannot be saved. The objects that can be saved are saved.
+:pt.:pk.*YES:epk.
+:pd.The save operation ends before anything is saved if any selected object is damaged, locked or otherwise not saveable.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/SAVACT'.
+Save active (SAVACT) - Help
+:xh3.Save active (SAVACT)
+:p.Specifies whether objects that are in use by other jobs can be saved while they are being changed
+(save-while-active).
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Objects that are in use are not saved while they are active.
+:pt.:pk.*YES:epk.
+:pd.Objects that are in use can be saved while they are active.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/SAVFDTA'.
+Save file data (SAVFDTA) - Help
+:xh3.Save file data (SAVFDTA)
+:p.Specifies whether the data in save files is saved.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The data in any save files found is saved along with the save file objects.
+:pt.:pk.*NO:epk.
+:pd.Only the save file objects are saved. The data in the save files is not saved.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/SPLFDTA'.
+Spooled file data (SPLFDTA) - Help
+:xh3.Spooled file data (SPLFDTA)
+:p.Specifies whether spooled file data is saved for output queues that are saved.
+:parml.
+:pt.:pk def.*NONE:epk.
+:pd.No spooled file data is saved.
+:pt.:pk.*ALL:epk.
+:pd.All spooled file data is saved for the output queues that are saved.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/QDTA'.
+Queue data (QDTA) - Help
+:xh3.Queue data (QDTA)
+:p.Specifies whether the messages in data queues are saved.
+:parml.
+:pt.:pk def.*NONE:epk.
+:pd.The messages in data queues are not saved. Only the data queue objects are saved.
+:pt.:pk.*DTAQ:epk.
+:pd.The messages in data queues are saved along with the data queue objects.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/DTACPR'.
+Data compression (DTACPR) - Help
+:xh3.Data compression (DTACPR)
+:p.Specifies whether data compression is used when the data is saved to the temporary save file.
+:parml.
+:pt.:pk def.*HIGH:epk.
+:pd.Data is compressed using high compression. This gives the smallest save file but takes the longest.
+:pt.:pk.*DEV:epk.
+:pd.Data is compressed if the device supports compression.
+:pt.:pk.*NO:epk.
+:pd.No data compression is done.
+:pt.:pk.*YES:epk.
+:pd.Data is compressed. The system chooses the compression level.
+:pt.:pk.*LOW:epk.
+:pd.Data is compressed using low compression. This is the fastest compression.
+:pt.:pk.*MEDIUM:epk.
+:pd.Data is compressed using medium compression.
+:pt.:pk.*ZLIB:epk.
+:pd.Data is compressed using the ZLIB compression algorithm.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/DLTTMPSAVF'.
+Delete temporary save file (DLTTMPSAVF) - Help
+:xh3.Delete temporary save file (DLTTMPSAVF)
+:p.Specifies whether the temporary save file in library QTEMP is deleted when the command ends.
+Normally the selection should be *YES. Specify *NO if you want to leave the save file around for
+testing or to display its contents with the Display Save File (DSPSAVF) command in the same job.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The temporary save file in QTEMP is deleted.
+:pt.:pk.*NO:epk.
+:pd.The temporary save file in QTEMP is not deleted.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/REPLACESAVF'.
+Replace output IFS file (REPLACE) - Help
+:xh3.Replace output IFS file (REPLACE)
+:p.Specifies whether an existing IFS save file is replaced.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.If the IFS file already exists the command ends with an error and the save is not done.
+:pt.:pk.*YES:epk.
+:pd.If the IFS file already exists it is deleted and replaced with the new save file.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/TOIFSFILE'.
+Save to IFS file (TOIFSFILE) - Help
+:xh3.Save to IFS file (TOIFSFILE)
+:p.Specifies the IFS file the save file data is copied to. The result is a standard IBM i save file stored
+in the IFS, which makes it easy to transport or back up to a NAS or other storage.
+:p.When a special value is used, the file is created in the directory stored in data area
+:hp2.QSHONI/SAVFDIR:ehp2.. The data area is created automatically and defaults to :hp2./tmp/savfqsh:ehp2..
+You can change the data area value to your own default directory. If the directory does not exist it is created.
+:parml.
+:pt.:pk.*DATETIME:epk.
+:pd.The file name is generated and includes the current date and time. See the command help for the name format.
+:pt.:pk.*DATE:epk.
+:pd.The file name is generated and includes the current date. See the command help for the name format.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path and file name. Using a .savf extension is recommended.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+:HELP NAME='COMMON/FRMIFSFILE'.
+From IFS file (FRMIFSFILE) - Help
+:xh3.From IFS file (FRMIFSFILE)
+:p.Specifies the IFS file that contains the save file data to restore from. This is normally a file
+created by one of the QshOni save commands (QSHSAVLIB, QSHSAVOBJ, QSHSAVCHG or QSHSAVIFS).
+The file is copied to a temporary save file in QTEMP before the restore is done.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path and file name of the save file.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+:HELP NAME='COMMON/CLRLIB'.
+Clear restore to lib if exists (CLRLIB) - Help
+:xh3.Clear restore to lib if exists (CLRLIB)
+:p.Specifies whether the library being restored to is cleared first when it already exists.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The library is not cleared. Restored objects are added to or replace objects in the existing library.
+:pt.:pk.*YES:epk.
+:pd.If the library exists all of the objects in it are deleted before the restore is done.
+Use with care since the existing objects cannot be recovered.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/RSTLIB'.
+Restore to library (RSTLIB) - Help
+:xh3.Restore to library (RSTLIB)
+:p.Specifies the library the objects are restored into.
+:parml.
+:pt.:pk def.*SAVLIB:epk.
+:pd.The objects are restored into the same library name that they were saved from.
+:pt.:pv.library-name:epv.
+:pd.Specify the name of the library to restore the objects into.
+:eparml.
+:ehelp.
+
 :epnlgrp.
