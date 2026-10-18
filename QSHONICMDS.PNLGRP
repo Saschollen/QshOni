@@ -1177,7 +1177,8 @@ directory stored in data area QSHONI/SAVFDIR (default /tmp/savfqsh):
 *DATE      library_yyyymmdd.savf
 :ehp2.
 :EXMP.
-:p.The following example saves library MYLIB to IFS file /backups/mylib.savf and replaces the file if it exists:
+:p.The following example saves library MYLIB to IFS file /backups/mylib.savf and replaces the file if it
+exists:
 :XMP.
 :hp2.
 QSHSAVLIB LIBRARY(MYLIB)
@@ -1272,7 +1273,8 @@ directory stored in data area QSHONI/SAVFDIR (default /tmp/savfqsh) using the SA
 *DATE      savfprefix_yyyymmdd.savf
 :ehp2.
 :EXMP.
-:p.The following example saves directory /home/myuser and everything below it to IFS file /backups/myuser.savf:
+:p.The following example saves directory /home/myuser and everything below it to IFS file
+/backups/myuser.savf:
 :XMP.
 :hp2.
 QSHSAVIFS OBJECTS('/home/myuser')
@@ -1329,7 +1331,8 @@ Directory subtree (SUBTREE) - Help
 :pt.:pk.*DIR:epk.
 :pd.The objects in the first level of each matching directory are saved.
 :pt.:pk.*NONE:epk.
-:pd.Only the objects that match the object name are saved. If the object is a directory, its contents are not saved.
+:pd.Only the objects that match the object name are saved. If the object is a directory, its contents are not
+saved.
 :pt.:pk.*OBJ:epk.
 :pd.Only the matching objects, or the objects in the matching directories, are saved.
 :pt.:pk.*STG:epk.
@@ -1376,7 +1379,8 @@ or reviewing the SAV parameter values. Normally the selection should be *NO.
 :help name='QSHSAVOBJ'.
 Save Objects to IFS File (QSHSAVOBJ) - Help
 :xh3.Save Objects to IFS File (QSHSAVOBJ)
-:p.The Save Objects to IFS File (QSHSAVOBJ) command saves objects from a library to a temporary save file in QTEMP
+:p.The Save Objects to IFS File (QSHSAVOBJ) command saves objects from a library to a temporary save file in
+QTEMP
 using the SAVOBJ command and then copies the result to a save file stored in the IFS. The IFS file
 can be moved or backed up to a NAS, SAN or other system and later restored with the QSHRSTOBJ command.
 :p.When *DATETIME or *DATE is used for the TOIFSFILE parameter, the IFS file name is generated in the
@@ -1396,7 +1400,8 @@ QSHSAVOBJ OBJECTS(*ALL)
           REPLACE(*YES)
 :ehp2.
 :EXMP.
-:p.The following example saves all objects whose name starts with CUST in library MYLIB to an automatically named file:
+:p.The following example saves all objects whose name starts with CUST in library MYLIB to an automatically
+named file:
 :XMP.
 :hp2.
 QSHSAVOBJ OBJECTS(CUST*)
@@ -1485,7 +1490,8 @@ or reviewing the SAVOBJ parameter values. Normally the selection should be *NO.
 :help name='QSHSAVCHG'.
 Save Changed Objects to IFS (QSHSAVCHG) - Help
 :xh3.Save Changed Objects to IFS (QSHSAVCHG)
-:p.The Save Changed Objects to IFS (QSHSAVCHG) command saves only the objects in a library that have changed since the last save to a temporary save file in QTEMP
+:p.The Save Changed Objects to IFS (QSHSAVCHG) command saves only the objects in a library that have changed
+since the last save to a temporary save file in QTEMP
 using the SAVCHGOBJ command and then copies the result to a save file stored in the IFS. The IFS file
 can be moved or backed up to a NAS, SAN or other system and later restored with the QSHRSTOBJ command.
 :p.When *DATETIME or *DATE is used for the TOIFSFILE parameter, the IFS file name is generated in the
@@ -1496,7 +1502,8 @@ directory stored in data area QSHONI/SAVFDIR (default /tmp/savfqsh):
 *DATE      library_SAVCHGOBJ_library_yyyymmdd.savf
 :ehp2.
 :EXMP.
-:p.The following example saves all objects in library MYLIB that have changed since the last save to IFS file /backups/mylib_chg.savf:
+:p.The following example saves all objects in library MYLIB that have changed since the last save to IFS file
+/backups/mylib_chg.savf:
 :XMP.
 :hp2.
 QSHSAVCHG OBJECTS(*ALL)
@@ -1505,7 +1512,8 @@ QSHSAVCHG OBJECTS(*ALL)
           REPLACE(*YES)
 :ehp2.
 :EXMP.
-:p.The following example saves the changed objects whose name starts with CUST in library MYLIB to an automatically named file:
+:p.The following example saves the changed objects whose name starts with CUST in library MYLIB to an
+automatically named file:
 :XMP.
 :hp2.
 QSHSAVCHG OBJECTS(CUST*)
@@ -1578,7 +1586,8 @@ Library to save (LIBRARY) - Help
 :help name='QSHSAVCHG/PROMPT'.
 Prompt the SAVCHGOBJ command (PROMPT) - Help
 :xh3.Prompt the SAVCHGOBJ command (PROMPT)
-:p.Specifies whether the SAVCHGOBJ command is prompted interactively before it runs. This is useful for testing
+:p.Specifies whether the SAVCHGOBJ command is prompted interactively before it runs. This is useful for
+testing
 or reviewing the SAVCHGOBJ parameter values. Normally the selection should be *NO.
 :parml.
 :pt.:pk def.*NO:epk.
@@ -1675,7 +1684,8 @@ the command restores with MBROPT(*ALL).
 :help name='QSHRSTLIB/ALWOBJDIF'.
 Allow object differences (ALWOBJDIF) - Help
 :xh3.Allow object differences (ALWOBJDIF)
-:p.Specifies whether differences between the saved objects and the objects on the system are allowed during the restore.
+:p.Specifies whether differences between the saved objects and the objects on the system are allowed during
+the restore.
 Differences include such things as owner, authorization list or file level identifiers.
 :p.:hp3.Note::ehp3. This parameter is only used when PROMPT(*YES) is specified. When PROMPT(*NO) is used
 the command restores with ALWOBJDIF(*ALL).
@@ -1714,7 +1724,8 @@ Restore IFS Obj from IFS File (QSHRSTIFS) - Help
 save file in QTEMP and then restores IFS objects from it using the RST command. The IFS file is normally
 one created by the QSHSAVIFS command. Objects are restored with their entire subtree and parent directories
 are created if needed.
-:p.The following example restores directory /home/myuser and everything below it from IFS file /backups/myuser.savf:
+:p.The following example restores directory /home/myuser and everything below it from IFS file
+/backups/myuser.savf:
 :XMP.
 :hp2.
 QSHRSTIFS OBJECTS('/home/myuser')
@@ -1842,7 +1853,8 @@ or reviewing the RSTOBJ parameter values. Normally the selection should be *NO.
 Verify IFS Save File (QSHVFYSAVF) - Help
 :xh3.Verify IFS Save File (QSHVFYSAVF)
 :p.The Verify IFS Save File (QSHVFYSAVF) command checks that a save file stored in the IFS is still usable.
-It copies the IFS file to a temporary save file in QTEMP and can display or print the contents of the save file.
+It copies the IFS file to a temporary save file in QTEMP and can display or print the contents of the save
+file.
 If the copy works the command ends with a completion message saying the file appears to be valid.
 Use it to check a save file after it was moved or backed up.
 :p.The following example verifies IFS file /backups/mylib.savf and displays its contents:
@@ -1862,7 +1874,8 @@ From IFS save file (FRMIFSSAVF) - Help
 :p.Specifies the IFS file that contains the save file data to verify.
 :parml.
 :pt.:pv.character-value:epv.
-:pd.Enter the full IFS path and file name of the save file. The command ends with an error if the file is not found.
+:pd.Enter the full IFS path and file name of the save file. The command ends with an error if the file is not
+found.
 :eparml.
 :P.
 :IMHELP NAME='COMMON/REQPARM'.
@@ -1870,7 +1883,8 @@ From IFS save file (FRMIFSSAVF) - Help
 :help name='QSHVFYSAVF/DSPSAVF'.
 Display save file (DSPSAVF) - Help
 :xh3.Display save file (DSPSAVF)
-:p.Specifies whether the contents of the save file are displayed using the Display Save File (DSPSAVF) command.
+:p.Specifies whether the contents of the save file are displayed using the Display Save File (DSPSAVF)
+command.
 :parml.
 :pt.:pk def.*NO:epk.
 :pd.The save file contents are not displayed.
@@ -2395,7 +2409,8 @@ Target release (TGTRLS) - Help
 :pt.:pk def.*CURRENT:epk.
 :pd.The objects are saved for restoring on the release of IBM i that is currently running on your system.
 :pt.:pk.*PRV:epk.
-:pd.The objects are saved for restoring on the previous release of IBM i that is supported by the current release.
+:pd.The objects are saved for restoring on the previous release of IBM i that is supported by the current
+release.
 :pt.:pk.V7R1M0:epk.
 :pt.:pk.V7R2M0:epk.
 :pt.:pk.V7R3M0:epk.
@@ -2428,7 +2443,8 @@ Object pre-check (PRECHK) - Help
 :pt.:pk def.*NO:epk.
 :pd.The save operation does not end if an object cannot be saved. The objects that can be saved are saved.
 :pt.:pk.*YES:epk.
-:pd.The save operation ends before anything is saved if any selected object is damaged, locked or otherwise not saveable.
+:pd.The save operation ends before anything is saved if any selected object is damaged, locked or otherwise
+not saveable.
 :eparml.
 :ehelp.
 
@@ -2536,10 +2552,12 @@ Save to IFS file (TOIFSFILE) - Help
 in the IFS, which makes it easy to transport or back up to a NAS or other storage.
 :p.When a special value is used, the file is created in the directory stored in data area
 :hp2.QSHONI/SAVFDIR:ehp2.. The data area is created automatically and defaults to :hp2./tmp/savfqsh:ehp2..
-You can change the data area value to your own default directory. If the directory does not exist it is created.
+You can change the data area value to your own default directory. If the directory does not exist it is
+created.
 :parml.
 :pt.:pk.*DATETIME:epk.
-:pd.The file name is generated and includes the current date and time. See the command help for the name format.
+:pd.The file name is generated and includes the current date and time. See the command help for the name
+format.
 :pt.:pk.*DATE:epk.
 :pd.The file name is generated and includes the current date. See the command help for the name format.
 :pt.:pv.character-value:epv.
