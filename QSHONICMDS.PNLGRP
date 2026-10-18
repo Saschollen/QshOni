@@ -1255,6 +1255,121 @@ or reviewing the SAVLIB parameter values. Normally the selection should be *NO.
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHSAVIFS
+.************************************************************************
+:help name='QSHSAVIFS'.
+Save IFS Objects to IFS File (QSHSAVIFS) - Help
+:xh3.Save IFS Objects to IFS File (QSHSAVIFS)
+:p.The Save IFS Objects to IFS File (QSHSAVIFS) command saves IFS objects to a temporary save file in QTEMP
+using the SAV command and then copies the result to a save file stored in the IFS. The IFS file
+can be moved or backed up to a NAS, SAN or other system and later restored with the QSHRSTIFS command.
+:p.When *DATETIME or *DATE is used for the TOIFSFILE parameter, the IFS file name is generated in the
+directory stored in data area QSHONI/SAVFDIR (default /tmp/savfqsh) using the SAVFPREFIX value:
+:XMP.
+:hp2.
+*DATETIME  savfprefix_yyyymmdd_hhmmss.savf
+*DATE      savfprefix_yyyymmdd.savf
+:ehp2.
+:EXMP.
+:p.The following example saves directory /home/myuser and everything below it to IFS file /backups/myuser.savf:
+:XMP.
+:hp2.
+QSHSAVIFS OBJECTS('/home/myuser')
+          TOIFSFILE('/backups/myuser.savf')
+          SUBTREE(*ALL)
+          REPLACE(*YES)
+:ehp2.
+:EXMP.
+:p.The following example saves directory /home/myuser to an automatically named file that starts with MYUSER:
+:XMP.
+:hp2.
+QSHSAVIFS OBJECTS('/home/myuser')
+          TOIFSFILE(*DATETIME)
+          SAVFPREFIX(MYUSER)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHSAVIFS/OBJECTS'.
+Objects to save (OBJECTS) - Help
+:xh3.Objects to save (OBJECTS)
+:p.Specifies the IFS object or directory path to save.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path of the directory or object to save. The path can be up to 255 characters.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHSAVIFS/TOIFSFILE'.
+:IMHELP NAME='COMMON/TOIFSFILE'.
+:ehelp.
+:help name='QSHSAVIFS/SAVFPREFIX'.
+Output file keyword prefix (SAVFPREFIX) - Help
+:xh3.Output file keyword prefix (SAVFPREFIX)
+:p.Specifies the text used at the start of the generated file name when TOIFSFILE is *DATETIME or *DATE.
+The value is ignored if you enter your own IFS file name.
+:parml.
+:pt.:pk def.IFSOBJECTS:epk.
+:pd.The generated file name starts with IFSOBJECTS.
+:pt.:pv.character-value:epv.
+:pd.Enter the prefix to use for the generated file name.
+:eparml.
+:ehelp.
+:help name='QSHSAVIFS/SUBTREE'.
+Directory subtree (SUBTREE) - Help
+:xh3.Directory subtree (SUBTREE)
+:p.Specifies whether the directory subtrees are included in the save operation.
+:parml.
+:pt.:pk def.*ALL:epk.
+:pd.The entire subtree of each directory that matches the object name is saved.
+:pt.:pk.*DIR:epk.
+:pd.The objects in the first level of each matching directory are saved.
+:pt.:pk.*NONE:epk.
+:pd.Only the objects that match the object name are saved. If the object is a directory, its contents are not saved.
+:pt.:pk.*OBJ:epk.
+:pd.Only the matching objects, or the objects in the matching directories, are saved.
+:pt.:pk.*STG:epk.
+:pd.The objects are saved and their data is saved in a way that keeps the storage reserved for them.
+:eparml.
+:ehelp.
+:help name='QSHSAVIFS/REPLACE'.
+:IMHELP NAME='COMMON/REPLACESAVF'.
+:ehelp.
+:help name='QSHSAVIFS/TGTRLS'.
+:IMHELP NAME='COMMON/TGTRLS'.
+:ehelp.
+:help name='QSHSAVIFS/UPDHST'.
+:IMHELP NAME='COMMON/UPDHST'.
+:ehelp.
+:help name='QSHSAVIFS/PRECHK'.
+:IMHELP NAME='COMMON/PRECHK'.
+:ehelp.
+:help name='QSHSAVIFS/SAVACT'.
+:IMHELP NAME='COMMON/SAVACT'.
+:ehelp.
+:help name='QSHSAVIFS/DTACPR'.
+:IMHELP NAME='COMMON/DTACPR'.
+:ehelp.
+:help name='QSHSAVIFS/DLTTMPSAVF'.
+:IMHELP NAME='COMMON/DLTTMPSAVF'.
+:ehelp.
+:help name='QSHSAVIFS/PROMPT'.
+Prompt the SAV command (PROMPT) - Help
+:xh3.Prompt the SAV command (PROMPT)
+:p.Specifies whether the SAV command is prompted interactively before it runs. This is useful for testing
+or reviewing the SAV parameter values. Normally the selection should be *NO.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The SAV command is not prompted.
+:pt.:pk.*YES:epk.
+:pd.The SAV command is prompted on an interactive 5250 session before it runs.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
