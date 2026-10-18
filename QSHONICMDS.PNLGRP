@@ -1835,6 +1835,72 @@ or reviewing the RSTOBJ parameter values. Normally the selection should be *NO.
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHVFYSAVF
+.************************************************************************
+:help name='QSHVFYSAVF'.
+Verify IFS Save File (QSHVFYSAVF) - Help
+:xh3.Verify IFS Save File (QSHVFYSAVF)
+:p.The Verify IFS Save File (QSHVFYSAVF) command checks that a save file stored in the IFS is still usable.
+It copies the IFS file to a temporary save file in QTEMP and can display or print the contents of the save file.
+If the copy works the command ends with a completion message saying the file appears to be valid.
+Use it to check a save file after it was moved or backed up.
+:p.The following example verifies IFS file /backups/mylib.savf and displays its contents:
+:XMP.
+:hp2.
+QSHVFYSAVF FRMIFSSAVF('/backups/mylib.savf')
+           DSPSAVF(*YES)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHVFYSAVF/FRMIFSSAVF'.
+From IFS save file (FRMIFSSAVF) - Help
+:xh3.From IFS save file (FRMIFSSAVF)
+:p.Specifies the IFS file that contains the save file data to verify.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path and file name of the save file. The command ends with an error if the file is not found.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHVFYSAVF/DSPSAVF'.
+Display save file (DSPSAVF) - Help
+:xh3.Display save file (DSPSAVF)
+:p.Specifies whether the contents of the save file are displayed using the Display Save File (DSPSAVF) command.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The save file contents are not displayed.
+:pt.:pk.*YES:epk.
+:pd.The save file contents are displayed.
+:eparml.
+:ehelp.
+:help name='QSHVFYSAVF/PRTSAVF'.
+Print save file contents (PRTSAVF) - Help
+:xh3.Print save file contents (PRTSAVF)
+:p.Specifies whether the contents of the save file are printed. The spooled file is held.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The save file contents are not printed.
+:pt.:pk.*YES:epk.
+:pd.The save file contents are printed.
+:eparml.
+:ehelp.
+:help name='QSHVFYSAVF/DLTTMPSAVF'.
+Delete temp save file after (DLTTMPSAVF) - Help
+:xh3.Delete temp save file after (DLTTMPSAVF)
+:p.Specifies whether the temporary save file in library QTEMP is deleted when the command ends.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The temporary save file in QTEMP is not deleted. It can be used for further checks in the same job.
+:pt.:pk.*YES:epk.
+:pd.The temporary save file in QTEMP is deleted.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
