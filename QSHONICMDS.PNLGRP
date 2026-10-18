@@ -2606,4 +2606,49 @@ Restore to library (RSTLIB) - Help
 :eparml.
 :ehelp.
 
+.*******************************************
+.*   Help for common parameters used by the
+.*   remote access and file transfer commands
+.*   (QSHSSH, QSHSCP and QSHLFTP).
+.*******************************************
+:HELP NAME='COMMON/SSHPORT'.
+TCP port (PORT) - Help
+:xh3.SSH server TCP port
+:p.Specifies the TCP/IP port number the SSH server on the remote system listens on.
+:parml.
+:pt.:pk def.22:epk.
+:pd.The standard SSH port 22 is used.
+:pt.:pv.character-value:epv.
+:pd.Enter the port number the remote SSH server is using.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/SSHKEYFILE'.
+SSH private key file (KEYFILE) - Help
+:xh3.SSH private key file (KEYFILE)
+:p.Specifies the IFS path of the SSH private key file used to sign on to the remote system. The key file
+must be readable by the user running the command. A private key is recommended over a password.
+:parml.
+:pt.:pk def.*NOKEYFILE:epk.
+:pd.No private key file is used. The default SSH keys for the user are used or a password is used.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path of the private key file. For example /home/user1/.ssh/id_rsa.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/KEYPASSWD'.
+SSH private key file password (KEYPASSWD) - Help
+:xh3.SSH private key file password (KEYPASSWD)
+:p.Specifies the pass phrase of the private key file.
+:p.:hp3.Note::ehp3. The value is accepted by the command, but it is not currently used when the SSH
+or SFTP command line is built. Use a private key file without a pass phrase, or an SSH agent, until this
+is implemented.
+:parml.
+:pt.:pk def.*NOPASSWORD:epk.
+:pd.The private key file does not have a pass phrase.
+:pt.:pv.character-value:epv.
+:pd.Enter the pass phrase of the private key file.
+:eparml.
+:ehelp.
+
 :epnlgrp.
