@@ -2629,6 +2629,49 @@ To user (TOUSR) - Help
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHIFSCHK
+.************************************************************************
+:help name='QSHIFSCHK'.
+Check for IFS File/Dir Exist (QSHIFSCHK) - Help
+:xh3.Check for IFS File/Dir Exist (QSHIFSCHK)
+:p.The Check for IFS File/Dir Exist (QSHIFSCHK) command checks whether an IFS file or directory exists.
+The command always ends with an escape message, so the result is tested in a CL program with the
+Monitor Message (MONMSG) command:
+:XMP.
+:hp2.
+CPF9897  The file or directory was found.
+CPF9898  The file or directory was not found.
+:ehp2.
+:EXMP.
+:p.The following example checks for a file and runs different logic depending on whether it was found:
+:XMP.
+:hp2.
+QSHIFSCHK FILNAM('/tmp/myfile.txt')
+MONMSG MSGID(CPF9897) EXEC(DO)
+   /* File exists */
+ENDDO
+MONMSG MSGID(CPF9898) EXEC(DO)
+   /* File does not exist */
+ENDDO
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHIFSCHK/FILNAM'.
+IFS file or directory name (FILNAM) - Help
+:xh3.IFS file or directory name (FILNAM)
+:p.Specifies the IFS file or directory to check for.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path of the file or directory. The value can be up to 255 characters.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
