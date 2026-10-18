@@ -3514,6 +3514,98 @@ QSHGETPARM RETURN01(&RETURN01)
 :IMHELP NAME='COMMON/RETURNPARM'.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHGETPR2
+.************************************************************************
+:help name='QSHGETPR2'.
+Scan Qshell Log for Parm Vals (QSHGETPR2) - Help
+:xh3.Scan Qshell Log for Parm Vals (QSHGETPR2)
+:p.The Scan Qshell Log for Parm Vals (QSHGETPR2) command works like QSHGETPARM. It reads the STDOUT results
+of the last QSH/PASE command that was run and returns up to 10 values to CL variables. It also can write the
+values to the job log and to data areas so that they can be used by other programs and jobs.
+The command looks in the temporary STDOUT file QTEMP/STDOUTQSH for lines that start with
+RETURNPARM01: to RETURNPARM10:.
+:p.The command must be run from a CL program because it returns values in CL variables.
+:p.The following example returns the values and also writes them to data areas RTNPARM01 to RTNPARM10 in
+QTEMP:
+:XMP.
+:hp2.
+DCL VAR(&RETURN01) TYPE(*CHAR) LEN(255)
+QSHEXEC CMDLINE('python3 /qshpython/pycallparm1.py')
+QSHGETPR2 RETURN01(&RETURN01)
+          WRTDTAARA(*YES)
+          DTAARALIB(QTEMP)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHGETPR2/RETURN01'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPR2/RETURN02'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPR2/RETURN03'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPR2/RETURN04'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPR2/RETURN05'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPR2/RETURN06'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPR2/RETURN07'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPR2/RETURN08'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPR2/RETURN09'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPR2/RETURN10'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHGETPR2/WRTDIAGMSG'.
+Write return parms to joblog (WRTDIAGMSG) - Help
+:xh3.Write return parms to joblog (WRTDIAGMSG)
+:p.Specifies whether the return values are written to the job log as messages.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The return values are not written to the job log.
+:pt.:pk.*YES:epk.
+:pd.The return values are written to the job log.
+:eparml.
+:ehelp.
+:help name='QSHGETPR2/WRTDTAARA'.
+Write return parms to dtaara (WRTDTAARA) - Help
+:xh3.Write return parms to dtaara (WRTDTAARA)
+:p.Specifies whether the return values are written to data areas. Ten character data areas of length 255
+named RTNPARM01 to RTNPARM10 are created in the library named by DTAARALIB if they do not exist.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The return values are not written to data areas.
+:pt.:pk.*YES:epk.
+:pd.The return values are written to data areas RTNPARM01 to RTNPARM10.
+:eparml.
+:ehelp.
+:help name='QSHGETPR2/DTAARALIB'.
+Library for temp data areas (DTAARALIB) - Help
+:xh3.Library for temp data areas (DTAARALIB)
+:p.Specifies the library the RTNPARM01 to RTNPARM10 data areas are created in when WRTDTAARA(*YES) is used.
+:parml.
+:pt.:pk def.QTEMP:epk.
+:pd.The data areas are created in library QTEMP, so they only exist for the life of the job.
+:pt.:pv.library-name:epv.
+:pd.Specify the name of the library for the data areas.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
