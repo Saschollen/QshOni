@@ -1076,10 +1076,17 @@ QTEMP/TMPQRYSRC gets deleted after query processing.
 .************************************************************************
 .*  Primary Help for command QSHPATH
 .************************************************************************
-:help name='QSHQPATH'.
+:help name='QSHPATH'.
 Set Open Source Package Path (QSHPATH) - Help
 :xh3.Set Open Source Package Path (QSHPATH)
 :p.This CL command is a convenience command to add the IBM i Open Source packages directory name to the PATH environment variable.
+:P.The following example adds the default open source packages directory to the beginning of the PATH:
+:XMP.
+:hp2.
+QSHPATH PKGPATH(*DEFAULT)
+        PATHLOC(*BEGIN)
+:ehp2.
+:EXMP.
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
 :ehelp.
