@@ -2532,6 +2532,103 @@ Specify the name of the library for the file.
 :EPARML.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHENDWEB
+.************************************************************************
+:help name='QSHENDWEB'.
+End Web Server (QSHENDWEB) - Help
+:xh3.End Web Server (QSHENDWEB)
+:p.The End Web Server (QSHENDWEB) command ends an HTTP server instance with the End TCP/IP Server
+(ENDTCPSVR) command and then monitors the active jobs to make sure the server jobs end. The command
+checks for the jobs every DLYJOB seconds, up to WAITCYCLES times. If the jobs have not ended after that
+time a message is sent saying the instance may not have ended.
+:p.The following example ends HTTP server instance MYWEB and waits up to 10 cycles of 10 seconds each
+for the jobs to end:
+:XMP.
+:hp2.
+QSHENDWEB HTTPINST(MYWEB)
+          JOBNAME(*HTTPINST)
+          DLYJOB(10)
+          WAITCYCLES(10)
+          SNDOPRMSG(*YES)
+          TOUSR(*SYSOPR)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHENDWEB/HTTPINST'.
+HTTP instance name (HTTPINST) - Help
+:xh3.HTTP instance name (HTTPINST)
+:p.Specifies the name of the HTTP server instance to end.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the HTTP server instance name.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHENDWEB/JOBNAME'.
+Job name (JOBNAME) - Help
+:xh3.Job name (JOBNAME)
+:p.Specifies the job name that is monitored to determine when the server has ended. The name can be
+generic, for example ADMIN* for the *ADMIN instance jobs. For most HTTP server instances the job name
+is the same as the instance name.
+:parml.
+:pt.:pk def.*HTTPINST:epk.
+:pd.The HTTP instance name is used as the job name.
+:pt.:pv.character-value:epv.
+:pd.Enter the job name to monitor.
+:eparml.
+:ehelp.
+:help name='QSHENDWEB/DLYJOB'.
+Delay job in seconds (DLYJOB) - Help
+:xh3.Delay job in seconds (DLYJOB)
+:p.Specifies the number of seconds to wait between each check for active server jobs.
+:parml.
+:pt.:pk def.10:epk.
+:pd.The command waits 10 seconds between checks.
+:pt.:pv.number:epv.
+:pd.Enter the number of seconds to wait.
+:eparml.
+:ehelp.
+:help name='QSHENDWEB/WAITCYCLES'.
+Number of delay cycles to wait (WAITCYCLES) - Help
+:xh3.Number of delay cycles to wait (WAITCYCLES)
+:p.Specifies how many times the command checks for active server jobs before it gives up. The total wait
+time is about DLYJOB multiplied by WAITCYCLES seconds.
+:parml.
+:pt.:pk def.10:epk.
+:pd.The command checks up to 10 times.
+:pt.:pv.number:epv.
+:pd.Enter the number of times to check.
+:eparml.
+:ehelp.
+:help name='QSHENDWEB/SNDOPRMSG'.
+Send operator message (SNDOPRMSG) - Help
+:xh3.Send operator message (SNDOPRMSG)
+:p.Specifies whether an informational message is sent to a user about the result of ending the server.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.No message is sent.
+:pt.:pk.*YES:epk.
+:pd.A message is sent to the user in the TOUSR parameter when the instance is not running,
+ended successfully or may not have ended.
+:eparml.
+:ehelp.
+:help name='QSHENDWEB/TOUSR'.
+To user (TOUSR) - Help
+:xh3.To user (TOUSR)
+:p.Specifies the user or message queue that receives the message when SNDOPRMSG(*YES) is used.
+:parml.
+:pt.:pk def.*SYSOPR:epk.
+:pd.The message is sent to the system operator.
+:pt.:pv.user-name:epv.
+:pd.Enter the user profile name to send the message to.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
