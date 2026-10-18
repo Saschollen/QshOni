@@ -3177,6 +3177,74 @@ Specify the name of the library where the output queue is located.
 :EPARML.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHJOBLIST
+.************************************************************************
+:help name='QSHJOBLIST'.
+List Selected Jobs to Outfile (QSHJOBLIST) - Help
+:xh3.List Selected Jobs to Outfile (QSHJOBLIST)
+:p.The List Selected Jobs to Outfile (QSHJOBLIST) command creates an outfile that lists jobs on the system.
+By default all jobs are listed. A filter can be used to list only the jobs you want. The command uses the
+QSYS2.ACTIVE_JOB_INFO SQL service. If the SQL fails you may be missing the PTF groups that the service needs.
+:p.The following example lists the jobs named ADMIN to the default outfile QTEMP/JOBTMP0001:
+:XMP.
+:hp2.
+QSHJOBLIST QRYFILTER('JOBNAME LIKE ''ADMIN''')
+           OUTFILE(QTEMP/JOBTMP0001)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHJOBLIST/QRYFILTER'.
+Job info query filter (QRYFILTER) - Help
+:xh3.Job info query filter (QRYFILTER)
+:p.Specifies the SQL selection that picks the jobs to list. It is used as the WHERE condition on the job
+information. A quote inside the filter must be entered as two quotes.
+:parml.
+:pt.:pk def.JOBNAME LIKE '%%':epk.
+:pd.All jobs are listed.
+:pt.:pk.*ALL:epk.
+:pd.All jobs are listed.
+:pt.:pv.character-value:epv.
+:pd.Enter the SQL selection. For example JOBNAME LIKE 'ADMIN'. The value can be up to 500 characters.
+:eparml.
+:ehelp.
+:help name='QSHJOBLIST/OUTFILE'.
+File to receive results (OUTFILE) - Help
+:xh3.File to receive results (OUTFILE)
+:p.Specifies the file that receives the list of jobs found.
+:parml.
+:pt.:pk def.JOBTMP0001:epk.
+:pd.The results are written to file JOBTMP0001.
+:pt.:pv.file-name:epv.
+:pd.Specify the name of the file to receive the results.
+:eparml.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.QTEMP:EPK.
+:PD.
+The file is created in library QTEMP.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library for the file.
+:EPARML.
+:ehelp.
+:help name='QSHJOBLIST/PROMPT'.
+Prompt SQL for debug (PROMPT) - Help
+:xh3.Prompt SQL for debug (PROMPT)
+:p.Specifies whether the SQL statement is prompted before it runs. This is useful for debugging.
+Normally the selection should be *NO.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The SQL statement is not prompted.
+:pt.:pk.*YES:epk.
+:pd.The SQL statement is prompted on an interactive 5250 session before it runs.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
