@@ -2672,6 +2672,107 @@ IFS file or directory name (FILNAM) - Help
 :IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHIFSSCAN
+.************************************************************************
+:help name='QSHIFSSCAN'.
+Scan IFS File for Value (QSHIFSSCAN) - Help
+:xh3.Scan IFS File for Value (QSHIFSSCAN)
+:p.The Scan IFS File for Value (QSHIFSSCAN) command scans an IFS text file for one or more values. The main
+use is to scan a STDOUT or STDERR log file for text that shows success or failure. The command ends
+successfully as soon as any one of the values is found. If none of the values are found, or the IFS file
+does not exist, a CPF9898 escape message is sent that can be monitored in a CL program.
+:p.The following example checks whether the word :hp3.successfully:ehp3. appears anywhere on a line of a log
+file:
+:XMP.
+:hp2.
+QSHIFSSCAN IFSFILE('/tmp/job.log')
+           SCANFOR('successfully')
+           EXACTMATCH(*NO)
+:ehp2.
+:EXMP.
+:p.The following example scans for either of two values and monitors for the not found message:
+:XMP.
+:hp2.
+QSHIFSSCAN IFSFILE('/tmp/job.log')
+           SCANFOR('Build complete' 'Build succeeded')
+MONMSG MSGID(CPF9898) EXEC(DO)
+   /* Neither value was found */
+ENDDO
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHIFSSCAN/IFSFILE'.
+IFS file to scan (IFSFILE) - Help
+:xh3.IFS file to scan (IFSFILE)
+:p.Specifies the IFS text file to scan.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path of the file to scan. The command ends with an error if the file does not exist.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHIFSSCAN/SCANFOR'.
+Values to scan for first match (SCANFOR) - Help
+:xh3.Values to scan for first match (SCANFOR)
+:p.Specifies the text values to scan for on each line of the file.
+The values are case sensitive and must match the text in the file. The scan ends as soon as any one of the
+values is found.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the value to scan for. Up to 20 values of up to 100 characters each can be entered.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:IMHELP NAME='COMMON/LIST'.
+:ehelp.
+:help name='QSHIFSSCAN/EXACTMATCH'.
+Exact match (EXACTMATCH) - Help
+:xh3.Exact match (EXACTMATCH)
+:p.Specifies how a value must match a line in the file.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.At least one line must contain the value somewhere in the line. Good for generic matching.
+:pt.:pk.*YES:epk.
+:pd.The value must match exactly and be the only thing on the line.
+:eparml.
+:ehelp.
+:help name='QSHIFSSCAN/ENDLINFMT'.
+End of line characters (ENDLINFMT) - Help
+:xh3.End of line characters (ENDLINFMT)
+:p.Specifies the characters that mark the end of each line in the IFS file. This is used when the file is
+copied to a temporary physical file in QTEMP before it is scanned.
+:parml.
+:pt.:pk def.*ALL:epk.
+:pd.Any combination of carriage return and line feed characters ends a line.
+:pt.:pk.*CR:epk.
+:pd.A carriage return ends a line.
+:pt.:pk.*LF:epk.
+:pd.A line feed ends a line.
+:pt.:pk.*CRLF:epk.
+:pd.A carriage return followed by a line feed ends a line.
+:pt.:pk.*LFCR:epk.
+:pd.A line feed followed by a carriage return ends a line.
+:pt.:pk.*FIXED:epk.
+:pd.The file has fixed length lines with no end of line characters.
+:eparml.
+:ehelp.
+:help name='QSHIFSSCAN/DLTTMPFILE'.
+Delete temp file after (DLTTMPFILE) - Help
+:xh3.Delete temp file after (DLTTMPFILE)
+:p.Specifies whether the temporary file TMPIFSFILE in library QTEMP is deleted after the scan.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The temporary file is deleted.
+:pt.:pk.*NO:epk.
+:pd.The temporary file is not deleted. It can be used for testing or review in the same job.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
