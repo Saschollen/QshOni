@@ -3167,4 +3167,32 @@ is implemented.
 :eparml.
 :ehelp.
 
+.*******************************************
+.*   Help for common parameters used by the
+.*   TCP/IP port commands (QSHPORTCHK and QSHPORTEND).
+.*******************************************
+:HELP NAME='COMMON/LOCALPORT'.
+Local port (LOCALPORT) - Help
+:xh3.Local port (LOCALPORT)
+:p.Specifies the local TCP/IP port number to check.
+:parml.
+:pt.:pv.1-65535:epv.
+:pd.Enter the port number.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
+:HELP NAME='COMMON/CONNTYPE'.
+Connection type (CONNTYPE) - Help
+:xh3.Connection type (CONNTYPE)
+:p.Specifies the type of TCP/IP connection to check.
+:parml.
+:pt.:pk def.IPV4:epk.
+:pd.IPv4 connections are checked.
+:pt.:pk.IPV6:epk.
+:pd.IPv6 connections are checked.
+:eparml.
+:ehelp.
+
 :epnlgrp.
