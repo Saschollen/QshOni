@@ -2773,6 +2773,73 @@ Delete temp file after (DLTTMPFILE) - Help
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHIFSSIZ
+.************************************************************************
+:help name='QSHIFSSIZ'.
+Retrieve IFS Object Size (QSHIFSSIZ) - Help
+:xh3.Retrieve IFS Object Size (QSHIFSSIZ)
+:p.The Retrieve IFS Object Size (QSHIFSSIZ) command returns the size and the allocated size of an IFS
+file in bytes. The values are returned in CL variables, so the command must be run from a CL program.
+:p.The following example retrieves the size of a file into CL variables:
+:XMP.
+:hp2.
+DCL VAR(&SIZE) TYPE(*DEC) LEN(15 0)
+DCL VAR(&ALLOCSIZE) TYPE(*DEC) LEN(15 0)
+QSHIFSSIZ FILE('/tmp/myfile.txt')
+          SIZE(&SIZE)
+          ALLOCSIZE(&ALLOCSIZE)
+          ESCONERROR(*YES)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHIFSSIZ/FILE'.
+IFS file name (FILE) - Help
+:xh3.IFS file name (FILE)
+:p.Specifies the IFS file to retrieve the size of.
+:parml.
+:pt.:pv.path-name:epv.
+:pd.Enter the full IFS path of the file.
+:eparml.
+:ehelp.
+:help name='QSHIFSSIZ/SIZE'.
+Return file size (SIZE) - Help
+:xh3.Return file size (SIZE)
+:p.Specifies the CL variable that receives the size of the IFS file in bytes.
+The variable must be a decimal variable with a length of 15 and 0 decimal positions.
+:parml.
+:pt.:pv.decimal-variable:epv.
+:pd.Specify the name of the CL variable to receive the file size.
+If the file is not found and ESCONERROR(*NO) is used, the value -2 is returned.
+:eparml.
+:ehelp.
+:help name='QSHIFSSIZ/ALLOCSIZE'.
+Return allocated size (ALLOCSIZE) - Help
+:xh3.Return allocated size (ALLOCSIZE)
+:p.Specifies the CL variable that receives the allocated size of the IFS file in bytes. The allocated size
+is the storage the file uses on disk. The variable must be a decimal variable with a length of 15 and
+0 decimal positions.
+:parml.
+:pt.:pv.decimal-variable:epv.
+:pd.Specify the name of the CL variable to receive the allocated size.
+If the file is not found and ESCONERROR(*NO) is used, the value -2 is returned.
+:eparml.
+:ehelp.
+:help name='QSHIFSSIZ/ESCONERROR'.
+Escape error on not found (ESCONERROR) - Help
+:xh3.Escape error on not found (ESCONERROR)
+:p.Specifies whether an escape message is sent when the IFS file cannot be found.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.A CPF9898 escape message is sent if the file is not found.
+:pt.:pk.*NO:epk.
+:pd.No escape message is sent. The size values are set to -2 and a diagnostic message is sent.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
