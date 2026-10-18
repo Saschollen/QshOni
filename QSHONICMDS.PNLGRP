@@ -1370,6 +1370,115 @@ or reviewing the SAV parameter values. Normally the selection should be *NO.
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHSAVOBJ
+.************************************************************************
+:help name='QSHSAVOBJ'.
+Save Objects to IFS File (QSHSAVOBJ) - Help
+:xh3.Save Objects to IFS File (QSHSAVOBJ)
+:p.The Save Objects to IFS File (QSHSAVOBJ) command saves objects from a library to a temporary save file in QTEMP
+using the SAVOBJ command and then copies the result to a save file stored in the IFS. The IFS file
+can be moved or backed up to a NAS, SAN or other system and later restored with the QSHRSTOBJ command.
+:p.When *DATETIME or *DATE is used for the TOIFSFILE parameter, the IFS file name is generated in the
+directory stored in data area QSHONI/SAVFDIR (default /tmp/savfqsh):
+:XMP.
+:hp2.
+*DATETIME  library_SAVOBJ_yyyymmdd_hhmmss.savf
+*DATE      library_SAVOBJ_library_yyyymmdd.savf
+:ehp2.
+:EXMP.
+:p.The following example saves all objects in library MYLIB to IFS file /backups/mylib_objs.savf:
+:XMP.
+:hp2.
+QSHSAVOBJ OBJECTS(*ALL)
+          LIBRARY(MYLIB)
+          TOIFSFILE('/backups/mylib_objs.savf')
+          REPLACE(*YES)
+:ehp2.
+:EXMP.
+:p.The following example saves all objects whose name starts with CUST in library MYLIB to an automatically named file:
+:XMP.
+:hp2.
+QSHSAVOBJ OBJECTS(CUST*)
+          LIBRARY(MYLIB)
+          TOIFSFILE(*DATETIME)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHSAVOBJ/OBJECTS'.
+Objects to save (OBJECTS) - Help
+:xh3.Objects to save (OBJECTS)
+:p.Specifies the objects to save from the library.
+:parml.
+:pt.:pk.*ALL:epk.
+:pd.All of the objects in the library are saved.
+:pt.:pv.character-value:epv.
+:pd.Specify the name of the object to save. A generic name (for example CUST*) can be used to save all
+objects that start with the same characters.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHSAVOBJ/LIBRARY'.
+Library to save (LIBRARY) - Help
+:xh3.Library to save (LIBRARY)
+:p.Specifies the library that contains the objects to save.
+:parml.
+:pt.:pv.library-name:epv.
+:pd.Specify the name of the library.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHSAVOBJ/TOIFSFILE'.
+:IMHELP NAME='COMMON/TOIFSFILE'.
+:ehelp.
+:help name='QSHSAVOBJ/REPLACE'.
+:IMHELP NAME='COMMON/REPLACESAVF'.
+:ehelp.
+:help name='QSHSAVOBJ/TGTRLS'.
+:IMHELP NAME='COMMON/TGTRLS'.
+:ehelp.
+:help name='QSHSAVOBJ/UPDHST'.
+:IMHELP NAME='COMMON/UPDHST'.
+:ehelp.
+:help name='QSHSAVOBJ/PRECHK'.
+:IMHELP NAME='COMMON/PRECHK'.
+:ehelp.
+:help name='QSHSAVOBJ/SAVACT'.
+:IMHELP NAME='COMMON/SAVACT'.
+:ehelp.
+:help name='QSHSAVOBJ/SAVFDTA'.
+:IMHELP NAME='COMMON/SAVFDTA'.
+:ehelp.
+:help name='QSHSAVOBJ/SPLFDTA'.
+:IMHELP NAME='COMMON/SPLFDTA'.
+:ehelp.
+:help name='QSHSAVOBJ/QDTA'.
+:IMHELP NAME='COMMON/QDTA'.
+:ehelp.
+:help name='QSHSAVOBJ/DTACPR'.
+:IMHELP NAME='COMMON/DTACPR'.
+:ehelp.
+:help name='QSHSAVOBJ/DLTTMPSAVF'.
+:IMHELP NAME='COMMON/DLTTMPSAVF'.
+:ehelp.
+:help name='QSHSAVOBJ/PROMPT'.
+Prompt the SAVOBJ command (PROMPT) - Help
+:xh3.Prompt the SAVOBJ command (PROMPT)
+:p.Specifies whether the SAVOBJ command is prompted interactively before it runs. This is useful for testing
+or reviewing the SAVOBJ parameter values. Normally the selection should be *NO.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The SAVOBJ command is not prompted.
+:pt.:pk.*YES:epk.
+:pd.The SAVOBJ command is prompted on an interactive 5250 session before it runs.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
