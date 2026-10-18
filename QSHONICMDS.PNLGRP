@@ -3347,6 +3347,119 @@ Escape error if no result data (EMPTYERROR) - Help
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHCALL
+.************************************************************************
+:help name='QSHCALL'.
+Run Qshell Command Line (QSHCALL) - Help
+:xh3.Run Qshell Command Line (QSHCALL)
+:p.The Run Qshell Command Line (QSHCALL) command runs a QSH/PASE command line and returns up to 10 values to
+CL variables. It works like the QSHEXEC command, but it is meant for CL, RPG and COBOL programmers who are
+used
+to calling programs and getting values back through parameters. The values come from lines that the command
+or script writes to STDOUT that start with RETURNPARM01: to RETURNPARM10:.
+:p.The command must be run from a CL program because it returns values in CL variables.
+:p.The following example runs a Python script and returns two values:
+:XMP.
+:hp2.
+DCL VAR(&RETURN01) TYPE(*CHAR) LEN(255)
+DCL VAR(&RETURN02) TYPE(*CHAR) LEN(255)
+QSHCALL CMDLINE('python3 /qshpython/pycallparm1.py')
+        DSPSTDOUT(*NO)
+        RETURN01(&RETURN01)
+        RETURN02(&RETURN02)
+:ehp2.
+:EXMP.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHCALL/CMDLINE'.
+:IMHELP NAME='COMMON/CMDLINE'.
+:ehelp.
+:help name='QSHCALL/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHCALL/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHCALL/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHCALL/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHCALL/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHCALL/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHCALL/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHCALL/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHCALL/CCSID'.
+:IMHELP NAME='COMMON/CCSID'.
+:ehelp.
+:help name='QSHCALL/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHCALL/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHCALL/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHCALL/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHCALL/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHCALL/OUTFILE'.
+:IMHELP NAME='COMMON/OUTFILE'.
+:ehelp.
+:help name='QSHCALL/MBROPT'.
+:IMHELP NAME='COMMON/MBROPT'.
+:ehelp.
+:help name='QSHCALL/PASEJOBNAM'.
+:IMHELP NAME='COMMON/PASEJOBNAM'.
+:ehelp.
+:help name='QSHCALL/RETURN01'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHCALL/RETURN02'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHCALL/RETURN03'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHCALL/RETURN04'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHCALL/RETURN05'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHCALL/RETURN06'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHCALL/RETURN07'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHCALL/RETURN08'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHCALL/RETURN09'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+:help name='QSHCALL/RETURN10'.
+:IMHELP NAME='COMMON/RETURNPARM'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
