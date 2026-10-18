@@ -1915,6 +1915,140 @@ Delete temp save file after (DLTTMPSAVF) - Help
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHSSH
+.************************************************************************
+:help name='QSHSSH'.
+Run Remote Command over SSH (QSHSSH) - Help
+:xh3.Run Remote Command over SSH (QSHSSH)
+:p.The Run Remote Command over SSH (QSHSSH) command runs a command on a remote IBM i or other system
+using the ssh utility and captures the STDOUT results. This is a convenient way to run or submit
+a job on a remote system. The command can sign on with an SSH private key or with a user and password.
+:p.When a password is used the open source sshpass package must be installed (/QOpenSys/pkgs/bin/sshpass).
+A private key is recommended over a password.
+:p.The following example runs the ls command on a remote system with an SSH private key and displays the
+results:
+:XMP.
+:hp2.
+QSHSSH SSHHOST('myhost.com')
+       SSHPORT(22)
+       SSHUSER(user1)
+       KEYFILE('/home/user1/.ssh/id_rsa')
+       CMDLINE('ls -l /tmp')
+       DSPSTDOUT(*YES)
+:ehp2.
+:EXMP.
+:p.The following example runs the same command with a user and password:
+:XMP.
+:hp2.
+QSHSSH SSHHOST('myhost.com')
+       SSHUSER(user1)
+       SSHPASS('mypassword')
+       CMDLINE('ls -l /tmp')
+       DSPSTDOUT(*YES)
+:ehp2.
+:EXMP.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHSSH/SSHHOST'.
+SSH server host/ip address (SSHHOST) - Help
+:xh3.SSH server host/ip address (SSHHOST)
+:p.Specifies the host name or IP address of the remote system to run the command on.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the host name or IP address of the remote SSH server.
+:eparml.
+:ehelp.
+:help name='QSHSSH/SSHPORT'.
+:IMHELP NAME='COMMON/SSHPORT'.
+:ehelp.
+:help name='QSHSSH/SSHUSER'.
+SSH user (SSHUSER) - Help
+:xh3.SSH user (SSHUSER)
+:p.Specifies the user name used to sign on to the remote system.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the user name on the remote system.
+:eparml.
+:ehelp.
+:help name='QSHSSH/SSHPASS'.
+SSH password (SSHPASS) - Help
+:xh3.SSH password (SSHPASS)
+:p.Specifies the password used to sign on to the remote system. When a password is entered the sshpass
+utility is used and the private key file value is ignored. The password is passed on the PASE command line,
+so a private key file is recommended instead.
+:parml.
+:pt.:pk def.*NONE:epk.
+:pd.No password is used. The private key file or the default SSH keys of the user are used.
+:pt.:pv.character-value:epv.
+:pd.Enter the password for the user on the remote system.
+:eparml.
+:ehelp.
+:help name='QSHSSH/KEYFILE'.
+:IMHELP NAME='COMMON/SSHKEYFILE'.
+:ehelp.
+:help name='QSHSSH/KEYPASSWD'.
+:IMHELP NAME='COMMON/KEYPASSWD'.
+:ehelp.
+:help name='QSHSSH/CMDLINE'.
+Command line to run (CMDLINE) - Help
+:xh3.Command line to run (CMDLINE)
+:p.Specifies the command line to run on the remote system. The command line is enclosed in double quotes
+when it is passed to ssh. Semicolons can be used to run multiple commands.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the command line to run on the remote system. The value can be up to 2000 characters.
+:eparml.
+:ehelp.
+:help name='QSHSSH/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='QSHSSH/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='QSHSSH/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='QSHSSH/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='QSHSSH/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='QSHSSH/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='QSHSSH/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='QSHSSH/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='QSHSSH/CCSID'.
+:IMHELP NAME='COMMON/CCSID'.
+:ehelp.
+:help name='QSHSSH/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='QSHSSH/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='QSHSSH/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='QSHSSH/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='QSHSSH/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='QSHSSH/PROMPTQSH'.
+:IMHELP NAME='COMMON/PROMPTCMD'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
