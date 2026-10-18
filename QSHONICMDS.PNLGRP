@@ -1755,6 +1755,86 @@ or reviewing the RST parameter values. Normally the selection should be *NO.
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHRSTOBJ
+.************************************************************************
+:help name='QSHRSTOBJ'.
+Restore Objects from IFS File (QSHRSTOBJ) - Help
+:xh3.Restore Objects from IFS File (QSHRSTOBJ)
+:p.The Restore Objects from IFS File (QSHRSTOBJ) command copies a save file stored in the IFS to a temporary
+save file in QTEMP and then restores objects from it using the RSTOBJ command. The IFS file is normally
+one created by the QSHSAVOBJ or QSHSAVCHG command.
+:p.The following example restores all objects saved from library MYLIB in IFS file /backups/mylib_objs.savf:
+:XMP.
+:hp2.
+QSHRSTOBJ OBJECTS(*ALL)
+          LIBRARY(MYLIB)
+          FRMIFSFILE('/backups/mylib_objs.savf')
+:ehp2.
+:EXMP.
+:p.The following example restores the objects whose name starts with CUST into library MYLIBTST:
+:XMP.
+:hp2.
+QSHRSTOBJ OBJECTS(CUST*)
+          LIBRARY(MYLIB)
+          RSTLIB(MYLIBTST)
+          FRMIFSFILE('/backups/mylib_objs.savf')
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHRSTOBJ/OBJECTS'.
+Objects to restore (OBJECTS) - Help
+:xh3.Objects to restore (OBJECTS)
+:p.Specifies the objects to restore from the save file.
+:parml.
+:pt.:pk.*ALL:epk.
+:pd.All of the objects in the save file are restored.
+:pt.:pv.character-value:epv.
+:pd.Specify the name of the object to restore. A generic name (for example CUST*) can be used to restore all
+objects that start with the same characters.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHRSTOBJ/LIBRARY'.
+Library to restore (LIBRARY) - Help
+:xh3.Library to restore (LIBRARY)
+:p.Specifies the name of the library the objects were saved from, as it is recorded in the save file.
+:parml.
+:pt.:pv.library-name:epv.
+:pd.Specify the name of the saved library.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHRSTOBJ/RSTLIB'.
+:IMHELP NAME='COMMON/RSTLIB'.
+:ehelp.
+:help name='QSHRSTOBJ/CLRLIB'.
+:IMHELP NAME='COMMON/CLRLIB'.
+:ehelp.
+:help name='QSHRSTOBJ/FRMIFSFILE'.
+:IMHELP NAME='COMMON/FRMIFSFILE'.
+:ehelp.
+:help name='QSHRSTOBJ/DLTTMPSAVF'.
+:IMHELP NAME='COMMON/DLTTMPSAVF'.
+:ehelp.
+:help name='QSHRSTOBJ/PROMPT'.
+Prompt the RSTOBJ command (PROMPT) - Help
+:xh3.Prompt the RSTOBJ command (PROMPT)
+:p.Specifies whether the RSTOBJ command is prompted interactively before it runs. This is useful for testing
+or reviewing the RSTOBJ parameter values. Normally the selection should be *NO.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The RSTOBJ command is not prompted.
+:pt.:pk.*YES:epk.
+:pd.The RSTOBJ command is prompted on an interactive 5250 session before it runs.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
