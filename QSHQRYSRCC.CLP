@@ -1,8 +1,13 @@
              PGM        PARM(&SRCFILE &SRCMBR &SQLIFSFILE &PARMS +
                           &PARMVALS &OUTFILE &EMPTYERROR &NAMING +
                           &PROMPT &CRTIDCOL &IDCOLNAME &DLTTMPSRC +
-                          &SQLLOC)
+                          &SQLLOC &DLTCMTLINE &DSPTMPSRC +
+                          &CPYRESULTS &CPYTOFULL &CREATEFILE +
+                          &MBROPT &PROMPTCPYF &CLRAFTCPYF)
 
+
+             DCL        VAR(&DLTCMTLINE) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&DSPTMPSRC) TYPE(*CHAR) LEN(4)
              DCL        VAR(&RTNERROR) TYPE(*CHAR) LEN(1)
              DCL        VAR(&PARMS)  TYPE(*CHAR) LEN(3002)
              DCL        VAR(&PARMVALS) TYPE(*CHAR) LEN(3002)
@@ -30,6 +35,14 @@
              DCL        VAR(&RECORDSC) TYPE(*CHAR) LEN(10)
              DCL        VAR(&COMPMSGTYP) TYPE(*CHAR) LEN(10) +
                           VALUE(*COMP)
+             DCL        VAR(&CPYRESULTS) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&CPYTOFULL) TYPE(*CHAR) LEN(20)
+             DCL        VAR(&CPYTOFILE) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&CPYTOLIB) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&CREATEFILE) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&MBROPT) TYPE(*CHAR) LEN(10)
+             DCL        VAR(&PROMPTCPYF) TYPE(*CHAR) LEN(4)
+             DCL        VAR(&CLRAFTCPYF) TYPE(*CHAR) LEN(4)
 
              MONMSG     MSGID(CPF0000) EXEC(GOTO CMDLBL(ERRORS))
 
@@ -157,6 +170,22 @@
              ENDDO
 
 /*----------------------------------------------------------------------------*/
+/* Read SQL from source member, remove comment values                */
+/* and update the temp SQL member file in QTEMP                      */
+/*----------------------------------------------------------------------------*/
+             OVRDBF     FILE(TMPQRYSRC) TOFILE(QTEMP/TMPQRYSRC) +
+                          MBR(*FIRST) OVRSCOPE(*ACTGRPDFN)
+             CALL       PGM(QSHQRYSR3R) PARM((&DLTCMTLINE) (&RTNERROR))
+             DLTOVR     FILE(TMPQRYSRC) LVL(*ACTGRPDFN)
+
+             /* If rtnerror <> '0', bail out now     */
+             IF         COND(&RTNERROR *EQ '1') THEN(DO)
+             SNDPGMMSG  MSGID(CPF9898) MSGF(QCPFMSG) MSGDTA('Error +
+                          occurred removing comments from SQL') +
+                          MSGTYPE(*ESCAPE)
+             ENDDO
+
+/*----------------------------------------------------------------------------*/
 /* Read SQL from source member in QTEMP and compose final query               */
 /*----------------------------------------------------------------------------*/
              OVRDBF     FILE(TMPSRCMBR) TOFILE(QTEMP/TMPQRYSRC) +
@@ -173,10 +202,34 @@
              ENDDO
 
 /*----------------------------------------------------------------------------*/
+/* Display actual query source that will run */
+/* if DSPTMPSRC is *YES.               */
+/*----------------------------------------------------------------------------*/
+             IF         COND(&DSPTMPSRC *EQ *YES) THEN(DO)
+             STRSEU     SRCFILE(QTEMP/TMPQRYSRC) SRCMBR(TMPQRYSRC)
+             MONMSG     MSGID(CPF0000)
+             ENDDO
+
+/*----------------------------------------------------------------------------*/
 /* Parse outfile parm */
 /*----------------------------------------------------------------------------*/
              CHGVAR     VAR(&TEMPLIB) VALUE(%SST(&OUTFILE 11 10))
              CHGVAR     VAR(&TEMPFILE) VALUE(%SST(&OUTFILE 1 10))
+
+/*----------------------------------------------------------------------------*/
+/* Parse cpytofile parm if specified */
+/*----------------------------------------------------------------------------*/
+             CHGVAR     VAR(&CPYTOLIB) VALUE(%SST(&CPYTOFULL 11 10))
+             CHGVAR     VAR(&CPYTOFILE) VALUE(%SST(&CPYTOFULL 1 10))
+
+             /* Bail out if temp file and output file is the same */
+             IF         COND(&TEMPFILE *EQ &CPYTOFILE *AND &TEMPLIB +
+                          *EQ &CPYTOLIB) THEN(DO)
+             SNDPGMMSG  MSGID(CPF9898) MSGF(QCPFMSG) MSGDTA('Temp +
+                          output file and copy results file cannot +
+                          be same name:' |> &TEMPLIB |< '/' |< +
+                          &TEMPFILE) TOPGMQ(*PRV) MSGTYPE(*ESCAPE)
+             ENDDO
 
 /*----------------------------------------------------------------------------*/
 /* Create record count data area */
@@ -285,10 +338,53 @@
                           IDCOLNAME(&IDCOLNAME) PROMPT(&PROMPT)
              ENDDO
 
+/* All done message. Not copying to additional results file */
+             IF         COND(&CPYRESULTS *NE *YES) THEN(DO)
              SNDPGMMSG  MSGID(CPF9898) MSGF(QCPFMSG) MSGDTA('Temp +
                           file' |> &TEMPLIB |< '/' |< &TEMPFILE |> +
                           'was created from SQL query.' |> +
                           &RECORDSC |> 'records') MSGTYPE(&COMPMSGTYP)
+             ENDDO
+
+/* Copy to new results table if specified */
+             IF         COND(&CPYRESULTS *EQ *YES) THEN(DO)
+
+             /* Prompt the CPYF command */
+             IF         COND(&PROMPTCPYF *EQ *YES) THEN(DO)
+           ? CPYF     ??FROMFILE(&TEMPLIB/&TEMPFILE) +
+                        ??TOFILE(&CPYTOLIB/&CPYTOFILE) +
+                        ??FROMMBR(*FIRST) ??TOMBR(*FIRST) +
+                        ??MBROPT(&MBROPT) ??CRTFILE(&CREATEFILE) +
+                        ??FROMRCD(*START) ??TORCD(*END) +
+                        ??NBRRCDS(*END)
+             ENDDO
+             /* No prompt for the CPYF command */
+             IF         COND(&PROMPTCPYF *NE *YES) THEN(DO)
+             CPYF       FROMFILE(&TEMPLIB/&TEMPFILE) +
+                          TOFILE(&CPYTOLIB/&CPYTOFILE) +
+                          FROMMBR(*FIRST) TOMBR(*FIRST) +
+                          MBROPT(&MBROPT) CRTFILE(&CREATEFILE) +
+                          FROMRCD(*START) TORCD(*END) NBRRCDS(*END)
+             ENDDO
+
+             /* Clear temp outfile after CPYF of results */
+             IF         COND(&CLRAFTCPYF *EQ *YES) THEN(DO)
+             CLRPFM     FILE(&TEMPLIB/&TEMPFILE)
+             SNDPGMMSG  MSGID(CPF9898) MSGF(QCPFMSG) MSGDTA('Temp +
+                          file' |> &TEMPLIB |< '/' |< &TEMPFILE |> +
+                          'was cleared after CPYF') TOPGMQ(*SAME) +
+                          MSGTYPE(*DIAG)
+             ENDDO
+
+             SNDPGMMSG  MSGID(CPF9898) MSGF(QCPFMSG) MSGDTA('Temp +
+                          file' |> &TEMPLIB |< '/' |< &TEMPFILE |> +
+                          'was created from SQL query.' |> +
+                          &RECORDSC |> 'records. Results copied to' +
+                          |> &CPYTOLIB |< '/' |< &CPYTOFILE |> +
+                          'with member option' |> &MBROPT) +
+                          MSGTYPE(&COMPMSGTYP)
+
+             ENDDO  /* ENDDO - CPYF */
 
              RETURN
 ERRORS:

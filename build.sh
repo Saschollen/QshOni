@@ -8,6 +8,7 @@ SRCLIB="QSHONI"
 SRCLIBTEXT="QShell on IBM i"
 SRCFILE="SOURCE"
 SRCCCSID="37"
+TGTRLSBLD="V7R3M0"
 dashes="---------------------------------------------------------------------------"
 
 function cpy_member
@@ -266,6 +267,10 @@ CURFILE="QSHONIPR03.RPGLE"
 SRCTEXT="QSHONISRV Service Program Tester 3 - QSHCALL"
 cpy_member
 
+CURFILE="QSHONIPR04.RPGLE"
+SRCTEXT="QSHONISRV Service Program Tester 4 - WRTLOG/PRTLOG"
+cpy_member
+
 CURFILE="QSHIFSSIZ.CMD"
 SRCTEXT="Retrieve IFS Object Size using stat64"
 cpy_member
@@ -288,6 +293,10 @@ cpy_member
 
 CURFILE="QSHQRYSR2R.RPGLE"
 SRCTEXT="SQL Query Data Scan/Replace Parm Values"
+cpy_member
+
+CURFILE="QSHQRYSR3R.RPGLE"
+SRCTEXT="SQL Query Data Scan and Remove SQL Comments"
 cpy_member
 
 CURFILE="QSHSAVLIB.CMD"
@@ -320,6 +329,10 @@ cpy_member
 
 CURFILE="SRCBLDC.CLP"
 SRCTEXT="Build cmds from QSHONI/SOURCE file"   
+cpy_member
+
+CURFILE="SRCBLDSV1C.CLP"
+SRCTEXT="Build Service Program"   
 cpy_member
 
 CURFILE="SQLTEST1.SQL"
@@ -362,8 +375,160 @@ CURFILE="RUNSQLSRCR.RPGLE"
 SRCTEXT="Run SQL Action from SQL Src with Parm Replacement"   
 cpy_member
 
+CURFILE="RUNSQLSR3R.RPGLE"
+SRCTEXT="Run SQL Query Data Scan and Remove SQL Comments"   
+cpy_member
+
 CURFILE="QSHONICMDS.PNLGRP"
 SRCTEXT="Command Help Panel Group for QSHONI Project"   
+cpy_member
+
+CURFILE="QSHJOBLIST.CMD"
+SRCTEXT="List Selected Active Jobs to Output File"   
+cpy_member
+
+CURFILE="QSHJOBLISC.CLLE"
+SRCTEXT="List Selected Active Jobs to Output File"   
+cpy_member
+
+CURFILE="QSHJOBACT.CMD"
+SRCTEXT="Locate Selected Active Jobs"   
+cpy_member
+
+CURFILE="QSHJOBACTC.CLLE"
+SRCTEXT="Locate Selected Active Jobs"   
+cpy_member
+
+CURFILE="QSHENDWEB.CMD"
+SRCTEXT="End Web Server Instance and Verify Jobs Ended"   
+cpy_member
+
+CURFILE="QSHENDWEBC.CLLE"
+SRCTEXT="End Web Server Instance and Verify Jobs Ended"   
+cpy_member
+
+CURFILE="QSHSCP.CMD"
+SRCTEXT="Run SCP File Transfer via QShell"   
+cpy_member
+
+CURFILE="QSHSCPC.CLLE"
+SRCTEXT="Run SCP File Transfer via QShell"   
+cpy_member
+
+CURFILE="QSHWRTLOG.CMD"
+SRCTEXT="Write Simple Log Message"   
+cpy_member
+
+CURFILE="QSHWRTLOGC.CLLE"
+SRCTEXT="Write Simple Log Message"   
+cpy_member
+
+CURFILE="QSHWRTLOGR.RPGLE"
+SRCTEXT="Write Simple Log Message-Fix Single Quotes in Msg"   
+cpy_member
+
+CURFILE="QSHPRTLOG.CMD"
+SRCTEXT="Print Simple Log File"   
+cpy_member
+
+CURFILE="QSHPRTLOGC.CLLE"
+SRCTEXT="Print Simple Log File"   
+cpy_member
+
+CURFILE="QSHSAVOBJ.CMD"
+SRCTEXT="Save Objects to IFS Save File   "   
+cpy_member
+
+CURFILE="QSHSAVOBJC.CLP"
+SRCTEXT="Save Objects to IFS Save File"   
+cpy_member
+
+CURFILE="QSHSAVCHG.CMD"
+SRCTEXT="Save Changed Objects to IFS Save File   "   
+cpy_member
+
+CURFILE="QSHSAVCHGC.CLP"
+SRCTEXT="Save Changed Objects to IFS Save File"   
+cpy_member
+
+CURFILE="QSHRSTLIB.CMD"
+SRCTEXT="Restore Library from IFS Save File"   
+cpy_member
+
+CURFILE="QSHRSTLIBC.CLP"
+SRCTEXT="Restore Library from IFS Save File"   
+cpy_member
+
+CURFILE="QSHRSTOBJ.CMD"
+SRCTEXT="Restore Objects from IFS Save File"   
+cpy_member
+
+CURFILE="QSHRSTOBJC.CLP"
+SRCTEXT="Restore Objects from IFS Save File"   
+cpy_member
+
+CURFILE="QSHRSTIFS.CMD"
+SRCTEXT="Restore IFS Objects from IFS Save File"   
+cpy_member
+
+CURFILE="QSHRSTIFSC.CLP"
+SRCTEXT="Restore IFS Objects from IFS Save File"   
+cpy_member
+
+CURFILE="QSHVFYSAVF.CMD"
+SRCTEXT="Verify IFS Save File"   
+cpy_member
+
+CURFILE="QSHVFYSAVC.CLP"
+SRCTEXT="Verify IFS Save File"   
+cpy_member
+
+CURFILE="QSHHOME.CMD"
+SRCTEXT="Retrieve User Home Dir"   
+cpy_member
+
+CURFILE="QSHHOMEC.CLLE"
+SRCTEXT="Retrieve User Home Dir"   
+cpy_member
+
+CURFILE="QSHGETHOME.CLLE"
+SRCTEXT="Get User Home Dir"   
+cpy_member
+
+CURFILE="WRKIFSCMD.CLLE"
+SRCTEXT="Work with IFS Files Command Option List"   
+cpy_member
+
+CURFILE="WRKIFSLIST.CMD"
+SRCTEXT="Work with IFS Files"   
+cpy_member
+
+CURFILE="WRKIFSLISC.CLLE"
+SRCTEXT="Work with IFS Files"   
+cpy_member
+
+CURFILE="WRKIFSLISR.SQLRPGLE"
+SRCTEXT="Work with IFS Files"   
+cpy_member
+
+CURFILE="WRKIFSLISD.DSPF"
+SRCTEXT="Work with IFS Files"   
+cpy_member
+
+CURFILE="QSHLFTP.CMD"
+SRCTEXT="Send/Receive Files using lftp and SFTP Transfer"   
+cpy_member
+
+CURFILE="QSHLFTPC.CLLE"
+SRCTEXT="Send/Receive Files using lftp and SFTP Transfer"   
+cpy_member
+
+CURFILE="QSHSSH.CMD"
+SRCTEXT="Run Remote Command over SSH"   
+cpy_member
+
+CURFILE="QSHSSHC.CLLE"
+SRCTEXT="Run Remote Command over SSH"   
 cpy_member
 
 CURFILE="README.TXT"
@@ -375,7 +540,7 @@ SRCTEXT="Version Notes"
 cpy_member
 
 # Create and run build program
-system -q "CRTCLPGM PGM(${SRCLIB}/SRCBLDC) SRCFILE(${SRCLIB}/${SRCFILE})"
+system -q "CRTCLPGM PGM(${SRCLIB}/SRCBLDC) SRCFILE(${SRCLIB}/${SRCFILE}) TGTRLS(${TGTRLSBLD})"
 system -v "CALL PGM(${SRCLIB}/SRCBLDC)"
 
 echo "${SRCLIBTEXT} library ${SRCLIB} was created and programs compiled."

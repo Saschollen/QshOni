@@ -1,6 +1,6 @@
 # QShell on i Version Info
 
-## V1.0.1 - 8/18/019
+## V1.0.1 - 8/18/2019
 - Initial build
 
 ## V1.0.2 - 9/23/2020
@@ -294,3 +294,201 @@ If you pass a value of: ```--parm01="PARM VALUE 01"``` it will stay as originall
 ## V1.0.40 - 6/18/2025
 - Added command UIM help panel group documentation for CL commands. Also added the command doc info to the command creations for QSHEXEC and QSHBASH. Currently covered are QSHEXEC and QSHBASH. Contributed by Scott Schollenberger.
   
+## V1.0.41 - 10/17/2025
+- Removed unnecessary diagnostic joblog message from RUNSQLPRMC. There was a message sending SQL source file name info to the joblog as a *DIAG message. This message was not problematic, but also not necessary since the RUNSQLPRM command does not use a source file. An interactive SQL statement is passed to the command to run. This was essentially a cosmetic update. 
+
+## V1.0.42 - 11/5/2025
+- Added new parameters and functionality to QSHQRYSRC query command.    
+By default all comments are stripped from the SQL query source member dynamically before the query is run. This way we can create SQL queries in ACS and copy/paste into a source member for storage without having to remove the comments. Then queries can easily be created in ACS and stored in their original format. Comment lines start with -- characters. Inline comments are also stripped. 
+Inline comments strip all characters to the right of the comment -- placeholder characters.    
+
+DLTCMTLINE - Delete comment line from source member. This parameter determines if empty source lines are removed from the SQL source member after comment info has been stripped from a line. *YES is the default and will strip comment lines from the SQL source member. *NO will simply strip comments, but leave any blank lines intact. The runtime effect should usually be the same.
+
+DSPTMPSRC - Display the temporary source member after it's been prepared for runtime. This is a nice way to preview the SQL query that will actually run after comments were stripped from the SQL source. Good for troubleshooting. *NO - Do not display the SQL temporary source member. *YES - Display the SQL temporary source member. 
+
+- Added new parameters to RUNSQLSRC query command.    
+By default all comments are stripped from the SQL query source member dynamically before the query is run. This way we can create SQL queries in ACS and copy/paste into a source member for storage without having to remove the comments. Then queries can easily be created in ACS and stored in their original format. Comment lines start with -- characters. Inline comments are also stripped. 
+Inline comments strip all characters to the right of the comment -- placeholder characters.    
+
+DLTCMTLINE - Delete comment line from source member. This parameter determines if empty source lines are removed from the SQL source member after comment info has been stripped from a line. *YES is the default and will strip comment lines from the SQL source member. *NO will simply strip comments, but leave any blank lines intact. The runtime effect should usually be the same.
+
+DSPTMPSRC - Display the temporary source member after it's been prepared for runtime. This is a nice way to preview the SQL query that will actually run after comments were stripped from the SQL source. Good for troubleshooting. *NO - Do not display the SQL temporary source member. *YES - Display the SQL temporary source member. 
+
+Added special *SRCMBR keyword for SPLF, USRDTA and USRDFNDTA. If PRTTMPSRC is selected, the report spool file, user data and user defined data can be set to the SQL source member name if desired by using the *SRCMBR special keyword. USRDTA and USRDFNDTA now default to: *SRCMBR.    
+Previous default for spool file was: RUNSQLSRCP.    
+Previous default for usr data was: RUNSQLSRC.   
+Previous default for user defined data was: RUNSQLSRC.   
+
+## V1.0.43 - 11/7/2025
+Merged pull request for QSHPYCALL command to remove unuused parameter PARMDLM which is unused.
+
+## V1.0.44 - 12/10/2025
+Created new commands for listing active jobs and determining how many instances of an active job there are.   
+
+QSHJOBLIST - Create an outfile list of selected jobs on the system. By default the command lists all jobs to the outfile. However a filter can be applied.    
+
+The following example lists all jobs active on the system named: ADMIN   
+```QSHJOBLIST QRYFILTER('JOBNAME LIKE ''ADMIN''')  ``` 
+
+QSHJOBACT - Locate selected active jobs. Use this command to determine how many instances of a selected job name or generic pattern are active. This can be useful if you triggered a subsystem or app shutdown and need to know when all of the named jobs are ended.  
+
+The following example lists all jobs active on the system named: ADMIN. The count is placed into a data area named: ```QTEMP/JOBACTCNT```    
+```QSHJOBACT QRYFILTER('JOBNAME LIKE ''ADMIN''') EMPTYERROR(*NO)  ``` 
+
+### Overview of QSYS2.ACTIVE_JOB_INFO() for QSHJOBLIST and QSHJOBACT
+If the QSHJOBLIST and QSHJOBACT SQL fails for some reason, you could be missing appropriate PTF groups. See the following link:   
+https://www.ibm.com/support/pages/qsys2activejobinfo  
+
+## V1.0.45 - 12/12/2025
+Created QSHENDWEB command for shutting down web server via ENDTCPSVR command and then monitoring to make sure the jobs end for a selected period of time. 
+
+QSHENDWEB - End web server instance and monitor for jobs to end.
+
+## V1.0.46 - 12/20/2025
+Created QSHSCP command for transferring files over an SSH connection as an alternative to SFTP.   
+
+For this command an SSH key file is required since there is no password prompt mechanism at this point.   
+
+Send IFS file to remote system. Good for transferring binary or save files between systems.   
+```
+QSHSCP CMDPFXPARM('')                                 
+       KEYFILE('/home/user1/.ssh/id_rsa.ppk')  
+       USER(user1)                                  
+       HOST(hostname.com)                    
+       PORT(22)                                    
+       ACTION(*SEND)                               
+       LOCALFILE('/home/user1/mblib.savf')       
+       REMOTEFILE('/home/user1/mylib.savf')      
+       PRTSTDOUT(*YES)                                
+```
+
+Receive IFS file from remote system. Good for transferring binary or save files between systems.   
+```
+QSHSCP CMDPFXPARM('')                                 
+       KEYFILE('/home/user1/.ssh/id_rsa.ppk')  
+       USER(user1)                                  
+       HOST(hostname.com)                    
+       PORT(22)                                    
+       ACTION(*RECEIVE)                               
+       REPLLOCAL(*YES)                                 
+       LOCALFILE('/home/user1/mblib.savf')       
+       REMOTEFILE('/home/user1/mylib.savf')      
+       PRTSTDOUT(*YES)                                
+```
+
+## V1.0.47 - 4/24/2026
+Created new self-contained simple logging commands that can be used to write messages to a log file rather than the IBM i joblog. 
+The command uses SQL to create the temp file and also to insert the log record to the database.
+
+Created ```QSHWRTLOG``` command to create simple log files for applications rather than relying on the job log for all messages. 
+
+Created ```QSHPRTLOG``` command to allow simple log files to be printed to spool file report if a print of the log file is needed.  
+
+This example writes a message via QSHWRTLOG with the message type of: INFO to the selected log file: QTEMP/LOGTMP0001. The command auto-creates the log output file (OUTFILE) if not found yet.        
+If the RECREATE parameter is set to *NO, the table is created and written to. Or if it exists the table is appended to if you want to accumulate to a single log file.   
+If the RECREATE parameter is set to *YES, the table is deleted if found and re-created.    
+❗A good thing to do would be to set the RECREATE parameter to *YES if you want to clear and recreate the log file at the beginning of a job. And then set it to *NO so the log records will accumulate. 
+```
+QSHWRTLOG MSG('This is a sample messag')          
+          MSGTYPE(INFO)                           
+          LOGFILE(QTEMP/LOGTMP0001)               
+          RECREATE(*NO)
+```
+This example prints the selected log file QTEMP/LOGTMP0001 to a 378 character width spool file named:PRTLOG via the QSHPRTLOG command.       
+```
+QSHPRTLOG LOGFILE(QTEMP/LOGTMP0001) 
+          SPLF(PRTLOG)              
+```
+  
+Updated QSHONISRV RPG ILE service program with procedures that call to ```QSHWRTLOG``` and ```QSHPRTLOG``` commands.
+
+## V1.0.48 - 4/28/2026
+Updated ```QSHPYRUN``` command with a couple new parameter options.   
+
+Added Python 3.13 to the CL program to allow the Python 3.13 command line ```python3.13``` to be called directly. 3.13 was on the command already but not in the QSHPYRUNC CL program.    
+
+Added Skip virtual env deactivate ```SKIPDEACT``` parameter to QSHPYRUN. When set to *YES, the QSHPYRUN command will skip the virtual environment deactivation if a virtual environmnet is used to run the selected Python script. If a venv is used with QShell, there is no ```deactivate``` command available so the deactivate will fail if *YES is not selected.    
+
+Added Use bash instead of QShell ```USEBASH``` parameter to QSHPYRUN. When set to *YES, bash (QSHBASH) is used to run the selected Python script instead of QShell (QSHEXEC). When set to *NO, Python scripts run using QSHEXEC. 
+
+## V1.0.49 - 5/22/2026
+Updated QSHSCPC.CLLE. Somehow it ended up getting a copy of QSHWRTLOGC.CLLE contents in the member. This would cause QSHSCP to fail if trying to use the command to transfer any files over SSH.
+
+## V1.0.50 - 6/7/2026
+Added additional save/restore convenience commands for saving and restoring IBM i library objects or IFS files to a save file and then store it in an IFS file for easy transport or backup to NAS/SAN or cloud locations.    
+QSHSAVOBJ - Save Objects to IFS Save File      
+QSHRSTLIB - Restore Library from IFS Save File    
+QSHRSTOBJ - Restore Objects from IFS Save File   
+QSHRSTIFS - Restore IFS Objects from IFS Save File     
+QSHVFYSAVF - Verify IFS Save File    
+
+## V1.0.51 - 6/12/2026
+Added new WRKIFSLIST - IFS explorer command. The command can be used as a customizable alternative to WRKLNK. The command uses the IFS SQL APIs to list files and contains most main options that WRKLNK has.    
+For me the main use case was to be able to better see an entire IFS file name when it gets longer.   
+Plus now I can hang my own custom options for use as well.   
+
+## V1.0.52  - 7/12/2026
+Updated QSHPYRUN and QSHPYCALL to automatically use the python binary from the virtual environment path instead of /QOpenSys/pkgs/bin when *DEFAULT is selected for the python binary path. This is more consistent to what is expected of a virtual environment.   
+
+Also added restore (RST) option to WRKIFSFLR command for restoring data quickly from IFS save files.    
+## V1.0.53 - 7/23/2026  
+Updated QSHPRTLOGC command program to use MAXRCDS(*NOMAX) when printing an audit report.    
+
+## V1.0.54 - 7/24/2026  
+Updated programs RUNSQLSR3R and QSHQRYSR3R that are used to remove comment lines when running SQL via the following commands: ```QSHQRYSRC``` and ```RUNSQLSRC```.      
+
+```This is a change that can potentially break your SQL queries used with QSHQRYSRC or RUNSQLSRC commands so they will need to be tested.```    
+
+Added logic to skip source member manipulation when not deleting comments. Also updated comment handling to only remove comments when marked as ```--``` at the beginning of lines. We no longer attempt to scrub any line data if a line contains legitimate ```--``` characters that are not in trimmed pos 1 and 2. I found an issue where the SQL statement was being inaccurately truncated because the SQL statement line contained valid use of the ```--``` characters in a text constant and so we accidentally truncated the rest of the line even those the ```---``` were part of the SQL member data.   
+
+How the Delete comment line from temp source (DLTCMTLINE) parm now works:     
+When *YES (Default), we will look for and remove comment lines from the temp source member we create at runtime. But we only remove lines where there is a ```--``` at the beginning of the SQL line data. Data can be indented for comments but must start with ```--``` so we properly scrub them out of the SQL member.     
+
+When *NO, we leave source member alone when copying it to the temp source member so all comments are preserved and should be properly ignored by the SQL runtime as well because they are just comments. The SQL statement runs as is from the source member with all comments intact. *NO was previously still triggering partial scrubbing instead of fully ignoring the scrubbing logic altogether.     
+
+❗Technically *NO should be used as the default use case for this parameter so we don't attempt to manipulate the original SQL source member comments. However 
+it looks like when *NO is specified, an error occurs if there are any comments in the 
+source member, so for now, *YES should be specified for delete comment lines so we
+remove comment lines from the SQL statement before running the SELECT query.   
+❗❗ I did also discover a new potential issue with this change that can break an SQL query where there is a comment line that is at the end of a line.   
+
+#### The summary takeaway: 
+If comment lines are used, all comment lines in an SQL source member must be on a line by themselves and the data for the comment must start with ```--``` even if the comment is indented for readability. And the Delete comment line parm should always be - *YES. 
+
+Observe the above advice for the ```QSHQRYSRC``` command for sure because it does more than just run an SQL statement. It creates a table based on the selected query which is why comments need to be removed at runtime. In the case of the ```RUNSQLSRC``` command, the *NO setting may work just fine since it just runs the SQL statement essentially verbatim except for any parms that get passed.   
+
+Added ```QSHSAVCHG``` command to save changed objects to IFS file.   
+
+## V1.0.55 - 7/28/2026  
+Updated the ```QSHQRYTMP``` and ```QSHQRYSRC``` commands to have new parameters which allow copying and aggregating results to another output file. This is good is you want to run multiple iterations of these SQL commands and merge the results with results from more than one query. Of course you can always use CPYF standalone for this as well. 
+
+❗By default the commands work as they did before unless you specify ```CPYRESULTS=*YES```.  
+
+New parameters:    
+```
+Copy results via CPYF  . . . . . CPYRESULTS   > *YES          
+File to receive CPYF results . . CPYTOFILE    > SALCPY0001    
+  Library  . . . . . . . . . . .                  QTEMP       
+Create results file  . . . . . . CRTFILE        *YES          
+Replace or add records . . . . . MBROPT       > *REPLACE      
+Prompt the CPYF command  . . . . PROMPTCPYF   > *YES          
+Clear temp outfile after CPYF  . CLRAFTCPYF     *YES                  
+```
+
+New comment delimiter of ```--//``` is allowed in SQL source members.   
+Updated programs RUNSQLSR3R and QSHQRYSR3R to allow removal of comments that have a delimiter of ```--//```. With this change comments can now reside anywhere in an SQL line and when the delimiter is encountered, the data after the comment delimiter is scrubbed when deleting comments is set to *YES for the QSHQRYSRC or RUNSQLSRC commands.   
+
+## V1.0.56 - 8/4/2026  
+Added the ```QSHLFTP``` command as a CL command interface to the lftp file transfer utility. This version of the command currently focused on SFTP only. I like LFTP as a simple to use SFTP utility from the PASE command line and now from a CL command as well.
+
+## V1.0.57 - 8/4/2026  
+Added the ```QSHSSH``` command as a CL convenience command interface to the ssh PASE command line on a remote system and capture the STDOUT return data. This is a great way to run or submit a job on a remote IBM I or other system. The command works with ssh private keys or user and password by internally utilizing the sshpass PASE command. The open source sshpass yum package is required to be installed in PASE before user and password will work if you plan to use user id and password va private key file.  
+Note: Password protected private key files are not currently supported. 
+
+## V1.0.58 - 9/22/2026  
+Added the ```*ZLIB``` selection to all the QSHSAV* commands and changed case from ```*MIXED``` to ```*MONO```.
+
+## V1.0.58 - 10/18/2026
+Minor changes to build.sh to add V7R3 for version.
+
+Minor syntax changes on QSHSAV* CL programs to fix message spacing.

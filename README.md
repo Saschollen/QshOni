@@ -1,14 +1,66 @@
-# QshOni
-This IBM i library contains useful CL wrapper commands to allow Qshell and Pase apps to be called and consumed from regular IBM i jobs via CL, RPG or COBOL programs. It also has a CL command to scan stdout for a specific value if you need to do something simple to check for a successful command run.
+# QshOni - QShell on IBM i
+This FREE IBM i library contains useful CL wrapper commands to allow Qshell and Pase apps to be called and consumed from regular IBM i jobs via CL, RPG or COBOL programs. It also has a CL command to scan stdout for a specific value if you need to do something simple to check for a successful command run.
 
 The main benefit of this wrapper is to be able to integrate Qshell/Pase applications on-the-fly with standard IBM i job streams.
 
 There are several ways to build the library. Pick your favorite.
 
-# Library Build Note
+## Jump right to the build link
+[Download and run the getrepo-qshoni.sh script in one step, using wget](https://github.com/richardschoen/QshOni/blob/master/README.md#download-and-run-the-getrepo-qshonish-script-in-one-step-using-wget)
+
+## QShell on i – Project Status & What's Next
+The QShell on i (QSHONI) library has grown into a mature, reliable, and proven solution for IBM i developers and businesses that need a simple, powerful way to execute QShell and PASE applications.   
+
+With QSHONI now an established part of many customer environments, my focus is on keeping the core library stable, dependable, and easy to maintain.
+
+QSHONI will continue to receive important bug fixes, refinements, and enhancements to its core functionality. However, the repository will remain focused on its original mission: making it easy for IBM i developers to execute and integrate QShell and PASE applications without unnecessary complexity.
+
+Rather than expanding QSHONI into a collection of unrelated utilities and integrations, I'm taking the next step in its evolution.
+
+## Introducing MOBIQSH – The Next Chapter
+I'm excited to introduce MOBIQSH, a new fork of QShell on i that will serve as the foundation for a growing collection of IBM i utilities, integrations, and modernization tools.
+
+While QSHONI remains the stable, trusted core, MOBIQSH is where much of the new development and innovation will take place.
+
+And importantly, ```MOBIQSH will remain completely FREE to use!```
+
+MOBIQSH will also play a key role in ```MobiGoGo Connect```, my expanding commercial integration and modernization platform designed to help IBM i businesses connect systems, streamline workflows, and extend the value of their existing applications.
+
+You can continue to use QSHONI safely, but you can also start also installing ```MOBIQSH``` side by side. It will co-exist with QSHONI.
+
+MobiGoGo Connect - QShell on i.  
+https://github.com/richardschoen/MobiQsh  
+
+## MobiGoGo Connect - Modernizing and Connecting IBM i to the World
+For many new IBM i system and connectivity utilities I am creating for IBM I, Windows, Linux and Cloud connectivity I have released a commercially supported product called ```MobiGoGo Connect```. https://www.mobigogo.net     
+
+The core ```MobiGoGo Connect``` components will be built upon QSHONI functionality and will continue to be ```FREE```. These will be moved into a new library named: ```MOBIQSH``` so things no longer live in the Q* library structure. 
+
+MobiConnect provides functionality for creating applications, integrations, REST services and connection points for Native IBM i, Windows, Linux and MacOS apps to other platforms and services. It contains a lot of functionality that is better suited for commercial support. And it uses some of the QSHONI functionality as well.  
+
+If you are creating IBM i applications and services that need to integrate with other platforms or AI services, reach out and and we can talk about your requirements. MobiConnect may just be the right ticket for interconnecting your IBM i RPG, COBOL and CL apps to the world of web apps, REST services and mobile with minimal effort.     
+
+Visit the MobiGoGo web site or shoot me an email and talk to me about your IBM i connectivity and integration needs or need assistance with running QShell and PASE apps on IBM i.    
+Learn more about MobiGoGo Connect: https://www.mobigogo.net    
+Email: richard@mobigogo.net
+
+## Library Build Note
 ❗ If you get an error running ```build.sh``` you may need to run ```dos2unix build.sh``` to convert CR/LF to LF in the build.sh file. You must first have ```dos2unix``` installed via the IBM i open source package management.  Please open an issue to let me know if you run into this problem.
 
-# News
+## News
+```9/22/2026``` - Updated QSHSAV* commands to have *ZLIB for data compression.
+```8/6/2026``` - Added the QSHSSH command to run remote commands over SSH using SSH private key or user/password.   
+```8/4/2026``` - Added the QSHLFTP command to upload and download files using the SFTP functionality in the lftp transfer utility.    
+```7/28/2026``` - Updated QSHQRYTMP and QSHQRYSRC commands to be able to copy the outfile results to another file via CPYF after generating the temp output file. Useful for aggregating results for multiple queries into a single final results table. V1.0.55   
+```7/27/2026``` - Updated QSHQRYSRC and RUNSQLSRC commands to allow the DLTCMTLINE parameter to work correctly when removing comments from SQL source members at runtime. Also added QSHSAVCHG command for SAVCHGOBJ to IFS. V1.0.54   
+```7/23/2026``` - Updated QSHPRTLOG to allow unlimited report sizes when printing. V1.0.53   
+```7/12/2026``` - Updated QSHPYRUN and QSHPYCALL to use default python binary from virtual environment if *DEFAULT specified for Python binary path. V1.0.52
+```6/12/2026``` - Added new WRKIFSLIST command for exploring IFS files. Can be used to replace WRKLNK. V1.0.51.   
+```6/7/2026``` - Added new save and restore convenience commands for saving and restoring to IFS based save files. V1.0.50.       
+```5/22/2026``` - Fixed issue with QSHSCPC.CLLE. Upgrade to V1.0.49 if you are using QSHSCP to transfer files over SCP.   
+```4/28/2026``` - Updated the QSHPYRUN command with new parameters.   
+```4/24/2026``` - Added two cool new commands for creating your own custom app logging in CL or RPG processes. ```QSHRTLOG``` and ```QSHPRTLOG```.   
+```4/19/2026``` - New repo for QSHONI based utilities https://github.com/richardschoen/qshoniutil   
 ```5/17/2025``` - New command ```QSHGETPR2``` can be used to retreive STDOUT return values to the calling job. You can optionally write the RTNPARMxx values as *DIAG messages to the joblog or to data areas for use with other calling programs.     
 ```5/17/2025``` - Updated ```QSHPHPRUN```, ```QSHPYRUN``` and ```QSHPYCALL``` to make double quotes optional for command line parameter arguments. Still defaults to double quotes for backward compatability.  
 ```2/6/2025``` - New dynamic RUNSQLPRM and RUNSQLSRC SQL action commands added. Allows passing soft coded parameters to SQL statements or SQL statements in source members from CL programs.     
@@ -52,7 +104,7 @@ QSHQRYSRC SRCFILE(QSHONI/SOURCE)
           CRTIDCOL(*YES)
 ```
 
-# IBM Qshell/PASE Documentation
+## IBM Qshell/PASE Documentation
 The following IBM links take you to documentation on the Qshell and PASE environments from IBM     
 
 IBM PASE for i      
@@ -62,40 +114,16 @@ IBM i QShell
 https://www.ibm.com/docs/en/i/7.5?topic=languages-qshell
 
 
-# Check latest version info (Current Version 1.0.39 - 6/2/2025)  
+## Check latest version info (Current Version 1.0.58 - 8/6/2026)  
 https://github.com/richardschoen/QshOni/blob/master/version.md    
 
-```
-1.0.33 - Updated QSHIFSSIZ with stat64 to support up to 15 digit numeric return.
-1.0.32 - Added QSHQRYSRC command for querying data via a static source member in a library or IFS text file and placing results in an outfile. This is good for using SQL to prep data for a report or aggregate data for a secondary process.
-Added QSHSAVLIB and QSHSAVIFS commands for savng library and IFS objects and outputting an IFS save file when save is complete.
-
-1.0.31 - Changed QSHIFSSIZ command return length from 9 to 15. We can currently still only
-return max size value of 2,147,483,647 bytes until we convert the command to use stat64 at
-some point, but most IFS files you might use this command with will probably by under 2gb in size.
-If this is not the case you can always use stat64 in your own RPG code to retreive IFS file sizes. 
-
-1.0.30 - Added QSHIFSSIZ command to retrieve the file size and allocated size of an IFS file.
-
-1.0.29 - Added QSHCALL procedure to the Service Program Wrapper. Service program name: QSHONISRV
-Also created RPG test program for QSHCALL:
-QSHONIPR03 - to test running a QShell/PASE commmand via QSHCALL from RPG and returning up to 10 parameter values to the calling RPG program.
-
-1.0.28 - Created RPG Service Program Wrapper for QSHEXEC and QSHBASH commands. Service program name: QSHONISRV
-Also created 2 RPG test programs:
-QSHONIPR01 - to test running a QShell/PASE commmand via QSHEXEC from RPG and processing STDOUT outfile all from a single RPG program.
-QSHONIPR02 - to test running a QShell/PASE commmand via QSHBASH from RPG and processing STDOUT outfile all from a single RPG program.
-
-1.0.27 - Two new commands added: QSHCALL and QSHPYCALL to call Python or other open source and return parameters.
-```
-
-# Check out one-liner Python samples
+## Check out one-liner Python samples
 https://github.com/richardschoen/QshOni/blob/master/samples/python-oneline-samples.md
 
-# Check out sample CL wrapper use-case commands that use QSHEXEC   
+## Check out sample CL wrapper use-case commands that use QSHEXEC   
 https://github.com/richardschoen/QshOni/tree/master/samples   
    
-# Installing and Building QSHONI via getrepo-qshoni.sh script 
+## Installing and Building QSHONI via getrepo-qshoni.sh script 
 
 ***(Important to change SRCCCSID variable in build.sh to your local CCSID before running build.sh. Default=37)***
 
@@ -103,7 +131,7 @@ Use the following install script if you want to run a single shell script to clo
 https://github.com/richardschoen/QshOni/raw/refs/heads/master/getrepo-qshoni.sh   
 
 ## Download and run the getrepo-qshoni.sh script in one step, using wget
-❗This is the easiest way to install QSHONI. Run the following wget command to download, build and install QSHONI quickly in a single step.   
+❗This is the easiest way to install and build QSHONI using the most recent version source. Run the following wget command to download, build and install QSHONI quickly in a single step.   
 Make sure a temporary dir named /tmp/QshOni doesn't already exist before running the script or the git clone may fail to get current files from the repository.  
 ```
 rm -r /tmp/QshOni
@@ -116,7 +144,7 @@ wget https://github.com/richardschoen/QshOni/raw/refs/heads/master/getrepo-qshon
 ```
 bash getrepo-qshoni.sh
 ```
-# Installing and Building QSHONI via Git clone and build.sh 
+## Installing and Building QSHONI via Git clone and build.sh 
 
 ***(Important to change SRCCCSID variable in build.sh to your local CCSID before running build.sh. Default=37)***
 
@@ -130,13 +158,15 @@ build.sh
 ```
 After building the QSHONI library the commands should be ready to use.
 
-# Installing QSHONI library via save file and creating QSHEXEC command objects
+## Installing QSHONI library via save file and creating QSHEXEC command objects
 
 Use this install method if you want to install from a save file object.
 
+❗The SAVF download install method is not recommended. Building from source by cloning the repository is the preferred build method so you always get current source and library objects created on your specific system.   
+
 Download the **qshoni.savf** save file from the selected releases page. 
 
-https://github.com/richardschoen/QshOni/releases  **(Latest pre-built save file version - V1.0.14. Build from source for more current)**
+https://github.com/richardschoen/QshOni/releases  **(Latest pre-built save file version - V1.0.37. Build from source for more current)**
 
 Upload the **qshoni.savf** to the IFS and place it in **/tmp/qshoni.savf**
 
@@ -162,9 +192,11 @@ Build the QSHONI commands
 
 `CALL PGM(QSHONI/SRCBLDC)`
 
-# Installing QSHONI library via wget and creating command objects
+## Installing QSHONI library via wget and creating command objects
 
 Use this install method if you want to install from a save file object via wget
+
+❗The SAVF download install method is not recommended. Building from source by cloning the repository is the preferred build method so you always get current source and library objects created on your specific system.
 
 Run the following commands to copy the save file from github into a SAVF object
 
@@ -172,9 +204,10 @@ Run the following commands to copy the save file from github into a SAVF object
 
 From QSHELL/QPTERM or BASH run:
 
+❗This latest built save file version is ```V1.0.37```. To get latest, build library from the GitHub repo directly.
+
 ```
-/QOpenSys/pkgs/bin/wget https://github.com/richardschoen/QshOni/releases/download/V1.0.5/qshoni.savf
---no-check-certificate -O  /qsys.lib/qgpl.lib/qshoni.file
+/QOpenSys/pkgs/bin/wget https://github.com/richardschoen/QshOni/releases/download/v1.0.37/qshoni137.savf --no-check-certificate -O  /qsys.lib/qgpl.lib/qshoni.file
 ```
 
 Restore the QSHONI library
@@ -193,10 +226,10 @@ Build the QSHONI commands
 
 `CALL PGM(QSHONI/SRCBLDC)`
 
-# Delays running QShell or bash commands with QSHEXEC/QSHBASH   
+## Delays running QShell or bash commands with QSHEXEC/QSHBASH   
 ❗ If you experience delays running QShell Commands, it's probably related to your system DNS settings. Check out the following issue: https://github.com/richardschoen/QshOni/issues/29     
 
-# Using the QSHEXEC CL command to call a Qsh/Pase command sequence
+## Using the QSHEXEC CL command to call a Qsh/Pase command sequence
 
 The following example calls the ls command to list files for the /tmp directory: 
 
@@ -222,7 +255,7 @@ The following example runs an SQL query with db2util and exports the results as 
 ```
 
 
-# QSHEXEC command parms
+## QSHEXEC command parms
 
 **Overview** - This CL command can be used to run a QSH/PASE command and log the results appropriately. 
 
@@ -264,7 +297,7 @@ The following example runs an SQL query with db2util and exports the results as 
 
 **PASEJOBNAM** - PASE fork thread job names. Set PASE_FORK_JOBNAME environment variable to set forked thread jobs to have a unique name other than: QP0ZSPWP which is the default. Set the value or *DEFAULT=QP0ZSPWP.
 
-# Using the QSHEXECSRC CL command to call a Qsh/Pase command sequence from a classic IBM i source member
+## Using the QSHEXECSRC CL command to call a Qsh/Pase command sequence from a classic IBM i source member
 
 The following example calls a QShell source member QSHELL01 stored in source file QSHONI/SOURCE to run the ls command to list files for the /tmp directory: 
 
@@ -292,7 +325,7 @@ cd /tmp
 ls -l
 ```
 
-# QSHEXECSRC command parms
+## QSHEXECSRC command parms
 
 **Overview** - This CL command can be used to run a QSH/PASE command shell script from a classic source physical file member and log the results appropriately.   
 
@@ -349,7 +382,7 @@ Parameters can be delimited with double quotes if needed.
 
 **PROMPTCMD** - This option determines if the ```QSH``` command is prompted interactively for testing or review of the actual QShell command line with parameter values before running the command. Normally the selection should be *NO since prompting is only needed if testing. Specify *YES if you are debugging for some reason and want the QSH command to prompt on an interactive 5250 session before running. ***Default = *NO ***   
 
-# Using the QSHBASH CL command to call a bash command sequence
+## Using the QSHBASH CL command to call a bash command sequence
 
 The following example calls the ls command to list files for the /tmp directory using the bash command: 
 
@@ -375,7 +408,7 @@ The following example runs an SQL query with db2util and exports the results as 
 ```
 
 
-# QSHBASH command parms
+## QSHBASH command parms
 
 **Overview** - This CL command can be used to run a PASE bash command and log the results appropriately. 
 
@@ -419,7 +452,7 @@ The command is a convenience wrapper that can be used to call a bash command wit
 
 **PASEJOBNAM** - PASE fork thread job names. Set PASE_FORK_JOBNAME environment variable to set forked thread jobs to have a unique name other than: QP0ZSPWP which is the default. Set the value or *DEFAULT=QP0ZSPWP.
 
-# Using the QSHBASHSRC CL command to call a bash script command sequence from a classic IBM i source member
+## Using the QSHBASHSRC CL command to call a bash script command sequence from a classic IBM i source member
 
 The following example calls a bash source member QSHELL01 stored in source file QSHONI/SOURCE to run the ls command to list files for the /tmp directory: 
 
@@ -447,7 +480,7 @@ cd /tmp
 ls -l
 ```
 
-# QSHBASHSRC command parms
+## QSHBASHSRC command parms
 
 **Overview** - This CL command can be used to run a bash command shell script from a classic source physical file member and log the results appropriately.   
 
@@ -504,7 +537,7 @@ Parameters can be delimited with double quotes if needed.
 
 **PROMPTCMD** - This option determines if the ```QSH``` command is prompted interactively for testing or review of the actual bash command line with parameter values before running the command. Normally the selection should be *NO since prompting is only needed if testing. Specify *YES if you are debugging for some reason and want the QSH command to prompt on an interactive 5250 session before running. ***Default = *NO ***
 
-# Using the QSHCURL CL command to call a curl command sequence
+## Using the QSHCURL CL command to call a curl command sequence
 
 The following example calls the curl command to download the google home page site contents to an IFS file. You only need to pass the parms after curl
 
@@ -528,7 +561,7 @@ The following example calls the curl command with the --help flag to display the
 QSHCURL CMDLINE('--help') DSPSTDOUT(*YES) 
 ```
 
-# QSHCURL command parms
+## QSHCURL command parms
 
 **Overview** - This CL command can be used to run a PASE curl command and log the results appropriately. 
 
@@ -573,7 +606,7 @@ To install curl from qshell/bash:  yum install curl
 
 **PASEJOBNAM** - PASE fork thread job names. Set PASE_FORK_JOBNAME environment variable to set forked thread jobs to have a unique name other than: QP0ZSPWP which is the default. Set the value or *DEFAULT=QP0ZSPWP.
 
-# Using the QSHPYRUN CL command to run a Python script via QSHEXEC
+## Using the QSHPYRUN CL command to run a Python script via QSHEXEC
 
 The following example calls a helloworld.py script that write to STDOUT
 
@@ -594,7 +627,7 @@ The following example calls a helloworld.py script that write to STDOUT
       PRTTXT(*NONE)       
 ```
 
-# QSHPYRUN command parms
+## QSHPYRUN command parms
 
 **Overview** - This CL command can be used to run a Python script via QSHEXEC and log the results appropriately.
 
@@ -655,7 +688,7 @@ to the PYPATH parameter to make sure the system level python binary does not pic
 
 **DEBUGCMD** - Debug QSHEXEC command - If set to *YES, your job must be running interactively and it will display the command line that QSHPYRUN composed to execute via QSHEXEC before it runs. This is good for debugging or you are curious what the exec QSHEXEC command will look like. Under the covers QSHPYRUN utilizes the QSHEXEC command to run the Python command line. 
 
-# Using the QSHLOGSCAN CL command to scan the stdout outfile for the selected value after QSHEXEC has completed. 
+## Using the QSHLOGSCAN CL command to scan the stdout outfile for the selected value after QSHEXEC has completed. 
 
 The command returns a CPF9898 excape message if value not found. Otherwise a CPF9898 completion message. 
 
@@ -669,7 +702,7 @@ The following example scans the outfile log in file QTEMP/STDOUTQSH for a text v
       EXACTMATCH(*NO)         
 ```      
 
-# QSHLOGSCAN command parms
+## QSHLOGSCAN command parms
 
 **Overview** - This CL command is a convenience command that can be used to scan a STDOUT log for a specific value to indicate success or failure.
 
@@ -677,7 +710,7 @@ The following example scans the outfile log in file QTEMP/STDOUTQSH for a text v
 
 **EXACTMATCH** - *YES - Value must match exactly and be the only thing on the selected line. *NO - At least one line must contain the value somewhere in the line. Good for generic matching.
 
-# Using the QSHQRYTMP CL command to run a SELECT query and output the results to an OUTFILE. 
+## Using the QSHQRYTMP CL command to run a SELECT query and output the results to an OUTFILE. 
 
 The command returns a CPF9898 excape message on error. Otherwise a CPF9898 completion message. 
 
@@ -690,7 +723,7 @@ The following example queries all the records from table QIWS/QCUSCTDT and place
            PROMPT(*NO)                          
 ```      
 
-# QSHQRYTMP command parms
+## QSHQRYTMP command parms
 
 **Overview** - This CL command is a convenience command that can be used to run an SQL data selection query and create an outfile of resulting data. 
 
@@ -722,7 +755,7 @@ SQLQRYCNT - Query result record count.
 SQLQRYFIL - Output file created by the query.
 SQLQRYLIB - Output file library for the file created by the query.
 ```
-# Using the QSHQRYSRC CL command to run a SELECT query and output the results to an OUTFILE. 
+## Using the QSHQRYSRC CL command to run a SELECT query and output the results to an OUTFILE. 
 
 The command returns a CPF9898 excape message on error. Otherwise a CPF9898 completion message. 
 
@@ -736,7 +769,7 @@ The following example queries all the records from table QIWS/QCUSCTDT and place
           PARMVALS(qiws qcustcdt)    
 ```      
 
-# QSHQRYSRC command parms
+## QSHQRYSRC command parms
 
 **Overview** - This CL command is a convenience command that can be used to run an SQL data selection query and create an outfile of resulting data. Instead of an SQL input statement parameter, the query pulls SQL source from a source member or IFS file member.  
 
@@ -775,13 +808,13 @@ SQLQRYFIL - Output file created by the query.
 SQLQRYLIB - Output file library for the file created by the query.
 ```
 
-# QSHPATH command parms
+## QSHPATH command parms
 
 **Overview** - This CL command is a convenience command to add the IBM i Open Source packages directory name to the PATH environment variable.
 
 **PKGPATH** - Specify IFS location to open source packages. ***DEFAULT = /QOpenSys/pkgs/bin**
 
-# QSHSETPROF command parms
+## QSHSETPROF command parms
 
 **Overview** - This CL command is a convenience command to create open source profile files for a selected user ID in their home directory from template source files in ```QSHONI/SOURCE```:
 
@@ -821,7 +854,7 @@ The following example creates or replaces the QShell/PASE .profile, .bashrc and 
 
 **REPLACE** - This parameter is used to replace .profile, .bashrc or .bash_profile if they exist. *YES - Replace files if found. *NO - Don't replace files if found. Default - *NO
 
-# QSHPORTCHK command parms
+## QSHPORTCHK command parms
 
 **Overview** - This CL command is a convenience command to use DB2 services to check if the selected TCP/IP port has an application running on it.
 
@@ -839,7 +872,7 @@ The following example checks to see if a Postgres server instance is running on 
 
 **OUTFILE** - This parameter is used to specify a temporary output file to create in QTEMP library for the job. Default name - TCPTMP001
 
-# QSHPORTEND command parms
+## QSHPORTEND command parms
 
 **Overview** - This CL command is a convenience command to use DB2 services to end all jobs on a selected TCP/IP port if the port has an application running on it.
 
@@ -857,7 +890,7 @@ The following example checks to see if a web service instance is running on port
 
 **OUTFILE** - This parameter is used to specify a temporary output file to create in QTEMP library for the job. Default name - TCPTMP001
 
-# Using the QSHPYCALL CL command to run a Python script via QSHEXEC and return up to 10 - 255 character parameter values  
+## Using the QSHPYCALL CL command to run a Python script via QSHEXEC and return up to 10 - 255 character parameter values  
 
 **Note: The QSHPYCALL command must be embedded into a CL program because it contains CL return variables.   
 
@@ -902,7 +935,7 @@ The following example calls a script named ```pycallparm1.py``` that returns par
       RETURN01(&RETURN10)
 ```
 
-# QSHPYCALL command parms
+## QSHPYCALL command parms
 
 **Overview** - For those of us who are classic RPG, COBOL and CL developers who are used to calling programs and returning parameter values via CALL/PARM, this CL command can be used to run a Python script via QSHEXEC and return up to 10 parameter values from the STDOUt log info. Note: The QSHPYCALL CL command must be embedded in a CL program since it returns parameter values to the calling CL, RPG or COBOL program. 
 
@@ -980,7 +1013,7 @@ The special prefix format we look for in the STDOUT log to return values from ST
 ```RETURNPARM09: I am return value 9```   
 ```RETURNPARM10: I am return value 10```   
 
-# Using the QSHCALL CL command to call a Qsh/Pase command sequence and return up to 10 - 255 character parameters.  
+## Using the QSHCALL CL command to call a Qsh/Pase command sequence and return up to 10 - 255 character parameters.  
 
 **Note: The QSHCALL command must be embedded into a CL program because it contains CL return variables.  
 
@@ -1022,7 +1055,7 @@ The following example calls a script named ```pycallparm1.py``` that returns par
       RETURN01(&RETURN10)
 ```
 
-# QSHCALL command parms
+## QSHCALL command parms
 
 **Overview** - For those of us who are classic RPG, COBOL and CL developers who are used to calling programs and returning parameter values via CALL/PARM, this CL command can be used to run a QSH/PASE command via QSHEXEC and return up to 10 parameter values from the STDOUt log info. Note: The QSHCALL CL command must be embedded in a CL program since it returns parameter values to the calling CL, RPG or COBOL program. 
 
@@ -1080,3 +1113,139 @@ The special prefix format we look for in the STDOUT log to return values from ST
 ```RETURNPARM08: I am return value 8```   
 ```RETURNPARM09: I am return value 9```   
 ```RETURNPARM10: I am return value 10```   
+
+## Using the QSHSCP CL command to perform an scp IFS file transfer
+
+The following example calls the scp command to upload a file from the local system to a remote system.
+
+ ```
+      QSHSCP CMDPFXPARM('')                                    
+       KEYFILE('/home/user1/.ssh/id_rsa.ppk')     
+       USER(user1)                                     
+       HOST(myhost.com)                       
+       PORT(22)                                       
+       ACTION(*SEND)                                  
+       REPLLOCAL(*NO)                                    
+       LOCALFILE('/home/user1/mylib.savf')          
+       REMOTEFILE('/home/user1/mylib.savf')         
+       DEBUGCMD(*NO)                                    
+       DSPSTDOUT(*NO)                                   
+       PRTSTDOUT(*NO)                                          
+```
+
+## QSHSCP command parms
+
+**Overview** - This CL command can be used to run a PASE scp command to send or receive a file from a remote IBM i or other system running SCP.   
+
+The command does require you to use an established private key.   
+
+The command is a convenience wrapper that can be used to call a scp file transfer command with QSHEXEC instead of having to type the following full scp command sequence on a QSHEXEC command line.
+
+```Stdout Logging Note:``` During execution, the CL command always creates a temporary outfile in library QTEMP that gets automatically populated with standard output (stdout) from the QSH/PASE command process that gets run. The temporary stdout output file name is: ```QTEMP/STDOUTQSH```. If the file already exists for a subsequent run of the command, the ```QTEMP/STDOUTQSH``` temporary file is automatically cleared before running so each run gets a fresh copy of ```QTEMP/STDOUTQSH```. The ```QTEMP/STDOUTQSH``` temp file gets created automatically always, even if none of the switches such as: ```DSPSTDOUT, LOGSTDOUT, PRTSTDOUT or IFSSTDOUT``` are specified. 
+
+```
+Note: scp and openssb must be already installed in your PASE/QSH environment in /QOpensys/pkgs/bin before this will work.
+```
+**CMDPFXPARM** - scp command line parameter argments that need to be inserted rights after the scp command but before the additional settings like private key file and port.
+
+**KEYFILE** - Enter the file path you an existing SSH private key file to use to connect to a remote system.
+
+**USER** - Enter the user name for the remote site.
+
+**HOST** - Enter the host name or ip address for the remote system you will connect to via SSH. 
+
+**PORT** - Enter the TCP port to connect on. Default=```22```.    
+
+**ACTION** - Enter ```*SEND``` if sending a file to a remote system. Enter ```*RECEIVE``` if you are receiving a file from a remote system.  
+
+**REPLLOCAL** - Replace local file on receive. Enter ```*YES``` if you want to replace an existing local file during a file reeive action. ```*NO``` will cause the transfer to cancel if the local file already exists.
+
+**LOCALFILE** - Enter the local IFS file you want to send for a *SEND operation. Or this becomes the local destination file to receive to if doing a file  *RECEIVE action. 
+
+**REMOTEFILE** - Enter the remote IFS file you want to send to for a *SEND operation. Or this becomes the remote file to receive from if doing a file  *RECEIVE action. 
+
+**DEBUGCMD** - Debug the PASE command line. Enter ```*YES``` to prompt the command line so you can troubleshoot interactively any command line formatting issues when calling scp. ```*NO``` runs the command normally without debugging the command line.
+
+**SETPKGPATH** - Add the IBM i Open Source Package path to PATH environment variable by calling QSHPATH command before running QSH/PASE commands. Default = *YES.
+
+**DSPSTDOUT** - Display the outfile contents. Nice when debugging. 
+
+**LOGSTDOUT** - Place STDOUT log entries into the current jobs job log. Use this if you want the log info in the IBM i joblog. All STDOUT entries are written as CPF message: **QSS9898**
+
+**PRTSTDOUT** - Print STDOUT to a spool file. Use this if you want a spool file of the log output.
+
+**DLTSTDOUT** - This option insures that the STDOUT IFS temp files get cleaned up after processing. All IFS log files get created in the /tmp/qsh directory.
+
+**IFSSTDOUT** - Copy std output to an IFS file. Nice for aggregating log results to a file.
+
+**IFSFILE** - IFS file for stdout results. Needs to be specified if IFSSTDOUT = *YES.
+
+**IFSOPT** - IFS file option. *REPLACE = replace stdout IFS file. *ADD = Add to stdout IFS file.
+
+**CCSID** - When using the iToolkit component for command access, I originally had some issues with CL commands not working correctly. However I don't currently remember exactly why. This may have been solved, however I recommend still passing a value of 37 unless you are in a non US country. If you set to `*SAME`, the CCSID will stay the same as your current job with no change.
+
+**PRTSPLF** - This option holds the name of the spool file used when PRTSTDOUT = *YES. It's a nice way to customize the stdout log prints. ***Default = QSHBASHLOG***
+
+**PRTUSRDTA** - This option holds the name of the spool file user data used when PRTSTDOUT = *YES. ***Default = *NONE ***
+
+**PRTTXT** - This option holds the name of the spool file print txt to be used when PRTSTDOUT = *YES. ***Default = *NONE ***
+
+**PRTHOLD** - This option determines if the spool file is held if one is generated when PRTSTDOUT = *YES. ***Default = *YES ***
+
+**PRTOUTQ** - This option determines the output queue where the spool file will generated to when PRTSTDOUT = *YES. ***Default = *SAME ***
+
+**PASEJOBNAM** - PASE fork thread job names. Set PASE_FORK_JOBNAME environment variable to set forked thread jobs to have a unique name other than: QP0ZSPWP which is the default. Set the value or *DEFAULT=QP0ZSPWP.
+
+## Using the QSHWRTLOG CL command to write a user defined log record to a DB2 log file
+
+The following example calls the ```QSHWRTLOG``` command to write a record with message type of: ```INFO``` to a log file ```QTEMP/LOGTMP0001```.    
+The DB2 table gets auto-created via embedded SQL in the CL command. And the record is also written via SQL using the RUNSQL command.      
+If recreate is *NO, we simply create or append to the log file if it already exists. This is good for accumulating entries.    
+If recreate is *YES, we will delete and recreate the DB2 log file and append to the log file. It's good to use the RECREATE(*YES) option for the first message in a process if you want to start with a clean/empty log file.     
+ ```
+      QSHWRTLOG MSG('This is a sample message')      
+        MSGTYPE(INFO)                       
+        LOGFILE(QTEMP/LOGTMP0001)           
+        RECREATE(*NO)                       
+```
+## QSHWRTLOG command parms
+
+**Overview** - This CL command can be used to write a message to a simple DB2 log file that contains a sequence number, message type, message text and timestamp value.     
+The command automatically creates the selected output file (OUTFILE) via SQL on the first record write if not found. And the file can be deleted and recreated automatically if desired.   
+Records are inserted using an SQL INSERT statement run via the RUNSQL command.     
+
+Fields in the DB2 log file database table:    
+ - LOGID - Unique ID sequence number - INT(identity)     
+ - LOGMSGTYPE - Log message type - CHAR(10)    
+ - LOGMSG - Log message text - CHAR(330)    
+ - CRTTIME - DB2 timestamp of log entry - TIMESTAMP    
+
+**MSG** - This field should have the message text you want to write to the log file. Max length is 330. Trying to make sure this will fit into the 378 character spool file limit if printed.   
+
+**MSGTYPE** - This field can be used to specify a user-defined message type for informational purposes and filtering perhaps.    
+Some examples might include: ```START```,```END```,```INFO```,```WARN```,```DEBUG```,```ERROR```,```COMP```,```DIAG```      
+
+**LOGFILE** - Enter the name for your desired log file. You will enter a library name and file name.  Ex: ```QTEMP/LOGTMP0001```. If a file is created in library QTEMP, it's local to the job only and gets deleted when the IBM i job ends.  If you want to keep the log for a period of time, create the log file in your own library.    
+
+**RECREATE** - Delete log file and recreate it before writing the current new message. This is a good way to accumulate to an existing log file or clear/rebuild and start a new log file.    
+```*NO```- Create log file if not found and write/append the new message to the new or already existing log file. This is a good option to use if you want to create and continue to accumulate records to an existing log file.    
+```*YES```- Create log file if not found and write/append the new message to the new or already existing log file. This is a good option to use as the first message in a process if you want to delete and recreate the log file. All subsequent messages in the process should use ```*NO``` so we accumulate the messages for the job. 
+command line.
+
+## Using the QSHPRTLOG CL command to print the selected simple log file to a spool file.
+
+The following example calls the ```QSHPRTLOG``` command to print log file ```QTEMP/LOGTMP0001``` if it exists. The spool file name will be ```PRTLOG```.     
+ ```
+      QSHPRTLOG LOGFILE(QTEMP/LOGTMP0001)      
+        SPLF(PRTLOG)                   
+```
+
+## QSHPRTLOG command parms
+
+**Overview** - This CL command can be used to print a log file created by the QSHWRTLOG command. Sometimes it's helpful to create a log file and then write it to a spool file for later review or archival as a PDF document perhaps.   
+
+**LOGFILE** - Enter the name for your desired log file. You will enter a library name and file name.  Ex: ```QTEMP/LOGTMP0001```. If a file is created in library QTEMP, it's local to the job only and gets deleted when the IBM i job ends.  If you want to keep the log for a period of time, create the log file in your own library.    
+
+**SPLF** - Spool file name to create. Default-```PRTLOG```.  The spool file will always generate on hold.    
+
+
