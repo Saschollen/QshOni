@@ -2872,6 +2872,71 @@ Return home dir (HOMEDIR) - Help
 :IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHCPYSRC
+.************************************************************************
+:help name='QSHCPYSRC'.
+Copy Source Member to Script (QSHCPYSRC) - Help
+:xh3.Copy Source Member to Script (QSHCPYSRC)
+:p.The Copy Source Member to Script (QSHCPYSRC) command copies a source member to an IFS script file
+so that it can be run with Qshell, PASE or bash. When TOIFSFILE(*GENERATE) is used the file is created in
+directory /tmp/qsh with a name made up of the member name, the date and time, the user name, and the
+source type of the member as the extension.
+:p.The following example copies member MYSCRIPT in source file QSHONI/QSHSCRIPTS to an automatically named
+script file:
+:XMP.
+:hp2.
+QSHCPYSRC SRCFILE(QSHONI/QSHSCRIPTS)
+          SRCMBR(MYSCRIPT)
+          TOIFSFILE(*GENERATE)
+:ehp2.
+:EXMP.
+:p.The following example copies the member to a specific IFS file and replaces the file if it exists:
+:XMP.
+:hp2.
+QSHCPYSRC SRCFILE(QSHONI/QSHSCRIPTS)
+          SRCMBR(MYSCRIPT)
+          TOIFSFILE('/home/user1/myscript.sh')
+          IFSOPT(*REPLACE)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHCPYSRC/SRCFILE'.
+:IMHELP NAME='COMMON/CPYSRCFILE'.
+:ehelp.
+:help name='QSHCPYSRC/SRCMBR'.
+:IMHELP NAME='COMMON/CPYSRCMBR'.
+:ehelp.
+:help name='QSHCPYSRC/SRCTYPE'.
+Source type for auto generate (SRCTYPE) - Help
+:xh3.Source type for auto generate (SRCTYPE)
+:p.Specifies the file extension used when the IFS file name is generated with TOIFSFILE(*GENERATE).
+The value is ignored if you enter your own IFS file name.
+:parml.
+:pt.:pk def.*MEMBER:epk.
+:pd.The source type of the source member is used as the file extension.
+:pt.:pv.character-value:epv.
+:pd.Enter the file extension to use, for example sh or py.
+:eparml.
+:ehelp.
+:help name='QSHCPYSRC/TOIFSFILE'.
+To IFS script file (TOIFSFILE) - Help
+:xh3.To IFS script file (TOIFSFILE)
+:p.Specifies the IFS file the source member is copied to.
+:parml.
+:pt.:pk def.*GENERATE:epk.
+:pd.The file name is generated in directory /tmp/qsh.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path and file name of the script file.
+:eparml.
+:ehelp.
+:help name='QSHCPYSRC/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
