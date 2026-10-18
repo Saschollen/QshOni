@@ -3245,6 +3245,108 @@ Normally the selection should be *NO.
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHJOBACT
+.************************************************************************
+:help name='QSHJOBACT'.
+Locate Selected Active Jobs (QSHJOBACT) - Help
+:xh3.Locate Selected Active Jobs (QSHJOBACT)
+:p.The Locate Selected Active Jobs (QSHJOBACT) command finds the active jobs that match a filter and counts
+them.
+Use it to learn how many instances of a job name or generic name are active. This is useful after you start
+a subsystem or application shutdown and need to know when all of the named jobs have ended.
+The count is placed in data area QTEMP/JOBACTCNT. The command uses the QSYS2.ACTIVE_JOB_INFO SQL service.
+If the SQL fails you may be missing the PTF groups that the service needs.
+:p.The following example counts the active jobs named ADMIN and does not send an error if none are found:
+:XMP.
+:hp2.
+QSHJOBACT QRYFILTER('JOBNAME LIKE ''ADMIN''')
+          EMPTYERROR(*NO)
+:ehp2.
+:EXMP.
+:p.The following example sends an error unless exactly 3 jobs are found:
+:XMP.
+:hp2.
+QSHJOBACT QRYFILTER('JOBNAME LIKE ''ADMIN''')
+          EXPJOBFND(3)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHJOBACT/QRYFILTER'.
+Job info query filter (QRYFILTER) - Help
+:xh3.Job info query filter (QRYFILTER)
+:p.Specifies the SQL selection that picks the active jobs to count. It is used as the WHERE condition on the
+job information. A quote inside the filter must be entered as two quotes.
+:parml.
+:pt.:pk def.JOBNAME LIKE 'MYJOB':epk.
+:pd.Jobs named MYJOB are counted.
+:pt.:pk.*ALL:epk.
+:pd.All active jobs are counted.
+:pt.:pv.character-value:epv.
+:pd.Enter the SQL selection. For example JOBNAME LIKE 'ADMIN%'. The value can be up to 500 characters.
+:eparml.
+:ehelp.
+:help name='QSHJOBACT/MAXJOBFND'.
+Max number of jobs found (MAXJOBFND) - Help
+:xh3.Max number of jobs found (MAXJOBFND)
+:p.Specifies the largest number of matching jobs that is allowed. If more jobs are found a CPF9898 escape
+message is sent.
+:parml.
+:pt.:pk def.*NOLIMIT:epk.
+:pd.There is no limit to the number of jobs found.
+:pt.:pv.number:epv.
+:pd.Enter the maximum number of jobs allowed.
+:eparml.
+:ehelp.
+:help name='QSHJOBACT/EXPJOBFND'.
+Expected number of jobs found (EXPJOBFND) - Help
+:xh3.Expected number of jobs found (EXPJOBFND)
+:p.Specifies the exact number of matching jobs that is expected. If a different number of jobs is found
+a CPF9898 escape message is sent.
+:parml.
+:pt.:pk def.*NOLIMIT:epk.
+:pd.Any number of jobs is accepted.
+:pt.:pv.number:epv.
+:pd.Enter the number of jobs expected.
+:eparml.
+:ehelp.
+:help name='QSHJOBACT/OUTFILE'.
+File to receive results (OUTFILE) - Help
+:xh3.File to receive results (OUTFILE)
+:p.Specifies the file that receives the list of jobs found.
+:p.:hp3.Note::ehp3. The name JOBTMP0001 cannot be used because the command uses it for its own work file.
+:parml.
+:pt.:pk def.JOBTMPA001:epk.
+:pd.The results are written to file JOBTMPA001.
+:pt.:pv.file-name:epv.
+:pd.Specify the name of the file to receive the results.
+:eparml.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.QTEMP:EPK.
+:PD.
+The file is created in library QTEMP.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library for the file.
+:EPARML.
+:ehelp.
+:help name='QSHJOBACT/EMPTYERROR'.
+Escape error if no result data (EMPTYERROR) - Help
+:xh3.Escape error if no result data (EMPTYERROR)
+:p.Specifies whether an escape message is sent when no jobs match the filter.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.A CPF9898 escape message is sent if no matching jobs are found.
+:pt.:pk.*NO:epk.
+:pd.No escape message is sent when no jobs are found.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
