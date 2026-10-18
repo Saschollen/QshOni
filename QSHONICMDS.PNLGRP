@@ -1704,6 +1704,57 @@ or reviewing the RSTLIB parameter values. Normally the selection should be *NO.
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHRSTIFS
+.************************************************************************
+:help name='QSHRSTIFS'.
+Restore IFS Obj from IFS File (QSHRSTIFS) - Help
+:xh3.Restore IFS Obj from IFS File (QSHRSTIFS)
+:p.The Restore IFS Obj from IFS File (QSHRSTIFS) command copies a save file stored in the IFS to a temporary
+save file in QTEMP and then restores IFS objects from it using the RST command. The IFS file is normally
+one created by the QSHSAVIFS command. Objects are restored with their entire subtree and parent directories
+are created if needed.
+:p.The following example restores directory /home/myuser and everything below it from IFS file /backups/myuser.savf:
+:XMP.
+:hp2.
+QSHRSTIFS OBJECTS('/home/myuser')
+          FRMIFSFILE('/backups/myuser.savf')
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHRSTIFS/OBJECTS'.
+IFS objects to restore (OBJECTS) - Help
+:xh3.IFS objects to restore (OBJECTS)
+:p.Specifies the IFS object or directory path to restore from the save file.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path of the directory or object to restore. The path can be up to 255 characters.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHRSTIFS/FRMIFSFILE'.
+:IMHELP NAME='COMMON/FRMIFSFILE'.
+:ehelp.
+:help name='QSHRSTIFS/DLTTMPSAVF'.
+:IMHELP NAME='COMMON/DLTTMPSAVF'.
+:ehelp.
+:help name='QSHRSTIFS/PROMPT'.
+Prompt the RST command (PROMPT) - Help
+:xh3.Prompt the RST command (PROMPT)
+:p.Specifies whether the RST command is prompted interactively before it runs. This is useful for testing
+or reviewing the RST parameter values. Normally the selection should be *NO.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The RST command is not prompted.
+:pt.:pk.*YES:epk.
+:pd.The RST command is prompted on an interactive 5250 session before it runs.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
