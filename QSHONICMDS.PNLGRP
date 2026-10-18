@@ -1588,6 +1588,122 @@ or reviewing the SAVCHGOBJ parameter values. Normally the selection should be *N
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHRSTLIB
+.************************************************************************
+:help name='QSHRSTLIB'.
+Restore Library from IFS File (QSHRSTLIB) - Help
+:xh3.Restore Library from IFS File (QSHRSTLIB)
+:p.The Restore Library from IFS File (QSHRSTLIB) command copies a save file stored in the IFS to a temporary
+save file in QTEMP and then restores a library from it using the RSTLIB command. The IFS file is normally
+one created by the QSHSAVLIB command.
+:p.The following example restores library MYLIB from IFS file /backups/mylib.savf back into library MYLIB:
+:XMP.
+:hp2.
+QSHRSTLIB LIBRARY(MYLIB)
+          FRMIFSFILE('/backups/mylib.savf')
+:ehp2.
+:EXMP.
+:p.The following example restores the library that was saved as MYLIB into library MYLIBTST. Library MYLIBTST
+is cleared first if it already exists:
+:XMP.
+:hp2.
+QSHRSTLIB LIBRARY(MYLIB)
+          RSTLIB(MYLIBTST)
+          CLRLIB(*YES)
+          FRMIFSFILE('/backups/mylib.savf')
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHRSTLIB/LIBRARY'.
+Library to restore (LIBRARY) - Help
+:xh3.Library to restore (LIBRARY)
+:p.Specifies the name of the library as it was saved in the save file.
+:parml.
+:pt.:pv.library-name:epv.
+:pd.Specify the name of the saved library to restore.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHRSTLIB/RSTLIB'.
+:IMHELP NAME='COMMON/RSTLIB'.
+:ehelp.
+:help name='QSHRSTLIB/CLRLIB'.
+:IMHELP NAME='COMMON/CLRLIB'.
+:ehelp.
+:help name='QSHRSTLIB/FRMIFSFILE'.
+:IMHELP NAME='COMMON/FRMIFSFILE'.
+:ehelp.
+:help name='QSHRSTLIB/OPTION'.
+Option (OPTION) - Help
+:xh3.Option (OPTION)
+:p.Specifies which objects are restored.
+:p.:hp3.Note::ehp3. This parameter is only used when PROMPT(*YES) is specified. When PROMPT(*NO) is used
+the command restores with OPTION(*ALL).
+:parml.
+:pt.:pk def.*ALL:epk.
+:pd.All objects in the save file are restored, whether or not they already exist in the library.
+:pt.:pk.*NEW:epk.
+:pd.Only objects that do not already exist in the library are restored.
+:pt.:pk.*OLD:epk.
+:pd.Only objects that already exist in the library are restored.
+:pt.:pk.*FREE:epk.
+:pd.Only objects whose storage was freed when they were saved are restored.
+:eparml.
+:ehelp.
+:help name='QSHRSTLIB/MBROPT'.
+Database member option (MBROPT) - Help
+:xh3.Database member option (MBROPT)
+:p.Specifies which database file members are restored.
+:p.:hp3.Note::ehp3. This parameter is only used when PROMPT(*YES) is specified. When PROMPT(*NO) is used
+the command restores with MBROPT(*ALL).
+:parml.
+:pt.:pk def.*ALL:epk.
+:pd.All members in the save file are restored.
+:pt.:pk.*NEW:epk.
+:pd.Only members that do not already exist in the file are restored.
+:pt.:pk.*OLD:epk.
+:pd.Only members that already exist in the file are restored.
+:pt.:pk.*MATCH:epk.
+:pd.Only members that exist in both the save file and the database file are restored.
+:eparml.
+:ehelp.
+:help name='QSHRSTLIB/ALWOBJDIF'.
+Allow object differences (ALWOBJDIF) - Help
+:xh3.Allow object differences (ALWOBJDIF)
+:p.Specifies whether differences between the saved objects and the objects on the system are allowed during the restore.
+Differences include such things as owner, authorization list or file level identifiers.
+:p.:hp3.Note::ehp3. This parameter is only used when PROMPT(*YES) is specified. When PROMPT(*NO) is used
+the command restores with ALWOBJDIF(*ALL).
+:parml.
+:pt.:pk def.*ALL:epk.
+:pd.All differences are allowed. Objects are restored even if differences are found.
+:pt.:pk.*COMPATIBLE:epk.
+:pd.Differences are allowed as long as the object can still be used.
+:pt.:pk.*NONE:epk.
+:pd.No differences are allowed. Objects with differences are not restored.
+:eparml.
+:ehelp.
+:help name='QSHRSTLIB/DLTTMPSAVF'.
+:IMHELP NAME='COMMON/DLTTMPSAVF'.
+:ehelp.
+:help name='QSHRSTLIB/PROMPT'.
+Prompt the RSTLIB command (PROMPT) - Help
+:xh3.Prompt the RSTLIB command (PROMPT)
+:p.Specifies whether the RSTLIB command is prompted interactively before it runs. This is useful for testing
+or reviewing the RSTLIB parameter values. Normally the selection should be *NO.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The RSTLIB command is not prompted.
+:pt.:pk.*YES:epk.
+:pd.The RSTLIB command is prompted on an interactive 5250 session before it runs.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
