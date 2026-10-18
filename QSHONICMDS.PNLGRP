@@ -1160,6 +1160,101 @@ QSHSETPROF USER(USER1)
 
 
 
+.************************************************************************
+.*  Primary Help for command QSHSAVLIB
+.************************************************************************
+:help name='QSHSAVLIB'.
+Save Library to IFS File (QSHSAVLIB) - Help
+:xh3.Save Library to IFS File (QSHSAVLIB)
+:p.The Save Library to IFS File (QSHSAVLIB) command saves a library to a temporary save file in QTEMP
+using the SAVLIB command and then copies the result to a save file stored in the IFS. The IFS file
+can be moved or backed up to a NAS, SAN or other system and later restored with the QSHRSTLIB command.
+:p.When *DATETIME or *DATE is used for the TOIFSFILE parameter, the IFS file name is generated in the
+directory stored in data area QSHONI/SAVFDIR (default /tmp/savfqsh):
+:XMP.
+:hp2.
+*DATETIME  library_yyyymmdd_hhmmss.savf
+*DATE      library_yyyymmdd.savf
+:ehp2.
+:EXMP.
+:p.The following example saves library MYLIB to IFS file /backups/mylib.savf and replaces the file if it exists:
+:XMP.
+:hp2.
+QSHSAVLIB LIBRARY(MYLIB)
+          TOIFSFILE('/backups/mylib.savf')
+          REPLACE(*YES)
+:ehp2.
+:EXMP.
+:p.The following example saves library MYLIB to an automatically named file in the default save directory
+and uses ZLIB compression:
+:XMP.
+:hp2.
+QSHSAVLIB LIBRARY(MYLIB)
+          TOIFSFILE(*DATETIME)
+          DTACPR(*ZLIB)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHSAVLIB/LIBRARY'.
+Library to save (LIBRARY) - Help
+:xh3.Library to save (LIBRARY)
+:p.Specifies the library to save.
+:parml.
+:pt.:pv.library-name:epv.
+:pd.Specify the name of the library to save.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='QSHSAVLIB/TOIFSFILE'.
+:IMHELP NAME='COMMON/TOIFSFILE'.
+:ehelp.
+:help name='QSHSAVLIB/REPLACE'.
+:IMHELP NAME='COMMON/REPLACESAVF'.
+:ehelp.
+:help name='QSHSAVLIB/TGTRLS'.
+:IMHELP NAME='COMMON/TGTRLS'.
+:ehelp.
+:help name='QSHSAVLIB/UPDHST'.
+:IMHELP NAME='COMMON/UPDHST'.
+:ehelp.
+:help name='QSHSAVLIB/PRECHK'.
+:IMHELP NAME='COMMON/PRECHK'.
+:ehelp.
+:help name='QSHSAVLIB/SAVACT'.
+:IMHELP NAME='COMMON/SAVACT'.
+:ehelp.
+:help name='QSHSAVLIB/SAVFDTA'.
+:IMHELP NAME='COMMON/SAVFDTA'.
+:ehelp.
+:help name='QSHSAVLIB/SPLFDTA'.
+:IMHELP NAME='COMMON/SPLFDTA'.
+:ehelp.
+:help name='QSHSAVLIB/QDTA'.
+:IMHELP NAME='COMMON/QDTA'.
+:ehelp.
+:help name='QSHSAVLIB/DTACPR'.
+:IMHELP NAME='COMMON/DTACPR'.
+:ehelp.
+:help name='QSHSAVLIB/DLTTMPSAVF'.
+:IMHELP NAME='COMMON/DLTTMPSAVF'.
+:ehelp.
+:help name='QSHSAVLIB/PROMPT'.
+Prompt the SAVLIB command (PROMPT) - Help
+:xh3.Prompt the SAVLIB command (PROMPT)
+:p.Specifies whether the SAVLIB command is prompted interactively before it runs. This is useful for testing
+or reviewing the SAVLIB parameter values. Normally the selection should be *NO.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The SAVLIB command is not prompted.
+:pt.:pk.*YES:epk.
+:pd.The SAVLIB command is prompted on an interactive 5250 session before it runs.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
