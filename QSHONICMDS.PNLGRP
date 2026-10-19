@@ -4581,6 +4581,110 @@ IFS directory (IFSDIR) - Help
 :IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 
+.************************************************************************
+.*  Additional parameter help for QSHQRYTMP, QSHQRYSRC and QSHPYRUN
+.************************************************************************
+:help name='QSHQRYTMP/CPYRESULTS'.
+:IMHELP NAME='COMMON/CPYRESULTS'.
+:ehelp.
+:help name='QSHQRYTMP/CPYTOFILE'.
+:IMHELP NAME='COMMON/CPYTOFILE'.
+:ehelp.
+:help name='QSHQRYTMP/CRTFILE'.
+:IMHELP NAME='COMMON/CRTFILE'.
+:ehelp.
+:help name='QSHQRYTMP/MBROPT'.
+:IMHELP NAME='COMMON/CPYFMBROPT'.
+:ehelp.
+:help name='QSHQRYTMP/PROMPTCPYF'.
+:IMHELP NAME='COMMON/PROMPTCPYF'.
+:ehelp.
+:help name='QSHQRYTMP/CLRAFTCPYF'.
+:IMHELP NAME='COMMON/CLRAFTCPYF'.
+:ehelp.
+:help name='QSHQRYSRC/CPYRESULTS'.
+:IMHELP NAME='COMMON/CPYRESULTS'.
+:ehelp.
+:help name='QSHQRYSRC/CPYTOFILE'.
+:IMHELP NAME='COMMON/CPYTOFILE'.
+:ehelp.
+:help name='QSHQRYSRC/CRTFILE'.
+:IMHELP NAME='COMMON/CRTFILE'.
+:ehelp.
+:help name='QSHQRYSRC/MBROPT'.
+:IMHELP NAME='COMMON/CPYFMBROPT'.
+:ehelp.
+:help name='QSHQRYSRC/PROMPTCPYF'.
+:IMHELP NAME='COMMON/PROMPTCPYF'.
+:ehelp.
+:help name='QSHQRYSRC/CLRAFTCPYF'.
+:IMHELP NAME='COMMON/CLRAFTCPYF'.
+:ehelp.
+:help name='QSHQRYSRC/DLTCMTLINE'.
+Del comment line from temp src (DLTCMTLINE) - Help
+:xh3.Delete comment line from temp source (DLTCMTLINE)
+:p.Specifies whether comment lines are removed from the temporary copy of the SQL source member before the
+query runs. A comment line must have :hp2.--:ehp2. at the start of the trimmed line. The delimiter
+:hp2.--//:ehp2. can also be used anywhere in a line, and the data after the delimiter is removed. Text that
+contains :hp2.--:ehp2. anywhere else in a line, such as in a text constant, is not changed.
+:p.The command does more than run an SQL statement, because it creates a table from the query, so comments
+must
+be removed at run time. Test your queries after changing how comments are handled.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Comment lines are removed, and lines that are empty after the comment text is removed are also removed.
+:pt.:pk.*NO:epk.
+:pd.The source member is used as it is and comments are not removed.
+:eparml.
+:ehelp.
+:help name='QSHQRYSRC/DSPTMPSRC'.
+Display temp source member (DSPTMPSRC) - Help
+:xh3.Display temp source member (DSPTMPSRC)
+:p.Specifies whether the temporary source member is displayed after it is prepared. This lets you preview
+the SQL that will actually run after comments were removed and values were replaced. It is good for
+troubleshooting.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The temporary source member is not displayed.
+:pt.:pk.*YES:epk.
+:pd.The temporary source member is displayed on an interactive 5250 session.
+:eparml.
+:ehelp.
+:help name='QSHPYRUN/VENVPATH'.
+Virtual environment base path (VENVPATH) - Help
+:xh3.Virtual environment base path (VENVPATH)
+:p.Specifies the IFS path of the Python virtual environment. This is only used when USEVENV(*YES) is
+specified.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the base path of the virtual environment.
+:eparml.
+:ehelp.
+:help name='QSHPYRUN/SKIPDEACT'.
+Skip virtual env deactivate (SKIPDEACT) - Help
+:xh3.Skip virtual env deactivate (SKIPDEACT)
+:p.Specifies whether the virtual environment deactivate step is skipped. This is only used when a virtual
+environment is used. If the virtual environment is used with QShell there is no deactivate command available,
+so the deactivate fails unless *YES is selected.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The virtual environment deactivate step is skipped.
+:pt.:pk.*NO:epk.
+:pd.The virtual environment is deactivated after the script runs.
+:eparml.
+:ehelp.
+:help name='QSHPYRUN/USEBASH'.
+Use bash instead of QShell (USEBASH) - Help
+:xh3.Use bash instead of QShell (USEBASH)
+:p.Specifies whether the Python script is run with bash instead of QShell.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The script is run with the QSHBASH command.
+:pt.:pk.*NO:epk.
+:pd.The script is run with the QSHEXEC command.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
