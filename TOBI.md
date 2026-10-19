@@ -19,7 +19,7 @@ Each folder has a `Rules.mk`, and the root `Rules.mk` lists the folders. `iproj.
 
 ## Commands and help
 
-Every command is built with its own command processing program and with `HLPPNLGRP(QSHONI/QSHONICMDS)`. `HLPID` defaults to the command name. The panel group is a dependency of every command, so changing it rebuilds them.
+Every command is built with its own command processing program and with `HLPPNLGRP(QSHONI/QSHONICMDS)`. `HLPID` defaults to the command name. The commands do not depend on the panel group, so editing the help text does not rebuild them or the CL programs that call them. The help is read from the panel group when F1 is pressed. On a first build the panel group is built with everything else, so it exists before anyone uses the help.
 
 ## Build order and compile-time needs
 
