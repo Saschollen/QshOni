@@ -1,4 +1,4 @@
-# Generated for IBM i Better Object Builder (Bob / makei). Object library comes from iproj.json.
+# Generated for IBM i TOBi (makei). Object library comes from iproj.json.
 # Each command is built with its own CPP and the shared QSHONICMDS panel group.
 # The CPP name differs from the command name, so CMD_PGM is overridden per command.
 

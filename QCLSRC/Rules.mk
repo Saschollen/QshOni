@@ -1,4 +1,4 @@
-# Generated for IBM i Better Object Builder (Bob / makei). Object library comes from iproj.json.
+# Generated for IBM i TOBi (makei). Object library comes from iproj.json.
 # OPM CL programs (CLP) build straight to a program.
 QSHCURLC.PGM: QSHCURLC.CLP
 QSHIFSCHKC.PGM: QSHIFSCHKC.CLP

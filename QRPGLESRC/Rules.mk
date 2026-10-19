@@ -1,4 +1,4 @@
-# Generated for IBM i Better Object Builder (Bob / makei). Object library comes from iproj.json.
+# Generated for IBM i TOBi (makei). Object library comes from iproj.json.
 # ILE RPG programs are built with CRTBNDRPG (DFTACTGRP(*NO) is the Bob default).
 QSHGETPARR.PGM: QSHGETPARR.RPGLE
 QSHIFSCHKR.PGM: QSHIFSCHKR.RPGLE

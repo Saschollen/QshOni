@@ -1,6 +1,6 @@
-# Building QshOni with Bob (makei)
+# Building QshOni with TOBi (makei)
 
-This fork can be built with IBM i [Better Object Builder (Bob / TOBi)](https://ibm.github.io/ibmi-bob/) in addition to the original `build.sh` and `SRCBLDC.CLP` scripts.
+This fork can be built with IBM i [TOBi](https://ibm.github.io/ibmi-bob/) (the Object Builder, run with `makei`) in addition to the original `build.sh` and `SRCBLDC.CLP` scripts.
 
 ## Layout
 
@@ -8,10 +8,10 @@ Sources are grouped in folders by type. File names are unchanged except for two 
 
 | Folder | Contents | Notes |
 |---|---|---|
-| `QCMDSRC` | `*.CMD` | Bob needs command sources in a folder because the source and the `*CMD` object share the `.CMD` extension. |
+| `QCMDSRC` | `*.CMD` | TOBi needs command sources in a folder because the source and the `*CMD` object share the `.CMD` extension. |
 | `QCLSRC` | `*.CLP`, `*.CLLE` | `CLLE` is built as a `*MODULE` and bound into a program of the same name (ACTGRP `*CALLER`). |
 | `QRPGLESRC` | `*.RPGLE`, `*.SQLRPGLE` | `QSHONISRV` builds the service program module. |
-| `QPNLSRC` | `QSHONICMDS.PNLGRPSRC` | Panel group with the help text for all commands. Renamed from `.PNLGRP`, which Bob needs. |
+| `QPNLSRC` | `QSHONICMDS.PNLGRPSRC` | Panel group with the help text for all commands. Renamed from `.PNLGRP`, which TOBi needs. |
 | `QDDSSRC` | `WRKIFSLISD.DSPF` | |
 | `QBNDSRC` | `QSHONISRV.BND`, `QSHONISRV.BNDDIR` | `.BND` was `QSHONISRVD.BNDDIR`, the export source. `.BNDDIR` creates the binding directory. |
 
@@ -29,7 +29,7 @@ Every command is built with its own command processing program and with `HLPPNLG
 
 ## Build
 
-On the IBM i, with Bob installed and the project cloned:
+On the IBM i, with TOBi installed and the project cloned:
 
 ```
 makei build
