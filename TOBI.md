@@ -25,12 +25,12 @@ Every command is built with its own command processing program and with `HLPPNLG
 
 - A CL program that calls a QshOni command needs that command to exist when it compiles. `QCLSRC/Rules.mk` lists those commands as dependencies, so TOBi builds them first.
 - `QSHQRYSR2R`, `QSHQRYSR3R`, `RUNSQLSRCR` and `RUNSQLSR3R` declare file `TMPQRYSRC`, which the CL programs create in `QTEMP` at run time. The build creates a copy named `QSHONI/TMPQRYSRC` (`RCDLEN(240)`) so they compile. At run time the `QTEMP` file is found first.
+- `QSHPORTENC` reads `QTEMP/TCPTMPEND` with `DCLF`, so that file must exist in `QTEMP` when it compiles. Its rule sets `PRECMD`, which TOBi runs in the same job as the compile, to run the `QSHQRYTMP` statement that creates the file. The `QSHQRYTMP` programs are built first.
 - TOBi does not pass `DFTACTGRP`, so each RPG program rule adds `DFTACTGRP(*NO)` to match the original build.
 - The binding directory source deletes any existing `QSHONISRV` binding directory first, so a rebuild into an existing library works.
 
 ## Not built by TOBi
 
-- `QSHPORTENC`: it reads `QTEMP/TCPTMPEND` with `DCLF`, so that file must exist in `QTEMP` when it compiles. TOBi compiles each object in its own job, so it cannot create it. Build it with `SRCBLDC.CLP`, or in one job run the `QSHQRYTMP` statement that creates `QTEMP/TCPTMPEND` and then `CRTCLPGM`.
 
 - `QSHONIPR01` to `QSHONIPR04` and `QSHDEMO01R`: sample RPG programs that `/copy qshoni/source,qshonisrvh`, which needs the `QSHONI/SOURCE` source file.
 - Data areas, the `QSHMSG` message file and the `QSHONITMP` library that `SRCBLDC.CLP` creates.
