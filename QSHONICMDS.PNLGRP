@@ -5631,4 +5631,96 @@ Specify the name of the library where the output queue is located.
 :EPARML.
 :ehelp.
 
+.*******************************************
+.*   Help for common parameters used by the
+.*   result copy options of QSHQRYTMP and QSHQRYSRC.
+.*******************************************
+:HELP NAME='COMMON/CPYRESULTS'.
+Copy results via CPYF (CPYRESULTS) - Help
+:xh3.Copy results via CPYF (CPYRESULTS)
+:p.Specifies whether the query results are copied to another file with the Copy File (CPYF) command. This is
+useful when you run several queries and want to combine their results in one file. By default the command
+works as it did before and nothing is copied.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The results are not copied.
+:pt.:pk.*YES:epk.
+:pd.The results are copied to the file named by CPYTOFILE.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/CPYTOFILE'.
+File to receive CPYF results (CPYTOFILE) - Help
+:xh3.File to receive CPYF results (CPYTOFILE)
+:p.Specifies the file that receives the copied results. This is only used when CPYRESULTS(*YES) is specified.
+:parml.
+:pt.:pv.file-name:epv.
+:pd.Specify the name of the file.
+:eparml.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+The library list is used to locate the file.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library where the file is located.
+:EPARML.
+:ehelp.
+
+:HELP NAME='COMMON/CRTFILE'.
+Create results file (CRTFILE) - Help
+:xh3.Create results file (CRTFILE)
+:p.Specifies whether the file named by CPYTOFILE is created when the results are copied.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The file is created from the query results when it does not exist.
+:pt.:pk.*NO:epk.
+:pd.The file is not created. It must already exist.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/CPYFMBROPT'.
+Replace or add records (MBROPT) - Help
+:xh3.Replace or add records (MBROPT)
+:p.Specifies how the copied records are applied to the file named by CPYTOFILE. These values are the
+MBROPT values of the Copy File (CPYF) command.
+:parml.
+:pt.:pk def.*ADD:epk.
+:pd.The records are added to the end of the file.
+:pt.:pk.*REPLACE:epk.
+:pd.The existing records are replaced by the copied records.
+:pt.:pk.*UPDADD:epk.
+:pd.Existing records with matching keys are updated and other records are added.
+:pt.:pk.*NONE:epk.
+:pd.No member option is specified.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/PROMPTCPYF'.
+Prompt the CPYF command (PROMPTCPYF) - Help
+:xh3.Prompt the CPYF command (PROMPTCPYF)
+:p.Specifies whether the CPYF command is prompted before it runs. This is useful for testing. Only use this
+on an interactive 5250 session.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The CPYF command is not prompted.
+:pt.:pk.*YES:epk.
+:pd.The CPYF command is prompted.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/CLRAFTCPYF'.
+Clear temp outfile after CPYF (CLRAFTCPYF) - Help
+:xh3.Clear temp outfile after CPYF (CLRAFTCPYF)
+:p.Specifies whether the temporary outfile is cleared after the results are copied.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The temporary outfile is cleared after the copy.
+:pt.:pk.*NO:epk.
+:pd.The temporary outfile is not cleared.
+:eparml.
+:ehelp.
+
 :epnlgrp.
