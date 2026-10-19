@@ -4104,6 +4104,71 @@ View output file (VIEWOUTPUT) - Help
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command QSHQRYAID
+.************************************************************************
+:help name='QSHQRYAID'.
+SQL Add Unique ID Col to Table (QSHQRYAID) - Help
+:xh3.SQL Add Unique ID Col to Table (QSHQRYAID)
+:p.The SQL Add Unique ID Col to Table (QSHQRYAID) command adds a unique ID column to an outfile that was
+created by the QSHQRYTMP or QSHQRYSRC command. The column is a big integer identity column that starts with 1.
+Use it when you did not ask for the ID column when the outfile was created.
+:p.The following example adds a column named RECID to the default outfile QTEMP/SQLTMP0001:
+:XMP.
+:hp2.
+QSHQRYAID OUTFILE(QTEMP/SQLTMP0001)
+          IDCOLNAME(RECID)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='QSHQRYAID/OUTFILE'.
+Temp file to receive results (OUTFILE) - Help
+:xh3.Temp file to receive results (OUTFILE)
+:p.Specifies the file that the unique ID column is added to.
+:parml.
+:pt.:pk def.SQLTMP0001:epk.
+:pd.The column is added to file SQLTMP0001.
+:pt.:pv.file-name:epv.
+:pd.Specify the name of the file.
+:eparml.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.QTEMP:EPK.
+:PD.
+The file is in library QTEMP.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library where the file is located.
+:EPARML.
+:ehelp.
+:help name='QSHQRYAID/IDCOLNAME'.
+Record ID column name (IDCOLNAME) - Help
+:xh3.Record ID column name (IDCOLNAME)
+:p.Specifies the name of the identity column that is added to the file.
+:parml.
+:pt.:pk def.RECID:epk.
+:pd.The column is named RECID.
+:pt.:pv.character-value:epv.
+:pd.Enter the column name. The name can be up to 30 characters.
+:eparml.
+:ehelp.
+:help name='QSHQRYAID/PROMPT'.
+Prompt RUNSQL (PROMPT) - Help
+:xh3.Prompt RUNSQL (PROMPT)
+:p.Specifies whether the RUNSQL command is prompted before it runs. Only use this on an interactive
+5250 session.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The RUNSQL command is not prompted.
+:pt.:pk.*YES:epk.
+:pd.The RUNSQL command is prompted.
+:eparml.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
