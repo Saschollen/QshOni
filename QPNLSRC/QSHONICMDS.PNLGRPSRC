@@ -44,7 +44,15 @@ QSHEXEC CMDLINE('export DB2UTIL_JSON_CONTAINER=array;db2util -o json "select * f
 :IMHELP NAME='COMMON/CMDLINE'.
 :ehelp.
 :help name='QSHEXEC/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHEXEC/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
@@ -143,10 +151,44 @@ ls -l
 :ehelp.
 
 :help name='QSHEXECSRC/SRCFILE'.
-:IMHELP NAME='COMMON/SRCFILE'.
+Source file (SRCFILE) - Help
+:xh3.Source file (SRCFILE)
+:p.Specifies source physical file containing QShell/PASE/Bash script.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*SAME:EPK.
+:PD.
+??? UNKNOWN ???
+:PT.:PK.source-physical-file-name:EPK.
+:PD.
+Specify the name (library-name/source-physical-file-name) of the source file.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK.library-name:EPK.
+:PD.
+Specify the name of the library where the source physical file is located.
+:EPARML.
+:EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 :help name='QSHEXECSRC/SRCMBR'.
-:IMHELP NAME='COMMON/SRCMBR'.
+Source member (SRCMBR) - Help
+:xh3.Source member (SRCMBR)
+:p.Specifies source member containing QShell/PASE script.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.source-member-name:EPK.
+:PD.
+Specify the member name in the source file.
+:EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 :help name='QSHEXECSRC/CMDPARM'.
 QSH script command line parms (CMDPARM) - Help
@@ -154,7 +196,15 @@ QSH script command line parms (CMDPARM) - Help
 :IMHELP name='COMMON/CMDPARM'.
 :ehelp.
 :help name='QSHEXECSRC/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHEXECSRC/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
@@ -205,7 +255,17 @@ QSH script command line parms (CMDPARM) - Help
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
 :help name='QSHEXECSRC/RMVTMPSCR'.
-:IMHELP NAME='COMMON/RMVTMPSCR'.
+Remove temp script after (RMVTMPSCR) - Help
+:xh3.Remove temp script after (RMVTMPSCR)
+:p.This option determines if the temporary IFS script file is auto-deleted after running.
+Normally the selection should be *YES to delete the temp file.
+Otherwise specify *NO if you are debugging for some reason.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Deletes the temporary IFS script file after running.
+:pt.:pk.*NO:epk.
+:pd.Keeps the temporary IFS script file after running.
+:eparml.
 :ehelp.
 :help name='QSHEXECSRC/PROMPTCMD'.
 :IMHELP NAME='COMMON/PROMPTCMD'.
@@ -292,7 +352,15 @@ Debug bash command line (DEBUGCMD) - Help
 :eparml.
 :ehelp.
 :help name='QSHBASH/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHBASH/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
@@ -390,10 +458,44 @@ ls -l
 :ehelp.
 
 :help name='QSHBASHSRC/SRCFILE'.
-:IMHELP NAME='COMMON/SRCFILE'.
+Source file (SRCFILE) - Help
+:xh3.Source file (SRCFILE)
+:p.Specifies source physical file containing QShell/PASE/Bash script.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.*SAME:EPK.
+:PD.
+??? UNKNOWN ???
+:PT.:PK.source-physical-file-name:EPK.
+:PD.
+Specify the name (library-name/source-physical-file-name) of the source file.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK.library-name:EPK.
+:PD.
+Specify the name of the library where the source physical file is located.
+:EPARML.
+:EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 :help name='QSHBASHSRC/SRCMBR'.
-:IMHELP NAME='COMMON/SRCMBR'.
+Source member (SRCMBR) - Help
+:xh3.Source member (SRCMBR)
+:p.Specifies source member containing QShell/PASE script.
+:P.
+The possible values are:
+:P.
+:PARML.
+:PT.:PK.source-member-name:EPK.
+:PD.
+Specify the member name in the source file.
+:EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 :help name='QSHBASHSRC/CMDPARM'.
 Script command line parms (CMDPARM) - Help
@@ -401,7 +503,15 @@ Script command line parms (CMDPARM) - Help
 :IMHELP name='COMMON/CMDPARM'.
 :ehelp.
 :help name='QSHBASHSRC/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHBASHSRC/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
@@ -452,7 +562,17 @@ Script command line parms (CMDPARM) - Help
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
 :help name='QSHBASHSRC/RMVTMPSCR'.
-:IMHELP NAME='COMMON/RMVTMPSCR'.
+Remove temp script after (RMVTMPSCR) - Help
+:xh3.Remove temp script after (RMVTMPSCR)
+:p.This option determines if the temporary IFS script file is auto-deleted after running.
+Normally the selection should be *YES to delete the temp file.
+Otherwise specify *NO if you are debugging for some reason.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Deletes the temporary IFS script file after running.
+:pt.:pk.*NO:epk.
+:pd.Keeps the temporary IFS script file after running.
+:eparml.
 :ehelp.
 :help name='QSHBASHSRC/PROMPTCMD'.
 :IMHELP NAME='COMMON/PROMPTCMD'.
@@ -509,7 +629,15 @@ Curl command line parms (CMDLINE) - Help
 :p.Specifies the curl command line sequence to run.
 :ehelp.
 :help name='QSHCURL/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHCURL/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
@@ -615,8 +743,8 @@ Single quotes are allowed around your parmaeter data though if desired:
 :hp2.Ex: 'My Parm Value 1' 'My Parm Value 2':ehp2.
 :ehelp.
 :help name='QSHPYRUN/ARGDLM'.
-Command line argument delimiter (ARGDLM) - Help
-:xh3.Command line argument delimiter (ARGDLM)
+Command line arg delimiter (ARGDLM) - Help
+:xh3.Command line arg delimiter (ARGDLM)
 :parml.
 :pt.:pk def.*DBLQUOTE:epk.
 :pd.Double quotes are used to delimit the command line arguments.
@@ -641,7 +769,15 @@ Leave value set to *DEFAULT. Default= /QOpenSys/pkgs/bin.
 The default path lives in the PYPATH data area in the PYONI library.
 :ehelp.
 :help name='QSHPYRUN/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHPYRUN/USEVENV'.
 Use virtual environment (USEVENV) - Help
@@ -723,8 +859,8 @@ Under the covers QSHPYRUN utilizes the QSHEXEC command to run the Python command
 :eparml.
 :ehelp.
 :help name='QSHPYRUN/CHGSCRDIR'.
-Change script directory (CHGSCRDIR) - Help
-:xh3.Change script directory (CHGSCRDIR)
+Change to script directory (CHGSCRDIR) - Help
+:xh3.Change to script directory (CHGSCRDIR)
 :p.Specifies whether to change the current working directory to the script directory
 before running the script.
 :parml.
@@ -764,8 +900,8 @@ Value to scan for (SCANFOR) - Help
 :p.The value passed IS case sensitive and must match the value in the log file.
 :ehelp.
 :help name='QSHLOGSCAN/EXACTMATCH'.
-Exact match (EXACTMATCH) - Help
-:xh3.Exact match (EXACTMATCH)
+Exact match-*YES, Contains-*NO (EXACTMATCH) - Help
+:xh3.Exact match-*YES, Contains-*NO (EXACTMATCH)
 :p.Exact match-*YES, Contains-*NO
 :parml.
 :pt.:pk def.*NO:epk.
@@ -825,8 +961,8 @@ dynamic parameter replacement.
 :p.Ex: :hp2.@@LIB:ehp2. for library or :hp2.@@FILE:ehp2. for file.
 :ehelp.
 :help name='QSHQRYTMP/PARMVALS'.
-SQL parm replacement values (PARMVALS) - Help
-:xh3.SQL parm replacement values (PARMVALS)
+SQL parm replacement value (PARMVALS) - Help
+:xh3.SQL parm replacement value (PARMVALS)
 :p.Enter up to 30 replacement values you want to replace dynamically in your SQL statements
 at runtime. These values correspond with each placeholder value you set in the list of PARMS.
 These are not required if you don't want to dynamic parameter replacement.
@@ -851,8 +987,8 @@ Escape error if no result data (EMPTYERROR) - Help
 :eparml.
 :ehelp.
 :help name='QSHQRYTMP/NAMING'.
-Naming convention (NAMING) - Help
-:xh3.Naming convention (NAMING)
+Naming (NAMING) - Help
+:xh3.Naming (NAMING)
 :p.This parameter determines what format your queries are using: *SYS or *SQL.
 :parml.
 :pt.:pk def.*SYS:epk.
@@ -862,8 +998,8 @@ Naming convention (NAMING) - Help
 :eparml.
 :ehelp.
 :help name='QSHQRYTMP/PROMPT'.
-Prompt the RUNSQL statement (PROMPT) - Help
-:xh3.Interactively prompt the RUNSQL statement (PROMPT)
+Prompt RUNSQL (PROMPT) - Help
+:xh3.Prompt RUNSQL (PROMPT)
 :p.Specifies whether to prompt the RUNSQL command before running.
 Only use this parameter in an interactive 5250 session.
 :parml.
@@ -956,13 +1092,13 @@ Specify the name of the library where the SQL source file is located.
 :EPARML.
 :ehelp.
 :help name='QSHQRYSRC/SRCMBR'.
-SQL source member (SRCMBR) - Help
-:xh3.SQL source member (SRCMBR)
+Source member (SRCMBR) - Help
+:xh3.Source member (SRCMBR)
 :p.This is the source member that contains the SQL query if SQLLOC is *SRCMBR.
 :ehelp.
 :help name='QSHQRYSRC/IFSFILE'.
-SQL IFS file (IFSFILE) - Help
-:xh3.SQL IFS file (IFSFILE)
+SQL IFS source file (IFSFILE) - Help
+:xh3.SQL IFS source file (IFSFILE)
 :p.This is the IFS file that contains the SQL query if SQLLOC is *IFSFILE.
 :ehelp.
 :help name='QSHQRYSRC/PARMS'.
@@ -974,8 +1110,8 @@ dynamic parameter replacement.
 :p.Ex: :hp2.@@LIB:ehp2. for library or :hp2.@@FILE:ehp2. for file.
 :ehelp.
 :help name='QSHQRYSRC/PARMVALS'.
-SQL parm replacement values (PARMVALS) - Help
-:xh3.SQL parm replacement values (PARMVALS)
+SQL parm replacement value (PARMVALS) - Help
+:xh3.SQL parm replacement value (PARMVALS)
 :p.Enter up to 30 replacement values you want to replace dynamically in your SQL statements
 at runtime. These values correspond with each placeholder value you set in the list of PARMS.
 These are not required if you don't want to dynamic parameter replacement.
@@ -1019,8 +1155,8 @@ Escape error if no result data (EMPTYERROR) - Help
 :eparml.
 :ehelp.
 :help name='QSHQRYSRC/NAMING'.
-Naming convention (NAMING) - Help
-:xh3.Naming convention (NAMING)
+Naming (NAMING) - Help
+:xh3.Naming (NAMING)
 :p.This parameter determines what format your queries are using: *SYS or *SQL.
 :parml.
 :pt.:pk def.*SYS:epk.
@@ -1030,8 +1166,8 @@ Naming convention (NAMING) - Help
 :eparml.
 :ehelp.
 :help name='QSHQRYSRC/PROMPT'.
-Prompt the RUNSQL statement (PROMPT) - Help
-:xh3.Interactively prompt the RUNSQL statement (PROMPT)
+Prompt RUNSQL (PROMPT) - Help
+:xh3.Prompt RUNSQL (PROMPT)
 :p.Specifies whether to prompt the RUNSQL command before running.
 Only use this parameter in an interactive 5250 session.
 :parml.
@@ -1100,8 +1236,8 @@ Open Source package path (PKGPATH) - Help
 :eparml.
 :ehelp.
 :help name='QSHPATH/PATHLOC'.
-Open Source package location (PKGLOC) - Help
-:xh3.Open Source package location (PKGLOC)
+Open source path location (PATHLOC) - Help
+:xh3.Open source path location (PATHLOC)
 :p.Specify where the open source packages are placed in the PATH.
 :parml.
 :pt.:pk def.*DTAARA:epk.
