@@ -1,0 +1,3 @@
+/* Binding directory for the QSHONISRV service program. &O = object library, &N = object name */
+CRTBNDDIR BNDDIR(&O/&N) TEXT('Binding Directory for QSHONISRV Service Program')
+ADDBNDDIRE BNDDIR(&O/&N) OBJ((&O/QSHONISRV *SRVPGM *IMMED)) POSITION(*LAST)

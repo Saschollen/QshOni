@@ -1,6 +1,10 @@
 {
+  "version": "0.0.1",
   "description": "QshOni Project",
+  "objlib": "QSHONI",
   "preUsrlibl": [
     "QSHONI"
-  ]
+  ],
+  "buildCommand": "makei build",
+  "compileCommand": "makei compile -f {filename}"
 }
