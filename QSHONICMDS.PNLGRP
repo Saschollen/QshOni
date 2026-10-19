@@ -4277,6 +4277,206 @@ Print user defined data (USRDFNDTA) - Help
 :IMHELP NAME='COMMON/SQLPRTOUTQ'.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command RUNSQLSRC
+.************************************************************************
+:help name='RUNSQLSRC'.
+Run SQL Action from Qry Source (RUNSQLSRC) - Help
+:xh3.Run SQL Action from Qry Source (RUNSQLSRC)
+:p.The Run SQL Action from Qry Source (RUNSQLSRC) command runs the SQL statements stored in a source member
+after placeholder values are replaced in the SQL. This is useful for running variable SQL action statements
+and
+commands from a CL program. The command uses the RUNSQLSTM command internally.
+:p.By default comment lines are removed from a temporary copy of the source before the SQL runs. This lets you
+store SQL that you wrote in ACS, with its comments, in a source member. A comment line must start with
+:hp2.--:ehp2. in the first positions of the line. See the DLTCMTLINE parameter. Test your SQL after changing
+how comments are handled.
+:p.The following example runs the SQL in member SQLTEST4 with replacement values:
+:XMP.
+:hp2.
+RUNSQLSRC SRCFILE(QSHONI/SOURCE)
+          SRCMBR(SQLTEST4)
+          PARMS(@@LIB @@FILE @@CUSNUM @@LSTNAM)
+          PARMVALS(QIWS QCUSTCDT 123456 Test)
+          NAMING(*SQL)
+          DSPOUTPUT(*YES)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='RUNSQLSRC/SRCFILE'.
+SQL source file (SRCFILE) - Help
+:xh3.SQL source file (SRCFILE)
+:p.Specifies the source physical file that contains the SQL source member.
+:parml.
+:pt.:pv.source-file-name:epv.
+:pd.Specify the name of the source file.
+:eparml.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+The library list is used to locate the source file.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library where the source file is located.
+:EPARML.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='RUNSQLSRC/SRCMBR'.
+Source member (SRCMBR) - Help
+:xh3.Source member (SRCMBR)
+:p.Specifies the source member that contains the SQL to run.
+:parml.
+:pt.:pv.source-member-name:epv.
+:pd.Specify the name of the source member.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='RUNSQLSRC/PARMS'.
+:IMHELP NAME='COMMON/SQLPARMS'.
+:ehelp.
+:help name='RUNSQLSRC/PARMVALS'.
+:IMHELP NAME='COMMON/SQLPARMVALS'.
+:ehelp.
+:help name='RUNSQLSRC/PROMPT'.
+Prompt RUNSQL (PROMPT) - Help
+:xh3.Prompt RUNSQL (PROMPT)
+:p.Specifies whether the SQL command is prompted before it runs. This is useful for testing. Only use
+this on an interactive 5250 session.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The command is not prompted.
+:pt.:pk.*YES:epk.
+:pd.The command is prompted.
+:eparml.
+:ehelp.
+:help name='RUNSQLSRC/DLTTMPSRC'.
+Delete temp source file after (DLTTMPSRC) - Help
+:xh3.Delete temp source file after (DLTTMPSRC)
+:p.Specifies whether the temporary source member that is created to run the SQL is deleted afterward.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The temporary source member is deleted.
+:pt.:pk.*NO:epk.
+:pd.The temporary source member is not deleted. Use this to review it for troubleshooting.
+:eparml.
+:ehelp.
+:help name='RUNSQLSRC/COMMIT'.
+:IMHELP NAME='COMMON/SQLCOMMIT'.
+:ehelp.
+:help name='RUNSQLSRC/NAMING'.
+:IMHELP NAME='COMMON/SQLNAMING'.
+:ehelp.
+:help name='RUNSQLSRC/OPTION'.
+:IMHELP NAME='COMMON/SQLOPTION'.
+:ehelp.
+:help name='RUNSQLSRC/OUTPUT'.
+Listing output (OUTPUT) - Help
+:xh3.Listing output (OUTPUT)
+:p.Specifies where the listing of the SQL run is sent.
+:parml.
+:pt.:pk def.*NONE:epk.
+:pd.No listing is produced.
+:pt.:pk.*ERROR:epk.
+:pd.A listing is produced only if errors occur.
+:pt.:pk.*NOLIST:epk.
+:pd.No listing is produced.
+:pt.:pk.*MSG:epk.
+:pd.Messages are sent to the job log.
+:pt.:pk.*PRINT:epk.
+:pd.The listing is printed to a spool file.
+:eparml.
+:ehelp.
+:help name='RUNSQLSRC/SECLVLTXT'.
+:IMHELP NAME='COMMON/SQLSECLVLTXT'.
+:ehelp.
+:help name='RUNSQLSRC/DSPOUTPUT'.
+:IMHELP NAME='COMMON/SQLDSPOUTPUT'.
+:ehelp.
+:help name='RUNSQLSRC/DLTCMTLINE'.
+Del comment line from temp src (DLTCMTLINE) - Help
+:xh3.Delete comment line from temp source (DLTCMTLINE)
+:p.Specifies whether comment lines are removed from the temporary copy of the source member before the SQL
+runs.
+A comment line must have :hp2.--:ehp2. at the start of the trimmed line. Text that contains :hp2.--:ehp2.
+anywhere else in a line, such as in a text constant, is not changed.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Comment lines are removed, and lines that are empty after the comment text is removed are also removed.
+:pt.:pk.*NO:epk.
+:pd.The source member is used as it is and comments are not removed.
+:eparml.
+:ehelp.
+:help name='RUNSQLSRC/DSPTMPSRC'.
+Display temp source member (DSPTMPSRC) - Help
+:xh3.Display temp source member (DSPTMPSRC)
+:p.Specifies whether the temporary source member is displayed after it is prepared. This lets you preview
+the SQL that will actually run after comments were removed and values were replaced. It is good for
+troubleshooting.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The temporary source member is not displayed.
+:pt.:pk.*YES:epk.
+:pd.The temporary source member is displayed on an interactive 5250 session.
+:eparml.
+:ehelp.
+:help name='RUNSQLSRC/PRTTMPSRC'.
+Print temp source member (PRTTMPSRC) - Help
+:xh3.Print temp source member (PRTTMPSRC)
+:p.Specifies whether the temporary source member is printed after it is prepared. The spool file name,
+user data and user defined data are set by the SPLF, USRDTA and USRDFNDTA parameters.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The temporary source member is not printed.
+:pt.:pk.*YES:epk.
+:pd.The temporary source member is printed.
+:eparml.
+:ehelp.
+:help name='RUNSQLSRC/SPLF'.
+Print source spool file name (SPLF) - Help
+:xh3.Print source spool file name (SPLF)
+:p.Specifies the name of the spool file for the printed temporary source member.
+:parml.
+:pt.:pk def.RUNSQLSRCP:epk.
+:pd.The spool file is named RUNSQLSRCP.
+:pt.:pk.*SRCMBR:epk.
+:pd.The source member name is used as the spool file name.
+:pt.:pv.character-value:epv.
+:pd.Enter the spool file name.
+:eparml.
+:ehelp.
+:help name='RUNSQLSRC/USRDTA'.
+Print source user data (USRDTA) - Help
+:xh3.Print source user data (USRDTA)
+:p.Specifies the user data that is stored with the spool file.
+:parml.
+:pt.:pk def.*SRCMBR:epk.
+:pd.The source member name is used as the user data.
+:pt.:pv.character-value:epv.
+:pd.Enter the user data of up to 10 characters.
+:eparml.
+:ehelp.
+:help name='RUNSQLSRC/USRDFNDTA'.
+Print user defined data (USRDFNDTA) - Help
+:xh3.Print user defined data (USRDFNDTA)
+:p.Specifies the user defined data that is stored with the spool file.
+:parml.
+:pt.:pk def.*SRCMBR:epk.
+:pd.The source member name is used as the user defined data.
+:pt.:pv.character-value:epv.
+:pd.Enter the user defined data of up to 255 characters.
+:eparml.
+:ehelp.
+:help name='RUNSQLSRC/PRTOUTQ'.
+:IMHELP NAME='COMMON/SQLPRTOUTQ'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
