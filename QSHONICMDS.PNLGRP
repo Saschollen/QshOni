@@ -5087,4 +5087,136 @@ Change to script directory (CHGSCRDIR) - Help
 :eparml.
 :ehelp.
 
+.*******************************************
+.*   Help for common parameters used by the
+.*   RUNSQLPRM and RUNSQLSRC commands.
+.*******************************************
+:HELP NAME='COMMON/SQLPARMS'.
+SQL placeholder parm name (PARMS) - Help
+:xh3.SQL placeholder parm name (PARMS)
+:p.Specifies up to 30 placeholder names that are replaced in the SQL at run time. Each placeholder in
+this list is replaced by the value in the same position in the PARMVALS list. These are not required
+if you do not need replacement values.
+:p.Ex: :hp2.@@LIB:ehp2. for a library or :hp2.@@FILE:ehp2. for a file.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the placeholder name.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/LIST'.
+:ehelp.
+
+:HELP NAME='COMMON/SQLPARMVALS'.
+SQL parm replacement value (PARMVALS) - Help
+:xh3.SQL parm replacement value (PARMVALS)
+:p.Specifies up to 30 replacement values for the placeholders that are listed in PARMS. The values are
+matched to the placeholders by position.
+:p.Ex: :hp2.QIWS:ehp2. for a library or :hp2.QCUSTCDT:ehp2. for a file.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the value that replaces the placeholder.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/LIST'.
+:ehelp.
+
+:HELP NAME='COMMON/SQLCOMMIT'.
+Committment control (COMMIT) - Help
+:xh3.Committment control (COMMIT)
+:p.Specifies the isolation level, or commitment control level, that the SQL runs with.
+:parml.
+:pt.:pk def.*NONE:epk.
+:pd.Commitment control is not used. Changes are made right away.
+:pt.:pk.*NC:epk.
+:pd.Same as *NONE. No commit.
+:pt.:pk.*CHG:epk.
+:pd.Uncommitted changes can be read by other jobs (uncommitted read).
+:pt.:pk.*UR:epk.
+:pd.Same as *CHG.
+:pt.:pk.*CS:epk.
+:pd.Cursor stability.
+:pt.:pk.*ALL:epk.
+:pd.Read stability.
+:pt.:pk.*RS:epk.
+:pd.Same as *ALL.
+:pt.:pk.*RR:epk.
+:pd.Repeatable read.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/SQLNAMING'.
+Naming (NAMING) - Help
+:xh3.Naming (NAMING)
+:p.Specifies the naming convention that the SQL uses for objects.
+:parml.
+:pt.:pk def.*SYS:epk.
+:pd.System naming is used. Objects are named library/object.
+:pt.:pk.*SQL:epk.
+:pd.SQL naming is used. Objects are named schema.object.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/SQLOPTION'.
+Source listing options (OPTION) - Help
+:xh3.Source listing options (OPTION)
+:p.Specifies the listing that is produced when the SQL runs.
+:parml.
+:pt.:pk def.*LIST:epk.
+:pd.A listing of the SQL and any errors is produced.
+:pt.:pk.*NOSRC:epk.
+:pd.A listing is produced that does not show the SQL source.
+:pt.:pk.*ERRLIST:epk.
+:pd.A listing is produced only if errors occur.
+:pt.:pk.*NOLIST:epk.
+:pd.No listing is produced.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/SQLSECLVLTXT'.
+Second level text (SECLVLTXT) - Help
+:xh3.Second level text (SECLVLTXT)
+:p.Specifies whether the second level message text is included for errors in the listing.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Second level text is included.
+:pt.:pk.*NO:epk.
+:pd.Second level text is not included.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/SQLDSPOUTPUT'.
+Display output report (DSPOUTPUT) - Help
+:xh3.Display output report (DSPOUTPUT)
+:p.Specifies whether the output report of the SQL run is displayed when the SQL ends.
+Only use this on an interactive 5250 session.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The output report is not displayed.
+:pt.:pk.*YES:epk.
+:pd.The output report is displayed.
+:eparml.
+:ehelp.
+
+:HELP NAME='COMMON/SQLPRTOUTQ'.
+Print to outq (PRTOUTQ) - Help
+:xh3.Print to outq (PRTOUTQ)
+:p.Specifies the output queue that receives the printed listing of the SQL run.
+:parml.
+:pt.:pk def.*SAME:epk.
+:pd.The listing is placed on the output queue of the job.
+:pt.:pv.output-queue-name:epv.
+:pd.Specify the name of the output queue.
+:eparml.
+:P.
+The possible library values are:
+:PARML.
+:PT.:PK DEF.*LIBL:EPK.
+:PD.
+The library list is used to locate the output queue.
+:PT.:PV.library-name:EPV.
+:PD.
+Specify the name of the library where the output queue is located.
+:EPARML.
+:ehelp.
+
 :epnlgrp.
