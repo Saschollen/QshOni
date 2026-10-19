@@ -1220,7 +1220,6 @@ Replace if found (REPLACE) - Help
 .************************************************************************
 :help name='QSHSAVLIB'.
 Save Library to IFS File (QSHSAVLIB) - Help
-:xh3.Save Library to IFS File (QSHSAVLIB)
 :p.The Save Library to IFS File (QSHSAVLIB) command saves a library to a temporary save file in QTEMP
 using the SAVLIB command and then copies the result to a save file stored in the IFS. The IFS file
 can be moved or backed up to a NAS, SAN or other system and later restored with the QSHRSTLIB command.
@@ -1316,7 +1315,6 @@ or reviewing the SAVLIB parameter values. Normally the selection should be *NO.
 .************************************************************************
 :help name='QSHSAVIFS'.
 Save IFS Objects to IFS File (QSHSAVIFS) - Help
-:xh3.Save IFS Objects to IFS File (QSHSAVIFS)
 :p.The Save IFS Objects to IFS File (QSHSAVIFS) command saves IFS objects to a temporary save file in QTEMP
 using the SAV command and then copies the result to a save file stored in the IFS. The IFS file
 can be moved or backed up to a NAS, SAN or other system and later restored with the QSHRSTIFS command.
@@ -1433,7 +1431,6 @@ or reviewing the SAV parameter values. Normally the selection should be *NO.
 .************************************************************************
 :help name='QSHSAVOBJ'.
 Save Objects to IFS File (QSHSAVOBJ) - Help
-:xh3.Save Objects to IFS File (QSHSAVOBJ)
 :p.The Save Objects to IFS File (QSHSAVOBJ) command saves objects from a library to a temporary save file in
 QTEMP
 using the SAVOBJ command and then copies the result to a save file stored in the IFS. The IFS file
@@ -1544,7 +1541,6 @@ or reviewing the SAVOBJ parameter values. Normally the selection should be *NO.
 .************************************************************************
 :help name='QSHSAVCHG'.
 Save Changed Objects to IFS (QSHSAVCHG) - Help
-:xh3.Save Changed Objects to IFS (QSHSAVCHG)
 :p.The Save Changed Objects to IFS (QSHSAVCHG) command saves only the objects in a library that have changed
 since the last save to a temporary save file in QTEMP
 using the SAVCHGOBJ command and then copies the result to a save file stored in the IFS. The IFS file
@@ -1657,7 +1653,6 @@ or reviewing the SAVCHGOBJ parameter values. Normally the selection should be *N
 .************************************************************************
 :help name='QSHRSTLIB'.
 Restore Library from IFS File (QSHRSTLIB) - Help
-:xh3.Restore Library from IFS File (QSHRSTLIB)
 :p.The Restore Library from IFS File (QSHRSTLIB) command copies a save file stored in the IFS to a temporary
 save file in QTEMP and then restores a library from it using the RSTLIB command. The IFS file is normally
 one created by the QSHSAVLIB command.
@@ -1774,7 +1769,6 @@ or reviewing the RSTLIB parameter values. Normally the selection should be *NO.
 .************************************************************************
 :help name='QSHRSTIFS'.
 Restore IFS Obj from IFS File (QSHRSTIFS) - Help
-:xh3.Restore IFS Obj from IFS File (QSHRSTIFS)
 :p.The Restore IFS Obj from IFS File (QSHRSTIFS) command copies a save file stored in the IFS to a temporary
 save file in QTEMP and then restores IFS objects from it using the RST command. The IFS file is normally
 one created by the QSHSAVIFS command. Objects are restored with their entire subtree and parent directories
@@ -1826,7 +1820,6 @@ or reviewing the RST parameter values. Normally the selection should be *NO.
 .************************************************************************
 :help name='QSHRSTOBJ'.
 Restore Objects from IFS File (QSHRSTOBJ) - Help
-:xh3.Restore Objects from IFS File (QSHRSTOBJ)
 :p.The Restore Objects from IFS File (QSHRSTOBJ) command copies a save file stored in the IFS to a temporary
 save file in QTEMP and then restores objects from it using the RSTOBJ command. The IFS file is normally
 one created by the QSHSAVOBJ or QSHSAVCHG command.
@@ -1906,7 +1899,6 @@ or reviewing the RSTOBJ parameter values. Normally the selection should be *NO.
 .************************************************************************
 :help name='QSHVFYSAVF'.
 Verify IFS Save File (QSHVFYSAVF) - Help
-:xh3.Verify IFS Save File (QSHVFYSAVF)
 :p.The Verify IFS Save File (QSHVFYSAVF) command checks that a save file stored in the IFS is still usable.
 It copies the IFS file to a temporary save file in QTEMP and can display or print the contents of the save
 file.
@@ -1975,7 +1967,6 @@ Delete temp save file after (DLTTMPSAVF) - Help
 .************************************************************************
 :help name='QSHSSH'.
 Run Remote Command over SSH (QSHSSH) - Help
-:xh3.Run Remote Command over SSH (QSHSSH)
 :p.The Run Remote Command over SSH (QSHSSH) command runs a command on a remote IBM i or other system
 using the ssh utility and captures the STDOUT results. This is a convenient way to run or submit
 a job on a remote system. The command can sign on with an SSH private key or with a user and password.
@@ -2109,7 +2100,6 @@ when it is passed to ssh. Semicolons can be used to run multiple commands.
 .************************************************************************
 :help name='QSHSCP'.
 Run SCP Command via QShell (QSHSCP) - Help
-:xh3.Run SCP Command via QShell (QSHSCP)
 :p.The Run SCP Command via QShell (QSHSCP) command transfers a file or directory between the local IBM i IFS
 and a remote system over an SSH connection using the scp utility. It is an alternative to SFTP.
 The command signs on with an SSH private key file.
@@ -2324,7 +2314,6 @@ that is passed to the PASE shell. This is useful for testing. Normally the selec
 .************************************************************************
 :help name='QSHLFTP'.
 Send/Rcv Files via Lftp/Sftp (QSHLFTP) - Help
-:xh3.Send/Rcv Files via Lftp/Sftp (QSHLFTP)
 :p.The Send/Rcv Files via Lftp/Sftp (QSHLFTP) command uploads or downloads a file using the SFTP
 support in the open source lftp utility. The lftp package must be installed (/QOpenSys/pkgs/bin/lftp).
 The command signs on with a user and password or with an SSH private key file.
@@ -2491,7 +2480,6 @@ Replace destination file (REPLACE) - Help
 .************************************************************************
 :help name='QSHPORTCHK'.
 Check for Active TCP/IP Port (QSHPORTCHK) - Help
-:xh3.Check for Active TCP/IP Port (QSHPORTCHK)
 :p.The Check for Active TCP/IP Port (QSHPORTCHK) command uses Db2 for i services to check whether the
 selected TCP/IP port has an application running on it. The command completes successfully if the port is
 active. If the port is not active a CPF9898 escape message is sent. This makes the command useful in a
@@ -2542,7 +2530,6 @@ Specify the name of the library for the file.
 .************************************************************************
 :help name='QSHPORTEND'.
 End Jobs for Active TCP Port (QSHPORTEND) - Help
-:xh3.End Jobs for Active TCP Port (QSHPORTEND)
 :p.The End Jobs for Active TCP Port (QSHPORTEND) command uses Db2 for i services to find the jobs that
 are using the selected TCP/IP port and ends them. The command completes successfully whether or not the
 port was active and sends a message showing the number of jobs that were ended.
@@ -2592,7 +2579,6 @@ Specify the name of the library for the file.
 .************************************************************************
 :help name='QSHENDWEB'.
 End Web Server (QSHENDWEB) - Help
-:xh3.End Web Server (QSHENDWEB)
 :p.The End Web Server (QSHENDWEB) command ends an HTTP server instance with the End TCP/IP Server
 (ENDTCPSVR) command and then monitors the active jobs to make sure the server jobs end. The command
 checks for the jobs every DLYJOB seconds, up to WAITCYCLES times. If the jobs have not ended after that
@@ -2689,7 +2675,6 @@ To user (TOUSR) - Help
 .************************************************************************
 :help name='QSHIFSCHK'.
 Check for IFS File/Dir Exist (QSHIFSCHK) - Help
-:xh3.Check for IFS File/Dir Exist (QSHIFSCHK)
 :p.The Check for IFS File/Dir Exist (QSHIFSCHK) command checks whether an IFS file or directory exists.
 The command always ends with an escape message, so the result is tested in a CL program with the
 Monitor Message (MONMSG) command:
@@ -2732,7 +2717,6 @@ IFS file or directory name (FILNAM) - Help
 .************************************************************************
 :help name='QSHIFSSCAN'.
 Scan IFS File for Value (QSHIFSSCAN) - Help
-:xh3.Scan IFS File for Value (QSHIFSSCAN)
 :p.The Scan IFS File for Value (QSHIFSSCAN) command scans an IFS text file for one or more values. The main
 use is to scan a STDOUT or STDERR log file for text that shows success or failure. The command ends
 successfully as soon as any one of the values is found. If none of the values are found, or the IFS file
@@ -2833,7 +2817,6 @@ Delete temp file after (DLTTMPFILE) - Help
 .************************************************************************
 :help name='QSHIFSSIZ'.
 Retrieve IFS Object Size (QSHIFSSIZ) - Help
-:xh3.Retrieve IFS Object Size (QSHIFSSIZ)
 :p.The Retrieve IFS Object Size (QSHIFSSIZ) command returns the size and the allocated size of an IFS
 file in bytes. The values are returned in CL variables, so the command must be run from a CL program.
 :p.The following example retrieves the size of a file into CL variables:
@@ -2900,7 +2883,6 @@ Escape error on not found (ESCONERROR) - Help
 .************************************************************************
 :help name='QSHHOME'.
 Retrieve Home Dir (QSHHOME) - Help
-:xh3.Retrieve Home Dir (QSHHOME)
 :p.The Retrieve Home Dir (QSHHOME) command returns the IFS home directory of the user profile the job
 is running under. The value is returned in a CL variable, so the command must be run from a CL program.
 If the home directory cannot be determined the variable is set to blanks.
@@ -2932,7 +2914,6 @@ Return home dir (HOMEDIR) - Help
 .************************************************************************
 :help name='QSHCPYSRC'.
 Copy Source Member to Script (QSHCPYSRC) - Help
-:xh3.Copy Source Member to Script (QSHCPYSRC)
 :p.The Copy Source Member to Script (QSHCPYSRC) command copies a source member to an IFS script file
 so that it can be run with Qshell, PASE or bash. When TOIFSFILE(*GENERATE) is used the file is created in
 directory /tmp/qsh with a name made up of the member name, the date and time, the user name, and the
@@ -2997,7 +2978,6 @@ To IFS script file (TOIFSFILE) - Help
 .************************************************************************
 :help name='QSHSRCIFS'.
 Copy Source Mbr to IFS File (QSHSRCIFS) - Help
-:xh3.Copy Source Mbr to IFS File (QSHSRCIFS)
 :p.The Copy Source Mbr to IFS File (QSHSRCIFS) command copies a source member to an IFS file. When
 IFSFILE(*GENERATE) is used the file is created in directory /tmp/qsh with a name made up of the member
 name, the date and time, the user name and the extension .sh.
@@ -3049,7 +3029,6 @@ Replace existing IFS file (REPLACE) - Help
 .************************************************************************
 :help name='QSHWRTLOG'.
 Write Simple Log Message (QSHWRTLOG) - Help
-:xh3.Write Simple Log Message (QSHWRTLOG)
 :p.The Write Simple Log Message (QSHWRTLOG) command writes a message to a simple log file. This lets an
 application keep its own log instead of relying on the job log for all messages. The log file is
 created automatically if it does not exist. The log can be printed later with the QSHPRTLOG command.
@@ -3118,7 +3097,6 @@ Dlt and create log file before (RECREATE) - Help
 .************************************************************************
 :help name='QSHPRTLOG'.
 Print Simple Log File (QSHPRTLOG) - Help
-:xh3.Print Simple Log File (QSHPRTLOG)
 :p.The Print Simple Log File (QSHPRTLOG) command prints a simple log file that was written by the QSHWRTLOG
 command. The log is printed to a spool file with a width of 378 characters, or it can be written to a
 PDF file in the IFS.
@@ -3237,7 +3215,6 @@ Specify the name of the library where the output queue is located.
 .************************************************************************
 :help name='QSHJOBLIST'.
 List Selected Jobs to Outfile (QSHJOBLIST) - Help
-:xh3.List Selected Jobs to Outfile (QSHJOBLIST)
 :p.The List Selected Jobs to Outfile (QSHJOBLIST) command creates an outfile that lists jobs on the system.
 By default all jobs are listed. A filter can be used to list only the jobs you want. The command uses the
 QSYS2.ACTIVE_JOB_INFO SQL service. If the SQL fails you may be missing the PTF groups that the service needs.
@@ -3305,7 +3282,6 @@ Normally the selection should be *NO.
 .************************************************************************
 :help name='QSHJOBACT'.
 Locate Selected Active Jobs (QSHJOBACT) - Help
-:xh3.Locate Selected Active Jobs (QSHJOBACT)
 :p.The Locate Selected Active Jobs (QSHJOBACT) command finds the active jobs that match a filter and counts
 them.
 Use it to learn how many instances of a job name or generic name are active. This is useful after you start
@@ -3407,7 +3383,6 @@ Escape error if no result data (EMPTYERROR) - Help
 .************************************************************************
 :help name='QSHCALL'.
 Run Qshell Command Line (QSHCALL) - Help
-:xh3.Run Qshell Command Line (QSHCALL)
 :p.The Run Qshell Command Line (QSHCALL) command runs a QSH/PASE command line and returns up to 10 values to
 CL variables. It works like the QSHEXEC command, but it is meant for CL, RPG and COBOL programmers who are
 used
@@ -3520,7 +3495,6 @@ QSHCALL CMDLINE('python3 /qshpython/pycallparm1.py')
 .************************************************************************
 :help name='QSHGETPARM'.
 Scan Qshell Log for Parm Vals (QSHGETPARM) - Help
-:xh3.Scan Qshell Log for Parm Vals (QSHGETPARM)
 :p.The Scan Qshell Log for Parm Vals (QSHGETPARM) command reads the STDOUT results of the last QSH/PASE
 command that was run and returns up to 10 values to CL variables. The command looks in the temporary
 STDOUT file QTEMP/STDOUTQSH for lines that start with RETURNPARM01&colon. to RETURNPARM10&colon..
@@ -3574,7 +3548,6 @@ QSHGETPARM RETURN01(&amp.RETURN01)
 .************************************************************************
 :help name='QSHGETPR2'.
 Scan Qshell Log for Parm Vals (QSHGETPR2) - Help
-:xh3.Scan Qshell Log for Parm Vals (QSHGETPR2)
 :p.The Scan Qshell Log for Parm Vals (QSHGETPR2) command works like QSHGETPARM. It reads the STDOUT results
 of the last QSH/PASE command that was run and returns up to 10 values to CL variables. It also can write the
 values to the job log and to data areas so that they can be used by other programs and jobs.
@@ -3666,7 +3639,6 @@ Library for temp data areas (DTAARALIB) - Help
 .************************************************************************
 :help name='QSHPYCALL'.
 Run Python and Return Parms (QSHPYCALL) - Help
-:xh3.Run Python and Return Parms (QSHPYCALL)
 :p.The Run Python and Return Parms (QSHPYCALL) command runs a Python script with the QSHEXEC command and
 returns up to 10 values to CL variables. It is meant for CL, RPG and COBOL programmers who are used to calling
 programs and getting values back through parameters. The values come from lines that the Python script writes
@@ -3883,7 +3855,6 @@ specified.
 .************************************************************************
 :help name='QSHPHPRUN'.
 Run PHP Script via Qshell (QSHPHPRUN) - Help
-:xh3.Run PHP Script via Qshell (QSHPHPRUN)
 :p.The Run PHP Script via Qshell (QSHPHPRUN) command runs a PHP command line (CLI) script with the QSHEXEC
 command and logs the results appropriately. The command puts together the PHP command line from the script
 directory, script file name and arguments.
@@ -4030,7 +4001,6 @@ the php command is found using the PATH.
 .************************************************************************
 :help name='DB2UTIL'.
 Execute db2util Query to IFS (DB2UTIL) - Help
-:xh3.Execute db2util Query to IFS (DB2UTIL)
 :p.The Execute db2util Query to IFS (DB2UTIL) command runs an SQL statement with the open source db2util
 utility and writes the result to an IFS file as JSON, CSV or space delimited text. The db2util command is run
 with the QSHBASH command, so the standard output logging options of that command are also available.
@@ -4167,7 +4137,6 @@ View output file (VIEWOUTPUT) - Help
 .************************************************************************
 :help name='QSHQRYAID'.
 SQL Add Unique ID Col to Table (QSHQRYAID) - Help
-:xh3.SQL Add Unique ID Col to Table (QSHQRYAID)
 :p.The SQL Add Unique ID Col to Table (QSHQRYAID) command adds a unique ID column to an outfile that was
 created by the QSHQRYTMP or QSHQRYSRC command. The column is a big integer identity column that starts with 1.
 Use it when you did not ask for the ID column when the outfile was created.
@@ -4232,7 +4201,6 @@ Prompt RUNSQL (PROMPT) - Help
 .************************************************************************
 :help name='RUNSQLPRM'.
 Run SQL Action with SQL Stmt (RUNSQLPRM) - Help
-:xh3.Run SQL Action with SQL Stmt (RUNSQLPRM)
 :p.The Run SQL Action with SQL Stmt (RUNSQLPRM) command runs an SQL action statement, such as INSERT,
 UPDATE, DELETE or CREATE, after placeholder values are replaced in the statement. This is useful for running
 variable SQL statements from a CL program. The command uses the RUNSQL command internally.
@@ -4340,7 +4308,6 @@ Print user defined data (USRDFNDTA) - Help
 .************************************************************************
 :help name='RUNSQLSRC'.
 Run SQL Action from Qry Source (RUNSQLSRC) - Help
-:xh3.Run SQL Action from Qry Source (RUNSQLSRC)
 :p.The Run SQL Action from Qry Source (RUNSQLSRC) command runs the SQL statements stored in a source member
 after placeholder values are replaced in the SQL. This is useful for running variable SQL action statements
 and
@@ -4540,7 +4507,6 @@ Print user defined data (USRDFNDTA) - Help
 .************************************************************************
 :help name='WRKIFSLIST'.
 List IFS Files (WRKIFSLIST) - Help
-:xh3.List IFS Files (WRKIFSLIST)
 :p.The List IFS Files (WRKIFSLIST) command shows an interactive list of the files and directories in an
 IFS directory. It is a customizable alternative to the Work with Links (WRKLNK) command. The list is
 built with the IFS SQL services.
