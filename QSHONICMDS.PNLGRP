@@ -4169,6 +4169,114 @@ Prompt RUNSQL (PROMPT) - Help
 :eparml.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command RUNSQLPRM
+.************************************************************************
+:help name='RUNSQLPRM'.
+Run SQL Action with SQL Stmt (RUNSQLPRM) - Help
+:xh3.Run SQL Action with SQL Stmt (RUNSQLPRM)
+:p.The Run SQL Action with SQL Stmt (RUNSQLPRM) command runs an SQL action statement, such as INSERT,
+UPDATE, DELETE or CREATE, after placeholder values are replaced in the statement. This is useful for running
+variable SQL statements from a CL program. The command uses the RUNSQL command internally.
+:p.Placeholders can be any text that is unique, such as :hp2.@@LIB:ehp2.. A quote in the SQL can be provided
+through a placeholder, for example :hp2.@@QT:ehp2. with a value of two single quotes.
+:p.The following example inserts a record into QIWS/QCUSTCDT by passing an SQL template and values:
+:XMP.
+:hp2.
+RUNSQLPRM SQL('INSERT INTO @@LIB.@@FILE (CUSNUM,LSTNAM)
+               VALUES(@@CUSNUM,@@QT@@LSTNAM@@QT)')
+          PARMS(@@LIB @@FILE @@CUSNUM @@LSTNAM @@QT)
+          PARMVALS(QIWS QCUSTCDT 123456 Test '''')
+          NAMING(*SQL)
+          DSPOUTPUT(*YES)
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='RUNSQLPRM/SQL'.
+SQL query (SQL) - Help
+:xh3.SQL query (SQL)
+:p.Specifies the SQL action statement to run. The statement can contain placeholders that are replaced
+with the values from PARMS and PARMVALS.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the SQL statement. The statement can be up to 5000 characters.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='RUNSQLPRM/PARMS'.
+:IMHELP NAME='COMMON/SQLPARMS'.
+:ehelp.
+:help name='RUNSQLPRM/PARMVALS'.
+:IMHELP NAME='COMMON/SQLPARMVALS'.
+:ehelp.
+:help name='RUNSQLPRM/PROMPT'.
+Prompt RUNSQL (PROMPT) - Help
+:xh3.Prompt RUNSQL (PROMPT)
+:p.Specifies whether the RUNSQL command is prompted before it runs. This is useful for testing. Only use
+this on an interactive 5250 session.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The RUNSQL command is not prompted.
+:pt.:pk.*YES:epk.
+:pd.The RUNSQL command is prompted.
+:eparml.
+:ehelp.
+:help name='RUNSQLPRM/COMMIT'.
+:IMHELP NAME='COMMON/SQLCOMMIT'.
+:ehelp.
+:help name='RUNSQLPRM/NAMING'.
+:IMHELP NAME='COMMON/SQLNAMING'.
+:ehelp.
+:help name='RUNSQLPRM/OPTION'.
+:IMHELP NAME='COMMON/SQLOPTION'.
+:ehelp.
+:help name='RUNSQLPRM/SECLVLTXT'.
+:IMHELP NAME='COMMON/SQLSECLVLTXT'.
+:ehelp.
+:help name='RUNSQLPRM/DSPOUTPUT'.
+:IMHELP NAME='COMMON/SQLDSPOUTPUT'.
+:ehelp.
+:help name='RUNSQLPRM/SPLF'.
+Print source spool file name (SPLF) - Help
+:xh3.Print source spool file name (SPLF)
+:p.Specifies the name of the spool file for the listing of the SQL run.
+:parml.
+:pt.:pk def.RUNSQLPRMP:epk.
+:pd.The spool file is named RUNSQLPRMP.
+:pt.:pv.character-value:epv.
+:pd.Enter the spool file name.
+:eparml.
+:ehelp.
+:help name='RUNSQLPRM/USRDTA'.
+Print source user data (USRDTA) - Help
+:xh3.Print source user data (USRDTA)
+:p.Specifies the user data that is stored with the spool file.
+:parml.
+:pt.:pk def.RUNSQLPRM:epk.
+:pd.The user data is RUNSQLPRM.
+:pt.:pv.character-value:epv.
+:pd.Enter the user data of up to 10 characters.
+:eparml.
+:ehelp.
+:help name='RUNSQLPRM/USRDFNDTA'.
+Print user defined data (USRDFNDTA) - Help
+:xh3.Print user defined data (USRDFNDTA)
+:p.Specifies the user defined data that is stored with the spool file.
+:parml.
+:pt.:pk def.RUNSQLPRM:epk.
+:pd.The user defined data is RUNSQLPRM.
+:pt.:pv.character-value:epv.
+:pd.Enter the user defined data of up to 255 characters.
+:eparml.
+:ehelp.
+:help name='RUNSQLPRM/PRTOUTQ'.
+:IMHELP NAME='COMMON/SQLPRTOUTQ'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
