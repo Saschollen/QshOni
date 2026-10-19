@@ -4477,6 +4477,55 @@ Print user defined data (USRDFNDTA) - Help
 :IMHELP NAME='COMMON/SQLPRTOUTQ'.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command WRKIFSLIST
+.************************************************************************
+:help name='WRKIFSLIST'.
+List IFS Files (WRKIFSLIST) - Help
+:xh3.List IFS Files (WRKIFSLIST)
+:p.The List IFS Files (WRKIFSLIST) command shows an interactive list of the files and directories in an
+IFS directory. It is a customizable alternative to the Work with Links (WRKLNK) command. The list is
+built with the IFS SQL services.
+:p.Type an option next to an entry and press Enter. The options are shown at the top of the display:
+:XMP.
+:hp2.
+2=Edit  3=Copy  4=Del  5=View  7=Rename  8=Attr  9=Auth
+10=Move  13=ChgAtr  VFY=Vfy SAVF  RST=Rst Lib SAVF
+:ehp2.
+:EXMP.
+:p.The following function keys can be used:
+:XMP.
+:hp2.
+F3=Exit
+F5=Refresh
+F8=Home Dir
+F10=Display Joblog
+F12=Move back one directory level
+F21=Command line
+:ehp2.
+:EXMP.
+:p.The following example lists the files in directory /home/user1:
+:XMP.
+:hp2.
+WRKIFSLIST IFSDIR('/home/user1')
+:ehp2.
+:EXMP.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='WRKIFSLIST/IFSDIR'.
+IFS directory (IFSDIR) - Help
+:xh3.IFS directory (IFSDIR)
+:p.Specifies the IFS directory whose files and directories are listed.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path of the directory.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
