@@ -3967,6 +3967,143 @@ the php command is found using the PATH.
 :IMHELP NAME='COMMON/DEBUGEXEC'.
 :ehelp.
 
+.************************************************************************
+.*  Primary Help for command DB2UTIL
+.************************************************************************
+:help name='DB2UTIL'.
+Execute db2util Query to IFS (DB2UTIL) - Help
+:xh3.Execute db2util Query to IFS (DB2UTIL)
+:p.The Execute db2util Query to IFS (DB2UTIL) command runs an SQL statement with the open source db2util
+utility and writes the result to an IFS file as JSON, CSV or space delimited text. The db2util command is run
+with the QSHBASH command, so the standard output logging options of that command are also available.
+:p.The following example writes the result of a query to a JSON file as an array:
+:XMP.
+:hp2.
+DB2UTIL SQL('select * from qiws.qcustcdt')
+        OUTPUTFMT('json')
+        JSONFMT('array')
+        OUTPUTFILE('/tmp/qcustcdt.json')
+        OPTION(*REPLACE)
+:ehp2.
+:EXMP.
+:IMHELP NAME='COMMON/LOGGINGNOTE'.
+:P.
+:IMHELP NAME='COMMON/ASTERISK'.
+:ehelp.
+
+:help name='DB2UTIL/SQL'.
+SQL to execute (SQL) - Help
+:xh3.SQL to execute (SQL)
+:p.Specifies the SQL statement that db2util runs.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the SQL statement. The statement can be up to 1024 characters.
+The statement is enclosed in double quotes on the command line, so avoid double quotes in the SQL.
+:eparml.
+:P.
+:IMHELP NAME='COMMON/REQPARM'.
+:ehelp.
+:help name='DB2UTIL/OUTPUTFMT'.
+Output format (OUTPUTFMT) - Help
+:xh3.Output format (OUTPUTFMT)
+:p.Specifies the format of the result that is written to the output file.
+:parml.
+:pt.:pk def.json:epk.
+:pd.The result is written as JSON.
+:pt.:pk.csv:epk.
+:pd.The result is written as comma separated values.
+:pt.:pk.space:epk.
+:pd.The result is written as space delimited values.
+:eparml.
+:ehelp.
+:help name='DB2UTIL/JSONFMT'.
+JSON output format (JSONFMT) - Help
+:xh3.JSON output format (JSONFMT)
+:p.Specifies how the JSON result is laid out. This is only used when the output format is json.
+:parml.
+:pt.:pk def.object:epk.
+:pd.Each row is written as a JSON object.
+:pt.:pk.array:epk.
+:pd.The rows are written as a JSON array.
+:eparml.
+:ehelp.
+:help name='DB2UTIL/OUTPUTFILE'.
+Output IFS file (OUTPUTFILE) - Help
+:xh3.Output IFS file (OUTPUTFILE)
+:p.Specifies the IFS file that receives the result of the query.
+:parml.
+:pt.:pv.character-value:epv.
+:pd.Enter the full IFS path and file name. The command ends with an error if no file name is entered.
+:eparml.
+:ehelp.
+:help name='DB2UTIL/OPTION'.
+IFS file option (OPTION) - Help
+:xh3.IFS file option (OPTION)
+:p.Specifies what happens when the output file already exists.
+:parml.
+:pt.:pk def.*REPLACE:epk.
+:pd.The existing file is deleted and replaced by the new result.
+:pt.:pk.*ADD:epk.
+:pd.The new result is added to the end of the existing file.
+:eparml.
+:ehelp.
+:help name='DB2UTIL/SETPKGPATH'.
+:IMHELP NAME='COMMON/SETPKGPATH'.
+:ehelp.
+:help name='DB2UTIL/VIEWOUTPUT'.
+View output file (VIEWOUTPUT) - Help
+:xh3.View output file (VIEWOUTPUT)
+:p.Specifies whether the output file is shown when the query is done.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The output file is not shown.
+:pt.:pk.*YES:epk.
+:pd.The output file is shown on an interactive 5250 session.
+:eparml.
+:ehelp.
+:help name='DB2UTIL/DSPSTDOUT'.
+:IMHELP NAME='COMMON/DSPSTDOUT'.
+:ehelp.
+:help name='DB2UTIL/LOGSTDOUT'.
+:IMHELP NAME='COMMON/LOGSTDOUT'.
+:ehelp.
+:help name='DB2UTIL/PRTSTDOUT'.
+:IMHELP NAME='COMMON/PRTSTDOUT'.
+:ehelp.
+:help name='DB2UTIL/DLTSTDOUT'.
+:IMHELP NAME='COMMON/DLTSTDOUT'.
+:ehelp.
+:help name='DB2UTIL/IFSSTDOUT'.
+:IMHELP NAME='COMMON/IFSSTDOUT'.
+:ehelp.
+:help name='DB2UTIL/IFSFILE'.
+:IMHELP NAME='COMMON/IFSFILE'.
+:ehelp.
+:help name='DB2UTIL/IFSOPT'.
+:IMHELP NAME='COMMON/IFSOPT'.
+:ehelp.
+:help name='DB2UTIL/CCSID'.
+:IMHELP NAME='COMMON/CCSID'.
+:ehelp.
+:help name='DB2UTIL/PRTSPLF'.
+:IMHELP NAME='COMMON/PRTSPLF'.
+:ehelp.
+:help name='DB2UTIL/PRTUSRDTA'.
+:IMHELP NAME='COMMON/PRTUSRDTA'.
+:ehelp.
+:help name='DB2UTIL/PRTTXT'.
+:IMHELP NAME='COMMON/PRTTXT'.
+:ehelp.
+:help name='DB2UTIL/PRTHOLD'.
+:IMHELP NAME='COMMON/PRTHOLD'.
+:ehelp.
+:help name='DB2UTIL/PRTOUTQ'.
+:IMHELP NAME='COMMON/PRTOUTQ'.
+:ehelp.
+:help name='DB2UTIL/PASEJOBNAM'.
+:IMHELP NAME='COMMON/PASEJOBNAM'.
+:ehelp.
+
 .*****************************************************************
 .*  COMMON HELP
 .*
