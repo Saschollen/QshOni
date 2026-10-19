@@ -620,7 +620,7 @@ Command line argument delimiter (ARGDLM) - Help
 :parml.
 :pt.:pk def.*DBLQUOTE:epk.
 :pd.Double quotes are used to delimit the command line arguments.
-:pt.:pk.*SINGLE:epk.
+:pt.:pk.*SGLQUOTE:epk.
 :pd.Single quotes are used to delimit the command line arguments.
 :pt.:pk.*NONE:epk.
 :pd.No delimiter is used.
