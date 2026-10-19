@@ -1157,6 +1157,61 @@ QSHSETPROF USER(USER1)
 :P.
 :IMHELP NAME='COMMON/ASTERISK'.
 :ehelp.
+:help name='QSHSETPROF/USER'.
+User profile (USER) - Help
+:xh3.User profile (USER)
+:p.Specifies the user profile the PASE profile files are created for. The files are created in the home
+directory of the user.
+:parml.
+:pt.:pv.user-name:epv.
+:pd.Enter the user profile name.
+:eparml.
+:ehelp.
+:help name='QSHSETPROF/PROFILE'.
+Create .profile for user (PROFILE) - Help
+:xh3.Create .profile for user (PROFILE)
+:p.Specifies whether the .profile file is created for the user from the QSHPROFILE template source.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The .profile file is created.
+:pt.:pk.*NO:epk.
+:pd.The .profile file is not created.
+:eparml.
+:ehelp.
+:help name='QSHSETPROF/BASHPROFIL'.
+Create .bash_profile for user (BASHPROFIL) - Help
+:xh3.Create .bash_profile for user (BASHPROFIL)
+:p.Specifies whether the .bash_profile file is created for the user from the QSHBASHPRF template source.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The .bash_profile file is created.
+:pt.:pk.*NO:epk.
+:pd.The .bash_profile file is not created.
+:eparml.
+:ehelp.
+:help name='QSHSETPROF/BASHRC'.
+Create .bashrc for user (BASHRC) - Help
+:xh3.Create .bashrc for user (BASHRC)
+:p.Specifies whether the .bashrc file is created for the user from the QSHBASHRC template source.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.The .bashrc file is created.
+:pt.:pk.*NO:epk.
+:pd.The .bashrc file is not created.
+:eparml.
+:ehelp.
+:help name='QSHSETPROF/REPLACE'.
+Replace if found (REPLACE) - Help
+:xh3.Replace if found (REPLACE)
+:p.Specifies whether an existing .profile, .bash_profile or .bashrc file is replaced.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Existing files are not replaced.
+:pt.:pk.*YES:epk.
+:pd.Existing files are replaced.
+:eparml.
+:ehelp.
+
 
 
 
