@@ -1521,8 +1521,8 @@ Library to save (LIBRARY) - Help
 :IMHELP NAME='COMMON/DLTTMPSAVF'.
 :ehelp.
 :help name='QSHSAVOBJ/PROMPT'.
-Prompt the SAVOBJ command (PROMPT) - Help
-:xh3.Prompt the SAVOBJ command (PROMPT)
+Prompt the SAVLIB command (PROMPT) - Help
+:xh3.Prompt the SAVLIB command (PROMPT)
 :p.Specifies whether the SAVOBJ command is prompted interactively before it runs. This is useful for testing
 or reviewing the SAVOBJ parameter values. Normally the selection should be *NO.
 :parml.
@@ -1842,8 +1842,8 @@ QSHRSTOBJ OBJECTS(CUST*)
 :ehelp.
 
 :help name='QSHRSTOBJ/OBJECTS'.
-Objects to restore (OBJECTS) - Help
-:xh3.Objects to restore (OBJECTS)
+Objects to save (OBJECTS) - Help
+:xh3.Objects to save (OBJECTS)
 :p.Specifies the objects to restore from the save file.
 :parml.
 :pt.:pk.*ALL:epk.
@@ -1997,8 +1997,8 @@ QSHSSH SSHHOST('myhost.com')
 :ehelp.
 
 :help name='QSHSSH/SSHHOST'.
-SSH server host/ip address (SSHHOST) - Help
-:xh3.SSH server host/ip address (SSHHOST)
+SFTP server host/ip address (SSHHOST) - Help
+:xh3.SFTP server host/ip address (SSHHOST)
 :p.Specifies the host name or IP address of the remote system to run the command on.
 :parml.
 :pt.:pv.character-value:epv.
@@ -2006,11 +2006,19 @@ SSH server host/ip address (SSHHOST) - Help
 :eparml.
 :ehelp.
 :help name='QSHSSH/SSHPORT'.
-:IMHELP NAME='COMMON/SSHPORT'.
+SFTP server port (SSHPORT) - Help
+:xh3.SFTP server port (SSHPORT)
+:p.Specifies the TCP/IP port number the SSH server on the remote system listens on.
+:parml.
+:pt.:pk def.22:epk.
+:pd.The standard SSH port 22 is used.
+:pt.:pv.character-value:epv.
+:pd.Enter the port number the remote SSH server is using.
+:eparml.
 :ehelp.
 :help name='QSHSSH/SSHUSER'.
-SSH user (SSHUSER) - Help
-:xh3.SSH user (SSHUSER)
+SFTP user (SSHUSER) - Help
+:xh3.SFTP user (SSHUSER)
 :p.Specifies the user name used to sign on to the remote system.
 :parml.
 :pt.:pv.character-value:epv.
@@ -2018,8 +2026,8 @@ SSH user (SSHUSER) - Help
 :eparml.
 :ehelp.
 :help name='QSHSSH/SSHPASS'.
-SSH password (SSHPASS) - Help
-:xh3.SSH password (SSHPASS)
+SFTP password (SSHPASS) - Help
+:xh3.SFTP password (SSHPASS)
 :p.Specifies the password used to sign on to the remote system. When a password is entered the sshpass
 utility is used and the private key file value is ignored. The password is passed on the PASE command line,
 so a private key file is recommended instead.
@@ -2047,7 +2055,15 @@ when it is passed to ssh. Semicolons can be used to run multiple commands.
 :eparml.
 :ehelp.
 :help name='QSHSSH/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHSSH/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
@@ -2089,7 +2105,19 @@ when it is passed to ssh. Semicolons can be used to run multiple commands.
 :IMHELP NAME='COMMON/PRTOUTQ'.
 :ehelp.
 :help name='QSHSSH/PROMPTQSH'.
-:IMHELP NAME='COMMON/PROMPTCMD'.
+Prompt for shell command line (PROMPTQSH) - Help
+:xh3.Prompt for shell command line (PROMPTQSH)
+:p.This option determines if the QSH command is prompted interactively for testing or
+review of the actual QShell command line with parameter values before running the command.
+Normally the selection should be *NO since prompting is only needed if testing.
+Specify *YES if you are debugging for some reason and want the QSH command to prompt
+on an interactive 5250 session before running.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Does not prompt the QSH command for testing or review.
+:pt.:pk.*YES:epk.
+:pd.Prompts the QSH command for testing or review before running.
+:eparml.
 :ehelp.
 
 .************************************************************************
@@ -2211,7 +2239,15 @@ Scp command prefix parms (CMDPFXPARM) - Help
 :eparml.
 :ehelp.
 :help name='QSHSCP/PORT'.
-:IMHELP NAME='COMMON/SSHPORT'.
+TCP port (PORT) - Help
+:xh3.TCP port (PORT)
+:p.Specifies the TCP/IP port number the SSH server on the remote system listens on.
+:parml.
+:pt.:pk def.22:epk.
+:pd.The standard SSH port 22 is used.
+:pt.:pv.character-value:epv.
+:pd.Enter the port number the remote SSH server is using.
+:eparml.
 :ehelp.
 :help name='QSHSCP/ACTION'.
 Transfer action (ACTION) - Help
@@ -2261,7 +2297,15 @@ that is passed to the PASE shell. This is useful for testing. Normally the selec
 :eparml.
 :ehelp.
 :help name='QSHSCP/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHSCP/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
@@ -2355,7 +2399,15 @@ SFTP server host/ip address (SFTPHOST) - Help
 :eparml.
 :ehelp.
 :help name='QSHLFTP/SFTPPORT'.
-:IMHELP NAME='COMMON/SSHPORT'.
+SFTP server port (SFTPPORT) - Help
+:xh3.SFTP server port (SFTPPORT)
+:p.Specifies the TCP/IP port number the SSH server on the remote system listens on.
+:parml.
+:pt.:pk def.22:epk.
+:pd.The standard SSH port 22 is used.
+:pt.:pv.character-value:epv.
+:pd.Enter the port number the remote SSH server is using.
+:eparml.
 :ehelp.
 :help name='QSHLFTP/SFTPUSER'.
 SFTP user (SFTPUSER) - Help
@@ -2427,7 +2479,15 @@ Replace destination file (REPLACE) - Help
 :eparml.
 :ehelp.
 :help name='QSHLFTP/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHLFTP/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
@@ -2469,7 +2529,19 @@ Replace destination file (REPLACE) - Help
 :IMHELP NAME='COMMON/PRTOUTQ'.
 :ehelp.
 :help name='QSHLFTP/PROMPTQSH'.
-:IMHELP NAME='COMMON/PROMPTCMD'.
+Prompt for shell command line (PROMPTQSH) - Help
+:xh3.Prompt for shell command line (PROMPTQSH)
+:p.This option determines if the QSH command is prompted interactively for testing or
+review of the actual QShell command line with parameter values before running the command.
+Normally the selection should be *NO since prompting is only needed if testing.
+Specify *YES if you are debugging for some reason and want the QSH command to prompt
+on an interactive 5250 session before running.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Does not prompt the QSH command for testing or review.
+:pt.:pk.*YES:epk.
+:pd.Prompts the QSH command for testing or review before running.
+:eparml.
 :ehelp.
 
 .************************************************************************
@@ -2767,8 +2839,8 @@ values is found.
 :IMHELP NAME='COMMON/LIST'.
 :ehelp.
 :help name='QSHIFSSCAN/EXACTMATCH'.
-Exact match (EXACTMATCH) - Help
-:xh3.Exact match (EXACTMATCH)
+Exact match-*YES, Contains-*NO (EXACTMATCH) - Help
+:xh3.Exact match-*YES, Contains-*NO (EXACTMATCH)
 :p.Specifies how a value must match a line in the file.
 :parml.
 :pt.:pk def.*NO:epk.
@@ -2841,8 +2913,8 @@ IFS file name (FILE) - Help
 :eparml.
 :ehelp.
 :help name='QSHIFSSIZ/SIZE'.
-Return file size (SIZE) - Help
-:xh3.Return file size (SIZE)
+Return file size (15 0) (SIZE) - Help
+:xh3.Return file size (15 0) (SIZE)
 :p.Specifies the CL variable that receives the size of the IFS file in bytes.
 The variable must be a decimal variable with a length of 15 and 0 decimal positions.
 :parml.
@@ -2852,8 +2924,8 @@ If the file is not found and ESCONERROR(*NO) is used, the value -2 is returned.
 :eparml.
 :ehelp.
 :help name='QSHIFSSIZ/ALLOCSIZE'.
-Return allocated size (ALLOCSIZE) - Help
-:xh3.Return allocated size (ALLOCSIZE)
+Return allocated size (15 0) (ALLOCSIZE) - Help
+:xh3.Return allocated size (15 0) (ALLOCSIZE)
 :p.Specifies the CL variable that receives the allocated size of the IFS file in bytes. The allocated size
 is the storage the file uses on disk. The variable must be a decimal variable with a length of 15 and
 0 decimal positions.
@@ -3079,7 +3151,7 @@ Message type (MSGTYPE) - Help
 :ehelp.
 :help name='QSHWRTLOG/RECREATE'.
 Dlt and create log file before (RECREATE) - Help
-:xh3.Delete and create log file before (RECREATE)
+:xh3.Dlt and create log file before (RECREATE)
 :p.Specifies whether the log file is deleted and created again before the message is written.
 :parml.
 :pt.:pk def.*NO:epk.
@@ -3406,7 +3478,15 @@ QSHCALL CMDLINE('python3 /qshpython/pycallparm1.py')
 :IMHELP NAME='COMMON/CMDLINE'.
 :ehelp.
 :help name='QSHCALL/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHCALL/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
@@ -3457,34 +3537,224 @@ QSHCALL CMDLINE('python3 /qshpython/pycallparm1.py')
 :IMHELP NAME='COMMON/PASEJOBNAM'.
 :ehelp.
 :help name='QSHCALL/RETURN01'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 1 (255) (RETURN01) - Help
+:xh3.Return parm 1 (255) (RETURN01)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHCALL/RETURN02'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 2 (255) (RETURN02) - Help
+:xh3.Return parm 2 (255) (RETURN02)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHCALL/RETURN03'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 3 (255) (RETURN03) - Help
+:xh3.Return parm 3 (255) (RETURN03)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHCALL/RETURN04'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 4 (255) (RETURN04) - Help
+:xh3.Return parm 4 (255) (RETURN04)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHCALL/RETURN05'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 5 (255) (RETURN05) - Help
+:xh3.Return parm 5 (255) (RETURN05)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHCALL/RETURN06'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 6 (255) (RETURN06) - Help
+:xh3.Return parm 6 (255) (RETURN06)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHCALL/RETURN07'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 7 (255) (RETURN07) - Help
+:xh3.Return parm 7 (255) (RETURN07)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHCALL/RETURN08'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 8 (255) (RETURN08) - Help
+:xh3.Return parm 8 (255) (RETURN08)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHCALL/RETURN09'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 9 (255) (RETURN09) - Help
+:xh3.Return parm 9 (255) (RETURN09)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHCALL/RETURN10'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 10 (255) (RETURN10) - Help
+:xh3.Return parm 10 (255) (RETURN10)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 
 .************************************************************************
@@ -3510,34 +3780,224 @@ QSHGETPARM RETURN01(&amp.RETURN01)
 :ehelp.
 
 :help name='QSHGETPARM/RETURN01'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 1 (255) (RETURN01) - Help
+:xh3.Return parm 1 (255) (RETURN01)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPARM/RETURN02'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 2 (255) (RETURN02) - Help
+:xh3.Return parm 2 (255) (RETURN02)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPARM/RETURN03'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 3 (255) (RETURN03) - Help
+:xh3.Return parm 3 (255) (RETURN03)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPARM/RETURN04'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 4 (255) (RETURN04) - Help
+:xh3.Return parm 4 (255) (RETURN04)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPARM/RETURN05'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 5 (255) (RETURN05) - Help
+:xh3.Return parm 5 (255) (RETURN05)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPARM/RETURN06'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 6 (255) (RETURN06) - Help
+:xh3.Return parm 6 (255) (RETURN06)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPARM/RETURN07'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 7 (255) (RETURN07) - Help
+:xh3.Return parm 7 (255) (RETURN07)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPARM/RETURN08'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 8 (255) (RETURN08) - Help
+:xh3.Return parm 8 (255) (RETURN08)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPARM/RETURN09'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 9 (255) (RETURN09) - Help
+:xh3.Return parm 9 (255) (RETURN09)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPARM/RETURN10'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 10 (255) (RETURN10) - Help
+:xh3.Return parm 10 (255) (RETURN10)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 
 .************************************************************************
@@ -3567,34 +4027,224 @@ QSHGETPR2 RETURN01(&amp.RETURN01)
 :ehelp.
 
 :help name='QSHGETPR2/RETURN01'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 1 (255) (RETURN01) - Help
+:xh3.Return parm 1 (255) (RETURN01)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPR2/RETURN02'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 2 (255) (RETURN02) - Help
+:xh3.Return parm 2 (255) (RETURN02)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPR2/RETURN03'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 3 (255) (RETURN03) - Help
+:xh3.Return parm 3 (255) (RETURN03)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPR2/RETURN04'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 4 (255) (RETURN04) - Help
+:xh3.Return parm 4 (255) (RETURN04)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPR2/RETURN05'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 5 (255) (RETURN05) - Help
+:xh3.Return parm 5 (255) (RETURN05)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPR2/RETURN06'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 6 (255) (RETURN06) - Help
+:xh3.Return parm 6 (255) (RETURN06)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPR2/RETURN07'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 7 (255) (RETURN07) - Help
+:xh3.Return parm 7 (255) (RETURN07)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPR2/RETURN08'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 8 (255) (RETURN08) - Help
+:xh3.Return parm 8 (255) (RETURN08)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPR2/RETURN09'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 9 (255) (RETURN09) - Help
+:xh3.Return parm 9 (255) (RETURN09)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPR2/RETURN10'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 10 (255) (RETURN10) - Help
+:xh3.Return parm 10 (255) (RETURN10)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHGETPR2/WRTDIAGMSG'.
 Write return parms to joblog (WRTDIAGMSG) - Help
@@ -3697,7 +4347,18 @@ delimiter for you and extra quotes can change the value that the script receives
 :IMHELP NAME='COMMON/LIST'.
 :ehelp.
 :help name='QSHPYCALL/ARGDLM'.
-:IMHELP NAME='COMMON/ARGDLM'.
+Command line arg delimiter (ARGDLM) - Help
+:xh3.Command line arg delimiter (ARGDLM)
+:p.Specifies the delimiter that is automatically placed around each command line argument value.
+:parml.
+:pt.:pk def.*DBLQUOTE:epk.
+:pd.Double quotes are placed around each argument.
+:pt.:pk.*SGLQUOTE:epk.
+:pd.Single quotes are placed around each argument.
+:pt.:pk.*NONE:epk.
+:pd.No delimiter is added. Use this when you want to control exactly where quotes are placed in your
+arguments.
+:eparml.
 :ehelp.
 :help name='QSHPYCALL/PYVERSION'.
 Python version (PYVERSION) - Help
@@ -3734,7 +4395,15 @@ path /QOpenSys/pkgs/bin is used.
 :eparml.
 :ehelp.
 :help name='QSHPYCALL/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHPYCALL/USEVENV'.
 Use virtual environment (USEVENV) - Help
@@ -3817,34 +4486,224 @@ specified.
 :IMHELP NAME='COMMON/CHGSCRDIR'.
 :ehelp.
 :help name='QSHPYCALL/RETURN01'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 1 (255) (RETURN01) - Help
+:xh3.Return parm 1 (255) (RETURN01)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHPYCALL/RETURN02'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 2 (255) (RETURN02) - Help
+:xh3.Return parm 2 (255) (RETURN02)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHPYCALL/RETURN03'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 3 (255) (RETURN03) - Help
+:xh3.Return parm 3 (255) (RETURN03)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHPYCALL/RETURN04'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 4 (255) (RETURN04) - Help
+:xh3.Return parm 4 (255) (RETURN04)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHPYCALL/RETURN05'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 5 (255) (RETURN05) - Help
+:xh3.Return parm 5 (255) (RETURN05)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHPYCALL/RETURN06'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 6 (255) (RETURN06) - Help
+:xh3.Return parm 6 (255) (RETURN06)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHPYCALL/RETURN07'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 7 (255) (RETURN07) - Help
+:xh3.Return parm 7 (255) (RETURN07)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHPYCALL/RETURN08'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 8 (255) (RETURN08) - Help
+:xh3.Return parm 8 (255) (RETURN08)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHPYCALL/RETURN09'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 9 (255) (RETURN09) - Help
+:xh3.Return parm 9 (255) (RETURN09)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 :help name='QSHPYCALL/RETURN10'.
-:IMHELP NAME='COMMON/RETURNPARM'.
+Return parm 10 (255) (RETURN10) - Help
+:xh3.Return parm 10 (255) (RETURN10)
+:p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
+Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
+:XMP.
+:hp2.
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
+:ehp2.
+:EXMP.
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
+is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
+not written to STDOUT the matching variable stays blank.
+:p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
+:parml.
+:pt.:pv.character-variable:epv.
+:pd.Specify the name of a character CL variable with a length of 255.
+:eparml.
 :ehelp.
 
 .************************************************************************
@@ -3923,7 +4782,18 @@ delimiter for you and extra quotes can change the value that the script receives
 :IMHELP NAME='COMMON/LIST'.
 :ehelp.
 :help name='QSHPHPRUN/ARGDLM'.
-:IMHELP NAME='COMMON/ARGDLM'.
+Command line arg delimiter (ARGDLM) - Help
+:xh3.Command line arg delimiter (ARGDLM)
+:p.Specifies the delimiter that is automatically placed around each command line argument value.
+:parml.
+:pt.:pk def.*DBLQUOTE:epk.
+:pd.Double quotes are placed around each argument.
+:pt.:pk.*SGLQUOTE:epk.
+:pd.Single quotes are placed around each argument.
+:pt.:pk.*NONE:epk.
+:pd.No delimiter is added. Use this when you want to control exactly where quotes are placed in your
+arguments.
+:eparml.
 :ehelp.
 :help name='QSHPHPRUN/PHPPATH'.
 PHP bin path (PHPPATH) - Help
@@ -3939,7 +4809,15 @@ the php command is found using the PATH.
 :eparml.
 :ehelp.
 :help name='QSHPHPRUN/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='QSHPHPRUN/DSPSTDOUT'.
 :IMHELP NAME='COMMON/DSPSTDOUT'.
@@ -3948,7 +4826,15 @@ the php command is found using the PATH.
 :IMHELP NAME='COMMON/LOGSTDOUT'.
 :ehelp.
 :help name='QSHPHPRUN/PRTSTDOUT'.
-:IMHELP NAME='COMMON/PRTSTDOUT'.
+Prt standard output on errors (PRTSTDOUT) - Help
+:xh3.Prt standard output on errors (PRTSTDOUT)
+:p.Specifies whether to print STDOUT to a spool file.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.Do not print STDOUT.
+:pt.:pk.*YES:epk.
+:pd.Print STDOUT to spool.
+:eparml.
 :ehelp.
 :help name='QSHPHPRUN/DLTSTDOUT'.
 :IMHELP NAME='COMMON/DLTSTDOUT'.
@@ -4029,8 +4915,8 @@ The statement is enclosed in double quotes on the command line, so avoid double 
 :IMHELP NAME='COMMON/REQPARM'.
 :ehelp.
 :help name='DB2UTIL/OUTPUTFMT'.
-Output format (OUTPUTFMT) - Help
-:xh3.Output format (OUTPUTFMT)
+SQL to execute (OUTPUTFMT) - Help
+:xh3.SQL to execute (OUTPUTFMT)
 :p.Specifies the format of the result that is written to the output file.
 :parml.
 :pt.:pk def.json:epk.
@@ -4073,7 +4959,15 @@ IFS file option (OPTION) - Help
 :eparml.
 :ehelp.
 :help name='DB2UTIL/SETPKGPATH'.
-:IMHELP NAME='COMMON/SETPKGPATH'.
+Set QOpenSys yum package path (SETPKGPATH) - Help
+:xh3.Set QOpenSys yum package path (SETPKGPATH)
+:p.Specifies whether to prepend /QOpenSys/pkgs/bin to PATH.
+:parml.
+:pt.:pk def.*YES:epk.
+:pd.Include package path.
+:pt.:pk.*NO:epk.
+:pd.Do not include package path.
+:eparml.
 :ehelp.
 :help name='DB2UTIL/VIEWOUTPUT'.
 View output file (VIEWOUTPUT) - Help
@@ -4261,7 +5155,16 @@ this on an interactive 5250 session.
 :IMHELP NAME='COMMON/SQLSECLVLTXT'.
 :ehelp.
 :help name='RUNSQLPRM/DSPOUTPUT'.
-:IMHELP NAME='COMMON/SQLDSPOUTPUT'.
+Display output output report (DSPOUTPUT) - Help
+:xh3.Display output output report (DSPOUTPUT)
+:p.Specifies whether the output report of the SQL run is displayed when the SQL ends.
+Only use this on an interactive 5250 session.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The output report is not displayed.
+:pt.:pk.*YES:epk.
+:pd.The output report is displayed.
+:eparml.
 :ehelp.
 :help name='RUNSQLPRM/SPLF'.
 Print source spool file name (SPLF) - Help
@@ -4419,11 +5322,20 @@ Listing output (OUTPUT) - Help
 :IMHELP NAME='COMMON/SQLSECLVLTXT'.
 :ehelp.
 :help name='RUNSQLSRC/DSPOUTPUT'.
-:IMHELP NAME='COMMON/SQLDSPOUTPUT'.
+Display output output report (DSPOUTPUT) - Help
+:xh3.Display output output report (DSPOUTPUT)
+:p.Specifies whether the output report of the SQL run is displayed when the SQL ends.
+Only use this on an interactive 5250 session.
+:parml.
+:pt.:pk def.*NO:epk.
+:pd.The output report is not displayed.
+:pt.:pk.*YES:epk.
+:pd.The output report is displayed.
+:eparml.
 :ehelp.
 :help name='RUNSQLSRC/DLTCMTLINE'.
 Del comment line from temp src (DLTCMTLINE) - Help
-:xh3.Delete comment line from temp source (DLTCMTLINE)
+:xh3.Del comment line from temp src (DLTCMTLINE)
 :p.Specifies whether comment lines are removed from the temporary copy of the source member before the SQL
 runs.
 A comment line must have :hp2.--:ehp2. at the start of the trimmed line. Text that contains :hp2.--:ehp2.
@@ -4588,7 +5500,7 @@ IFS directory (IFSDIR) - Help
 :ehelp.
 :help name='QSHQRYSRC/DLTCMTLINE'.
 Del comment line from temp src (DLTCMTLINE) - Help
-:xh3.Delete comment line from temp source (DLTCMTLINE)
+:xh3.Del comment line from temp src (DLTCMTLINE)
 :p.Specifies whether comment lines are removed from the temporary copy of the SQL source member before the
 query runs. A comment line must have :hp2.--:ehp2. at the start of the trimmed line. The delimiter
 :hp2.--//:ehp2. can also be used anywhere in a line, and the data after the delimiter is removed. Text that
