@@ -1,5 +1,5 @@
 # Generated for IBM i TOBi (makei). Object library comes from iproj.json.
-# ILE RPG programs are built with CRTBNDRPG (DFTACTGRP(*NO) is the Bob default).
+# ILE RPG programs are built with CRTBNDRPG (DFTACTGRP(*NO) is the TOBi default).
 QSHGETPARR.PGM: QSHGETPARR.RPGLE
 QSHIFSCHKR.PGM: QSHIFSCHKR.RPGLE
 QSHIFSSCAR.PGM: QSHIFSSCAR.RPGLE

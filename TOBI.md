@@ -4,7 +4,7 @@ This fork can be built with IBM i [TOBi](https://ibm.github.io/ibmi-bob/) (the O
 
 ## Layout
 
-Sources are grouped in folders by type. File names are unchanged except for two Bob requirements:
+Sources are grouped in folders by type. File names are unchanged except for two TOBi requirements:
 
 | Folder | Contents | Notes |
 |---|---|---|
@@ -21,7 +21,7 @@ Each folder has a `Rules.mk`, and the root `Rules.mk` lists the folders. `iproj.
 
 Every command is built with its own command processing program and with `HLPPNLGRP(QSHONI/QSHONICMDS)`. `HLPID` defaults to the command name. The panel group is a dependency of every command, so changing it rebuilds them.
 
-## Not built by Bob
+## Not built by TOBi
 
 - `QSHONIPR01` to `QSHONIPR04` and `QSHDEMO01R`: sample RPG programs that `/copy qshoni/source,qshonisrvh`, which needs the `QSHONI/SOURCE` source file.
 - Data areas, the `QSHMSG` message file and the `QSHONITMP` library that `SRCBLDC.CLP` creates.
