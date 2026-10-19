@@ -2839,11 +2839,11 @@ file in bytes. The values are returned in CL variables, so the command must be r
 :p.The following example retrieves the size of a file into CL variables:
 :XMP.
 :hp2.
-DCL VAR(&SIZE) TYPE(*DEC) LEN(15 0)
-DCL VAR(&ALLOCSIZE) TYPE(*DEC) LEN(15 0)
+DCL VAR(&amp.SIZE) TYPE(*DEC) LEN(15 0)
+DCL VAR(&amp.ALLOCSIZE) TYPE(*DEC) LEN(15 0)
 QSHIFSSIZ FILE('/tmp/myfile.txt')
-          SIZE(&SIZE)
-          ALLOCSIZE(&ALLOCSIZE)
+          SIZE(&amp.SIZE)
+          ALLOCSIZE(&amp.ALLOCSIZE)
           ESCONERROR(*YES)
 :ehp2.
 :EXMP.
@@ -2907,8 +2907,8 @@ If the home directory cannot be determined the variable is set to blanks.
 :p.The following example retrieves the home directory:
 :XMP.
 :hp2.
-DCL VAR(&HOMEDIR) TYPE(*CHAR) LEN(640)
-QSHHOME HOMEDIR(&HOMEDIR)
+DCL VAR(&amp.HOMEDIR) TYPE(*CHAR) LEN(640)
+QSHHOME HOMEDIR(&amp.HOMEDIR)
 :ehp2.
 :EXMP.
 :P.
@@ -3412,17 +3412,17 @@ Run Qshell Command Line (QSHCALL) - Help
 CL variables. It works like the QSHEXEC command, but it is meant for CL, RPG and COBOL programmers who are
 used
 to calling programs and getting values back through parameters. The values come from lines that the command
-or script writes to STDOUT that start with RETURNPARM01: to RETURNPARM10:.
+or script writes to STDOUT that start with RETURNPARM01&colon. to RETURNPARM10&colon..
 :p.The command must be run from a CL program because it returns values in CL variables.
 :p.The following example runs a Python script and returns two values:
 :XMP.
 :hp2.
-DCL VAR(&RETURN01) TYPE(*CHAR) LEN(255)
-DCL VAR(&RETURN02) TYPE(*CHAR) LEN(255)
+DCL VAR(&amp.RETURN01) TYPE(*CHAR) LEN(255)
+DCL VAR(&amp.RETURN02) TYPE(*CHAR) LEN(255)
 QSHCALL CMDLINE('python3 /qshpython/pycallparm1.py')
         DSPSTDOUT(*NO)
-        RETURN01(&RETURN01)
-        RETURN02(&RETURN02)
+        RETURN01(&amp.RETURN01)
+        RETURN02(&amp.RETURN02)
 :ehp2.
 :EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
@@ -3523,15 +3523,15 @@ Scan Qshell Log for Parm Vals (QSHGETPARM) - Help
 :xh3.Scan Qshell Log for Parm Vals (QSHGETPARM)
 :p.The Scan Qshell Log for Parm Vals (QSHGETPARM) command reads the STDOUT results of the last QSH/PASE
 command that was run and returns up to 10 values to CL variables. The command looks in the temporary
-STDOUT file QTEMP/STDOUTQSH for lines that start with RETURNPARM01: to RETURNPARM10:.
+STDOUT file QTEMP/STDOUTQSH for lines that start with RETURNPARM01&colon. to RETURNPARM10&colon..
 :p.Use it after a command such as QSHEXEC when you did not use QSHCALL but still need values from the output.
 The command must be run from a CL program because it returns values in CL variables.
 :p.The following example runs a script and then returns the first value from its output:
 :XMP.
 :hp2.
-DCL VAR(&RETURN01) TYPE(*CHAR) LEN(255)
+DCL VAR(&amp.RETURN01) TYPE(*CHAR) LEN(255)
 QSHEXEC CMDLINE('python3 /qshpython/pycallparm1.py')
-QSHGETPARM RETURN01(&RETURN01)
+QSHGETPARM RETURN01(&amp.RETURN01)
 :ehp2.
 :EXMP.
 :P.
@@ -3579,15 +3579,15 @@ Scan Qshell Log for Parm Vals (QSHGETPR2) - Help
 of the last QSH/PASE command that was run and returns up to 10 values to CL variables. It also can write the
 values to the job log and to data areas so that they can be used by other programs and jobs.
 The command looks in the temporary STDOUT file QTEMP/STDOUTQSH for lines that start with
-RETURNPARM01: to RETURNPARM10:.
+RETURNPARM01&colon. to RETURNPARM10&colon..
 :p.The command must be run from a CL program because it returns values in CL variables.
 :p.The following example returns the values and also writes them to data areas RTNPARM01 to RTNPARM10 in
 QTEMP:
 :XMP.
 :hp2.
-DCL VAR(&RETURN01) TYPE(*CHAR) LEN(255)
+DCL VAR(&amp.RETURN01) TYPE(*CHAR) LEN(255)
 QSHEXEC CMDLINE('python3 /qshpython/pycallparm1.py')
-QSHGETPR2 RETURN01(&RETURN01)
+QSHGETPR2 RETURN01(&amp.RETURN01)
           WRTDTAARA(*YES)
           DTAARALIB(QTEMP)
 :ehp2.
@@ -3670,19 +3670,19 @@ Run Python and Return Parms (QSHPYCALL) - Help
 :p.The Run Python and Return Parms (QSHPYCALL) command runs a Python script with the QSHEXEC command and
 returns up to 10 values to CL variables. It is meant for CL, RPG and COBOL programmers who are used to calling
 programs and getting values back through parameters. The values come from lines that the Python script writes
-to STDOUT that start with RETURNPARM01: to RETURNPARM10:.
+to STDOUT that start with RETURNPARM01&colon. to RETURNPARM10&colon..
 :p.The command must be run from a CL program because it returns values in CL variables. A sample script,
 pycallparm1.py, is in the qshpython directory of the QshOni project.
 :p.The following example calls a Python script and returns one value:
 :XMP.
 :hp2.
-DCL VAR(&RETURN01) TYPE(*CHAR) LEN(255)
+DCL VAR(&amp.RETURN01) TYPE(*CHAR) LEN(255)
 QSHPYCALL SCRIPTDIR('/qshpython')
           SCRIPTFILE('pycallparm1.py')
           ARGS('--parm1=inputvalue1')
           PYVERSION(3)
           DSPSTDOUT(*NO)
-          RETURN01(&RETURN01)
+          RETURN01(&amp.RETURN01)
 :ehp2.
 :EXMP.
 :IMHELP NAME='COMMON/LOGGINGNOTE'.
@@ -3740,10 +3740,13 @@ Python version (PYVERSION) - Help
 :pt.:pk.2:epk.
 :pd.Python 2 is used.
 :pt.:pk.2.7:epk.
+:pd.Python 2.7 is used.
 :pt.:pk.3.6:epk.
+:pd.Python 3.6 is used.
 :pt.:pk.3.9:epk.
+:pd.Python 3.9 is used.
 :pt.:pk.3.13:epk.
-:pd.The selected Python version is used.
+:pd.Python 3.13 is used.
 :pt.:pv.character-value:epv.
 :pd.Enter another Python version number.
 :eparml.
@@ -5182,11 +5185,15 @@ Target release (TGTRLS) - Help
 :pd.The objects are saved for restoring on the previous release of IBM i that is supported by the current
 release.
 :pt.:pk.V7R1M0:epk.
+:pd.The objects are saved for restoring on release V7R1M0 of IBM i.
 :pt.:pk.V7R2M0:epk.
+:pd.The objects are saved for restoring on release V7R2M0 of IBM i.
 :pt.:pk.V7R3M0:epk.
+:pd.The objects are saved for restoring on release V7R3M0 of IBM i.
 :pt.:pk.V7R4M0:epk.
+:pd.The objects are saved for restoring on release V7R4M0 of IBM i.
 :pt.:pk.V7R5M0:epk.
-:pd.The objects are saved for restoring on the selected release of IBM i.
+:pd.The objects are saved for restoring on release V7R5M0 of IBM i.
 :pt.:pv.character-value:epv.
 :pd.Specify the release in the format VxRxMx. Any other supported release can be entered.
 :eparml.
@@ -5530,15 +5537,15 @@ Return parm (RETURNxx) - Help
 :xh3.Return parm value (RETURNxx)
 :p.Specifies a CL variable that receives a value that was written to STDOUT by the command or script that ran.
 Up to 10 values can be returned. To return a value, the command or script writes a line to STDOUT that
-starts with the keyword :hp2.RETURNPARMxx::ehp2. followed by the value, where xx is 01 to 10.
+starts with the keyword :hp2.RETURNPARMxx&colon.:ehp2. followed by the value, where xx is 01 to 10.
 :XMP.
 :hp2.
-RETURNPARM01:my first value
-RETURNPARM02:my second value
+RETURNPARM01&colon.my first value
+RETURNPARM02&colon.my second value
 :ehp2.
 :EXMP.
-:p.The value from the line that starts with RETURNPARM01: is returned in RETURN01, the value from
-RETURNPARM02:
+:p.The value from the line that starts with RETURNPARM01&colon. is returned in RETURN01, the value from
+RETURNPARM02&colon.
 is returned in RETURN02, and so on. The variables are set to blanks before the command runs. If a keyword is
 not written to STDOUT the matching variable stays blank.
 :p.:hp3.Note::ehp3. The command must be run from a CL program because the values are returned in CL variables.
